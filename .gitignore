@@ -1,0 +1,10 @@
+*.pyc
+dev.db
+local_settings.py
+media/ugc
+build/
+src/
+pip-log.txt
+media/js/*.r*.js
+media/css/*.r*.css
+*DS_Store
