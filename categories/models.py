@@ -4,37 +4,15 @@ from django.db import models
 from django.utils.encoding import force_unicode
 import mptt
 
-class CategoryTree(models.Model):
-    """
-    A group of categories that are all related under one tree.
-    
-    For example: Business, Movie Genre, Music Genre
-    """
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
-
-    class Meta:
-        ordering = ('name',)
-
-    def __unicode__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse("categories_tree", args=[self.slug])
-
-
 class Category(models.Model):
-    category_tree = models.ForeignKey(CategoryTree, 
-        blank=False, 
-        null=False 
-        related_name="categories")
     parent = models.ForeignKey('self', 
         blank=True, 
         null=True, 
         related_name="children", 
-        help_text="Leave this blank for a top-level category", 
+        help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
+    order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     
     def get_absolute_url(self):
@@ -46,10 +24,10 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'categories'
         unique_together = (('parent', 'name'),)
-        ordering = ('category_tree__name','parent__name','name')
+        ordering = ('name',)
 
     def __unicode__(self):
         ancestors = self.get_ancestors()
-        return ' > '.join([force_unicode(i.name) for i in ancestors])
+        return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
 
 mptt.register(Category, order_insertion_by=['name'])
