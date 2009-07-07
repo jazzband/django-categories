@@ -1,0 +1,8 @@
+Django Categories
+Copyright 2009 The Washington Times
+
+This product includes software developed at The Washington Times.
+
+Portions of this software were developed by matthiask for feincms
+(http://github.com/matthiask/feincms/tree/master). Specifically
+the Django admin modifications and templates.
