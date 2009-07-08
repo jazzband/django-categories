@@ -5,8 +5,27 @@ from django.template.defaultfilters import slugify
 from mptt.forms import TreeNodeChoiceField
 from editor import TreeEditorMixin
 
+class NullTreeNodeChoiceField(forms.ModelChoiceField):
+    """A ModelChoiceField for tree nodes."""
+    def __init__(self, level_indicator=u'---', *args, **kwargs):
+        self.level_indicator = level_indicator
+        #kwargs['empty_label'] = None
+        super(NullTreeNodeChoiceField, self).__init__(*args, **kwargs)
+
+    def label_from_instance(self, obj):
+        """
+        Creates labels which represent the tree level of each node when
+        generating option labels.
+        """
+        return u'%s %s' % (self.level_indicator * getattr(obj, obj._meta.level_attr),
+                                obj)
+
+
 class CategoryAdminForm(forms.ModelForm):
-    parent = TreeNodeChoiceField(queryset=Category.tree.all(), level_indicator=u'+-', required=False)
+    parent = NullTreeNodeChoiceField(queryset=Category.tree.all(), 
+                                 level_indicator=u'+-', 
+                                 empty_label='------', 
+                                 required=False)
     class Meta:
         model = Category
     

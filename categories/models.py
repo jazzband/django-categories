@@ -23,7 +23,7 @@ class Category(models.Model):
         
     class Meta:
         verbose_name_plural = 'categories'
-        unique_together = (('parent', 'name'),)
+        unique_together = ('parent', 'name')
         ordering = ('name',)
 
     def __unicode__(self):
