@@ -1,21 +1,23 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
-from ellington.categories.models import *
+from categories.models import Category
+from stories.models import Story
+from django.db.models import Q
+from django.views.decorators.cache import cache_page
 
-def category_detail(request, slug, category_slug):
-    """
-    A detail view of a category.
-
-    Templates:
-        :template:`categories/category_detail.html`
-    Context:
-        category
-            A :model:`categories.Category` object.
-    """
+def category_detail(request, slug, with_stories=False, 
+    template_name='categories/category_detail.html'):
+    context = {}
     category = get_object_or_404(Category,
-        hierarchy__slug=slug,
-        slug_path="/%s" % category_slug)
-    return render_to_response('categories/category_detail.html',
-        {'category' : category},
+        slug__iexact=slug)
+        
+    context['category'] = category
+    
+    if with_stories:
+        stories = Story.published.filter(Q(primary_category=category) | Q(categories__in=[category,]))
+        context['stories'] = stories
+        
+    return render_to_response(template_name,
+        context,
         context_instance=RequestContext(request)
     )
