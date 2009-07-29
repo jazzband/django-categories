@@ -5,9 +5,6 @@
 {% block extrahead %}{{ block.super }}
 <script type="text/javascript" src="../../jsi18n/"></script>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-
 <script type="text/javascript" src="{{ EDITOR_ADMIN_MEDIA }}jquery.livequery.js"></script>
 <script type="text/javascript" src="{{ EDITOR_ADMIN_MEDIA }}jquery.alerts.js"></script>
 
@@ -130,24 +127,28 @@
 
 {% endblock %}
 
+{% block cols %}
+	13
+{% endblock %}
 {% block content %}
 
-<div id="content-main">
+<div id="content-main" class="grid_13">
     {% block object-tools %}
     {% if has_add_permission %}
-    <ul class="object-tools"><li><a href="add/{% if is_popup %}?_popup=1{% endif %}" class="addlink">{% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}</a></li></ul>
+    <ul class="object-tools">
+	<li class="active">Change Categories</li>
+	<li><a href="add/{% if is_popup %}?_popup=1{% endif %}" class="addlink">{% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}</a></li></ul>
     {% endif %}
     {% endblock %}
 
     <input type="button" value="{% trans "Save tree" %}" class="save_tree" style="float:right;margin:0 1px 0 0" />
 
-    <div style="padding-top: 10px;">
-        <a href="#" onclick="return expandall(1)">{% trans "Expand all" %}</a>
-        <a href="#" onclick="return expandall(0)">{% trans "Collapse all" %}</a>
-    </div>
-
-    <div id="sitetree-wrapper" style="clear:both">
-    <table id="sitetree" border="1">
+    <div id="sitetree-wrapper" class="inner module" style="padding:10px">
+		<p align='right' style="font-size:11px; font-weight:700; margin:0;">
+	        <a href="#" onclick="return expandall(1)">{% trans "Expand all" %}</a>
+	        <a href="#" onclick="return expandall(0)">{% trans "Collapse all" %}</a>
+	    </p>
+    <table id="sitetree" border="0">
         <thead>
         <tr id="table_header">
         {% for header in result_headers %}
