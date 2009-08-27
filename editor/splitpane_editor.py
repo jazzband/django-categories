@@ -66,7 +66,7 @@ class SplitPaneEditor(admin.ModelAdmin):
             'opts': opts,
             'root_path': self.admin_site.root_path,
             'inactive_nodes': ', '.join('#item%d' % i for i in inactive_nodes),
-            'FEINCMS_ADMIN_MEDIA': settings.FEINCMS_ADMIN_MEDIA,
+            'MEDIA_PATH': settings.MEDIA_PATH,
             }
 
         if self.delayed_tree_loading():

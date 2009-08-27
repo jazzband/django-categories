@@ -6,7 +6,7 @@ from django.utils import simplejson
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
-from feincms import settings
+import settings
 
 
 def django_boolean_icon(field_val, alt_text=None, title=None):
@@ -111,15 +111,15 @@ class TreeEditor(admin.ModelAdmin):
     class Media:
         css = {}
         js = []
-        if settings.FEINCMS_ADMIN_MEDIA_HOTLINKING:
+        if settings.MEDIA_HOTLINKING:
             js.extend(( "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js", ))
         else:
-            js.extend(( settings.FEINCMS_ADMIN_MEDIA + "jquery-1.3.2.min.js", ))
+            js.extend(( settings.MEDIA_PATH + "jquery-1.3.2.min.js", ))
 
-        js.extend(( settings.FEINCMS_ADMIN_MEDIA + "ie_compat.js",
-                    settings.FEINCMS_ADMIN_MEDIA + "jquery.cookie.js" ,
-                    settings.FEINCMS_ADMIN_MEDIA + "toolbox.js",
-                    settings.FEINCMS_ADMIN_MEDIA + "page_toolbox.js",
+        js.extend(( settings.MEDIA_PATH + "ie_compat.js",
+                    settings.MEDIA_PATH + "jquery.cookie.js" ,
+                    settings.MEDIA_PATH + "toolbox.js",
+                    settings.MEDIA_PATH + "page_toolbox.js",
                     ))
 
     def __init__(self, *args, **kwargs):
@@ -136,9 +136,9 @@ class TreeEditor(admin.ModelAdmin):
 
         opts = self.model._meta
         self.change_list_template = [
-            'admin/feincms/%s/%s/tree_editor.html' % (opts.app_label, opts.object_name.lower()),
-            'admin/feincms/%s/tree_editor.html' % opts.app_label,
-            'admin/feincms/tree_editor.html',
+            'admin/%s/%s/editor/tree_editor.html' % (opts.app_label, opts.object_name.lower()),
+            'admin/%s/editor/tree_editor.html' % opts.app_label,
+            'admin/editor/tree_editor.html',
             ]
 
     def indented_short_title(self, item):
@@ -254,7 +254,7 @@ class TreeEditor(admin.ModelAdmin):
         self._refresh_changelist_caches()
 
         extra_context = extra_context or {}
-        extra_context['FEINCMS_ADMIN_MEDIA'] = settings.FEINCMS_ADMIN_MEDIA
+        extra_context['EDITOR_MEDIA_PATH'] = settings.MEDIA_PATH
         extra_context['tree_structure'] = mark_safe(simplejson.dumps(
                                                     _build_tree_structure(self.model)))
 
@@ -286,6 +286,9 @@ class TreeEditor(admin.ModelAdmin):
 
     def _actions_column(self, page):
         actions = []
+        actions.append(u'<a href="add/?parent=%s" title="%s"><img src="%simg/admin/icon_addlink.gif" alt="%s"></a>' % (
+            page.pk, _('Add child'), django_settings.ADMIN_MEDIA_PREFIX ,_('Add child')))
+
         actions.append(u'<a href="#" onclick="return cut_item(\'%s\', this)" title="%s">&#x2702;</a>' % (
             page.pk, _('Cut')))
 

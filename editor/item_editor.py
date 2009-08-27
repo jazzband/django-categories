@@ -84,8 +84,8 @@ class ItemEditor(admin.ModelAdmin):
                 return render_to_response('admin/feincms/fe_editor_done.html', {
                     'content': obj.render(request=request),
                     'identifier': obj.fe_identifier(),
-                    'FEINCMS_ADMIN_MEDIA': settings.FEINCMS_ADMIN_MEDIA,
-                    'FEINCMS_ADMIN_MEDIA_HOTLINKING': settings.FEINCMS_ADMIN_MEDIA_HOTLINKING,
+                    'MEDIA_PATH': settings.MEDIA_PATH,
+                    'MEDIA_HOTLINKING': settings.MEDIA_HOTLINKING,
                     })
         else:
             form = ModelForm(instance=obj, prefix=content_type)
@@ -97,8 +97,8 @@ class ItemEditor(admin.ModelAdmin):
             'form': form,
             'is_popup': True,
             'media': self.media,
-            'FEINCMS_ADMIN_MEDIA': settings.FEINCMS_ADMIN_MEDIA,
-            'FEINCMS_ADMIN_MEDIA_HOTLINKING': settings.FEINCMS_ADMIN_MEDIA_HOTLINKING,
+            'MEDIA_PATH': settings.MEDIA_PATH,
+            'MEDIA_HOTLINKING': settings.MEDIA_HOTLINKING,
             }, context_instance=template.RequestContext(request,
                 processors=self.model.feincms_item_editor_context_processors))
 
@@ -188,8 +188,8 @@ class ItemEditor(admin.ModelAdmin):
             'settings_fields': [field for field in model_form if field.name not in self.show_on_top],
             'media': self.media + model_form.media,
             'errors': helpers.AdminErrorList(model_form, inline_formsets),
-            'FEINCMS_ADMIN_MEDIA': settings.FEINCMS_ADMIN_MEDIA,
-            'FEINCMS_ADMIN_MEDIA_HOTLINKING': settings.FEINCMS_ADMIN_MEDIA_HOTLINKING,
+            'MEDIA_PATH': settings.MEDIA_PATH,
+            'MEDIA_HOTLINKING': settings.MEDIA_HOTLINKING,
         })
 
         return self.render_item_editor(request, obj, context)
