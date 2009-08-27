@@ -1,0 +1,4707 @@
+
+[
+    {
+        "pk": 208,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 15,
+             "name": "2 tone",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 11,
+             "slug": "2-tone"
+        }
+    },
+     
+    {
+        "pk": 94,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 43,
+             "name": "Acid",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 42,
+             "tree_id": 5,
+             "slug": "acid"
+        }
+    },
+     
+    {
+        "pk": 108,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 15,
+             "name": "Acid breaks",
+             "parent": 107,
+             "level": 3,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 5,
+             "slug": "acid-breaks"
+        }
+    },
+     
+    {
+        "pk": 87,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 57,
+             "name": "Acid house",
+             "parent": 86,
+             "level": 3,
+             "order": 1,
+             "lft": 56,
+             "tree_id": 5,
+             "slug": "acid-house"
+        }
+    },
+     
+    {
+        "pk": 27,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 57,
+             "name": "Acid jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 56,
+             "tree_id": 7,
+             "slug": "acid-jazz"
+        }
+    },
+     
+    {
+        "pk": 276,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 34,
+             "name": "Acid rock",
+             "parent": 275,
+             "level": 2,
+             "order": 1,
+             "lft": 33,
+             "tree_id": 13,
+             "slug": "acid-rock"
+        }
+    },
+     
+    {
+        "pk": 143,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 121,
+             "name": "Adult contemporary music",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 120,
+             "tree_id": 10,
+             "slug": "adult-contemporary-music"
+        }
+    },
+     
+    {
+        "pk": 144,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 119,
+             "name": "Adult oriented pop music",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 118,
+             "tree_id": 10,
+             "slug": "adult-oriented-pop-music"
+        }
+    },
+     
+    {
+        "pk": 294,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 4,
+             "name": "Afrobeat",
+             "parent": 293,
+             "level": 2,
+             "order": 1,
+             "lft": 3,
+             "tree_id": 14,
+             "slug": "afrobeat"
+        }
+    },
+     
+    {
+        "pk": 145,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 117,
+             "name": "Afropop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 116,
+             "tree_id": 10,
+             "slug": "afropop"
+        }
+    },
+     
+    {
+        "pk": 6,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 41,
+             "name": "Alternative country",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 38,
+             "tree_id": 3,
+             "slug": "alternative-country"
+        }
+    },
+     
+    {
+        "pk": 229,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 127,
+             "name": "Alternative rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 100,
+             "tree_id": 13,
+             "slug": "alternative-rock"
+        }
+    },
+     
+    {
+        "pk": 69,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 91,
+             "name": "Ambient",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 88,
+             "tree_id": 5,
+             "slug": "ambient"
+        }
+    },
+     
+    {
+        "pk": 88,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 55,
+             "name": "Ambient house",
+             "parent": 86,
+             "level": 3,
+             "order": 1,
+             "lft": 54,
+             "tree_id": 5,
+             "slug": "ambient-house"
+        }
+    },
+     
+    {
+        "pk": 7,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 40,
+             "name": "Americana",
+             "parent": 6,
+             "level": 2,
+             "order": 1,
+             "lft": 39,
+             "tree_id": 3,
+             "slug": "americana"
+        }
+    },
+     
+    {
+        "pk": 278,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 30,
+             "name": "Anarcho punk",
+             "parent": 277,
+             "level": 2,
+             "order": 1,
+             "lft": 27,
+             "tree_id": 13,
+             "slug": "anarcho-punk"
+        }
+    },
+     
+    {
+        "pk": 146,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 115,
+             "name": "Arab pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 114,
+             "tree_id": 10,
+             "slug": "arab-pop"
+        }
+    },
+     
+    {
+        "pk": 28,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 55,
+             "name": "Asian American jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 54,
+             "tree_id": 7,
+             "slug": "asian-american-jazz"
+        }
+    },
+     
+    {
+        "pk": 115,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 33,
+             "name": "Australian hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 32,
+             "tree_id": 6,
+             "slug": "australian-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 147,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 113,
+             "name": "Austropop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 112,
+             "tree_id": 10,
+             "slug": "austropop"
+        }
+    },
+     
+    {
+        "pk": 1,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 10,
+             "name": "Avant-garde",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 1,
+             "slug": "avant-garde"
+        }
+    },
+     
+    {
+        "pk": 29,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 53,
+             "name": "Avant-garde jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 52,
+             "tree_id": 7,
+             "slug": "avant-garde-jazz"
+        }
+    },
+     
+    {
+        "pk": 62,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Background music",
+             "parent": 61,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 4,
+             "slug": "background-music"
+        }
+    },
+     
+    {
+        "pk": 13,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 28,
+             "name": "Bakersfield Sound",
+             "parent": 12,
+             "level": 2,
+             "order": 1,
+             "lft": 27,
+             "tree_id": 3,
+             "slug": "bakersfield-sound"
+        }
+    },
+     
+    {
+        "pk": 148,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 111,
+             "name": "Baroque pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 110,
+             "tree_id": 10,
+             "slug": "baroque-pop"
+        }
+    },
+     
+    {
+        "pk": 63,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Beautiful music",
+             "parent": 61,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 4,
+             "slug": "beautiful-music"
+        }
+    },
+     
+    {
+        "pk": 30,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 51,
+             "name": "Bebop",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 50,
+             "tree_id": 7,
+             "slug": "bebop"
+        }
+    },
+     
+    {
+        "pk": 31,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 49,
+             "name": "Big band",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 48,
+             "tree_id": 7,
+             "slug": "big-band"
+        }
+    },
+     
+    {
+        "pk": 73,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 84,
+             "name": "Big beat",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 83,
+             "tree_id": 5,
+             "slug": "big-beat"
+        }
+    },
+     
+    {
+        "pk": 252,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 82,
+             "name": "Black metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 81,
+             "tree_id": 13,
+             "slug": "black-metal"
+        }
+    },
+     
+    {
+        "pk": 19,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 16,
+             "name": "Bluegrass",
+             "parent": 18,
+             "level": 2,
+             "order": 1,
+             "lft": 11,
+             "tree_id": 3,
+             "slug": "bluegrass"
+        }
+    },
+     
+    {
+        "pk": 55,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 12,
+             "name": "Blues",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 2,
+             "slug": "blues"
+        }
+    },
+     
+    {
+        "pk": 243,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 99,
+             "name": "Blues-rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 98,
+             "tree_id": 13,
+             "slug": "blues-rock"
+        }
+    },
+     
+    {
+        "pk": 56,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Boogie-woogie",
+             "parent": 55,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 2,
+             "slug": "boogie-woogie"
+        }
+    },
+     
+    {
+        "pk": 132,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 21,
+             "name": "Bossa Nova",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 20,
+             "tree_id": 8,
+             "slug": "bossa-nova"
+        }
+    },
+     
+    {
+        "pk": 149,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 109,
+             "name": "Brazilian pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 108,
+             "tree_id": 10,
+             "slug": "brazilian-pop"
+        }
+    },
+     
+    {
+        "pk": 71,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 87,
+             "name": "Breakbeat",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 86,
+             "tree_id": 5,
+             "slug": "breakbeat"
+        }
+    },
+     
+    {
+        "pk": 230,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 126,
+             "name": "Britpop",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 125,
+             "tree_id": 13,
+             "slug": "britpop"
+        }
+    },
+     
+    {
+        "pk": 150,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 107,
+             "name": "Bubblegum pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 106,
+             "tree_id": 10,
+             "slug": "bubblegum-pop"
+        }
+    },
+     
+    {
+        "pk": 244,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 97,
+             "name": "C-Rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 96,
+             "tree_id": 13,
+             "slug": "c-rock"
+        }
+    },
+     
+    {
+        "pk": 237,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 113,
+             "name": "C86",
+             "parent": 236,
+             "level": 3,
+             "order": 1,
+             "lft": 112,
+             "tree_id": 13,
+             "slug": "c86"
+        }
+    },
+     
+    {
+        "pk": 34,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 43,
+             "name": "Calypso jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 42,
+             "tree_id": 7,
+             "slug": "calypso-jazz"
+        }
+    },
+     
+    {
+        "pk": 116,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 31,
+             "name": "Canadian hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 30,
+             "tree_id": 6,
+             "slug": "canadian-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 35,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 41,
+             "name": "Chamber jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 40,
+             "tree_id": 7,
+             "slug": "chamber-jazz"
+        }
+    },
+     
+    {
+        "pk": 124,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 16,
+             "name": "Chicano rap",
+             "parent": 123,
+             "level": 2,
+             "order": 1,
+             "lft": 15,
+             "tree_id": 6,
+             "slug": "chicano-rap"
+        }
+    },
+     
+    {
+        "pk": 151,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 105,
+             "name": "Chinese pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 104,
+             "tree_id": 10,
+             "slug": "chinese-pop"
+        }
+    },
+     
+    {
+        "pk": 95,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 41,
+             "name": "Classic",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 40,
+             "tree_id": 5,
+             "slug": "classic"
+        }
+    },
+     
+    {
+        "pk": 22,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 10,
+             "name": "Close harmony",
+             "parent": 18,
+             "level": 2,
+             "order": 1,
+             "lft": 9,
+             "tree_id": 3,
+             "slug": "close-harmony"
+        }
+    },
+     
+    {
+        "pk": 152,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 103,
+             "name": "Contemporary Christian",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 102,
+             "tree_id": 10,
+             "slug": "contemporary-christian"
+        }
+    },
+     
+    {
+        "pk": 216,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 25,
+             "name": "Contemporary R&B",
+             "parent": 215,
+             "level": 1,
+             "order": 1,
+             "lft": 24,
+             "tree_id": 12,
+             "slug": "contemporary-rb"
+        }
+    },
+     
+    {
+        "pk": 36,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 39,
+             "name": "Cool jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 38,
+             "tree_id": 7,
+             "slug": "cool-jazz"
+        }
+    },
+     
+    {
+        "pk": 5,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 42,
+             "name": "Country",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 3,
+             "slug": "country"
+        }
+    },
+     
+    {
+        "pk": 57,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Country blues",
+             "parent": 55,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 2,
+             "slug": "country-blues"
+        }
+    },
+     
+    {
+        "pk": 8,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 37,
+             "name": "Country pop",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 32,
+             "tree_id": 3,
+             "slug": "country-pop"
+        }
+    },
+     
+    {
+        "pk": 153,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 101,
+             "name": "Country pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 100,
+             "tree_id": 10,
+             "slug": "country-pop"
+        }
+    },
+     
+    {
+        "pk": 11,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 31,
+             "name": "Country rock",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 30,
+             "tree_id": 3,
+             "slug": "country-rock"
+        }
+    },
+     
+    {
+        "pk": 32,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 47,
+             "name": "Crossover jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 46,
+             "tree_id": 7,
+             "slug": "crossover-jazz"
+        }
+    },
+     
+    {
+        "pk": 117,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 29,
+             "name": "Crunk",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 28,
+             "tree_id": 6,
+             "slug": "crunk"
+        }
+    },
+     
+    {
+        "pk": 279,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 29,
+             "name": "Crust punk",
+             "parent": 278,
+             "level": 3,
+             "order": 1,
+             "lft": 28,
+             "tree_id": 13,
+             "slug": "crust-punk"
+        }
+    },
+     
+    {
+        "pk": 72,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 85,
+             "name": "Dance",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 5,
+             "slug": "dance"
+        }
+    },
+     
+    {
+        "pk": 154,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 99,
+             "name": "Dance-pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 98,
+             "tree_id": 10,
+             "slug": "dance-pop"
+        }
+    },
+     
+    {
+        "pk": 209,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Dancehall",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 11,
+             "slug": "dancehall"
+        }
+    },
+     
+    {
+        "pk": 70,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 90,
+             "name": "Dark ambient",
+             "parent": 69,
+             "level": 2,
+             "order": 1,
+             "lft": 89,
+             "tree_id": 5,
+             "slug": "dark-ambient"
+        }
+    },
+     
+    {
+        "pk": 245,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 95,
+             "name": "Dark cabaret",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 94,
+             "tree_id": 13,
+             "slug": "dark-cabaret"
+        }
+    },
+     
+    {
+        "pk": 76,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 79,
+             "name": "Darkcore",
+             "parent": 75,
+             "level": 3,
+             "order": 1,
+             "lft": 78,
+             "tree_id": 5,
+             "slug": "darkcore"
+        }
+    },
+     
+    {
+        "pk": 253,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 80,
+             "name": "Death metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 79,
+             "tree_id": 13,
+             "slug": "death-metal"
+        }
+    },
+     
+    {
+        "pk": 280,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 26,
+             "name": "Deathrock",
+             "parent": 277,
+             "level": 2,
+             "order": 1,
+             "lft": 25,
+             "tree_id": 13,
+             "slug": "deathrock"
+        }
+    },
+     
+    {
+        "pk": 219,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 20,
+             "name": "Deep Funk",
+             "parent": 218,
+             "level": 2,
+             "order": 1,
+             "lft": 19,
+             "tree_id": 12,
+             "slug": "deep-funk"
+        }
+    },
+     
+    {
+        "pk": 58,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Delta blues",
+             "parent": 55,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 2,
+             "slug": "delta-blues"
+        }
+    },
+     
+    {
+        "pk": 246,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 93,
+             "name": "Desert rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 92,
+             "tree_id": 13,
+             "slug": "desert-rock"
+        }
+    },
+     
+    {
+        "pk": 118,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 27,
+             "name": "Dirty rap/Pornocore",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 26,
+             "tree_id": 6,
+             "slug": "dirty-rappornocore"
+        }
+    },
+     
+    {
+        "pk": 155,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 97,
+             "name": "Disco",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 96,
+             "tree_id": 10,
+             "slug": "disco"
+        }
+    },
+     
+    {
+        "pk": 156,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 95,
+             "name": "Disco polo",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 94,
+             "tree_id": 10,
+             "slug": "disco-polo"
+        }
+    },
+     
+    {
+        "pk": 33,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 45,
+             "name": "Dixieland",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 44,
+             "tree_id": 7,
+             "slug": "dixieland"
+        }
+    },
+     
+    {
+        "pk": 217,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 23,
+             "name": "Doo wop",
+             "parent": 215,
+             "level": 1,
+             "order": 1,
+             "lft": 22,
+             "tree_id": 12,
+             "slug": "doo-wop"
+        }
+    },
+     
+    {
+        "pk": 254,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 78,
+             "name": "Doom metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 77,
+             "tree_id": 13,
+             "slug": "doom-metal"
+        }
+    },
+     
+    {
+        "pk": 110,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Downtempo",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 5,
+             "slug": "downtempo"
+        }
+    },
+     
+    {
+        "pk": 231,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 124,
+             "name": "Dream pop",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 123,
+             "tree_id": 13,
+             "slug": "dream-pop"
+        }
+    },
+     
+    {
+        "pk": 75,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 80,
+             "name": "Drum and bass",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 77,
+             "tree_id": 5,
+             "slug": "drum-and-bass"
+        }
+    },
+     
+    {
+        "pk": 210,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Dub",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 11,
+             "slug": "dub"
+        }
+    },
+     
+    {
+        "pk": 74,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 82,
+             "name": "Dubstep",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 81,
+             "tree_id": 5,
+             "slug": "dubstep"
+        }
+    },
+     
+    {
+        "pk": 119,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 25,
+             "name": "East Coast hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 24,
+             "tree_id": 6,
+             "slug": "east-coast-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 61,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 14,
+             "name": "Easy listening",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 4,
+             "slug": "easy-listening"
+        }
+    },
+     
+    {
+        "pk": 59,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Electric blues",
+             "parent": 55,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 2,
+             "slug": "electric-blues"
+        }
+    },
+     
+    {
+        "pk": 103,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 24,
+             "name": "Electro",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 23,
+             "tree_id": 5,
+             "slug": "electro"
+        }
+    },
+     
+    {
+        "pk": 77,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 76,
+             "name": "Electroclash",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 75,
+             "tree_id": 5,
+             "slug": "electroclash"
+        }
+    },
+     
+    {
+        "pk": 68,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 92,
+             "name": "Electronic",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 5,
+             "slug": "electronic"
+        }
+    },
+     
+    {
+        "pk": 104,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 22,
+             "name": "Electronica",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 19,
+             "tree_id": 5,
+             "slug": "electronica"
+        }
+    },
+     
+    {
+        "pk": 157,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 93,
+             "name": "Electropop/Technopop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 92,
+             "tree_id": 10,
+             "slug": "electropoptechnopop"
+        }
+    },
+     
+    {
+        "pk": 64,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Elevator music",
+             "parent": 61,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 4,
+             "slug": "elevator-music"
+        }
+    },
+     
+    {
+        "pk": 232,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 122,
+             "name": "Emo",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 121,
+             "tree_id": 13,
+             "slug": "emo"
+        }
+    },
+     
+    {
+        "pk": 96,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 39,
+             "name": "Euro",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 38,
+             "tree_id": 5,
+             "slug": "euro"
+        }
+    },
+     
+    {
+        "pk": 159,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 89,
+             "name": "Euro disco",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 88,
+             "tree_id": 10,
+             "slug": "euro-disco"
+        }
+    },
+     
+    {
+        "pk": 158,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 91,
+             "name": "Eurobeat",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 90,
+             "tree_id": 10,
+             "slug": "eurobeat"
+        }
+    },
+     
+    {
+        "pk": 78,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 74,
+             "name": "Eurodance",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 73,
+             "tree_id": 5,
+             "slug": "eurodance"
+        }
+    },
+     
+    {
+        "pk": 160,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 87,
+             "name": "Europop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 86,
+             "tree_id": 10,
+             "slug": "europop"
+        }
+    },
+     
+    {
+        "pk": 2,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Experimental music",
+             "parent": 1,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 1,
+             "slug": "experimental-music"
+        }
+    },
+     
+    {
+        "pk": 255,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 76,
+             "name": "Folk metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 75,
+             "tree_id": 13,
+             "slug": "folk-metal"
+        }
+    },
+     
+    {
+        "pk": 247,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 91,
+             "name": "Folk rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 90,
+             "tree_id": 13,
+             "slug": "folk-rock"
+        }
+    },
+     
+    {
+        "pk": 105,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 21,
+             "name": "Folktronica",
+             "parent": 104,
+             "level": 3,
+             "order": 1,
+             "lft": 20,
+             "tree_id": 5,
+             "slug": "folktronica"
+        }
+    },
+     
+    {
+        "pk": 37,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 37,
+             "name": "Free jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 36,
+             "tree_id": 7,
+             "slug": "free-jazz"
+        }
+    },
+     
+    {
+        "pk": 161,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 85,
+             "name": "French pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 84,
+             "tree_id": 10,
+             "slug": "french-pop"
+        }
+    },
+     
+    {
+        "pk": 218,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 21,
+             "name": "Funk",
+             "parent": 215,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 12,
+             "slug": "funk"
+        }
+    },
+     
+    {
+        "pk": 65,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Furniture music",
+             "parent": 61,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 4,
+             "slug": "furniture-music"
+        }
+    },
+     
+    {
+        "pk": 121,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 22,
+             "name": "G-funk",
+             "parent": 120,
+             "level": 2,
+             "order": 1,
+             "lft": 21,
+             "tree_id": 6,
+             "slug": "g-funk"
+        }
+    },
+     
+    {
+        "pk": 79,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 72,
+             "name": "Gabba",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 71,
+             "tree_id": 5,
+             "slug": "gabba"
+        }
+    },
+     
+    {
+        "pk": 120,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 23,
+             "name": "Gangsta rap",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 20,
+             "tree_id": 6,
+             "slug": "gangsta-rap"
+        }
+    },
+     
+    {
+        "pk": 80,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 70,
+             "name": "Garage",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 69,
+             "tree_id": 5,
+             "slug": "garage"
+        }
+    },
+     
+    {
+        "pk": 248,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 89,
+             "name": "Garage rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 88,
+             "tree_id": 13,
+             "slug": "garage-rock"
+        }
+    },
+     
+    {
+        "pk": 256,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 74,
+             "name": "Glam metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 73,
+             "tree_id": 13,
+             "slug": "glam-metal"
+        }
+    },
+     
+    {
+        "pk": 249,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 87,
+             "name": "Glam rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 86,
+             "tree_id": 13,
+             "slug": "glam-rock"
+        }
+    },
+     
+    {
+        "pk": 111,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Glitch",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 5,
+             "slug": "glitch"
+        }
+    },
+     
+    {
+        "pk": 220,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 18,
+             "name": "Go-go",
+             "parent": 218,
+             "level": 2,
+             "order": 1,
+             "lft": 17,
+             "tree_id": 12,
+             "slug": "go-go"
+        }
+    },
+     
+    {
+        "pk": 81,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 68,
+             "name": "Goa trance",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 65,
+             "tree_id": 5,
+             "slug": "goa-trance"
+        }
+    },
+     
+    {
+        "pk": 257,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 72,
+             "name": "Gothic metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 71,
+             "tree_id": 13,
+             "slug": "gothic-metal"
+        }
+    },
+     
+    {
+        "pk": 233,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 120,
+             "name": "Gothic rock",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 119,
+             "tree_id": 13,
+             "slug": "gothic-rock"
+        }
+    },
+     
+    {
+        "pk": 162,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 83,
+             "name": "Greek La\u00efk\u00f3 pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 82,
+             "tree_id": 10,
+             "slug": "greek-laiko-pop"
+        }
+    },
+     
+    {
+        "pk": 122,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 19,
+             "name": "Grime",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 18,
+             "tree_id": 6,
+             "slug": "grime"
+        }
+    },
+     
+    {
+        "pk": 258,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 70,
+             "name": "Grindcore",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 69,
+             "tree_id": 13,
+             "slug": "grindcore"
+        }
+    },
+     
+    {
+        "pk": 259,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 68,
+             "name": "Groove metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 67,
+             "tree_id": 13,
+             "slug": "groove-metal"
+        }
+    },
+     
+    {
+        "pk": 234,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 118,
+             "name": "Grunge",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 115,
+             "tree_id": 13,
+             "slug": "grunge"
+        }
+    },
+     
+    {
+        "pk": 38,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 35,
+             "name": "Gypsy jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 34,
+             "tree_id": 7,
+             "slug": "gypsy-jazz"
+        }
+    },
+     
+    {
+        "pk": 83,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 64,
+             "name": "Happy hardcore",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 63,
+             "tree_id": 5,
+             "slug": "happy-hardcore"
+        }
+    },
+     
+    {
+        "pk": 97,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 37,
+             "name": "Hard",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 36,
+             "tree_id": 5,
+             "slug": "hard"
+        }
+    },
+     
+    {
+        "pk": 39,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 33,
+             "name": "Hard bop",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 32,
+             "tree_id": 7,
+             "slug": "hard-bop"
+        }
+    },
+     
+    {
+        "pk": 250,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 85,
+             "name": "Hard rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 84,
+             "tree_id": 13,
+             "slug": "hard-rock"
+        }
+    },
+     
+    {
+        "pk": 281,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 24,
+             "name": "Hardcore punk",
+             "parent": 277,
+             "level": 2,
+             "order": 1,
+             "lft": 21,
+             "tree_id": 13,
+             "slug": "hardcore-punk"
+        }
+    },
+     
+    {
+        "pk": 84,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 62,
+             "name": "Hardcore techno",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 61,
+             "tree_id": 5,
+             "slug": "hardcore-techno"
+        }
+    },
+     
+    {
+        "pk": 98,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 35,
+             "name": "Hardstyle",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 34,
+             "tree_id": 5,
+             "slug": "hardstyle"
+        }
+    },
+     
+    {
+        "pk": 251,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 83,
+             "name": "Heavy metal",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 46,
+             "tree_id": 13,
+             "slug": "heavy-metal"
+        }
+    },
+     
+    {
+        "pk": 85,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 60,
+             "name": "Hi-NRG",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 59,
+             "tree_id": 5,
+             "slug": "hi-nrg"
+        }
+    },
+     
+    {
+        "pk": 163,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 81,
+             "name": "Hindi pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 80,
+             "tree_id": 10,
+             "slug": "hindi-pop"
+        }
+    },
+     
+    {
+        "pk": 224,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 10,
+             "name": "Hip hop soul",
+             "parent": 223,
+             "level": 2,
+             "order": 1,
+             "lft": 9,
+             "tree_id": 12,
+             "slug": "hip-hop-soul"
+        }
+    },
+     
+    {
+        "pk": 114,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 34,
+             "name": "Hip hop/Rap music",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 6,
+             "slug": "hip-hoprap-music"
+        }
+    },
+     
+    {
+        "pk": 165,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 77,
+             "name": "Hong Kong English pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 76,
+             "tree_id": 10,
+             "slug": "hong-kong-english-pop"
+        }
+    },
+     
+    {
+        "pk": 164,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 79,
+             "name": "Hong Kong and Cantonese pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 78,
+             "tree_id": 10,
+             "slug": "hong-kong-and-cantonese-pop"
+        }
+    },
+     
+    {
+        "pk": 12,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 29,
+             "name": "Honky tonk",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 26,
+             "tree_id": 3,
+             "slug": "honky-tonk"
+        }
+    },
+     
+    {
+        "pk": 86,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 58,
+             "name": "House",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 49,
+             "tree_id": 5,
+             "slug": "house"
+        }
+    },
+     
+    {
+        "pk": 166,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 75,
+             "name": "House-pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 74,
+             "tree_id": 10,
+             "slug": "house-pop"
+        }
+    },
+     
+    {
+        "pk": 91,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 48,
+             "name": "IDM",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 47,
+             "tree_id": 5,
+             "slug": "idm"
+        }
+    },
+     
+    {
+        "pk": 204,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Indie folk",
+             "parent": 203,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 9,
+             "slug": "indie-folk"
+        }
+    },
+     
+    {
+        "pk": 239,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 108,
+             "name": "Indie pop",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 107,
+             "tree_id": 13,
+             "slug": "indie-pop"
+        }
+    },
+     
+    {
+        "pk": 236,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 114,
+             "name": "Indie rock",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 111,
+             "tree_id": 13,
+             "slug": "indie-rock"
+        }
+    },
+     
+    {
+        "pk": 167,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 73,
+             "name": "Indonesian pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 72,
+             "tree_id": 10,
+             "slug": "indonesian-pop"
+        }
+    },
+     
+    {
+        "pk": 260,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 66,
+             "name": "Industrial metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 65,
+             "tree_id": 13,
+             "slug": "industrial-metal"
+        }
+    },
+     
+    {
+        "pk": 112,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Industrial music",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 5,
+             "slug": "industrial-music"
+        }
+    },
+     
+    {
+        "pk": 238,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 110,
+             "name": "Industrial rock",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 109,
+             "tree_id": 13,
+             "slug": "industrial-rock"
+        }
+    },
+     
+    {
+        "pk": 168,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 71,
+             "name": "Italo dance",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 70,
+             "tree_id": 10,
+             "slug": "italo-dance"
+        }
+    },
+     
+    {
+        "pk": 169,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 69,
+             "name": "Italo disco",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 68,
+             "tree_id": 10,
+             "slug": "italo-disco"
+        }
+    },
+     
+    {
+        "pk": 89,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 53,
+             "name": "Italo house",
+             "parent": 86,
+             "level": 3,
+             "order": 1,
+             "lft": 52,
+             "tree_id": 5,
+             "slug": "italo-house"
+        }
+    },
+     
+    {
+        "pk": 270,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 45,
+             "name": "J-Rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 44,
+             "tree_id": 13,
+             "slug": "j-rock"
+        }
+    },
+     
+    {
+        "pk": 170,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 67,
+             "name": "Jangle pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 66,
+             "tree_id": 10,
+             "slug": "jangle-pop"
+        }
+    },
+     
+    {
+        "pk": 171,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 65,
+             "name": "Japanese pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 64,
+             "tree_id": 10,
+             "slug": "japanese-pop"
+        }
+    },
+     
+    {
+        "pk": 26,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 58,
+             "name": "Jazz",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 7,
+             "slug": "jazz"
+        }
+    },
+     
+    {
+        "pk": 40,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 31,
+             "name": "Jazz blues",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 30,
+             "tree_id": 7,
+             "slug": "jazz-blues"
+        }
+    },
+     
+    {
+        "pk": 42,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 27,
+             "name": "Jazz fusion",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 26,
+             "tree_id": 7,
+             "slug": "jazz-fusion"
+        }
+    },
+     
+    {
+        "pk": 43,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 25,
+             "name": "Jazz rap",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 24,
+             "tree_id": 7,
+             "slug": "jazz-rap"
+        }
+    },
+     
+    {
+        "pk": 41,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 29,
+             "name": "Jazz-funk",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 28,
+             "tree_id": 7,
+             "slug": "jazz-funk"
+        }
+    },
+     
+    {
+        "pk": 60,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Jump blues",
+             "parent": 55,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 2,
+             "slug": "jump-blues"
+        }
+    },
+     
+    {
+        "pk": 172,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 63,
+             "name": "Korean pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 62,
+             "tree_id": 10,
+             "slug": "korean-pop"
+        }
+    },
+     
+    {
+        "pk": 90,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 51,
+             "name": "Kwaito",
+             "parent": 86,
+             "level": 3,
+             "order": 1,
+             "lft": 50,
+             "tree_id": 5,
+             "slug": "kwaito"
+        }
+    },
+     
+    {
+        "pk": 131,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 22,
+             "name": "Latin",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 8,
+             "slug": "latin"
+        }
+    },
+     
+    {
+        "pk": 44,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 23,
+             "name": "Latin jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 22,
+             "tree_id": 7,
+             "slug": "latin-jazz"
+        }
+    },
+     
+    {
+        "pk": 173,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 61,
+             "name": "Latin pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 60,
+             "tree_id": 10,
+             "slug": "latin-pop"
+        }
+    },
+     
+    {
+        "pk": 123,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 17,
+             "name": "Latin rap",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 6,
+             "slug": "latin-rap"
+        }
+    },
+     
+    {
+        "pk": 174,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 59,
+             "name": "Levenslied",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 58,
+             "tree_id": 10,
+             "slug": "levenslied"
+        }
+    },
+     
+    {
+        "pk": 4,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Lo-fi",
+             "parent": 1,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 1,
+             "slug": "lo-fi"
+        }
+    },
+     
+    {
+        "pk": 175,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 57,
+             "name": "Louisiana swamp pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 56,
+             "tree_id": 10,
+             "slug": "louisiana-swamp-pop"
+        }
+    },
+     
+    {
+        "pk": 66,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Lounge music",
+             "parent": 61,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 4,
+             "slug": "lounge-music"
+        }
+    },
+     
+    {
+        "pk": 211,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Lovers rock",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 11,
+             "slug": "lovers-rock"
+        }
+    },
+     
+    {
+        "pk": 48,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 15,
+             "name": "M-Base",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 7,
+             "slug": "m-base"
+        }
+    },
+     
+    {
+        "pk": 240,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 106,
+             "name": "Madchester",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 105,
+             "tree_id": 13,
+             "slug": "madchester"
+        }
+    },
+     
+    {
+        "pk": 45,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 21,
+             "name": "Mainstream jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 20,
+             "tree_id": 7,
+             "slug": "mainstream-jazz"
+        }
+    },
+     
+    {
+        "pk": 133,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 19,
+             "name": "Mambo",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 18,
+             "tree_id": 8,
+             "slug": "mambo"
+        }
+    },
+     
+    {
+        "pk": 176,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 55,
+             "name": "Mandarin pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 54,
+             "tree_id": 10,
+             "slug": "mandarin-pop"
+        }
+    },
+     
+    {
+        "pk": 177,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 53,
+             "name": "Manufactured pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 52,
+             "tree_id": 10,
+             "slug": "manufactured-pop"
+        }
+    },
+     
+    {
+        "pk": 134,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 17,
+             "name": "Merengue",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 16,
+             "tree_id": 8,
+             "slug": "merengue"
+        }
+    },
+     
+    {
+        "pk": 261,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 64,
+             "name": "Metalcore",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 63,
+             "tree_id": 13,
+             "slug": "metalcore"
+        }
+    },
+     
+    {
+        "pk": 178,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 51,
+             "name": "Mexican pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 50,
+             "tree_id": 10,
+             "slug": "mexican-pop"
+        }
+    },
+     
+    {
+        "pk": 125,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Miami bass",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 6,
+             "slug": "miami-bass"
+        }
+    },
+     
+    {
+        "pk": 67,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Middle of the road",
+             "parent": 61,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 4,
+             "slug": "middle-of-the-road"
+        }
+    },
+     
+    {
+        "pk": 126,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Midwest hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 6,
+             "slug": "midwest-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 46,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 19,
+             "name": "Mini-jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 18,
+             "tree_id": 7,
+             "slug": "mini-jazz"
+        }
+    },
+     
+    {
+        "pk": 3,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Minimalist music",
+             "parent": 1,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 1,
+             "slug": "minimalist-music"
+        }
+    },
+     
+    {
+        "pk": 47,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 17,
+             "name": "Modal jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 16,
+             "tree_id": 7,
+             "slug": "modal-jazz"
+        }
+    },
+     
+    {
+        "pk": 203,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 8,
+             "name": "Modern folk",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 9,
+             "slug": "modern-folk"
+        }
+    },
+     
+    {
+        "pk": 135,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 15,
+             "name": "M\u00fasica Popular Brasileira",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 8,
+             "slug": "musica-popular-brasileira"
+        }
+    },
+     
+    {
+        "pk": 9,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 36,
+             "name": "Nashville sound/Countrypolitan",
+             "parent": 8,
+             "level": 2,
+             "order": 1,
+             "lft": 35,
+             "tree_id": 3,
+             "slug": "nashville-soundcountrypolitan"
+        }
+    },
+     
+    {
+        "pk": 179,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 49,
+             "name": "Nederpop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 48,
+             "tree_id": 10,
+             "slug": "nederpop"
+        }
+    },
+     
+    {
+        "pk": 226,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 6,
+             "name": "Neo soul",
+             "parent": 223,
+             "level": 2,
+             "order": 1,
+             "lft": 5,
+             "tree_id": 12,
+             "slug": "neo-soul"
+        }
+    },
+     
+    {
+        "pk": 205,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Neofolk",
+             "parent": 203,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 9,
+             "slug": "neofolk"
+        }
+    },
+     
+    {
+        "pk": 15,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 24,
+             "name": "Neotraditional country",
+             "parent": 14,
+             "level": 2,
+             "order": 1,
+             "lft": 23,
+             "tree_id": 3,
+             "slug": "neotraditional-country"
+        }
+    },
+     
+    {
+        "pk": 271,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 43,
+             "name": "New Wave",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 42,
+             "tree_id": 13,
+             "slug": "new-wave"
+        }
+    },
+     
+    {
+        "pk": 222,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "New jack swing",
+             "parent": 215,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 12,
+             "slug": "new-jack-swing"
+        }
+    },
+     
+    {
+        "pk": 180,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 47,
+             "name": "New romantic",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 46,
+             "tree_id": 10,
+             "slug": "new-romantic"
+        }
+    },
+     
+    {
+        "pk": 181,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 45,
+             "name": "Noise pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 44,
+             "tree_id": 10,
+             "slug": "noise-pop"
+        }
+    },
+     
+    {
+        "pk": 225,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 8,
+             "name": "Northern soul",
+             "parent": 223,
+             "level": 2,
+             "order": 1,
+             "lft": 7,
+             "tree_id": 12,
+             "slug": "northern-soul"
+        }
+    },
+     
+    {
+        "pk": 49,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Nu jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 7,
+             "slug": "nu-jazz"
+        }
+    },
+     
+    {
+        "pk": 262,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 62,
+             "name": "Nu metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 61,
+             "tree_id": 13,
+             "slug": "nu-metal"
+        }
+    },
+     
+    {
+        "pk": 182,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 43,
+             "name": "Operatic pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 42,
+             "tree_id": 10,
+             "slug": "operatic-pop"
+        }
+    },
+     
+    {
+        "pk": 16,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 22,
+             "name": "Outlaw country",
+             "parent": 14,
+             "level": 2,
+             "order": 1,
+             "lft": 21,
+             "tree_id": 3,
+             "slug": "outlaw-country"
+        }
+    },
+     
+    {
+        "pk": 221,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 16,
+             "name": "P-Funk",
+             "parent": 218,
+             "level": 2,
+             "order": 1,
+             "lft": 15,
+             "tree_id": 12,
+             "slug": "p-funk"
+        }
+    },
+     
+    {
+        "pk": 272,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 41,
+             "name": "Paisley Underground",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 40,
+             "tree_id": 13,
+             "slug": "paisley-underground"
+        }
+    },
+     
+    {
+        "pk": 183,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 41,
+             "name": "Persian pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 40,
+             "tree_id": 10,
+             "slug": "persian-pop"
+        }
+    },
+     
+    {
+        "pk": 127,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Political hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 6,
+             "slug": "political-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 142,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 122,
+             "name": "Pop",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 10,
+             "slug": "pop"
+        }
+    },
+     
+    {
+        "pk": 184,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 39,
+             "name": "Pop folk",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 38,
+             "tree_id": 10,
+             "slug": "pop-folk"
+        }
+    },
+     
+    {
+        "pk": 283,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 20,
+             "name": "Pop punk",
+             "parent": 277,
+             "level": 2,
+             "order": 1,
+             "lft": 19,
+             "tree_id": 13,
+             "slug": "pop-punk"
+        }
+    },
+     
+    {
+        "pk": 185,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 37,
+             "name": "Pop rap",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 36,
+             "tree_id": 10,
+             "slug": "pop-rap"
+        }
+    },
+     
+    {
+        "pk": 235,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 117,
+             "name": "Post-grunge",
+             "parent": 234,
+             "level": 3,
+             "order": 1,
+             "lft": 116,
+             "tree_id": 13,
+             "slug": "post-grunge"
+        }
+    },
+     
+    {
+        "pk": 282,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 23,
+             "name": "Post-hardcore",
+             "parent": 281,
+             "level": 3,
+             "order": 1,
+             "lft": 22,
+             "tree_id": 13,
+             "slug": "post-hardcore"
+        }
+    },
+     
+    {
+        "pk": 284,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 18,
+             "name": "Post-punk",
+             "parent": 277,
+             "level": 2,
+             "order": 1,
+             "lft": 17,
+             "tree_id": 13,
+             "slug": "post-punk"
+        }
+    },
+     
+    {
+        "pk": 241,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 104,
+             "name": "Post-rock",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 103,
+             "tree_id": 13,
+             "slug": "post-rock"
+        }
+    },
+     
+    {
+        "pk": 263,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 60,
+             "name": "Power metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 59,
+             "tree_id": 13,
+             "slug": "power-metal"
+        }
+    },
+     
+    {
+        "pk": 273,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 39,
+             "name": "Power pop",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 38,
+             "tree_id": 13,
+             "slug": "power-pop"
+        }
+    },
+     
+    {
+        "pk": 20,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 15,
+             "name": "Progressive bluegrass",
+             "parent": 19,
+             "level": 3,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 3,
+             "slug": "progressive-bluegrass"
+        }
+    },
+     
+    {
+        "pk": 14,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 25,
+             "name": "Progressive country",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 20,
+             "tree_id": 3,
+             "slug": "progressive-country"
+        }
+    },
+     
+    {
+        "pk": 113,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Progressive electronic",
+             "parent": 68,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 5,
+             "slug": "progressive-electronic"
+        }
+    },
+     
+    {
+        "pk": 206,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Progressive folk",
+             "parent": 203,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 9,
+             "slug": "progressive-folk"
+        }
+    },
+     
+    {
+        "pk": 264,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 58,
+             "name": "Progressive metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 57,
+             "tree_id": 13,
+             "slug": "progressive-metal"
+        }
+    },
+     
+    {
+        "pk": 274,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 37,
+             "name": "Progressive rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 36,
+             "tree_id": 13,
+             "slug": "progressive-rock"
+        }
+    },
+     
+    {
+        "pk": 99,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 33,
+             "name": "Progressive trance",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 32,
+             "tree_id": 5,
+             "slug": "progressive-trance"
+        }
+    },
+     
+    {
+        "pk": 186,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 35,
+             "name": "Psychedelic pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 34,
+             "tree_id": 10,
+             "slug": "psychedelic-pop"
+        }
+    },
+     
+    {
+        "pk": 275,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 35,
+             "name": "Psychedelic rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 32,
+             "tree_id": 13,
+             "slug": "psychedelic-rock"
+        }
+    },
+     
+    {
+        "pk": 82,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 67,
+             "name": "Psychedelic trance",
+             "parent": 81,
+             "level": 3,
+             "order": 1,
+             "lft": 66,
+             "tree_id": 5,
+             "slug": "psychedelic-trance"
+        }
+    },
+     
+    {
+        "pk": 285,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 16,
+             "name": "Psychobilly",
+             "parent": 277,
+             "level": 2,
+             "order": 1,
+             "lft": 15,
+             "tree_id": 13,
+             "slug": "psychobilly"
+        }
+    },
+     
+    {
+        "pk": 277,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 31,
+             "name": "Punk rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 13,
+             "slug": "punk-rock"
+        }
+    },
+     
+    {
+        "pk": 212,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Ragga",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 11,
+             "slug": "ragga"
+        }
+    },
+     
+    {
+        "pk": 265,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 56,
+             "name": "Rap metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 55,
+             "tree_id": 13,
+             "slug": "rap-metal"
+        }
+    },
+     
+    {
+        "pk": 286,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Rap rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 13,
+             "slug": "rap-rock"
+        }
+    },
+     
+    {
+        "pk": 287,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 12,
+             "name": "Rapcore",
+             "parent": 286,
+             "level": 2,
+             "order": 1,
+             "lft": 11,
+             "tree_id": 13,
+             "slug": "rapcore"
+        }
+    },
+     
+    {
+        "pk": 106,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 18,
+             "name": "Rave",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 17,
+             "tree_id": 5,
+             "slug": "rave"
+        }
+    },
+     
+    {
+        "pk": 207,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 16,
+             "name": "Reggae",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 11,
+             "slug": "reggae"
+        }
+    },
+     
+    {
+        "pk": 213,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Reggaefusion",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 11,
+             "slug": "reggaefusion"
+        }
+    },
+     
+    {
+        "pk": 136,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Reggaeton",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 8,
+             "slug": "reggaeton"
+        }
+    },
+     
+    {
+        "pk": 215,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 26,
+             "name": "Rhythm and blues",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 12,
+             "slug": "rhythm-and-blues"
+        }
+    },
+     
+    {
+        "pk": 228,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 128,
+             "name": "Rock",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 13,
+             "slug": "rock"
+        }
+    },
+     
+    {
+        "pk": 288,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Rock and roll",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 13,
+             "slug": "rock-and-roll"
+        }
+    },
+     
+    {
+        "pk": 17,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 19,
+             "name": "Rockabilly",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 18,
+             "tree_id": 3,
+             "slug": "rockabilly"
+        }
+    },
+     
+    {
+        "pk": 187,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 33,
+             "name": "Russian pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 32,
+             "tree_id": 10,
+             "slug": "russian-pop"
+        }
+    },
+     
+    {
+        "pk": 137,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Salsa",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 8,
+             "slug": "salsa"
+        }
+    },
+     
+    {
+        "pk": 138,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Samba",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 8,
+             "slug": "samba"
+        }
+    },
+     
+    {
+        "pk": 188,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 31,
+             "name": "Schlager",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 30,
+             "tree_id": 10,
+             "slug": "schlager"
+        }
+    },
+     
+    {
+        "pk": 242,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 102,
+             "name": "Shoegazing",
+             "parent": 229,
+             "level": 2,
+             "order": 1,
+             "lft": 101,
+             "tree_id": 13,
+             "slug": "shoegazing"
+        }
+    },
+     
+    {
+        "pk": 214,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Ska",
+             "parent": 207,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 11,
+             "slug": "ska"
+        }
+    },
+     
+    {
+        "pk": 266,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 54,
+             "name": "Sludge metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 53,
+             "tree_id": 13,
+             "slug": "sludge-metal"
+        }
+    },
+     
+    {
+        "pk": 50,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Smooth jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 7,
+             "slug": "smooth-jazz"
+        }
+    },
+     
+    {
+        "pk": 289,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Soft rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 13,
+             "slug": "soft-rock"
+        }
+    },
+     
+    {
+        "pk": 189,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 29,
+             "name": "Sophisti-pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 28,
+             "tree_id": 10,
+             "slug": "sophisti-pop"
+        }
+    },
+     
+    {
+        "pk": 223,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Soul",
+             "parent": 215,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 12,
+             "slug": "soul"
+        }
+    },
+     
+    {
+        "pk": 51,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "Soul jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 7,
+             "slug": "soul-jazz"
+        }
+    },
+     
+    {
+        "pk": 128,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Southern hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 6,
+             "slug": "southern-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 290,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Southern rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 13,
+             "slug": "southern-rock"
+        }
+    },
+     
+    {
+        "pk": 190,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 27,
+             "name": "Space age pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 26,
+             "tree_id": 10,
+             "slug": "space-age-pop"
+        }
+    },
+     
+    {
+        "pk": 92,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 46,
+             "name": "Spacesynth",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 45,
+             "tree_id": 5,
+             "slug": "spacesynth"
+        }
+    },
+     
+    {
+        "pk": 267,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 52,
+             "name": "Speed metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 51,
+             "tree_id": 13,
+             "slug": "speed-metal"
+        }
+    },
+     
+    {
+        "pk": 23,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 8,
+             "name": "String band",
+             "parent": 18,
+             "level": 2,
+             "order": 1,
+             "lft": 7,
+             "tree_id": 3,
+             "slug": "string-band"
+        }
+    },
+     
+    {
+        "pk": 191,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 25,
+             "name": "Sunshine pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 24,
+             "tree_id": 10,
+             "slug": "sunshine-pop"
+        }
+    },
+     
+    {
+        "pk": 192,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 23,
+             "name": "Surf pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 22,
+             "tree_id": 10,
+             "slug": "surf-pop"
+        }
+    },
+     
+    {
+        "pk": 291,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Surf rock",
+             "parent": 228,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 13,
+             "slug": "surf-rock"
+        }
+    },
+     
+    {
+        "pk": 52,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Swing",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 7,
+             "slug": "swing"
+        }
+    },
+     
+    {
+        "pk": 268,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 50,
+             "name": "Symphonic metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 49,
+             "tree_id": 13,
+             "slug": "symphonic-metal"
+        }
+    },
+     
+    {
+        "pk": 193,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 21,
+             "name": "Synthpop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 20,
+             "tree_id": 10,
+             "slug": "synthpop"
+        }
+    },
+     
+    {
+        "pk": 194,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 19,
+             "name": "Taiwanese pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 18,
+             "tree_id": 10,
+             "slug": "taiwanese-pop"
+        }
+    },
+     
+    {
+        "pk": 100,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 31,
+             "name": "Tech",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 30,
+             "tree_id": 5,
+             "slug": "tech"
+        }
+    },
+     
+    {
+        "pk": 107,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 16,
+             "name": "Techno",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 13,
+             "tree_id": 5,
+             "slug": "techno"
+        }
+    },
+     
+    {
+        "pk": 195,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 17,
+             "name": "Teen pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 16,
+             "tree_id": 10,
+             "slug": "teen-pop"
+        }
+    },
+     
+    {
+        "pk": 139,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Tejano",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 8,
+             "slug": "tejano"
+        }
+    },
+     
+    {
+        "pk": 196,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 15,
+             "name": "Thai pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 14,
+             "tree_id": 10,
+             "slug": "thai-pop"
+        }
+    },
+     
+    {
+        "pk": 269,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 48,
+             "name": "Thrash metal",
+             "parent": 251,
+             "level": 2,
+             "order": 1,
+             "lft": 47,
+             "tree_id": 13,
+             "slug": "thrash-metal"
+        }
+    },
+     
+    {
+        "pk": 53,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Trad jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 7,
+             "slug": "trad-jazz"
+        }
+    },
+     
+    {
+        "pk": 21,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Traditional bluegrass",
+             "parent": 19,
+             "level": 3,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 3,
+             "slug": "traditional-bluegrass"
+        }
+    },
+     
+    {
+        "pk": 18,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 17,
+             "name": "Traditional country",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 3,
+             "slug": "traditional-country"
+        }
+    },
+     
+    {
+        "pk": 197,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 13,
+             "name": "Traditional pop music",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 12,
+             "tree_id": 10,
+             "slug": "traditional-pop-music"
+        }
+    },
+     
+    {
+        "pk": 93,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 44,
+             "name": "Trance",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 25,
+             "tree_id": 5,
+             "slug": "trance"
+        }
+    },
+     
+    {
+        "pk": 109,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 12,
+             "name": "Trip hop",
+             "parent": 72,
+             "level": 2,
+             "order": 1,
+             "lft": 11,
+             "tree_id": 5,
+             "slug": "trip-hop"
+        }
+    },
+     
+    {
+        "pk": 140,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Tropicalismo",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 8,
+             "slug": "tropicalismo"
+        }
+    },
+     
+    {
+        "pk": 198,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 11,
+             "name": "Turkish pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 10,
+             "tree_id": 10,
+             "slug": "turkish-pop"
+        }
+    },
+     
+    {
+        "pk": 129,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Turntablism",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 6,
+             "slug": "turntablism"
+        }
+    },
+     
+    {
+        "pk": 199,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 9,
+             "name": "US pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 8,
+             "tree_id": 10,
+             "slug": "us-pop"
+        }
+    },
+     
+    {
+        "pk": 101,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 29,
+             "name": "Uplifting",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 28,
+             "tree_id": 5,
+             "slug": "uplifting"
+        }
+    },
+     
+    {
+        "pk": 10,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 34,
+             "name": "Urban Cowboy",
+             "parent": 8,
+             "level": 2,
+             "order": 1,
+             "lft": 33,
+             "tree_id": 3,
+             "slug": "urban-cowboy"
+        }
+    },
+     
+    {
+        "pk": 227,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Urban contemporary",
+             "parent": 215,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 12,
+             "slug": "urban-contemporary"
+        }
+    },
+     
+    {
+        "pk": 200,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 7,
+             "name": "Vispop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 6,
+             "tree_id": 10,
+             "slug": "vispop"
+        }
+    },
+     
+    {
+        "pk": 102,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 27,
+             "name": "Vocal",
+             "parent": 93,
+             "level": 3,
+             "order": 1,
+             "lft": 26,
+             "tree_id": 5,
+             "slug": "vocal"
+        }
+    },
+     
+    {
+        "pk": 130,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "West Coast hip hop",
+             "parent": 114,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 6,
+             "slug": "west-coast-hip-hop"
+        }
+    },
+     
+    {
+        "pk": 54,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "West Coast jazz",
+             "parent": 26,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 7,
+             "slug": "west-coast-jazz"
+        }
+    },
+     
+    {
+        "pk": 24,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Western",
+             "parent": 5,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 3,
+             "slug": "western"
+        }
+    },
+     
+    {
+        "pk": 25,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 4,
+             "name": "Western swing",
+             "parent": 24,
+             "level": 2,
+             "order": 1,
+             "lft": 3,
+             "tree_id": 3,
+             "slug": "western-swing"
+        }
+    },
+     
+    {
+        "pk": 201,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Wonky Pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 4,
+             "tree_id": 10,
+             "slug": "wonky-pop"
+        }
+    },
+     
+    {
+        "pk": 292,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 6,
+             "name": "World",
+             "parent": null,
+             "level": 0,
+             "order": 1,
+             "lft": 1,
+             "tree_id": 14,
+             "slug": "world"
+        }
+    },
+     
+    {
+        "pk": 293,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 5,
+             "name": "Worldbeat",
+             "parent": 292,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 14,
+             "slug": "worldbeat"
+        }
+    },
+     
+    {
+        "pk": 202,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Yugoslav pop",
+             "parent": 142,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 10,
+             "slug": "yugoslav-pop"
+        }
+    },
+     
+    {
+        "pk": 141,
+         "model": "categories.category",
+         "fields": 
+        {
+            "rght": 3,
+             "name": "Zouk",
+             "parent": 131,
+             "level": 1,
+             "order": 1,
+             "lft": 2,
+             "tree_id": 8,
+             "slug": "zouk"
+        }
+    }
+]
+
