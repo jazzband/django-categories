@@ -1,36 +1,46 @@
-from ellington.core.utils.test import TemplateTestCase
+from django.test import TestCase
+from django import template
 
-class GetCategory(TemplateTestCase):
 
-    fixtures = ['categories.yaml']
+class GetCategoryTest(TestCase):
+    
+    fixtures = ['musicgenres.json']
+    
+    def render_template(self, template_string, context={}):
+        """
+        Return the rendered string or raise an exception.
+        """
+        tpl = template.Template(template_string)
+        ctxt = template.Context(context)
+        return tpl.render(ctxt)
 
-    def test_too_few_arguments(self):
-        """Ensure that get_cateogry bails is we don't give it enough arguments."""
-        ex = self.render('{% load categories %}{% get_category %}')
-        self.assertEqual(str(ex), 'get_category tag requires at least three arguments.')
-        self.assertTemplateSyntaxError(ex)
+    def testTooFewArguments(self):
+        """
+        Ensure that get_cateogry raises an exception if there aren't enough arguments.
+        """
+        self.assertRaises(template.TemplateSyntaxError, self.render_template, '{% load category_tags %}{% get_category %}')
 
-    def test_as(self):
-        """Test that the second argument to get_category is 'as'."""
-        ex = self.render('{% load categories %}{% get_category "foo" notas bar %}')
-        self.assertEqual(str(ex), "get_category tag requires the third argument to be 'as'.")
-        self.assertTemplateSyntaxError(ex)
+    def testTooManyArguments(self):
+        """
+        Ensure that get_category raises an exception if there are too many arguments.
+        """
+        self.assertRaises(template.TemplateSyntaxError, self.render_template, '{% load category_tags %}{% get_category "/Rock" as too many arguments %}')
 
-    def test_wrong_length(self):
-        """Test that calling get_category with the wrong number of arguments properly raises an exception."""
-        ex = self.render('{% load categories %}{% get_category one as three hierarchy four five %}')
-        self.assertEqual(str(ex), "get_category tag requires exactly 3, or 5 arguments.")
-        self.assertTemplateSyntaxError(ex)
-        ex2 = self.render('{% load categories %}{% get_category one as three four five six seven %}')
-        self.assertEqual(str(ex2), "get_category tag requires exactly 3, or 5 arguments.")
-        self.assertTemplateSyntaxError(ex2)
+    def testAsIsSecondArgument(self):
+        """
+        Test that the second argument to get_category is 'as'.
+        """
+        self.assertRaises(template.TemplateSyntaxError, self.render_template, '{% load category_tags %}{% get_category "Rock" notas rock %}')
 
-    def test_basic_usage(self):
-        """Test that we can properly retrieve a category with the default hierarchy."""
-        resp = self.render('{% load categories %}{% get_category "/monster-attacks" as cat %}{{ cat }}')
-        self.assertEqual(resp, u'[News] /Monster Attacks')
-
-    def test_hierarchy(self):
-        """Verify that we can summon Mothra."""
-        resp = self.render('{% load categories %}{% get_category "/weather/disasters/mothra" as cat hierarchy "news" %}{{ cat }}')
-        self.assertEqual(resp, u'[News] /Weather/Disasters/Mothra')
+    def testBasicUsage(self):
+        """
+        Test that we can properly retrieve a category.
+        """
+        rock_resp = u'Rock\rRock &gt; Surf rock\rRock &gt; Southern rock\rRock &gt; Soft rock\rRock &gt; Rock and roll\rRock &gt; Rap rock\rRock &gt; Punk rock\rRock &gt; Psychedelic rock\rRock &gt; Progressive rock\rRock &gt; Power pop\rRock &gt; Paisley Underground\rRock &gt; New Wave\rRock &gt; J-Rock\rRock &gt; Heavy metal\rRock &gt; Hard rock\rRock &gt; Glam rock\rRock &gt; Garage rock\rRock &gt; Folk rock\rRock &gt; Desert rock\rRock &gt; Dark cabaret\rRock &gt; C-Rock\rRock &gt; Blues-rock\rRock &gt; Alternative rock\r'
+        resp = self.render_template('{% load category_tags %}{% get_category "/Rock" as cat_list %}{% for cat in cat_list %}{{ cat }}\r{% endfor %}')
+        self.assertEqual(resp, rock_resp)
+        
+        crock_resp = u'Rock\rRock &gt; C-Rock\r'
+        resp = self.render_template('{% load category_tags %}{% get_category "/Rock/C-Rock" as cat_list %}{% for cat in cat_list %}{{ cat }}\r{% endfor %}')
+        self.assertEqual(resp, crock_resp)
+        

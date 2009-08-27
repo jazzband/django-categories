@@ -5,7 +5,7 @@ import unittest, os
 from categories.models import Category
 from categories.management.commands.import_categories import Command
 
-class CategoryTest(unittest.TestCase):
+class CategoryImportTest(unittest.TestCase):
     def setUp(self):
         pass
     
