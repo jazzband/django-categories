@@ -24,7 +24,7 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'categories'
         unique_together = ('parent', 'name')
-        ordering = ('name',)
+        ordering = ('tree_id','lft')
 
     def __unicode__(self):
         ancestors = self.get_ancestors()

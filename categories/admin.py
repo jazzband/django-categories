@@ -3,7 +3,7 @@ from django.contrib import admin
 from django import forms
 from django.template.defaultfilters import slugify
 from mptt.forms import TreeNodeChoiceField
-from editor import TreeEditorMixin
+from editor.tree_editor import TreeEditor
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""
@@ -57,7 +57,7 @@ class CategoryAdminForm(forms.ModelForm):
         return self.cleaned_data
 
 
-class CategoryAdmin(TreeEditorMixin, admin.ModelAdmin):
+class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     form=CategoryAdminForm
     list_display = ('__unicode__',)
     search_fields = (('name',))
