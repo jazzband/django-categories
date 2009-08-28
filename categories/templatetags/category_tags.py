@@ -48,8 +48,8 @@ def get_category(parser, token):
         
     Example::
     
-        {% get_category "/agriculture/dairy" as dairy %}
-    
+        {% get_category "/Rock" as rock %}
+        {% get_category "/Rock/C-Rock" as crock %}    
     """
     bits = token.contents.split()
     error_str = '%(tagname)s tag should be in the format {%% %(tagname)s ' \
