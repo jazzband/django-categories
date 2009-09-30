@@ -44,3 +44,5 @@ class GetCategoryTest(TestCase):
         resp = self.render_template('{% load category_tags %}{% get_category "/Rock/C-Rock" as cat_list %}{% for cat in cat_list %}{{ cat }}\r{% endfor %}')
         self.assertEqual(resp, crock_resp)
         
+        resp = self.render_template('{% load category_tags %}{% get_category %}')
+        
