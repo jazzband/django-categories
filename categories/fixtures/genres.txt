@@ -1,0 +1,294 @@
+Avant-garde
+    Experimental music
+    Minimalist music
+    Lo-fi
+Country
+    Alternative country
+        Americana
+    Country pop
+        Nashville sound/Countrypolitan
+        Urban Cowboy
+    Country rock
+    Honky tonk
+        Bakersfield Sound
+    Progressive country
+        Neotraditional country
+        Outlaw country
+    Rockabilly
+    Traditional country
+        Bluegrass
+            Progressive bluegrass
+            Traditional bluegrass
+        Close harmony
+        String band
+    Western
+        Western swing
+Jazz
+    Acid jazz
+    Asian American jazz
+    Avant-garde jazz
+    Bebop
+    Big band
+    Crossover jazz
+    Dixieland
+    Calypso jazz
+    Chamber jazz
+    Cool jazz
+    Free jazz
+    Gypsy jazz
+    Hard bop
+    Jazz blues
+    Jazz-funk
+    Jazz fusion
+    Jazz rap
+    Latin jazz
+    Mainstream jazz
+    Mini-jazz
+    Modal jazz
+    M-Base
+    Nu jazz
+    Smooth jazz
+    Soul jazz
+    Swing
+    Trad jazz
+    West Coast jazz
+Blues
+    Boogie-woogie
+    Country blues
+    Delta blues
+    Electric blues
+    Jump blues
+Easy listening
+    Background music
+    Beautiful music
+    Elevator music
+    Furniture music
+    Lounge music
+    Middle of the road
+Electronic
+    Ambient
+        Dark ambient
+    Breakbeat
+    Dance
+        Big beat
+        Dubstep
+        Drum and bass
+            Darkcore
+        Electroclash
+        Eurodance
+        Gabba
+        Garage
+        Goa trance
+            Psychedelic trance
+        Happy hardcore
+        Hardcore techno
+        Hi-NRG
+        House
+            Acid house
+            Ambient house
+            Italo house
+            Kwaito
+        IDM
+        Spacesynth
+        Trance
+            Acid
+            Classic
+            Euro
+            Hard
+            Hardstyle
+            Progressive trance
+            Tech
+            Uplifting
+            Vocal
+        Electro
+        Electronica
+            Folktronica
+        Rave
+        Techno
+            Acid breaks
+        Trip hop
+    Downtempo
+    Glitch
+    Industrial music
+    Progressive electronic
+Hip hop/Rap music
+    Australian hip hop
+    Canadian hip hop
+    Crunk
+    Dirty rap/Pornocore
+    East Coast hip hop
+    Gangsta rap
+        G-funk
+    Grime
+    Latin rap
+        Chicano rap
+    Miami bass
+    Midwest hip hop
+    Political hip hop
+    Southern hip hop
+    Turntablism
+    West Coast hip hop
+Latin
+    Bossa Nova
+    Mambo
+    Merengue
+    Música Popular Brasileira
+    Reggaeton
+    Salsa
+    Samba
+    Tejano
+    Tropicalismo
+    Zouk
+Pop
+    Adult contemporary music
+    Adult oriented pop music
+    Afropop
+    Arab pop
+    Austropop
+    Baroque pop
+    Brazilian pop
+    Bubblegum pop
+    Chinese pop
+    Contemporary Christian
+    Country pop
+    Dance-pop
+    Disco
+    Disco polo
+    Electropop/Technopop
+    Eurobeat
+    Euro disco
+    Europop
+    French pop
+    Greek Laïkó pop
+    Hindi pop
+    Hong Kong and Cantonese pop
+    Hong Kong English pop
+    House-pop
+    Indonesian pop
+    Italo dance
+    Italo disco
+    Jangle pop
+    Japanese pop
+    Korean pop
+    Latin pop
+    Levenslied
+    Louisiana swamp pop
+    Mandarin pop
+    Manufactured pop
+    Mexican pop
+    Nederpop
+    New romantic
+    Noise pop
+    Operatic pop
+    Persian pop
+    Pop folk
+    Pop rap
+    Psychedelic pop
+    Russian pop
+    Schlager
+    Sophisti-pop
+    Space age pop
+    Sunshine pop
+    Surf pop
+    Synthpop
+    Taiwanese pop
+    Teen pop
+    Thai pop
+    Traditional pop music
+    Turkish pop
+    US pop
+    Vispop
+    Wonky Pop
+    Yugoslav pop
+Modern folk
+    Indie folk
+    Neofolk
+    Progressive folk
+Reggae
+    2 tone
+    Dancehall
+    Dub
+    Lovers rock
+    Ragga
+    Reggaefusion
+    Ska
+Rhythm and blues
+    Contemporary R&B
+    Doo wop
+    Funk
+        Deep Funk
+        Go-go
+        P-Funk
+    New jack swing
+    Soul
+        Hip hop soul
+        Northern soul
+        Neo soul
+    Urban contemporary
+Rock
+    Alternative rock
+        Britpop
+        Dream pop
+        Emo
+        Gothic rock
+        Grunge
+            Post-grunge
+        Indie rock
+            C86
+        Industrial rock
+        Indie pop
+        Madchester
+        Post-rock
+        Shoegazing
+    Blues-rock
+    C-Rock
+    Dark cabaret
+    Desert rock
+    Folk rock
+    Garage rock
+    Glam rock
+    Hard rock
+    Heavy metal
+        Black metal
+        Death metal
+        Doom metal
+        Folk metal
+        Glam metal
+        Gothic metal
+        Grindcore
+        Groove metal
+        Industrial metal
+        Metalcore
+        Nu metal
+        Power metal
+        Progressive metal
+        Rap metal
+        Sludge metal
+        Speed metal
+        Symphonic metal
+        Thrash metal
+    J-Rock
+    New Wave
+    Paisley Underground
+    Power pop
+    Progressive rock
+    Psychedelic rock
+        Acid rock
+    Punk rock
+        Anarcho punk
+            Crust punk
+        Deathrock
+        Hardcore punk
+            Post-hardcore
+        Pop punk
+        Post-punk
+        Psychobilly
+    Rap rock
+        Rapcore
+    Rock and roll
+    Soft rock
+    Southern rock
+    Surf rock
+World
+    Worldbeat
+        Afrobeat
