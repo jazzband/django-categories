@@ -103,3 +103,32 @@ def display_path_as_ul(category):
     
     return {}
     
+    
+class TopLevelCategoriesNode(template.Node):
+    def __init__(self, varname):
+        self.varname = varname
+        
+    def render(self, context):
+        context[self.varname] = Category.objects.filter(parent=None).order_by('name')
+        return ''
+        
+
+def get_top_level_categories(parser, token):
+    """
+    Retrives an alphabetical list of all the categories with with no parents.
+    
+    Syntax::
+    
+        {% get_top_level_categories as categories %}
+        
+    Returns an list of categories
+    
+    """
+    bits = token.contents.split()
+    if len(bits) != 3:
+        raise template.TemplateSyntaxError, "Tag %s must have 2 arguments." % bits[0]
+    if bits[1] != 'as':
+        raise template.TemplateSyntaxError, "First argyment must be 'as'."
+    return TopLevelCategoriesNode(bits[2])
+    
+register.tag(get_top_level_categories)
