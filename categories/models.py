@@ -1,5 +1,6 @@
 import re
 from django.core.urlresolvers import reverse
+from django.db.models import permalink
 from django.db import models
 from django.utils.encoding import force_unicode
 import mptt
@@ -16,11 +17,12 @@ class Category(models.Model):
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     
+    @permalink
     def get_absolute_url(self):
         """Return a path"""
-        prefix = self.category_tree.get_absolute_url()
-        ancestors = self.get_ancestors()
-        return prefix + '/'.join([force_unicode(i.slug) for i in ancestors])
+        prefix = reverse('categories_tree_list')
+        ancestors = list(self.get_ancestors()) + [self,]
+        return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
         
     class Meta:
         verbose_name_plural = 'categories'

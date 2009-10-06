@@ -19,6 +19,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^categories/', include('categories.urls')),
+    #(r'^cats/', include('categories.urls')),
 
     (r'^static/categories/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': ROOT_PATH + '/categories/media/categories/'}),
