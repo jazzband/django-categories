@@ -9,9 +9,6 @@ urlpatterns = patterns('django.views.generic.list_detail',
     url(
         r'^$', 'object_list', categorytree_dict, name='categories_tree_list'
     ),
-    #url(
-    #    r'^(?P<slug>[\w-]+)/$', 'object_detail', categorytree_dict, name='categories_tree'
-    #),
 )
 
 urlpatterns += patterns('categories.views',
