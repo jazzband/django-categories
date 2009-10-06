@@ -12,6 +12,7 @@ class Category(models.Model):
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
+    description = models.CharField(blank=True, null=True, max_length=255)
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     
