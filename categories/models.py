@@ -17,7 +17,6 @@ class Category(models.Model):
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     
-    @permalink
     def get_absolute_url(self):
         """Return a path"""
         prefix = reverse('categories_tree_list')
