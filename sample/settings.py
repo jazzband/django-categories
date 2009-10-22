@@ -85,3 +85,4 @@ INSTALLED_APPS = (
     'mptt',
 )
 EDITOR_MEDIA_PATH = '/static/editor/'
+CATEGORIES_ALLOW_SLUG_CHANGE = True

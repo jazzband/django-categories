@@ -31,7 +31,7 @@ class CategoryAdminForm(forms.ModelForm):
         model = Category
     
     def clean_slug(self):
-        if self.instance is None or ALLOW_SLUG_CHANGE:
+        if self.instance is None or not ALLOW_SLUG_CHANGE:
             self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
         return self.cleaned_data['slug']
     
