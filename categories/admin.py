@@ -4,6 +4,7 @@ from django import forms
 from django.template.defaultfilters import slugify
 from mptt.forms import TreeNodeChoiceField
 from editor.tree_editor import TreeEditor
+from settings import ALLOW_SLUG_CHANGE
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""
@@ -30,7 +31,8 @@ class CategoryAdminForm(forms.ModelForm):
         model = Category
     
     def clean_slug(self):
-        self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
+        if self.instance is None or ALLOW_SLUG_CHANGE:
+            self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
         return self.cleaned_data['slug']
     
     def clean(self):
