@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 from mptt.forms import TreeNodeChoiceField
 from editor.tree_editor import TreeEditor
 from settings import ALLOW_SLUG_CHANGE
+from categories import registry
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""
@@ -67,3 +68,12 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
 
 
 admin.site.register(Category, CategoryAdmin)
+
+
+class CategorizedAdmin(admin.ModelAdmin):
+    change_form_template = 'admin/categories/change_form.html'
+
+for model,modeladmin in admin.site._registry.items():
+    if model in registry:
+        admin.site.unregister(model)
+        admin.site.register(model, type('newadmin', (CategorizedAdmin, modeladmin.__class__,), {}))
