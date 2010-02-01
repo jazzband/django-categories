@@ -18,10 +18,10 @@ def register_fk(model, field_name='category', extra_params={}):
     return _register(model, field_name, extra_params, fields.CategoryFKField)
     
 def _register(model, field_name, extra_params={}, field=fields.CategoryFKField):
-    if model in registry:
-        raise AlreadyRegistered('The model %s has already been registered.' % model.__name__)
-    registry.append(model)
-    
+    registry_name = "%s.%s" % (model.__name__, field_name)
+    if registry_name in registry:
+        return
+    registry.append(registry_name)
     opts = model._meta
     try:
         opts.get_field(field_name)
