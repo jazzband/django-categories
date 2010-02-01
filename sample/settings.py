@@ -83,6 +83,7 @@ INSTALLED_APPS = (
     'categories',
     'editor',
     'mptt',
+    'simpletext',
 )
 EDITOR_MEDIA_PATH = '/static/editor/'
 CATEGORIES_ALLOW_SLUG_CHANGE = True
