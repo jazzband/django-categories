@@ -61,7 +61,7 @@ class CategoryAdminForm(forms.ModelForm):
 
 
 class CategoryAdmin(TreeEditor, admin.ModelAdmin):
-    form=CategoryAdminForm
+    form = CategoryAdminForm
     list_display = ('__unicode__',)
     search_fields = (('name',))
     prepopulated_fields = {'slug': ('name',)}
@@ -69,11 +69,11 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 
-
-class CategorizedAdmin(admin.ModelAdmin):
-    change_form_template = 'admin/categories/change_form.html'
-
 for model,modeladmin in admin.site._registry.items():
-    if model in registry:
+    if model in registry.values():
         admin.site.unregister(model)
-        admin.site.register(model, type('newadmin', (CategorizedAdmin, modeladmin.__class__,), {}))
+        admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
+            'fieldsets': modeladmin.fieldsets + (('Categories',{
+                'fields': ('category','categories'),
+            }),)
+        }))
