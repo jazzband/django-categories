@@ -33,25 +33,3 @@ class Category(models.Model):
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
 
 mptt.register(Category, order_insertion_by=['name'])
-
-
-class CategoryIntermediary(models.Model):
-    category = models.ForeignKey(Category)
-    is_primary = models.BooleanField(default=False)
-    
-    class Meta:
-        abstract = True
-
-from categories import registry
-from django.contrib import admin
-
-for model in registry.values():
-    field_name = model._meta.verbose_name.lower()
-    class_name = str('%sCategories' % model._meta.verbose_name.title())
-    attrs = {
-        'category': models.ForeignKey(Category),
-        'is_primary': models.BooleanField(default=False),
-        '__module__': model.__dict__['__module__'],
-        field_name: models.ForeignKey(model),
-    }
-    admin.site.register(type(class_name, (models.Model,), attrs))
