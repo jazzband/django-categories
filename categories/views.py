@@ -12,10 +12,13 @@ def category_detail(request, path, with_stories=False,
     category = get_object_or_404(Category,
             slug__iexact = path_items[-1],
             level = len(path_items)-1)
-    template = select_template((
-        'categories/%s.html' % '_'.join(path_items),
-        template_name,
-    ))
+    
+    templates = []
+    while path_items:
+        templates.append('categories/%s.html' % '_'.join(path_items))
+        path_items.pop()
+    templates.append(template_name)
+
     context = RequestContext(request)
     context.update({'category':category})
-    return HttpResponse(template.render(context))
+    return HttpResponse(select_template(templates).render(context))
