@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from categories.models import Category
 
 categorytree_dict = {
-    'queryset': Category.objects.all()
+    'queryset': Category.objects.filter(level=0)
 }
 
 urlpatterns = patterns('django.views.generic.list_detail',

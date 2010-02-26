@@ -31,7 +31,7 @@ class Category(models.Model):
     def __unicode__(self):
         ancestors = self.get_ancestors()
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
-
+        
 mptt.register(Category, order_insertion_by=['name'])
 
 

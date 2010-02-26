@@ -1,0 +1,4 @@
+<h2>{{ category }}</h2>
+{% if category.parent %}<h3>Go up to <a href="{{ category.parent.get_absolute_url }}">{{ category.parent }}</a></h3>{% endif %}
+<p>{{ category.description }}</p>
+{% if category.children.count %}<h3>Subcategories</h3><ul>{% for child in category.children.all %}<li><a href="{{ child.get_absolute_url }}">{{ child }}</a></li>{% endfor %}</ul>{% endif %}
