@@ -4,8 +4,9 @@ from django.http import HttpResponse
 from django.views.decorators.cache import cache_page
 from django.template.loader import select_template
 from categories.models import Category
+from settings import CACHE_VIEW_LENGTH
 
-@cache_page(3600)
+@cache_page(CACHE_VIEW_LENGTH)
 def category_detail(request, path, with_stories=False, 
     template_name='categories/category_detail.html'):
     path_items = path.strip('/').split('/')
