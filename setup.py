@@ -1,9 +1,15 @@
 from distutils.core import setup
+import categories
+
+try:
+    long_description = open('README.txt').read()
+except IOError:
+    long_description = ''
 
 setup(name='django-categories',
-      version='0.2',
+      version=catgories.get_version(),
       description='A way to handle one or more hierarchical category trees in django.',
-      long_description='This app attempts to provide a generic category system that multiple apps could use. It uses MPTT for the tree storage and provides a custom admin for better visualization (copied and modified from feinCMS).',
+      long_description=long_description,
       author='Corey Oordt',
       author_email='coordt@washingtontimes.com',
       url='http://opensource.washingtontimes.com/projects/django-categories/',
@@ -13,4 +19,3 @@ setup(name='django-categories',
           'License :: OSI Approved :: Apache License',
           ],
       )
-

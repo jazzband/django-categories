@@ -1,3 +1,5 @@
+This app attempts to provide a generic category system that multiple apps could use. It uses MPTT for the tree storage and provides a custom admin for better visualization (copied and modified from feinCMS).
+
 Goals of the project
 
 * Have a generic method for handling hierarchical data
