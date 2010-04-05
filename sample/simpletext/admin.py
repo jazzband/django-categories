@@ -1,4 +1,9 @@
 from models import SimpleText
 from django.contrib import admin
 
-admin.site.register(SimpleText)
+
+class SimpleTextAdmin(admin.ModelAdmin):
+    filter_horizontal = ['cats',]
+
+
+admin.site.register(SimpleText, SimpleTextAdmin)

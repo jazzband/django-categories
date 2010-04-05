@@ -27,5 +27,9 @@ class SimpleText(models.Model):
         return ('simpletext_detail_view_name', [str(self.id)])
     
 import categories
+from categories.models import CategoryIntermediary
+class SimpleTextCategories(CategoryIntermediary):
+	simpletext = models.ForeignKey(SimpleText)
+
 categories.register_fk(SimpleText, 'primary_category', {'related_name':'simpletext_primary_set'})
-categories.register_m2m(SimpleText, 'cats')
+categories.register_m2m(SimpleText, 'cats', )
