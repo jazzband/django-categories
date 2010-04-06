@@ -7,7 +7,7 @@ except IOError:
     long_description = ''
 
 setup(name='django-categories',
-      version=catgories.get_version(),
+      version=categories.get_version(),
       description='A way to handle one or more hierarchical category trees in django.',
       long_description=long_description,
       author='Corey Oordt',
