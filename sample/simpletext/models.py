@@ -15,6 +15,7 @@ class SimpleText(models.Model):
     class Meta:
         verbose_name_plural = 'Simple Text'
         ordering = ('-created',)
+        get_latest_by = 'updated'
     
     def __unicode__(self):
         return self.name
@@ -25,11 +26,8 @@ class SimpleText(models.Model):
     @permalink
     def get_absolute_url(self):
         return ('simpletext_detail_view_name', [str(self.id)])
-    
+
 import categories
-from categories.models import CategoryIntermediary
-class SimpleTextCategories(CategoryIntermediary):
-	simpletext = models.ForeignKey(SimpleText)
 
 categories.register_fk(SimpleText, 'primary_category', {'related_name':'simpletext_primary_set'})
 categories.register_m2m(SimpleText, 'cats', )
