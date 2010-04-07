@@ -1,0 +1,13 @@
+include requirements.txt
+include NOTICES.txt
+include README.txt
+include CREDITS.txt
+include LICENSE.txt
+
+recursive-include categories *.html *.txt *.json *.html
+
+recursive-include editor  *.html *.txt *.json *.html *.gif *.png *.css *.js
+
+recursive-include doc_src *.rst *.txt *.png *.css *.html *.js
+include doc_src/Makefile
+include doc_src/make.bat
