@@ -27,7 +27,5 @@ setup(
         'License :: OSI Approved :: Apache License',
     ],
     install_requires = reqs,
-    dependency_links = [
-        'http://opensource.washingtontimes.com/static/dist/django-mptt-0.3_pre.tar.gz#md5=2e7bf48ae24958ec3702314506f4fe99',
-    ]
+    dependency_links = []
 )
