@@ -36,6 +36,12 @@ class CategoryAdminForm(forms.ModelForm):
             self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
         return self.cleaned_data['slug']
     
+    def clean_alternate_title(self):
+        if self.instance is None or not self.cleaned_data['alternate_title']:
+            return self.cleaned_data['name']
+        else:
+            return self.cleaned_data['alternate_title']
+    
     def clean(self):
         super(CategoryAdminForm, self).clean()
         
@@ -65,6 +71,19 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     list_display = ('__unicode__',)
     search_fields = (('name',))
     prepopulated_fields = {'slug': ('name',)}
+    fieldsets = (
+        (None, {
+            'fields': ('parent', 'name')
+        }),
+        ('Meta Data', {
+            'fields': ('alternate_title', 'description', 'meta_keywords', 'meta_extra'),
+            'classes': ('collapse',),
+        }),
+        ('Advanced', {
+            'fields': ('order', 'slug'),
+            'classes': ('collapse',),
+        }),
+    )
 
 
 admin.site.register(Category, CategoryAdmin)
