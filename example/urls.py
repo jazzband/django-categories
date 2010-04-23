@@ -28,4 +28,8 @@ urlpatterns = patterns('',
     (r'^static/editor/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': ROOT_PATH + '/editor/media/editor/',
          'show_indexes':True}),
+
+     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+         {'document_root': ROOT_PATH + '/example/static/'}),
+
 )
