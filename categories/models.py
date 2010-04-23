@@ -3,7 +3,13 @@ from django.core.urlresolvers import reverse
 from django.db.models import permalink
 from django.db import models
 from django.utils.encoding import force_unicode
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
+from django.utils.translation import ugettext as _
+
 import mptt
+
+from settings import RELATION_MODELS, RELATIONS
 
 class Category(models.Model):
     parent = models.ForeignKey('self', 
@@ -49,3 +55,32 @@ class Category(models.Model):
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
         
 mptt.register(Category, order_insertion_by=['name'])
+
+if RELATION_MODELS:
+    category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
+    class CategoryRelationManager(models.Manager):
+        def get_content_type(self, content_type):
+            qs = self.get_query_set()
+            return qs.filter(content_type__name=content_type)
+        
+        def get_relation_type(self, relation_type):
+            qs = self.get_query_set()
+            return qs.filter(relation_type=relation_type)
+    
+    
+    class CategoryRelation(models.Model):
+        """Related story item"""
+        story = models.ForeignKey(Category)
+        content_type = models.ForeignKey(ContentType, limit_choices_to=category_relation_limits)
+        object_id = models.PositiveIntegerField()
+        content_object = generic.GenericForeignKey('content_type', 'object_id')
+        relation_type = models.CharField(_("Relation Type"), 
+            max_length="200", 
+            blank=True, 
+            null=True,
+            help_text=_("A generic text field to tag a relation, like 'leadphoto'."))
+        
+        objects = CategoryRelationManager()
+        
+        def __unicode__(self):
+            return u"CategoryRelation"

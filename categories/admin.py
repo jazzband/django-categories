@@ -1,11 +1,14 @@
-from models import Category
 from django.contrib import admin
 from django import forms
 from django.template.defaultfilters import slugify
+
 from mptt.forms import TreeNodeChoiceField
 from editor.tree_editor import TreeEditor
-from settings import ALLOW_SLUG_CHANGE
+from genericcollection import GenericCollectionTabularInline
+
+from settings import ALLOW_SLUG_CHANGE, RELATION_MODELS
 from categories import registry
+from models import Category
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""
@@ -21,6 +24,11 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         """
         return u'%s %s' % (self.level_indicator * getattr(obj, obj._meta.level_attr),
                                 obj)
+if RELATION_MODELS:
+    from models import CategoryRelation
+
+    class InlineCategoryRelation(GenericCollectionTabularInline):
+        model = CategoryRelation
 
 
 class CategoryAdminForm(forms.ModelForm):
@@ -84,7 +92,12 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
             'classes': ('collapse',),
         }),
     )
-
+    if RELATION_MODELS:
+        inlines = [InlineCategoryRelation,]
+    
+    class Media:
+        js = ('js/genericcollections.js',)
+    
 
 admin.site.register(Category, CategoryAdmin)
 
