@@ -13,9 +13,25 @@ class Category(models.Model):
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
-    description = models.CharField(blank=True, null=True, max_length=255)
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
+    alternate_title = models.CharField(
+        blank=True,
+        default="",
+        max_length=100,
+        help_text="An alternative title to use on pages with this category."
+    )
+    description = models.TextField(blank=True, null=True)
+    meta_keywords = models.CharField(
+        blank=True,
+        default="",
+        max_length=255,
+        help_text="Comma-separated keywords for search engines.")
+    meta_extra = models.TextField(
+        blank=True,
+        default="",
+        help_text="(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;")
+    
     
     def get_absolute_url(self):
         """Return a path"""
