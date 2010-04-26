@@ -112,14 +112,14 @@ class TreeEditor(admin.ModelAdmin):
         css = {}
         js = []
         if settings.MEDIA_HOTLINKING:
-            js.extend(( "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js", ))
+            js.extend(( "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", ))
         else:
-            js.extend(( settings.MEDIA_PATH + "jquery-1.3.2.min.js", ))
+            js.extend(( settings.STATIC_URL + "jquery-1.4.2.min.js", ))
 
-        js.extend(( settings.MEDIA_PATH + "ie_compat.js",
-                    settings.MEDIA_PATH + "jquery.cookie.js" ,
-                    settings.MEDIA_PATH + "toolbox.js",
-                    settings.MEDIA_PATH + "page_toolbox.js",
+        js.extend(( settings.STATIC_URL + "ie_compat.js",
+                    settings.STATIC_URL + "jquery.cookie.js" ,
+                    settings.STATIC_URL + "toolbox.js",
+                    settings.STATIC_URL + "page_toolbox.js",
                     ))
 
     def __init__(self, *args, **kwargs):
