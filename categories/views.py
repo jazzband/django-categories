@@ -8,7 +8,7 @@ from settings import CACHE_VIEW_LENGTH
 
 @cache_page(CACHE_VIEW_LENGTH)
 def category_detail(request, path, with_stories=False, 
-    template_name='categories/category_detail.html'):
+    template_name='categories/category_detail.html', extra_context={}):
     path_items = path.strip('/').split('/')
     category = get_object_or_404(Category,
             slug__iexact = path_items[-1],
@@ -22,4 +22,6 @@ def category_detail(request, path, with_stories=False,
 
     context = RequestContext(request)
     context.update({'category':category})
+    if extra_context:
+        context.update(extra_context)
     return HttpResponse(select_template(templates).render(context))
