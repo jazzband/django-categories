@@ -12,5 +12,5 @@ urlpatterns = patterns('django.views.generic.list_detail',
 )
 
 urlpatterns += patterns('categories.views',
-    url(r'^(?P<path>.+)$', 'category_detail', {'with_stories': True}, name='categories_category'),
+    url(r'^(?P<path>.+)/$', 'category_detail', {'with_stories': True}, name='categories_category'),
 )

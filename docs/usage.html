@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ways to use the categories app &mdash; Django Categories v0.4.4 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.4.4',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Categories v0.4.4 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to Django Categories’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>Django Categories v0.4.4 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Ways to use the categories app</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="index.html" title="Welcome to Django Categories’s documentation!" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1 current"><a class="current reference external" href="">Ways to use the categories app</a></li>
+<li class="toctree-l1"><a class="reference external" href="#using-categories-in-templates">Using categories in templates</a></li>
+</ul>
+
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="_sources/usage.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ways-to-use-the-categories-app">
+<h1>Ways to use the categories app<a class="headerlink" href="#ways-to-use-the-categories-app" title="Permalink to this headline">¶</a></h1>
+<p>The categories app is a generalized storage mechanism for hierarchical data. You can use it in two ways:</p>
+<ol class="arabic">
+<li><p class="first">As storage for one tree of categories, e.g.:</p>
+<div class="highlight-python"><pre>Top Category 1
+  Subcategory 1-1
+    Subcategory 1-2
+      subcategory 1-2-1
+Top Category 2
+  Subcategory 2-1</pre>
+</div>
+</li>
+<li><p class="first">As a storage of several trees of categories, e.g.:</p>
+<div class="highlight-python"><pre>Model 1
+  Top Category 1
+    Subcategory 1-1
+      Subcategory 1-2
+        subcategory 1-2-1
+  Top Category 2
+    Subcategory 2-1
+Model 2
+  Super Category 1
+    Super Subcategory 1-1
+      Super Subcategory 1-2
+        super subcategory 1-2-1
+  Super Category 2
+    Super Subcategory 2-1</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="using-categories-in-templates">
+<h1>Using categories in templates<a class="headerlink" href="#using-categories-in-templates" title="Permalink to this headline">¶</a></h1>
+<p>To use the template tags::</p>
+<div class="highlight-python"><pre>{% import category_tags %}</pre>
+</div>
+<div class="section" id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tree-info">
+<h3><tt class="docutils literal"><span class="pre">tree_info</span></tt><a class="headerlink" href="#tree-info" title="Permalink to this headline">¶</a></h3>
+<p>Given a list of categories, iterates over the list, generating
+two-tuples of the current tree item and a <tt class="docutils literal"><span class="pre">dict</span></tt> containing
+information about the tree structure around the item, with the following
+keys:</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">'new_level'</span></tt></dt>
+<dd><tt class="xref docutils literal"><span class="pre">True</span></tt> if the current item is the start of a new level in
+the tree, <tt class="xref docutils literal"><span class="pre">False</span></tt> otherwise.</dd>
+<dt><tt class="docutils literal"><span class="pre">'closed_levels'</span></tt></dt>
+<dd>A list of levels which end after the current item. This will
+be an empty list if the next item&#8217;s level is the same as or
+greater than the level of the current item.</dd>
+</dl>
+</blockquote>
+<p>An optional argument can be provided to specify extra details about the
+structure which should appear in the <tt class="docutils literal"><span class="pre">dict</span></tt>. This should be a
+comma-separated list of feature names. The valid feature names are:</p>
+<blockquote>
+<dl class="docutils">
+<dt>ancestors</dt>
+<dd><p class="first">Adds a list of unicode representations of the ancestors of the
+current node, in descending order (root node first, immediate
+parent last), under the key <tt class="docutils literal"><span class="pre">'ancestors'</span></tt>.</p>
+<p>For example: given the sample tree below, the contents of the list
+which would be available under the <tt class="docutils literal"><span class="pre">'ancestors'</span></tt> key are given
+on the right:</p>
+<div class="last highlight-python"><pre>Books                    -&gt;  []
+   Sci-fi                -&gt;  [u'Books']
+      Dystopian Futures  -&gt;  [u'Books', u'Sci-fi']</pre>
+</div>
+</dd>
+</dl>
+</blockquote>
+</div>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2010, CoreyOordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		Ways to use the categories app
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
+  </body>
+</html>

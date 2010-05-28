@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import categories
 import os
 
@@ -19,8 +19,9 @@ setup(
     long_description=long_description,
     author='Corey Oordt',
     author_email='coordt@washingtontimes.com',
+    include_package_data=True,
     url='http://opensource.washingtontimes.com/projects/django-categories/',
-    packages=['categories', 'editor'],
+    packages=find_packages(),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Django',
