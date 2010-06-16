@@ -10,7 +10,13 @@ from settings import CACHE_VIEW_LENGTH
 def category_detail(request, path, with_stories=False, 
     template_name='categories/category_detail.html', extra_context={}):
     path_items = path.strip('/').split('/')
-    category = get_object_or_404(Category,
+    if len(path_items) >= 2:
+        category = get_object_or_404(Category,
+            slug__iexact = path_items[-1],
+            level = len(path_items)-1,
+            parent__slug__iexact=path_items[-2])
+    else:
+        category = get_object_or_404(Category,
             slug__iexact = path_items[-1],
             level = len(path_items)-1)
     
