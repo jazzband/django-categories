@@ -12,7 +12,7 @@ def get_category(category_string):
     """
     Convert a string, including a path, and return the Category object
     """
-    if category.startswith('"') and category.endswith('"'):
+    if category_string.startswith('"') and category_string.endswith('"'):
         category = category_string[1:-1]
     else:
         category = category_string
