@@ -105,7 +105,7 @@ for model,modeladmin in admin.site._registry.items():
     if model in registry.values():
         admin.site.unregister(model)
         admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
-            'fieldsets': modeladmin.fieldsets + (('Categories',{
+            'fieldsets': getattr(modeladmin, 'fieldsets', ()) + (('Categories',{
                 'fields': ('category','categories'),
             }),)
         }))
