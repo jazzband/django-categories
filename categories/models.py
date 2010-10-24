@@ -7,11 +7,11 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.utils.translation import ugettext as _
 
-import mptt
+from mptt.models import MPTTModel
 
 from settings import RELATION_MODELS, RELATIONS
 
-class Category(models.Model):
+class Category(MPTTModel):
     parent = models.ForeignKey('self', 
         blank=True, 
         null=True, 
@@ -45,18 +45,16 @@ class Category(models.Model):
         ancestors = list(self.get_ancestors()) + [self,]
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
         
-    class Meta:
+    class MPTTMeta:
         verbose_name_plural = 'categories'
         unique_together = ('parent', 'name')
-        ordering = ('tree_id','lft')
+        ordering = ('tree_id', 'lft')
+        order_insertion_by = 'name'
 
     def __unicode__(self):
         ancestors = self.get_ancestors()
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
         
-try: mptt.register(Category, order_insertion_by=['name'])
-except: pass
-
 if RELATION_MODELS:
     category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
     class CategoryRelationManager(models.Manager):
