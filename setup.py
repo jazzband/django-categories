@@ -25,7 +25,6 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Django',
-        'License :: OSI Approved :: Apache License',
     ],
     install_requires = reqs,
     dependency_links = []
