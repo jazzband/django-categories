@@ -38,19 +38,23 @@ class Category(MPTTModel):
         default="",
         help_text="(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;")
     
-    
     def get_absolute_url(self):
         """Return a path"""
         prefix = reverse('categories_tree_list')
         ancestors = list(self.get_ancestors()) + [self,]
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
-        
+    
+    class Meta:
+        verbose_name_plural = 'categories'
+        unique_together = ('parent', 'name')
+        ordering = ('tree_id', 'lft')
+    
     class MPTTMeta:
         verbose_name_plural = 'categories'
         unique_together = ('parent', 'name')
         ordering = ('tree_id', 'lft')
         order_insertion_by = 'name'
-
+        
     def __unicode__(self):
         ancestors = self.get_ancestors()
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
