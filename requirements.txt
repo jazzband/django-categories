@@ -1,1 +1,1 @@
-django-mptt==0.4.1
+django-mptt==0.4.2
