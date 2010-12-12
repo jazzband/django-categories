@@ -4,18 +4,16 @@ from django import forms, template
 from django.contrib import admin
 from django.contrib.admin import helpers
 from django.contrib.admin.util import unquote
-from django.db import models
 from django.db.models import loading
 from django.forms.formsets import all_valid
 from django.forms.models import modelform_factory, inlineformset_factory
-from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from django.utils.encoding import force_unicode
 from django.utils.functional import curry
 from django.utils.translation import ugettext as _
 
-from feincms import settings
-from feincms.models import Region
+import settings
 
 FRONTEND_EDITING_MATCHER = re.compile(r'(\d+)/(\w+)/(\d+)')
 
@@ -46,9 +44,6 @@ class ItemEditor(admin.ModelAdmin):
         """
         This view is used strictly for frontend editing -- it is not used inside the
         standard administration interface.
-
-        The code in feincms/templates/admin/feincms/fe_tools.html knows how to call
-        this view correctly.
         """
 
         try:
@@ -57,7 +52,7 @@ class ItemEditor(admin.ModelAdmin):
         except:
             raise Http404
 
-        form_class_base = getattr(model_cls, 'feincms_item_editor_form', ItemEditorForm)
+        form_class_base = getattr(model_cls, 'item_editor_form', ItemEditorForm)
 
         ModelForm = modelform_factory(model_cls,
             exclude=('parent', 'region', 'ordering'),
@@ -81,7 +76,7 @@ class ItemEditor(admin.ModelAdmin):
             if form.is_valid():
                 obj = form.save()
 
-                return render_to_response('admin/feincms/fe_editor_done.html', {
+                return render_to_response('admin/editor/editor_done.html', {
                     'content': obj.render(request=request),
                     'identifier': obj.fe_identifier(),
                     'MEDIA_PATH': settings.MEDIA_PATH,
@@ -90,7 +85,7 @@ class ItemEditor(admin.ModelAdmin):
         else:
             form = ModelForm(instance=obj, prefix=content_type)
 
-        return render_to_response('admin/feincms/fe_editor.html', {
+        return render_to_response('admin/editor/editor.html', {
             'frontend_editing': True,
             'title': _('Change %s') % force_unicode(model_cls._meta.verbose_name),
             'object': obj,
@@ -100,7 +95,7 @@ class ItemEditor(admin.ModelAdmin):
             'MEDIA_PATH': settings.MEDIA_PATH,
             'MEDIA_HOTLINKING': settings.MEDIA_HOTLINKING,
             }, context_instance=template.RequestContext(request,
-                processors=self.model.feincms_item_editor_context_processors))
+                processors=self.model.item_editor_context_processors))
 
     def change_view(self, request, object_id, extra_context=None):
         self.model._needs_content_types()
@@ -121,9 +116,9 @@ class ItemEditor(admin.ModelAdmin):
         inline_formset_types = [(
             content_type,
             inlineformset_factory(self.model, content_type, extra=1,
-                form=getattr(content_type, 'feincms_item_editor_form', ItemEditorForm),
+                form=getattr(content_type, 'item_editor_form', ItemEditorForm),
                 formfield_callback=self._formfield_callback(request=request))
-            ) for content_type in self.model._feincms_content_types]
+            ) for content_type in self.model._editor_content_types]
 
         opts = self.model._meta
         try:
@@ -165,17 +160,17 @@ class ItemEditor(admin.ModelAdmin):
 
         # Prepare mapping of content types to their prettified names
         content_types = []
-        for content_type in self.model._feincms_content_types:
+        for content_type in self.model._editor_content_types:
             content_name = content_type._meta.verbose_name
             content_types.append((content_name, content_type.__name__.lower()))
 
         context = {}
 
-        if hasattr(self.model, '_feincms_templates'):
+        if hasattr(self.model, '_editor_templates'):
             if 'template_key' not in self.show_on_top:
                 self.show_on_top = ['template_key'] + list(self.show_on_top)
 
-            context['available_templates'] = self.model._feincms_templates
+            context['available_templates'] = self.model._editor_templates
 
         context.update({
             'title': _('Change %s') % force_unicode(opts.verbose_name),
@@ -197,9 +192,9 @@ class ItemEditor(admin.ModelAdmin):
     def render_item_editor(self, request, object, context):
         opts = self.model._meta
         return render_to_response([
-            'admin/feincms/%s/%s/item_editor.html' % (opts.app_label, opts.object_name.lower()),
-            'admin/feincms/%s/item_editor.html' % opts.app_label,
-            'admin/feincms/item_editor.html',
+            'admin/editor/%s/%s/item_editor.html' % (opts.app_label, opts.object_name.lower()),
+            'admin/editor/%s/item_editor.html' % opts.app_label,
+            'admin/editor/item_editor.html',
             ], context, context_instance=template.RequestContext(request,
-                processors=self.model.feincms_item_editor_context_processors))
+                processors=self.model.item_editor_context_processors))
 

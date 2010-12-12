@@ -8,7 +8,6 @@ from django.utils.translation import ugettext_lazy as _
 
 import settings
 
-
 def django_boolean_icon(field_val, alt_text=None, title=None):
     """
     Return HTML code for a nice representation of true/false.
@@ -146,12 +145,19 @@ class TreeEditor(admin.ModelAdmin):
         Generate a short title for a page, indent it depending on
         the page's depth in the hierarchy.
         """
-        r = '''<span onclick="return page_tree_handler('%d')" id="page_marker-%d"
-            class="page_marker" style="width: %dpx;">&nbsp;</span>&nbsp;''' % (
-                item.id, item.id, 14+item.level*14)
-
+        if not item.is_leaf_node():
+            prefix = u"%s\u25bc" % ("&emsp;" * (item.level+1))
+        else:
+            prefix = u"%s&emsp;" % ("&emsp;" * (item.level+1))
+        
+        r = u'<span id="page_marker-%d" style="width: %dpx;">%s</span>&nbsp;' % (
+                item.id, 14+item.level*14, prefix)
         if hasattr(item, 'short_title'):
-            return mark_safe(r + item.short_title())
+            if callable(item.short_title):
+                short_title = item.short_title()
+            else:
+                short_title = item.short_title
+            return mark_safe(r + short_title)
         return mark_safe(r + unicode(item))
     indented_short_title.short_description = _('title')
     indented_short_title.allow_tags = True

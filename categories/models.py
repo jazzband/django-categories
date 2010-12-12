@@ -38,6 +38,10 @@ class Category(MPTTModel):
         default="",
         help_text="(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;")
     
+    @property
+    def short_title(self):
+        return self.name
+    
     def get_absolute_url(self):
         """Return a path"""
         prefix = reverse('categories_tree_list')

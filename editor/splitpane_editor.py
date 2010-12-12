@@ -11,7 +11,7 @@ from django.utils.encoding import force_unicode, smart_unicode
 from django.utils.text import capfirst
 from django.utils.translation import ugettext as _
 
-from feincms import settings
+import settings
 
 
 class SplitPaneEditor(admin.ModelAdmin):
