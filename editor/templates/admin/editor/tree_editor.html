@@ -5,7 +5,8 @@
 	<script type="text/javascript">
 	(function($) {
 		$(document).ready(function()  {
-		treeTable = $("#result_list").treeTable({initialState : "expanded"});
+		//treeTable = $("#result_list").treeTable({initialState : "expanded"});
+		treeTable = $("#result_list").treeTable({initialState : "collapsed"});
 		function toggleChildren() {
 			this.checked = event.currentTarget.checked;
 			var row = this.parentNode.parentNode.parentNode;
