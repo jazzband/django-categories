@@ -115,59 +115,25 @@ def ajax_editable_boolean(attr, short_description):
 
 class TreeEditor(admin.ModelAdmin):
     class Media:
-        css = {}
+        css = {'all':(settings.MEDIA_PATH + "jquery.treeTable.css",)}
         js = []
-        if settings.MEDIA_HOTLINKING:
-            js.extend(( "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", ))
-        else:
-            js.extend(( settings.STATIC_URL + "jquery-1.4.2.min.js", ))
 
-        js.extend(( settings.STATIC_URL + "ie_compat.js",
-                    settings.STATIC_URL + "jquery.cookie.js" ,
-                    settings.STATIC_URL + "toolbox.js",
-                    settings.STATIC_URL + "page_toolbox.js",
-                    ))
+        js.extend((settings.MEDIA_PATH + "jquery.treeTable.js",))
 
     def __init__(self, *args, **kwargs):
         super(TreeEditor, self).__init__(*args, **kwargs)
 
         self.list_display = list(self.list_display)
-
-        if 'indented_short_title' not in self.list_display:
-            if self.list_display[0] == 'action_checkbox':
-                self.list_display[1] = 'indented_short_title'
-            else:
-                self.list_display[0] = 'indented_short_title'
-        self.list_display_links = ('indented_short_title',)
+        
+        if 'action_checkbox' in self.list_display:
+            self.list_display.remove('action_checkbox')
 
         opts = self.model._meta
         self.change_list_template = [
             'admin/%s/%s/editor/tree_editor.html' % (opts.app_label, opts.object_name.lower()),
             'admin/%s/editor/tree_editor.html' % opts.app_label,
             'admin/editor/tree_editor.html',
-            ]
-
-    def indented_short_title(self, item):
-        """
-        Generate a short title for a page, indent it depending on
-        the page's depth in the hierarchy.
-        """
-        if not item.is_leaf_node():
-            prefix = u"%s\u25bc" % ("&emsp;" * (item.level+1))
-        else:
-            prefix = u"%s&emsp;" % ("&emsp;" * (item.level+1))
-        
-        r = u'<span id="page_marker-%d" style="width: %dpx;">%s</span>&nbsp;' % (
-                item.id, 14+item.level*14, prefix)
-        if hasattr(item, 'short_title'):
-            if callable(item.short_title):
-                short_title = item.short_title()
-            else:
-                short_title = item.short_title
-            return mark_safe(r + short_title)
-        return mark_safe(r + unicode(item))
-    indented_short_title.short_description = _('title')
-    indented_short_title.allow_tags = True
+        ]
 
     def _collect_editable_booleans(self):
         """
