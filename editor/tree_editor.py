@@ -1,12 +1,20 @@
 from django.conf import settings as django_settings
 from django.contrib import admin
 from django.contrib.admin.util import unquote
+from django.contrib.admin.views.main import ChangeList
 from django.http import Http404, HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django.utils import simplejson
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 import settings
+
+class TreeChangeList(ChangeList):
+    def get_ordering(self):
+        if isinstance(self.model_admin, TreeEditor):
+            return '', ''
+        return super(ChangeList, self).get_ordering()
+
 
 def django_boolean_icon(field_val, alt_text=None, title=None):
     """
@@ -237,7 +245,13 @@ class TreeEditor(admin.ModelAdmin):
                 d.append(b)
 
         return HttpResponse(simplejson.dumps(d), mimetype="application/json")
-
+    #
+    def get_changelist(self, request, **kwargs):
+        """
+        Returns the ChangeList class for use on the changelist page.
+        """
+        return TreeChangeList
+    
     def changelist_view(self, request, extra_context=None, *args, **kwargs):
         """
         Handle the changelist view, the django view for the model instances
@@ -308,19 +322,3 @@ class TreeEditor(admin.ModelAdmin):
         return u' '.join(self._actions_column(page))
     actions_column.allow_tags = True
     actions_column.short_description = _('actions')
-
-
-# !!!: Hack alert! Patching ChangeList, check whether this still applies post Django 1.1
-# Note: Patch lifted from http://code.djangoproject.com/ticket/4926 (ticket_4926_changelist_multifield_ordering.diff)
-
-# By default, django only orders by first ordering field in admin. We patch
-# up the ChangeList here so it returns "use default ordering" for any Page
-# lookups. That way, we can order by tree_id + lft and get the site's natural
-# page structure.
-from django.contrib.admin.views import main
-class ChangeList(main.ChangeList):
-    def get_ordering(self):
-        if isinstance(self.model_admin, TreeEditor):
-            return '', ''
-        return super(ChangeList, self).get_ordering()
-main.ChangeList = ChangeList
