@@ -76,7 +76,7 @@ class CategoryAdminForm(forms.ModelForm):
 
 class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     form = CategoryAdminForm
-    list_display = ('name',)
+    list_display = ('name','order','alternate_title',)
     search_fields = (('name',))
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
