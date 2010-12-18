@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.views.decorators.cache import cache_page
@@ -7,7 +7,7 @@ from categories.models import Category
 from settings import CACHE_VIEW_LENGTH
 
 @cache_page(CACHE_VIEW_LENGTH)
-def category_detail(request, path, with_stories=False, 
+def category_detail(request, path, 
     template_name='categories/category_detail.html', extra_context={}):
     path_items = path.strip('/').split('/')
     if len(path_items) >= 2:
