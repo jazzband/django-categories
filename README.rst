@@ -1,29 +1,35 @@
-This app attempts to provide a generic category system that multiple apps could use. It uses MPTT for the tree storage and provides a custom admin for better visualization (copied and modified from feinCMS).
+Django Categories grew out of our need to provide a basic hierarchical taxonomy management system that multiple applications could use independently or in concert.
 
-Goals of the project
+As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
 
-* Have a generic method for handling hierarchical data
+Features of the project
+=======================
 
-* Allow multiple independent trees, or just one tree
+**Multiple trees, or a single tree**
+	You can treat all the records as a single tree, shared by all the applications. You can also treat each of the top level records as individual trees, for different apps or uses.
 
-* Have a widget for use in forms
+**Easy handling of hierarchical data**
+	We use 
+	`Django MPTT <http://pypi.python.org/pypi/django-mptt>`_ to manage the data efficiently and provide the extra access functions.
 
-* In templates:
+**Easy importation of data**
+	Import a tree or trees of space- or tab-indented data with a Django management command.
 
-	+ Show one level of a tree 
-		- All root categories
-		- Just children of a specified category
+**Metadata for better SEO on web pages**
+	Include all the metadata you want for easy inclusion on web pages.
 
-	+ Show multiple levels
-		- Ancestors of category, category and all children of category
-		- Category and its children
+**Link uncategorized objects to a category**
+	Attach any number of objects to a category, even if the objects themselves aren't categorized.
 
-	+ An inclusion tag for common methods of formatting categories
-		- Grandparent :: Parent :: Child <-- current node
-			- Add relative links for ancestors
-		- Unordered list:
-			* Grandparent
-			    * Parent <-- current node
-			        * Child 1
-			        * Child 2
-			        * Child n
+**Hierarchical Admin**
+	Shows the data in typical tree form with disclosure triangles
+
+**Template Helpers**
+	Easy ways for displaying the tree data in templates:
+
+	**Show one level of a tree**
+		All root categories or just children of a specified category
+	
+	**Show multiple levels**
+		Ancestors of category, category and all children of category or  a category and its children
+
