@@ -1,2 +1,5 @@
+{% extends 'categories/base.html' %}
+{% block content %}
 <h2>Categories</h2>
 <ul>{% for category in object_list %}<li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>{% endfor %}</ul>
+{% endblock %}
