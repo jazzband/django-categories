@@ -1,0 +1,217 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Template Tags &mdash; Django Categories v0.4.8 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.4.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Categories v0.4.8 documentation" href="index.html" />
+    <link rel="prev" title="Registering Models" href="registering_models.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>Django Categories v0.4.8 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Template Tags</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="registering_models.html" title="Registering Models" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Template Tags</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-top-level-categories">get_top_level_categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-path-as-ul">display_path_as_ul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-category-drilldown">get_category_drilldown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-drilldown-as-ul">display_drilldown_as_ul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#breadcrumbs-tag">breadcrumbs tag</a></li>
+</ul>
+</li>
+</ul>
+
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="_sources/templatetags.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="template-tags">
+<h1>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-top-level-categories">
+<h2>get_top_level_categories<a class="headerlink" href="#get-top-level-categories" title="Permalink to this headline">¶</a></h2>
+<p>Retrieves an alphabetical list of all the categories.</p>
+<p>Syntax:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_top_level_categories</span> <span class="k">as</span> <span class="nv">categories</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Returns an list of categories <tt class="docutils literal"><span class="pre">[&lt;category&gt;,</span> <span class="pre">&lt;category&gt;,</span> <span class="pre">&lt;category,</span> <span class="pre">...]</span></tt></p>
+</div>
+<div class="section" id="display-path-as-ul">
+<h2>display_path_as_ul<a class="headerlink" href="#display-path-as-ul" title="Permalink to this headline">¶</a></h2>
+<p>Render the category with ancestors, but no children using the <tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt> template.</p>
+<p>Example:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_path_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_path_as_ul</span> <span class="nv">category_obj</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/&quot;</span><span class="nt">&gt;</span>Top<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-category-drilldown">
+<h2>get_category_drilldown<a class="headerlink" href="#get-category-drilldown" title="Permalink to this headline">¶</a></h2>
+<p>Retrieves the specified category, its ancestors and its immediate children
+as an iterable.</p>
+<p>Example:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_category_drilldown</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="k">as</span> <span class="nv">family</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_category_drilldown</span> <span class="nv">category_obj</span> <span class="k">as</span> <span class="nv">family</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Sets <tt class="docutils literal"><span class="pre">family</span></tt> to:</p>
+<div class="highlight-python"><pre>[Grandparent, Parent, Child 1, Child 2, Child n]</pre>
+</div>
+</div>
+<div class="section" id="display-drilldown-as-ul">
+<h2>display_drilldown_as_ul<a class="headerlink" href="#display-drilldown-as-ul" title="Permalink to this headline">¶</a></h2>
+<p>Render the category with ancestors, but no children using the
+<tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt> template.</p>
+<p>Example:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_drilldown_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_drilldown_as_ul</span> <span class="nv">category_obj</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/&quot;</span><span class="nt">&gt;</span>Top<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/parent/&quot;</span><span class="nt">&gt;</span>Parent<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/parent/child1&quot;</span><span class="nt">&gt;</span>Child1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/parent/child2&quot;</span><span class="nt">&gt;</span>Child2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/parent/child3&quot;</span><span class="nt">&gt;</span>Child3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="breadcrumbs-tag">
+<h2>breadcrumbs tag<a class="headerlink" href="#breadcrumbs-tag" title="Permalink to this headline">¶</a></h2>
+<p>Render breadcrumbs, using the <tt class="docutils literal"><span class="pre">categories/breadcrumbs.html</span></tt> template, using the optional <tt class="docutils literal"><span class="pre">separator</span></tt> argument.</p>
+<p>Example:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="nv">category_obj</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;</span> / Parent
+</pre></div>
+</div>
+<p>You can alter the separator used in the template by adding a string argument to be the separator:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="nv">category_obj</span> <span class="s2">&quot;::&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;</span> :: Parent
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2010, CoreyOordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		Template Tags
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
+  </body>
+</html>
