@@ -102,7 +102,7 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 for model,modeladmin in admin.site._registry.items():
-    if model in registry.values():
+    if model in registry.values() and modeladmin.fieldsets:
         admin.site.unregister(model)
         admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
             'fieldsets': getattr(modeladmin, 'fieldsets', ()) + (('Categories',{
