@@ -103,9 +103,18 @@ admin.site.register(Category, CategoryAdmin)
 
 for model,modeladmin in admin.site._registry.items():
     if model in registry.values() and modeladmin.fieldsets:
-        admin.site.unregister(model)
-        admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
-            'fieldsets': getattr(modeladmin, 'fieldsets', ()) + (('Categories',{
-                'fields': [cat.split('.')[1] for cat in registry]
-            }),)
-        }))
+        fieldsets = getattr(modeladmin, 'fieldsets', ())
+        fields = [cat.split('.')[1] for cat in registry]
+        # check each field to see if already defined
+        for cat in fields:
+            for k,v in fieldsets:
+                if cat in v['fields']:
+                    fields.remove(cat)
+        # if there are any fields left, add them under the categories fieldset
+        if len(fields) > 0:
+            admin.site.unregister(model)
+            admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
+                'fieldsets': fieldsets + (('Categories',{
+                    'fields': fields
+                }),)
+            }))
