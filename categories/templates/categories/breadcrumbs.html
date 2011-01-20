@@ -1,0 +1,5 @@
+{% for item in category.get_ancestors %}
+<a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+{{ separator }}
+{% endfor %}
+{{ category.name }}

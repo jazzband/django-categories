@@ -44,36 +44,44 @@ def get_category(category_string):
 class CategoryDrillDownNode(template.Node):
     
     def __init__(self, category, varname):
-        self.category = get_category(category)
+        self.category = template.Variable(category)
         self.varname = varname
     
     def render(self, context):
         try:
-            if self.category is not None:
-                context[self.varname] = drilldown_tree_for_node(self.category)
+            category = self.category.resolve(context)
+        except template.VariableDoesNotExist:
+            category = self.category.var
+        try:
+            if category is not None:
+                context[self.varname] = drilldown_tree_for_node(category)
             else:
-                context[self.varname] = None
+                context[self.varname] = []
         except Category.DoesNotExist:
-            context[self.varname] = None
+            context[self.varname] = []
         return ''
 
-
+@register.tag
 def get_category_drilldown(parser, token):
     """
-    Retrieves the specified category, it's ancestors and its children as an iterable list.
+    Retrieves the specified category, its ancestors and its immediate children
+    as an iterable.
     
     Syntax::
     
-        {% get_category "category name" as varname %}
+        {% get_category_drilldown "category name" as varname %}
         
     Example::
     
-        {% get_category "/Grandparent/Parent" as family %}
+        {% get_category_drilldown "/Grandparent/Parent" as family %}
     
-    Returns an iterable with::
+    or ::
+    
+        {% get_category_drilldown category_obj as family %}
+    
+    Sets family to::
     
         Grandparent, Parent, Child 1, Child 2, Child n
-    
     """
     bits = token.contents.split()
     error_str = '%(tagname)s tag should be in the format {%% %(tagname)s ' \
@@ -84,51 +92,117 @@ def get_category_drilldown(parser, token):
     varname = bits[3]
     return CategoryDrillDownNode(category, varname)
 
-register.tag(get_category_drilldown)
+@register.inclusion_tag('categories/breadcrumbs.html')
+def breadcrumbs(category,separator="/"):
+    """
+    Render breadcrumbs, using the ``categories/breadcrumbs.html`` template, 
+    using the optional ``separator`` argument.
+    """
+    if isinstance(category, Category):
+        cat = category
+    else:
+        cat = get_category(category)
+    
+    return {'category': cat, 'separator': separator}
 
-@register.inclusion_tag('categories/ancestors_ul.html')
+@register.inclusion_tag('categories/ul_tree.html')
+def display_drilldown_as_ul(category):
+    """
+    Render the category with ancestors, but no children using the 
+    ``categories/ul_tree.html`` template.
+    
+    Example::
+    
+        {% display_drilldown_as_ul "/Grandparent/Parent" %}
+    
+    or ::
+    
+        {% display_drilldown_as_ul category_obj %}
+    
+    Returns::
+    
+        <ul>
+          <li><a href="/categories/">Top</a>
+          <ul>
+            <li><a href="/categories/grandparent/">Grandparent</a>
+            <ul>
+              <li><a href="/categories/grandparent/parent/">Parent</a>
+              <ul>
+                <li><a href="/categories/grandparent/parent/child1">Child1</a></li>
+                <li><a href="/categories/grandparent/parent/child2">Child2</a></li>
+                <li><a href="/categories/grandparent/parent/child3">Child3</a></li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+          </ul>
+          </li>
+        </ul>
+    """
+    if isinstance(category, Category):
+        cat = category
+    else:
+        cat = get_category(category)
+    
+    return {'category': cat, 'path': drilldown_tree_for_node(cat) or []}
+
+@register.inclusion_tag('categories/ul_tree.html')
 def display_path_as_ul(category):
     """
-    Display the category with ancestors, but no children.
+    Render the category with ancestors, but no children using the 
+    ``categories/ul_tree.html`` template.
     
     Example::
     
         {% display_path_as_ul "/Grandparent/Parent" %}
     
+    or ::
+    
+        {% display_path_as_ul category_obj %}
+    
     Returns::
     
-        <ul><li>Grandparent<ul><li>Parent</li></ul></li></ul>
+        <ul>
+            <li><a href="/categories/">Top</a>
+            <ul>
+                <li><a href="/categories/grandparent/">Grandparent</a></li>
+            </ul>
+            </li>
+        </ul>
     """
-    cat = get_category(category)
+    if isinstance(category, Category):
+        cat = category
+    else:
+        cat = get_category(category)
     
-    return {}
-    
-    
+    return {'category': cat, 'path': cat.get_ancestors() or []}
+
 class TopLevelCategoriesNode(template.Node):
     def __init__(self, varname):
         self.varname = varname
-        
+    
     def render(self, context):
         context[self.varname] = Category.objects.filter(parent=None).order_by('name')
         return ''
-        
 
+@register.tag
 def get_top_level_categories(parser, token):
     """
-    Retrives an alphabetical list of all the categories with with no parents.
+    Retrieves an alphabetical list of all the categories with with no parents.
     
     Syntax::
     
         {% get_top_level_categories as categories %}
-        
-    Returns an list of categories
     
+    Returns an list of categories [<category>, <category>, <category, ...]
     """
     bits = token.contents.split()
     if len(bits) != 3:
-        raise template.TemplateSyntaxError, "Tag %s must have 2 arguments." % bits[0]
+        raise template.TemplateSyntaxError(
+            "Usage: {%% %s as <variable> %%}" % bits[0]
+        )
     if bits[1] != 'as':
-        raise template.TemplateSyntaxError, "First argyment must be 'as'."
+        raise template.TemplateSyntaxError(
+            "Usage: {%% %s as <variable> %%}" % bits[0]
+        )
     return TopLevelCategoriesNode(bits[2])
-    
-register.tag(get_top_level_categories)

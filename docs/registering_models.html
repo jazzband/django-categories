@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -5,25 +6,27 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Registering Models &mdash; Django Categories v0.4.4 documentation</title>
+    <title>Registering Models &mdash; Django Categories v0.4.8 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.4.4',
-        COLLAPSE_MODINDEX: false,
+        VERSION:     '0.4.8',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.4.4 documentation" href="index.html" /> 
+    <link rel="top" title="Django Categories v0.4.8 documentation" href="index.html" />
+    <link rel="prev" title="Using categories in templates" href="usage.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.4.4 documentation</p>
+	<p>Django Categories v0.4.8 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Registering Models</h1></div>
@@ -31,6 +34,7 @@
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
 			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="usage.html" title="Using categories in templates" accesskey="P">previous</a></div>
 		</li>
 	</ul>
 </div>
@@ -38,9 +42,14 @@
 <div id="sphinxsidebar">
   <div class="sphinxsidebarwrapper">
 	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
-	<ul>
-<li class="toctree-l1"><a class="reference external" href="usage.html">Ways to use the categories app</a></li>
-<li class="toctree-l1"><a class="reference external" href="usage.html#using-categories-in-templates">Using categories in templates</a></li>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Registering Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#registering-a-many-to-one-relationship">Registering a many-to-one relationship</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registering-a-many-to-many-relationship">Registering a many-to-many relationship</a></li>
+</ul>
+</li>
 </ul>
 
       <h3>This Page</h3>
@@ -77,18 +86,67 @@
             
   <div class="section" id="registering-models">
 <h1>Registering Models<a class="headerlink" href="#registering-models" title="Permalink to this headline">¶</a></h1>
-<p>You can register models with the</p>
-<p>import categories
-categories.register_fk(MyModel)</p>
-<p>or</p>
-<p>import categories
-categories.register_m2m(MyModel)</p>
-<p>If you want more than one field on a model you have to have some extra arguments</p>
-<blockquote>
-import categories
-categories.register_fk(MyModel, &#8216;primary_category&#8217;)
-categories.register_fk(MyModel, &#8216;secondary_category&#8217;, {&#8216;related_name&#8217;:&#8217;mymodel_sec_set&#8217;})</blockquote>
+<div class="section" id="registering-a-many-to-one-relationship">
+<h2>Registering a many-to-one relationship<a class="headerlink" href="#registering-a-many-to-one-relationship" title="Permalink to this headline">¶</a></h2>
+<p>To create a many-to-one relationship (foreign key) between a model and Django Categories, you register your model with the <tt class="docutils literal"><span class="pre">register_fk</span></tt> function.</p>
+<dl class="function">
+<dt id="register_fk">
+<tt class="descname">register_fk</tt><big>(</big><em>model, field_name='category', extra_params={}]</em><big>)</big><a class="headerlink" href="#register_fk" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>model</strong> &#8211; The Django Model to link to Django Categories</li>
+<li><strong>field_name</strong> &#8211; Optional name for the field <strong>default:</strong> category</li>
+<li><strong>extra_params</strong> &#8211; Optional dictionary of extra parameters passed to the <tt class="docutils literal"><span class="pre">ForeignKey</span></tt> class.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Example, in your <tt class="docutils literal"><span class="pre">models.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">categories</span>
+<span class="n">categories</span><span class="o">.</span><span class="n">register_fk</span><span class="p">(</span><span class="n">MyModel</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want more than one field on a model you have to have some extra arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">categories</span>
+<span class="n">categories</span><span class="o">.</span><span class="n">register_fk</span><span class="p">(</span><span class="n">MyModel</span><span class="p">,</span> <span class="s">&#39;primary_category&#39;</span><span class="p">)</span>
+<span class="n">categories</span><span class="o">.</span><span class="n">register_fk</span><span class="p">(</span><span class="n">MyModel</span><span class="p">,</span> <span class="s">&#39;secondary_category&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;related_name&#39;</span><span class="p">:</span><span class="s">&#39;mymodel_sec_cat&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
 <p>The <tt class="docutils literal"><span class="pre">extra_args</span></tt> allows you to specify the related_name of one of the fields so it doesn&#8217;t clash.</p>
+</div>
+<div class="section" id="registering-a-many-to-many-relationship">
+<h2>Registering a many-to-many relationship<a class="headerlink" href="#registering-a-many-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+<p>To create a many-to-many relationship between a model and Django Categories, you register your model with the <tt class="docutils literal"><span class="pre">register_m2m</span></tt> function.</p>
+<dl class="function">
+<dt id="register_m2m">
+<tt class="descname">register_m2m</tt><big>(</big><em>model, field_name='categories', extra_params={}]</em><big>)</big><a class="headerlink" href="#register_m2m" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>model</strong> &#8211; The Django Model to link to Django Categories</li>
+<li><strong>field_name</strong> &#8211; Optional name for the field <strong>default:</strong> categories</li>
+<li><strong>extra_params</strong> &#8211; Optional dictionary of extra parameters passed to the <tt class="docutils literal"><span class="pre">ManyToManyField</span></tt> class.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Example, in your <tt class="docutils literal"><span class="pre">models.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">categories</span>
+<span class="n">categories</span><span class="o">.</span><span class="n">register_m2m</span><span class="p">(</span><span class="n">MyModel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -98,7 +156,7 @@ categories.register_fk(MyModel, &#8216;secondary_category&#8217;, {&#8216;relate
     <div class="footer">
     <p>
       &copy; Copyright 2010, CoreyOordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
 	</p>
     </div>
       <div class="clearer"></div>

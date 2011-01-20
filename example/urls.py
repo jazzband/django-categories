@@ -25,11 +25,11 @@ urlpatterns = patterns('',
     (r'^static/categories/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': ROOT_PATH + '/categories/media/categories/'}),
 
-    (r'^static/editor/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': ROOT_PATH + '/editor/media/editor/',
-         'show_indexes':True}),
+    # (r'^static/editor/(?P<path>.*)$', 'django.views.static.serve',
+    #     {'document_root': ROOT_PATH + '/editor/media/editor/',
+    #      'show_indexes':True}),
 
      (r'^static/(?P<path>.*)$', 'django.views.static.serve',
-         {'document_root': ROOT_PATH + '/example/static/'}),
+         {'document_root': os.path.join(ROOT_PATH, 'example', 'static')}),
 
 )

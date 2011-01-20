@@ -9,4 +9,6 @@ media/js/*.r*.js
 media/css/*.r*.css
 *DS_Store
 *.egg-info
-docs/_build
+doc_src/_build
+MANIFEST
+dist/

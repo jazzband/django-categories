@@ -3,7 +3,7 @@ import categories
 import os
 
 try:
-    long_description = open('README.txt').read()
+    long_description = open('README.rst').read()
 except IOError:
     long_description = ''
 

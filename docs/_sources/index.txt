@@ -1,10 +1,8 @@
-.. Django Categories documentation master file, created by
-   sphinx-quickstart on Tue Oct  6 07:53:33 2009.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+===========================================
+Django Categories v|version| documentation!
+===========================================
 
-Welcome to Django Categories's documentation!
-=============================================
+
 
 Contents:
 
@@ -12,7 +10,10 @@ Contents:
    :maxdepth: 2
    :glob:
 
+   getting_started
    usage
+   registering_models
+   templatetags
 
 Indices and tables
 ==================

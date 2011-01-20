@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -5,34 +6,37 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Ways to use the categories app &mdash; Django Categories v0.4.4 documentation</title>
+    <title>Using categories in templates &mdash; Django Categories v0.4.8 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.4.4',
-        COLLAPSE_MODINDEX: false,
+        VERSION:     '0.4.8',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.4.4 documentation" href="index.html" />
-    <link rel="prev" title="Welcome to Django Categories’s documentation!" href="index.html" /> 
+    <link rel="top" title="Django Categories v0.4.8 documentation" href="index.html" />
+    <link rel="next" title="Registering Models" href="registering_models.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.4.4 documentation</p>
+	<p>Django Categories v0.4.8 documentation</p>
 </div>
 <div id="header">
-	<div id="title"><h1>Ways to use the categories app</h1></div>
+	<div id="title"><h1>Using categories in templates</h1></div>
 	<ul id="headerButtons">
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
 			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
-			<div class="headerButton"><a href="index.html" title="Welcome to Django Categories’s documentation!" accesskey="P">previous</a></div>
+			<div class="headerButton"><a href="registering_models.html" title="Registering Models" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="getting_started.html" title="Getting Started" accesskey="P">previous</a></div>
 		</li>
 	</ul>
 </div>
@@ -41,8 +45,13 @@
   <div class="sphinxsidebarwrapper">
 	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
 	<ul class="current">
-<li class="toctree-l1 current"><a class="current reference external" href="">Ways to use the categories app</a></li>
-<li class="toctree-l1"><a class="reference external" href="#using-categories-in-templates">Using categories in templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Using categories in templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#filters">Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template Tags</a></li>
 </ul>
 
       <h3>This Page</h3>
@@ -77,39 +86,7 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="ways-to-use-the-categories-app">
-<h1>Ways to use the categories app<a class="headerlink" href="#ways-to-use-the-categories-app" title="Permalink to this headline">¶</a></h1>
-<p>The categories app is a generalized storage mechanism for hierarchical data. You can use it in two ways:</p>
-<ol class="arabic">
-<li><p class="first">As storage for one tree of categories, e.g.:</p>
-<div class="highlight-python"><pre>Top Category 1
-  Subcategory 1-1
-    Subcategory 1-2
-      subcategory 1-2-1
-Top Category 2
-  Subcategory 2-1</pre>
-</div>
-</li>
-<li><p class="first">As a storage of several trees of categories, e.g.:</p>
-<div class="highlight-python"><pre>Model 1
-  Top Category 1
-    Subcategory 1-1
-      Subcategory 1-2
-        subcategory 1-2-1
-  Top Category 2
-    Subcategory 2-1
-Model 2
-  Super Category 1
-    Super Subcategory 1-1
-      Super Subcategory 1-2
-        super subcategory 1-2-1
-  Super Category 2
-    Super Subcategory 2-1</pre>
-</div>
-</li>
-</ol>
-</div>
-<div class="section" id="using-categories-in-templates">
+  <div class="section" id="using-categories-in-templates">
 <h1>Using categories in templates<a class="headerlink" href="#using-categories-in-templates" title="Permalink to this headline">¶</a></h1>
 <p>To use the template tags::</p>
 <div class="highlight-python"><pre>{% import category_tags %}</pre>
@@ -163,13 +140,13 @@ on the right:</p>
     <div class="footer">
     <p>
       &copy; Copyright 2010, CoreyOordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
 	</p>
     </div>
       <div class="clearer"></div>
     </div>
 	<div id="breadcrumbs">
-		Ways to use the categories app
+		Using categories in templates
 		</ul>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>

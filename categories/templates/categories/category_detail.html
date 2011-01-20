@@ -1,4 +1,17 @@
+{% extends 'categories/base.html' %}
+{% load category_tags %}
+{% block content %}
+<p><tt>breadcrumbs category</tt> result: </p>
+{% breadcrumbs category %}
+<p><tt>breadcrumbs category ">"</tt> result: </p>
+{% breadcrumbs category ">" %}
+<p><tt>display_path_as_ul category</tt> result:</p>
+{% display_path_as_ul category %}
+<p><tt>display_drilldown_as_ul category</tt> result:</p>
+{% display_drilldown_as_ul category %}
+<p><tt>category.get_ancestors|category_path</tt> filter result: {{ category.get_ancestors|category_path }}</p>
 <h2>{{ category }}</h2>
 {% if category.parent %}<h3>Go up to <a href="{{ category.parent.get_absolute_url }}">{{ category.parent }}</a></h3>{% endif %}
-<p>{{ category.description }}</p>
+{% if category.description %}<p>{{ category.description }}</p>{% endif %}
 {% if category.children.count %}<h3>Subcategories</h3><ul>{% for child in category.children.all %}<li><a href="{{ child.get_absolute_url }}">{{ child }}</a></li>{% endfor %}</ul>{% endif %}
+{% endblock %}
