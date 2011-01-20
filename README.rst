@@ -33,3 +33,11 @@ Features of the project
 	**Show multiple levels**
 		Ancestors of category, category and all children of category or  a category and its children
 
+Contributors
+============
+
+* Corey Oordt
+* Josh Ourisman
+* Justin Quick
+* Jose Soares
+* Erik Simmler
