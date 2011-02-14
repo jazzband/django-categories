@@ -29,10 +29,12 @@ class CategoryImportTest(unittest.TestCase):
     
     
     def testImportSpaceDelimited(self):
+        Category.objects.all().delete()
         self._import_file('test_category_spaces.txt')
     
     
     def testImportTabDelimited(self):
+        Category.objects.all().delete()
         self._import_file('test_category_tabs.txt')
     
     
