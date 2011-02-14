@@ -1,7 +1,7 @@
 __version_info__ = {
     'major': 0,
     'minor': 5,
-    'micro': 1,
+    'micro': 2,
     'releaselevel': 'final',
     'serial': 0
 }
@@ -39,7 +39,7 @@ try:
     def _register(model, field_name, extra_params={}, field=fields.CategoryFKField):
         registry_name = "%s.%s" % (model.__name__, field_name)
         if registry_name in registry:
-            raise AlreadyRegistered
+            pass #raise AlreadyRegistered
         registry[registry_name] = model
         opts = model._meta
         try:
