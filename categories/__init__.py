@@ -39,7 +39,7 @@ try:
     def _register(model, field_name, extra_params={}, field=fields.CategoryFKField):
         registry_name = "%s.%s" % (model.__name__, field_name)
         if registry_name in registry:
-            pass #raise AlreadyRegistered
+            return #raise AlreadyRegistered
         registry[registry_name] = model
         opts = model._meta
         try:
