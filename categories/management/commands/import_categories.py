@@ -48,7 +48,6 @@ class Command(BaseCommand):
         current_parents = {0: None}
         
         for line in lines:
-            print line
             if len(line) == 0:
                 continue
             if line[0] == ' ' or line[0] == '\t':
@@ -58,12 +57,9 @@ class Command(BaseCommand):
                     raise CommandError("You can't mix spaces and tabs for indents")
                 level = line.count(indent)
                 current_parents[level] = self.make_category(line, parent=current_parents[level-1])
-                print current_parents
             else:
                 # We are back to a zero level, so reset the whole thing
                 current_parents = {0: self.make_category(line)}
-                print current_parents
-        print Category.objects.all()
     
     def handle(self, *file_paths, **options):
         """

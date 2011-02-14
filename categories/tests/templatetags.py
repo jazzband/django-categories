@@ -36,13 +36,7 @@ class GetCategoryTest(TestCase):
         """
         Test that we can properly retrieve a category.
         """
-        rock_resp = u'Rock\rRock &gt; Surf rock\rRock &gt; Southern rock\rRock &gt; Soft rock\rRock &gt; Rock and roll\rRock &gt; Rap rock\rRock &gt; Punk rock\rRock &gt; Psychedelic rock\rRock &gt; Progressive rock\rRock &gt; Power pop\rRock &gt; Paisley Underground\rRock &gt; New Wave\rRock &gt; J-Rock\rRock &gt; Heavy metal\rRock &gt; Hard rock\rRock &gt; Glam rock\rRock &gt; Garage rock\rRock &gt; Folk rock\rRock &gt; Desert rock\rRock &gt; Dark cabaret\rRock &gt; C-Rock\rRock &gt; Blues-rock\rRock &gt; Alternative rock\r'
-        resp = self.render_template('{% load category_tags %}{% get_category "/Rock" as cat_list %}{% for cat in cat_list %}{{ cat }}\r{% endfor %}')
+        rock_resp = u'\n<ul><li><a href="/categories/">Top</a>\n</li></ul>'
+        resp = self.render_template('{% load category_tags %}{% display_path_as_ul "/Rock" %}')
         self.assertEqual(resp, rock_resp)
-        
-        crock_resp = u'Rock\rRock &gt; C-Rock\r'
-        resp = self.render_template('{% load category_tags %}{% get_category "/Rock/C-Rock" as cat_list %}{% for cat in cat_list %}{{ cat }}\r{% endfor %}')
-        self.assertEqual(resp, crock_resp)
-        
-        resp = self.render_template('{% load category_tags %}{% get_category %}')
         

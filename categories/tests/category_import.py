@@ -4,6 +4,7 @@
 import unittest, os
 from categories.models import Category
 from categories.management.commands.import_categories import Command
+from django.core.management.base import CommandError
 
 class CategoryImportTest(unittest.TestCase):
     def setUp(self):
@@ -28,10 +29,12 @@ class CategoryImportTest(unittest.TestCase):
     
     
     def testImportSpaceDelimited(self):
+        Category.objects.all().delete()
         self._import_file('test_category_spaces.txt')
     
     
     def testImportTabDelimited(self):
+        Category.objects.all().delete()
         self._import_file('test_category_tabs.txt')
     
     
@@ -39,11 +42,11 @@ class CategoryImportTest(unittest.TestCase):
         """
         Should raise an exception.
         """
-        string1 = "cat1\n    cat1-1\n\tcat1-2-FAIL!\n"
-        string2 = "cat1\n\tcat1-1\n    cat1-2-FAIL!\n"
+        string1 = ["cat1","    cat1-1", "\tcat1-2-FAIL!",""]
+        string2 = ["cat1","\tcat1-1","    cat1-2-FAIL!",""]
         cmd = Command()
         
         # raise Exception
-        self.assertRaises(cmd.parse_lines(string1), Command.CommandError)
-        self.assertRaises(cmd.parse_lines(string2), Command.CommandError)
+        self.assertRaises(CommandError, cmd.parse_lines, string1)
+        self.assertRaises(CommandError, cmd.parse_lines, string2)
         
