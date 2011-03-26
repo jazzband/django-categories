@@ -77,6 +77,7 @@ class TreeEditor(admin.ModelAdmin):
         """
         extra_context = extra_context or {}
         extra_context['EDITOR_MEDIA_PATH'] = settings.MEDIA_PATH
+        extra_context['EDITOR_TREE_INITIAL_STATE'] = settings.TREE_INITIAL_STATE
         extra_context['tree_structure'] = mark_safe(simplejson.dumps(
                                                     _build_tree_structure(self.model)))
 
