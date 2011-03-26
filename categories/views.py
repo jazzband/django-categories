@@ -78,6 +78,37 @@ if django.VERSION[0] >= 1 and django.VERSION[1] >= 3:
             return names
 
 
+    class CategoryRelatedDetail(DetailView):
+        
+        path_field = 'category_path'
+        object_name_field = None
+        
+        def get_object(self, **kwargs):
+            queryset = super(CategoryRelatedDetail, self).get_queryset()
+            category = get_category_for_path(self.kwargs[self.path_field])
+            return queryset.get(category=category,slug=self.kwargs[self.slug_field])
+
+        def get_template_names(self):
+            names = []
+            opts = self.object._meta
+            path_items = self.kwargs[self.path_field].strip('/').split('/')
+            if self.object_name_field:
+                path_items.append(getattr(self.object, self.object_name_field))
+            while path_items:
+                names.append( '%s/category_%s_%s%s.html' % (opts.app_label,
+                                                            '_'.join(path_items),
+                                                            opts.object_name.lower(),
+                                                            self.template_name_suffix)
+                                                            )
+                path_items.pop()
+            names.append('%s/category_%s%s.html' % (opts.app_label, 
+                                                    opts.object_name.lower(),
+                                                    self.template_name_suffix)
+                                                    )
+            names.extend(super(CategoryRelatedDetail, self).get_template_names())
+            return names
+
+
     class CategoryRelatedList(ListView):
         
         path_field = 'category_path'
