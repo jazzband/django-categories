@@ -77,3 +77,31 @@ if django.VERSION[0] >= 1 and django.VERSION[1] >= 3:
             names.extend(super(CategoryDetailView, self).get_template_names())
             return names
 
+
+    class CategoryRelatedList(ListView):
+        
+        path_field = 'category_path'
+
+        def get_queryset(self):
+            queryset = super(CategoryRelatedList, self).get_queryset()
+            category = get_category_for_path(self.kwargs['category_path'])
+            return queryset.filter(category=category)
+
+        def get_template_names(self):
+            names = []
+            if hasattr(self.object_list, 'model'):
+                opts = self.object_list.model._meta
+                path_items = self.kwargs[self.path_field].strip('/').split('/')
+                while path_items:
+                    names.append( '%s/category_%s_%s%s.html' % (opts.app_label,
+                                                                '_'.join(path_items),
+                                                                opts.object_name.lower(),
+                                                                self.template_name_suffix)
+                                                                )
+                    path_items.pop()
+                names.append('%s/category_%s%s.html' % (opts.app_label,
+                                                        opts.object_name.lower(),
+                                                        self.template_name_suffix)
+                                                        )
+            names.extend(super(CategoryRelatedList, self).get_template_names())
+            return names
