@@ -20,7 +20,7 @@ setup(
     author='Corey Oordt',
     author_email='coordt@washingtontimes.com',
     include_package_data=True,
-    url='http://opensource.washingtontimes.com/projects/django-categories/',
+    url='http://github.com/washingtontimes/django-categories',
     packages=find_packages(),
     classifiers=[
         'Development Status :: 4 - Beta',
