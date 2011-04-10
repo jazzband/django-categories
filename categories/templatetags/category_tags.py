@@ -16,12 +16,12 @@ def get_category(category_string):
         category = category_string[1:-1]
     else:
         category = category_string
-    
+
     if category.startswith('/'):
         category = category[1:]
     if category.endswith('/'):
         category = category[:-1]
-    
+
     cat_list = category.split('/')
     if len(cat_list) == 0:
         return None
@@ -29,7 +29,7 @@ def get_category(category_string):
         categories = Category.objects.filter(name = cat_list[-1], level=len(cat_list)-1)
         if len(cat_list) == 1 and len(categories) > 1:
             return None
-        # If there is only one, use it. If there is more than one, check 
+        # If there is only one, use it. If there is more than one, check
         # if the parent matches the parent passed in the string
         if len(categories) == 1:
             return categories[0]
@@ -42,11 +42,11 @@ def get_category(category_string):
 
 
 class CategoryDrillDownNode(template.Node):
-    
+
     def __init__(self, category, varname):
         self.category = template.Variable(category)
         self.varname = varname
-    
+
     def render(self, context):
         try:
             category = self.category.resolve(context)
@@ -66,21 +66,21 @@ def get_category_drilldown(parser, token):
     """
     Retrieves the specified category, its ancestors and its immediate children
     as an iterable.
-    
+
     Syntax::
-    
+
         {% get_category_drilldown "category name" as varname %}
-        
+
     Example::
-    
+
         {% get_category_drilldown "/Grandparent/Parent" as family %}
-    
+
     or ::
-    
+
         {% get_category_drilldown category_obj as family %}
-    
+
     Sets family to::
-    
+
         Grandparent, Parent, Child 1, Child 2, Child n
     """
     bits = token.contents.split()
@@ -95,32 +95,32 @@ def get_category_drilldown(parser, token):
 @register.inclusion_tag('categories/breadcrumbs.html')
 def breadcrumbs(category,separator="/"):
     """
-    Render breadcrumbs, using the ``categories/breadcrumbs.html`` template, 
+    Render breadcrumbs, using the ``categories/breadcrumbs.html`` template,
     using the optional ``separator`` argument.
     """
     if isinstance(category, Category):
         cat = category
     else:
         cat = get_category(category)
-    
+
     return {'category': cat, 'separator': separator}
 
 @register.inclusion_tag('categories/ul_tree.html')
 def display_drilldown_as_ul(category):
     """
-    Render the category with ancestors, but no children using the 
+    Render the category with ancestors and children using the
     ``categories/ul_tree.html`` template.
-    
+
     Example::
-    
+
         {% display_drilldown_as_ul "/Grandparent/Parent" %}
-    
+
     or ::
-    
+
         {% display_drilldown_as_ul category_obj %}
-    
+
     Returns::
-    
+
         <ul>
           <li><a href="/categories/">Top</a>
           <ul>
@@ -143,25 +143,25 @@ def display_drilldown_as_ul(category):
         cat = category
     else:
         cat = get_category(category)
-    
+
     return {'category': cat, 'path': drilldown_tree_for_node(cat) or []}
 
 @register.inclusion_tag('categories/ul_tree.html')
 def display_path_as_ul(category):
     """
-    Render the category with ancestors, but no children using the 
+    Render the category with ancestors, but no children using the
     ``categories/ul_tree.html`` template.
-    
+
     Example::
-    
+
         {% display_path_as_ul "/Grandparent/Parent" %}
-    
+
     or ::
-    
+
         {% display_path_as_ul category_obj %}
-    
+
     Returns::
-    
+
         <ul>
             <li><a href="/categories/">Top</a>
             <ul>
@@ -174,13 +174,13 @@ def display_path_as_ul(category):
         cat = category
     else:
         cat = get_category(category)
-    
+
     return {'category': cat, 'path': cat.get_ancestors() or []}
 
 class TopLevelCategoriesNode(template.Node):
     def __init__(self, varname):
         self.varname = varname
-    
+
     def render(self, context):
         context[self.varname] = Category.objects.filter(parent=None).order_by('name')
         return ''
@@ -188,12 +188,12 @@ class TopLevelCategoriesNode(template.Node):
 @register.tag
 def get_top_level_categories(parser, token):
     """
-    Retrieves an alphabetical list of all the categories with with no parents.
-    
+    Retrieves an alphabetical list of all the categories that have no parents.
+
     Syntax::
-    
+
         {% get_top_level_categories as categories %}
-    
+
     Returns an list of categories [<category>, <category>, <category, ...]
     """
     bits = token.contents.split()

@@ -5,14 +5,14 @@ Template Tags
 get_top_level_categories
 ========================
 
-Retrieves an alphabetical list of all the categories.
+Retrieves an alphabetical list of all the categories that have no parents.
 
 Syntax:
 
 .. code-block:: django
 
     {% get_top_level_categories as categories %}
-    
+
 Returns an list of categories ``[<category>, <category>, <category, ...]``
 
 
@@ -72,7 +72,7 @@ Sets ``family`` to::
 display_drilldown_as_ul
 =======================
 
-Render the category with ancestors, but no children using the 
+Render the category with ancestors and children using the
 ``categories/ul_tree.html`` template.
 
 Example:
