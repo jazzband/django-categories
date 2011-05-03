@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 from django import forms
 from django.template.defaultfilters import slugify
@@ -96,7 +97,7 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
         inlines = [InlineCategoryRelation,]
     
     class Media:
-        js = ('js/genericcollections.js',)
+        js = (settings.MEDIA_URL + '/js/genericcollections.js',)
     
 
 admin.site.register(Category, CategoryAdmin)
