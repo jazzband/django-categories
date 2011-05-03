@@ -8,3 +8,6 @@ from django.db.models import Q
 DEFAULT_RELATION_MODELS = []
 RELATION_MODELS = getattr(settings, 'CATEGORIES_RELATION_MODELS', DEFAULT_RELATION_MODELS) or []
 RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in RELATION_MODELS]]
+
+# For assigning a thumbnail to a category
+THUMBNAIL_UPLOAD_PATH = getattr(settings, 'CATEGORIES_THUMBNAIL_UPLOAD_PATH', 'uploads/categories/thumbnails')

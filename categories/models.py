@@ -9,7 +9,7 @@ from django.utils.translation import ugettext as _
 
 from mptt.models import MPTTModel
 
-from settings import RELATION_MODELS, RELATIONS
+from settings import RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH
 
 class Category(MPTTModel):
     parent = models.ForeignKey('self', 
@@ -19,6 +19,7 @@ class Category(MPTTModel):
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
+    thumbnail = models.ImageField(upload_to=THUMBNAIL_UPLOAD_PATH, null=True, blank=True)
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     alternate_title = models.CharField(
