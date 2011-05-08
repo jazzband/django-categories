@@ -2,6 +2,15 @@ Django Categories grew out of our need to provide a basic hierarchical taxonomy 
 
 As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
 
+New in 0.6
+==========
+
+**Class-based views**
+	Works great with Django 1.3
+
+**New Settings infrastructure**
+	To be more like the Django project, we are migrating from individual CATEGORIES_* settings to a dictionary named ``CATEGORIES_SETTINGS``\ . Use of the previous settings will still work but will generate a ``PendingDeprecationError``\ .
+
 Features of the project
 =======================
 

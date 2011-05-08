@@ -3,6 +3,68 @@ Registering Models
 ==================
 
 
+Registering models in settings.py
+=================================
+
+It is nice to not have to modify the code of applications to add a relation to categories. You can therefore do all the registering in ``settings.py``\ . For example:
+
+.. code-block:: python
+	
+	CATEGORIES_SETTINGS = {
+	    'FK_REGISTRY': {
+	        'app.AModel': 'category',
+	        'app.MyModel': (
+	            'primary_category', 
+	            {'name': 'secondary_category', 'related_name': 'mymodel_sec_cat'}, )
+	    },
+	    'M2M_REGISTRY': {
+	        'app.AModel': 'categories',
+	        'app.MyModel': ('other_categories', 'more_categories', ),
+	    }
+	}
+
+The ``FK_REGISTRY`` is a dictionary whose keys are the model to which to add the new field(s). The value is a string or tuple of strings or dictionaries specifying the necessary information for each field. 
+
+The ``M2M_REGISTRY`` is a dictionary whose keys are the model to which to add the new field(s). The value is a string or tuple of strings specifying the necessary information for each field.
+
+
+Registering One Category Field
+******************************
+
+The simplest way is to specify the name of the field, such as:
+
+.. code-block:: python
+	
+	CATEGORIES_SETTINGS = {
+	    'FK_REGISTRY': {
+	        'app.AModel': 'category'
+	    }
+	}
+
+This is equivalent to adding the following the ``AModel`` of ``app``\ :
+
+.. code-block:: python
+	
+	category = models.ForeignKey(Category)
+
+
+If you want more control over the new field, you can use a dictionary and pass other ``ForeignKey`` options:
+
+.. code-block:: python
+	
+	CATEGORIES_SETTINGS = {
+	    'FK_REGISTRY': {
+	        'app.AModel': {'name': 'category', 'related_name': 'amodel_cats'}
+	    }
+	}
+
+This is equivalent to adding the following the ``AModel`` of ``app``\ :
+
+.. code-block:: python
+	
+	category = models.ForeignKey(Category, related_name='amodel_cats')
+
+
 Registering a many-to-one relationship
 ======================================
 
