@@ -1,3 +1,4 @@
+import django
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, Http404
@@ -46,10 +47,17 @@ def get_category_for_path(path, queryset=Category.objects.all()):
             level = len(path_items)-1)
     return queryset.get()
 
+try:
+    import cbv
+    HAS_CBV = True
+except ImportError:
+    HAS_CBV = False
 
-import django
-if django.VERSION[0] >= 1 and django.VERSION[1] >= 3:
-    from django.views.generic import DetailView, ListView
+if ((django.VERSION[0] >= 1 and django.VERSION[1] >= 3) or HAS_CBV):
+    if HAS_CBV:
+        from cbv import DetailView, ListView
+    else:
+        from django.views.generic import DetailView, ListView
 
     class CategoryDetailView(DetailView):
 
