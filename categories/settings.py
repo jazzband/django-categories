@@ -10,6 +10,7 @@ DEFAULT_SETTINGS = {
     'M2M_REGISTRY': [],
     'FK_REGISTRY': [],
     'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
+    'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
 }
 
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))

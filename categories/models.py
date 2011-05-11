@@ -5,11 +5,16 @@ from django.db import models
 from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from django.core.files.storage import get_storage_class
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 
 from mptt.models import MPTTModel
 
-from settings import RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH
+from settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
+                        THUMBNAIL_STORAGE)
+
+STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
 class Category(MPTTModel):
     parent = models.ForeignKey('self', 
@@ -19,7 +24,12 @@ class Category(MPTTModel):
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
-    thumbnail = models.ImageField(upload_to=THUMBNAIL_UPLOAD_PATH, null=True, blank=True)
+    thumbnail = models.FileField(
+        upload_to=THUMBNAIL_UPLOAD_PATH, 
+        null=True, blank=True,
+        storage=STORAGE(),)
+    thumbnail_width = models.IntegerField(blank=True, null=True)
+    thumbnail_height = models.IntegerField(blank=True, null=True)
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     alternate_title = models.CharField(
@@ -62,6 +72,20 @@ class Category(MPTTModel):
             Get all relations of the specified relation type
             """
             return self.storyrelation_set.filter(relation_type=relation_type)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)[:50]
+        if self.thumbnail:
+            from django.core.files.images import get_image_dimensions
+            width, height = get_image_dimensions(self.thumbnail.file, close=True)
+        else:
+            width, height = None, None
+        
+        self.thumbnail_width = width
+        self.thumbnail_height = height
+        
+        super(Category, self).save(*args, **kwargs)
     
     class Meta:
         verbose_name_plural = 'categories'
