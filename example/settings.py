@@ -88,5 +88,8 @@ INSTALLED_APPS = (
     'simpletext',
 )
 #EDITOR_MEDIA_PATH = '/static/editor/'
-CATEGORIES_ALLOW_SLUG_CHANGE = True
+
+CATEGORIES_SETTINGS = {
+    'ALLOW_SLUG_CHANGE': True,
+}
 CATEGORIES_RELATION_MODELS = ['simpletext.simpletext','flatpages.flatpage']
