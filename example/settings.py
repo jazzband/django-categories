@@ -86,6 +86,7 @@ INSTALLED_APPS = (
     'editor',
     'mptt',
     'simpletext',
+    'south',
 )
 #EDITOR_MEDIA_PATH = '/static/editor/'
 
