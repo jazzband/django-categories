@@ -1,6 +1,4 @@
-import re
 from django.core.urlresolvers import reverse
-from django.db.models import permalink
 from django.db import models
 from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
@@ -97,11 +95,11 @@ class Category(MPTTModel):
         unique_together = ('parent', 'name')
         ordering = ('tree_id', 'lft')
         order_insertion_by = 'name'
-        
+    
     def __unicode__(self):
         ancestors = self.get_ancestors()
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
-        
+
 if RELATION_MODELS:
     category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
     class CategoryRelationManager(models.Manager):
@@ -113,11 +111,11 @@ if RELATION_MODELS:
             qs = self.get_query_set()
             return qs.filter(relation_type=relation_type)
     
-    
     class CategoryRelation(models.Model):
         """Related story item"""
         story = models.ForeignKey(Category)
-        content_type = models.ForeignKey(ContentType, limit_choices_to=category_relation_limits)
+        content_type = models.ForeignKey(
+            ContentType, limit_choices_to=category_relation_limits)
         object_id = models.PositiveIntegerField()
         content_object = generic.GenericForeignKey('content_type', 'object_id')
         relation_type = models.CharField(_("Relation Type"), 
