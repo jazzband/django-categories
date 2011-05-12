@@ -29,7 +29,11 @@ if hasattr(settings, 'CATEGORIES_THUMBNAIL_UPLOAD_PATH'):
     warnings.warn(ERR_MSG % "CATEGORIES_THUMBNAIL_UPLOAD_PATH", DeprecationWarning)
     DEFAULT_SETTINGS["THUMBNAIL_UPLOAD_PATH"] = getattr(settings, 'CATEGORIES_THUMBNAIL_UPLOAD_PATH')
 
-RELATION_MODELS = getattr(settings, 'CATEGORIES_RELATION_MODELS', [])
-RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in RELATION_MODELS]]
+if hasattr(settings, 'CATEGORIES_RELATION_MODELS'):
+    warnings.warn(ERR_MSG % "CATEGORIES_RELATION_MODELS", DeprecationWarning)
+    DEFAULT_SETTINGS["RELATION_MODELS"] = getattr(settings, 'CATEGORIES_RELATION_MODELS')
 
+# Add all the keys/values to the module's namespace
 globals().update(DEFAULT_SETTINGS)
+
+RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in RELATION_MODELS]]
