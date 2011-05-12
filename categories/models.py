@@ -62,14 +62,14 @@ class Category(MPTTModel):
             """
             Get all related items of the specified content type
             """
-            return self.storyrelation_set.filter(
+            return self.categoryrelation_set.filter(
                 content_type__name=content_type)
         
         def get_relation_type(self, relation_type):
             """
             Get all relations of the specified relation type
             """
-            return self.storyrelation_set.filter(relation_type=relation_type)
+            return self.categoryrelation_set.filter(relation_type=relation_type)
     
     def save(self, *args, **kwargs):
         if not self.slug:
