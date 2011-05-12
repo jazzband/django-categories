@@ -92,5 +92,5 @@ INSTALLED_APPS = (
 
 CATEGORIES_SETTINGS = {
     'ALLOW_SLUG_CHANGE': True,
+    'RELATION_MODELS': ['simpletext.simpletext','flatpages.flatpage'],
 }
-CATEGORIES_RELATION_MODELS = ['simpletext.simpletext','flatpages.flatpage']
