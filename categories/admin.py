@@ -97,8 +97,7 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
         inlines = [InlineCategoryRelation,]
     
     class Media:
-        js = (settings.MEDIA_URL + '/js/genericcollections.js',)
-    
+        js = (settings.STATIC_URL + 'js/genericcollections.js',)
 
 admin.site.register(Category, CategoryAdmin)
 
