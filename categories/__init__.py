@@ -3,7 +3,7 @@ __version_info__ = {
     'minor': 6,
     'micro': 0,
     'releaselevel': 'beta',
-    'serial': 4
+    'serial': 5
 }
 
 def get_version():
@@ -16,6 +16,8 @@ def get_version():
     return ''.join(vers)
 
 __version__ = get_version()
+
+registry = {}
 
 try:
     import fields
