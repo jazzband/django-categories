@@ -48,8 +48,8 @@ def items_for_tree_result(cl, result, form):
                     row_class = ' class="nowrap"'
             if first:
                 try:
-                    f, attr, value = lookup_field('action_checkbox', result, cl.model_admin)
-                    result_repr = mark_safe("%s%s" % (value, result_repr))
+                    f, attr, checkbox_value = lookup_field('action_checkbox', result, cl.model_admin)
+                    #result_repr = mark_safe("%s%s" % (value, result_repr))
                     if row_class:
                         row_class = "%s%s" % (row_class[:-1],' disclosure"')
                     else:
@@ -72,8 +72,8 @@ def items_for_tree_result(cl, result, form):
             value = result.serializable_value(attr)
             result_id = repr(force_unicode(value))[1:]
             first = False
-            yield mark_safe(u'<%s%s><a href="%s"%s>%s</a></%s>' % \
-                (table_tag, row_class, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
+            yield mark_safe(u'<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
+                (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
         else:
             # By default the fields come from ModelAdmin.list_editable, but if we pull
             # the fields out of the form instead of list_editable custom admins
