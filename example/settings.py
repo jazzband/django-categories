@@ -125,4 +125,18 @@ INSTALLED_APPS = (
 CATEGORIES_SETTINGS = {
     'ALLOW_SLUG_CHANGE': True,
     'RELATION_MODELS': ['simpletext.simpletext','flatpages.flatpage'],
+    'FK_REGISTRY': {
+        'flatpages.flatpage': 'category',
+        'simpletext.simpletext': (
+            'primary_category', 
+            {'name': 'secondary_category', 'related_name': 'simpletext_sec_cat'},
+        ),
+    },
+    'M2M_REGISTRY': {
+        'simpletext.simpletext': {'name': 'categories', 'related_name': 'm2mcats'},
+        'flatpages.flatpage': (
+            {'name': 'other_categories', 'related_name': 'other_cats'}, 
+            {'name': 'more_categories', 'related_name': 'more_cats'}, 
+        ),
+    },
 }
