@@ -1,3 +1,5 @@
+.. _registering_models:
+
 ==================
 Registering Models
 ==================
@@ -18,7 +20,7 @@ It is nice to not have to modify the code of applications to add a relation to c
 	            {'name': 'secondary_category', 'related_name': 'mymodel_sec_cat'}, )
 	    },
 	    'M2M_REGISTRY': {
-	        'app.AModel': 'categories',
+	        'app.BModel': 'categories',
 	        'app.MyModel': ('other_categories', 'more_categories', ),
 	    }
 	}
@@ -28,8 +30,8 @@ The ``FK_REGISTRY`` is a dictionary whose keys are the model to which to add the
 The ``M2M_REGISTRY`` is a dictionary whose keys are the model to which to add the new field(s). The value is a string or tuple of strings specifying the necessary information for each field.
 
 
-Registering One Category Field
-******************************
+Registering one Category field to model
+***************************************
 
 The simplest way is to specify the name of the field, such as:
 
@@ -48,7 +50,7 @@ This is equivalent to adding the following the ``AModel`` of ``app``\ :
 	category = models.ForeignKey(Category)
 
 
-If you want more control over the new field, you can use a dictionary and pass other ``ForeignKey`` options:
+If you want more control over the new field, you can use a dictionary and pass other ``ForeignKey`` options. The ``name`` key is required:
 
 .. code-block:: python
 	
@@ -61,9 +63,37 @@ If you want more control over the new field, you can use a dictionary and pass o
 This is equivalent to adding the following the ``AModel`` of ``app``\ :
 
 .. code-block:: python
-	
+
 	category = models.ForeignKey(Category, related_name='amodel_cats')
 
+Registering two or more Category fields to a Model
+**************************************************
+
+When you want more than one relation to ``Category``\ , all but one of the fields must specify a ``related_name`` to avoid conflicts, like so:
+
+.. code-block:: python
+	
+	CATEGORIES_SETTINGS = {
+	    'FK_REGISTRY': {
+	        'app.MyModel': (
+	            'primary_category', 
+	            {'name': 'secondary_category', 'related_name': 'mymodel_sec_cat'}, )
+	    },
+
+Registering one or more Many-to-Many Category fields to a Model
+***************************************************************
+
+.. code-block:: python
+	
+	CATEGORIES_SETTINGS = {
+	    'M2M_REGISTRY': {
+	        'app.AModel': 'categories',
+	        'app.MyModel': (
+	            {'name': 'other_categories', 'related_name': 'other_cats'}, 
+	            {'name': 'more_categories', 'related_name': 'more_cats'}, 
+	        ),
+	    }
+	}
 
 Registering a many-to-one relationship
 ======================================

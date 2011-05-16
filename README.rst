@@ -17,6 +17,9 @@ New in 0.6
 **Optional Thumbnail field**
 	Have a thumbnail for each category!
 
+**"Categorize" models in settings**
+	Now you don't have to modify the model to add a ``Category`` relationship. Use the new settings to "wire" categories to different models.
+
 Features of the project
 =======================
 

@@ -1,3 +1,5 @@
+.. _registering_models:
+
 ==================
 Registering Models
 ==================
@@ -18,7 +20,7 @@ It is nice to not have to modify the code of applications to add a relation to c
 	            {'name': 'secondary_category', 'related_name': 'mymodel_sec_cat'}, )
 	    },
 	    'M2M_REGISTRY': {
-	        'app.AModel': 'categories',
+	        'app.BModel': 'categories',
 	        'app.MyModel': ('other_categories', 'more_categories', ),
 	    }
 	}
@@ -86,7 +88,10 @@ Registering one or more Many-to-Many Category fields to a Model
 	CATEGORIES_SETTINGS = {
 	    'M2M_REGISTRY': {
 	        'app.AModel': 'categories',
-	        'app.MyModel': ('other_categories', 'more_categories', ),
+	        'app.MyModel': (
+	            {'name': 'other_categories', 'related_name': 'other_cats'}, 
+	            {'name': 'more_categories', 'related_name': 'more_cats'}, 
+	        ),
 	    }
 	}
 

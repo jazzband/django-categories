@@ -37,9 +37,4 @@ Connecting your model with Django-Categories
 
 Because there are a few additional methods and attributes that your model needs, you can't simply create a ``ForeignKey`` to ``Category``, even though that is eventually what happens.
 
-You add a many-to-one or many-to-many relationship with Django Categories using the :py:func:`register_fk` and :py:func:`register_m2m` methods respectively. For example, if you added in your ``models.py``::
-
-	import categories
-	categories.register_fk(MyModel)
-
-``MyModel`` would have a ``ForeignKey`` named ``category``
+You add a many-to-one or many-to-many relationship with Django Categories using the ``CATEGORIES_SETTINGS['FK_REGISTRY']`` and ``CATEGORIES_SETTINGS['M2M_REGISTRY']`` settings respectively. For more information see :ref:`registering_models`\ .

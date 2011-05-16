@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Registering Models &mdash; Django Categories v0.6beta1 documentation</title>
+    <title>Registering Models &mdash; Django Categories v0.6 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.6beta1',
+        VERSION:     '0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,13 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.6beta1 documentation" href="index.html" />
+    <link rel="top" title="Django Categories v0.6 documentation" href="index.html" />
     <link rel="next" title="Template Tags" href="templatetags.html" />
     <link rel="prev" title="Using categories in templates" href="usage.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.6beta1 documentation</p>
+	<p>Django Categories v0.6 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Registering Models</h1></div>
@@ -90,7 +90,7 @@
           <div class="body">
             
   <div class="section" id="registering-models">
-<h1>Registering Models<a class="headerlink" href="#registering-models" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Registering Models<a class="headerlink" href="#registering-models" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="registering-models-in-settings-py">
 <h2>Registering models in settings.py<a class="headerlink" href="#registering-models-in-settings-py" title="Permalink to this headline">¶</a></h2>
 <p>It is nice to not have to modify the code of applications to add a relation to categories. You can therefore do all the registering in <tt class="docutils literal"><span class="pre">settings.py</span></tt>. For example:</p>
@@ -102,7 +102,7 @@
             <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;secondary_category&#39;</span><span class="p">,</span> <span class="s">&#39;related_name&#39;</span><span class="p">:</span> <span class="s">&#39;mymodel_sec_cat&#39;</span><span class="p">},</span> <span class="p">)</span>
     <span class="p">},</span>
     <span class="s">&#39;M2M_REGISTRY&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&#39;app.AModel&#39;</span><span class="p">:</span> <span class="s">&#39;categories&#39;</span><span class="p">,</span>
+        <span class="s">&#39;app.BModel&#39;</span><span class="p">:</span> <span class="s">&#39;categories&#39;</span><span class="p">,</span>
         <span class="s">&#39;app.MyModel&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;other_categories&#39;</span><span class="p">,</span> <span class="s">&#39;more_categories&#39;</span><span class="p">,</span> <span class="p">),</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -110,8 +110,8 @@
 </div>
 <p>The <tt class="docutils literal"><span class="pre">FK_REGISTRY</span></tt> is a dictionary whose keys are the model to which to add the new field(s). The value is a string or tuple of strings or dictionaries specifying the necessary information for each field.</p>
 <p>The <tt class="docutils literal"><span class="pre">M2M_REGISTRY</span></tt> is a dictionary whose keys are the model to which to add the new field(s). The value is a string or tuple of strings specifying the necessary information for each field.</p>
-<div class="section" id="registering-one-category-field">
-<h3>Registering One Category Field<a class="headerlink" href="#registering-one-category-field" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="registering-one-category-field-to-model">
+<h3>Registering one Category field to model<a class="headerlink" href="#registering-one-category-field-to-model" title="Permalink to this headline">¶</a></h3>
 <p>The simplest way is to specify the name of the field, such as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">CATEGORIES_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;FK_REGISTRY&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -124,7 +124,7 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Category</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you want more control over the new field, you can use a dictionary and pass other <tt class="docutils literal"><span class="pre">ForeignKey</span></tt> options:</p>
+<p>If you want more control over the new field, you can use a dictionary and pass other <tt class="docutils literal"><span class="pre">ForeignKey</span></tt> options. The <tt class="docutils literal"><span class="pre">name</span></tt> key is required:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">CATEGORIES_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;FK_REGISTRY&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s">&#39;app.AModel&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;category&#39;</span><span class="p">,</span> <span class="s">&#39;related_name&#39;</span><span class="p">:</span> <span class="s">&#39;amodel_cats&#39;</span><span class="p">}</span>
@@ -134,6 +134,31 @@
 </div>
 <p>This is equivalent to adding the following the <tt class="docutils literal"><span class="pre">AModel</span></tt> of <tt class="docutils literal"><span class="pre">app</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s">&#39;amodel_cats&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registering-two-or-more-category-fields-to-a-model">
+<h3>Registering two or more Category fields to a Model<a class="headerlink" href="#registering-two-or-more-category-fields-to-a-model" title="Permalink to this headline">¶</a></h3>
+<p>When you want more than one relation to <tt class="docutils literal"><span class="pre">Category</span></tt>, all but one of the fields must specify a <tt class="docutils literal"><span class="pre">related_name</span></tt> to avoid conflicts, like so:</p>
+<div class="highlight-python"><pre>CATEGORIES_SETTINGS = {
+    'FK_REGISTRY': {
+        'app.MyModel': (
+            'primary_category',
+            {'name': 'secondary_category', 'related_name': 'mymodel_sec_cat'}, )
+    },</pre>
+</div>
+</div>
+<div class="section" id="registering-one-or-more-many-to-many-category-fields-to-a-model">
+<h3>Registering one or more Many-to-Many Category fields to a Model<a class="headerlink" href="#registering-one-or-more-many-to-many-category-fields-to-a-model" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CATEGORIES_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;M2M_REGISTRY&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;app.AModel&#39;</span><span class="p">:</span> <span class="s">&#39;categories&#39;</span><span class="p">,</span>
+        <span class="s">&#39;app.MyModel&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;other_categories&#39;</span><span class="p">,</span> <span class="s">&#39;related_name&#39;</span><span class="p">:</span> <span class="s">&#39;other_cats&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;more_categories&#39;</span><span class="p">,</span> <span class="s">&#39;related_name&#39;</span><span class="p">:</span> <span class="s">&#39;more_cats&#39;</span><span class="p">},</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
