@@ -6,9 +6,11 @@
 	(function($) {
 		$(document).ready(function()  {
 		treeTable = $("#result_list").treeTable({initialState : "{{ EDITOR_TREE_INITIAL_STATE }}"});
-		function toggleChildren() {
-			this.checked = event.currentTarget.checked;
-			var row = this.parentNode.parentNode.parentNode;
+		function toggleChildren(index, value) {
+			var row = value.parentNode.parentNode;
+			if (row.className.match(/child-of-node-\d+/)) {
+				value.checked = /child-of-node-(\d+)/.exec(row.className);
+			}
 			if($(row).hasClass("parent")) {
 				$("table.treeTable tbody tr.child-of-" + row.id + " input").each(toggleChildren);
 			}
@@ -17,8 +19,8 @@
 		$('.action-select').each(
 			function(){
 				$(this).bind('click', function(event){
-					// Get the tr from checkbox -> a -> td -> tr
-					var row = event.currentTarget.parentNode.parentNode.parentNode;
+					// Get the tr from checkbox -> td -> tr
+					var row = event.currentTarget.parentNode.parentNode;
 					$("table.treeTable tbody tr.child-of-" + row.id + " input").each(toggleChildren);
 				});
 			});

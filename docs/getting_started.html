@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting Started &mdash; Django Categories v0.4.8 documentation</title>
+    <title>Getting Started &mdash; Django Categories v0.6 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.4.8',
+        VERSION:     '0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,13 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.4.8 documentation" href="index.html" />
+    <link rel="top" title="Django Categories v0.6 documentation" href="index.html" />
     <link rel="next" title="Using categories in templates" href="usage.html" />
     <link rel="prev" title="Django Categories v|version| documentation!" href="index.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.4.8 documentation</p>
+	<p>Django Categories v0.6 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Getting Started</h1></div>
@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
 </ul>
 
       <h3>This Page</h3>
@@ -121,12 +122,7 @@ Model 2
 <div class="section" id="connecting-your-model-with-django-categories">
 <h2>Connecting your model with Django-Categories<a class="headerlink" href="#connecting-your-model-with-django-categories" title="Permalink to this headline">¶</a></h2>
 <p>Because there are a few additional methods and attributes that your model needs, you can&#8217;t simply create a <tt class="docutils literal"><span class="pre">ForeignKey</span></tt> to <tt class="docutils literal"><span class="pre">Category</span></tt>, even though that is eventually what happens.</p>
-<p>You add a many-to-one or many-to-many relationship with Django Categories using the <a class="reference internal" href="registering_models.html#register_fk" title="register_fk"><tt class="xref py py-func docutils literal"><span class="pre">register_fk()</span></tt></a> and <a class="reference internal" href="registering_models.html#register_m2m" title="register_m2m"><tt class="xref py py-func docutils literal"><span class="pre">register_m2m()</span></tt></a> methods respectively. For example, if you added in your <tt class="docutils literal"><span class="pre">models.py</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">categories</span>
-<span class="n">categories</span><span class="o">.</span><span class="n">register_fk</span><span class="p">(</span><span class="n">MyModel</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><tt class="docutils literal"><span class="pre">MyModel</span></tt> would have a <tt class="docutils literal"><span class="pre">ForeignKey</span></tt> named <tt class="docutils literal"><span class="pre">category</span></tt></p>
+<p>You add a many-to-one or many-to-many relationship with Django Categories using the <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS['FK_REGISTRY']</span></tt> and <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS['M2M_REGISTRY']</span></tt> settings respectively. For more information see <a class="reference internal" href="registering_models.html#registering-models"><em>Registering Models</em></a>.</p>
 </div>
 </div>
 

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 from django import forms
 from django.template.defaultfilters import slugify
@@ -81,7 +82,7 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
         (None, {
-            'fields': ('parent', 'name')
+            'fields': ('parent', 'name', 'thumbnail')
         }),
         ('Meta Data', {
             'fields': ('alternate_title', 'description', 'meta_keywords', 'meta_extra'),
@@ -96,15 +97,14 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
         inlines = [InlineCategoryRelation,]
     
     class Media:
-        js = ('js/genericcollections.js',)
-    
+        js = (settings.STATIC_URL + 'js/genericcollections.js',)
 
 admin.site.register(Category, CategoryAdmin)
 
-for model,modeladmin in admin.site._registry.items():
+for model, modeladmin in admin.site._registry.items():
     if model in registry.values() and modeladmin.fieldsets:
         fieldsets = getattr(modeladmin, 'fieldsets', ())
-        fields = [cat.split('.')[1] for cat in registry]
+        fields = [cat.split('.')[1] for cat in registry if registry[cat] == model]
         # check each field to see if already defined
         for cat in fields:
             for k,v in fieldsets:
@@ -112,9 +112,10 @@ for model,modeladmin in admin.site._registry.items():
                     fields.remove(cat)
         # if there are any fields left, add them under the categories fieldset
         if len(fields) > 0:
+            print fields
             admin.site.unregister(model)
             admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
-                'fieldsets': fieldsets + (('Categories',{
+                'fieldsets': fieldsets + (('Categories', {
                     'fields': fields
                 }),)
             }))

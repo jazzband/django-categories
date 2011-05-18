@@ -1,15 +1,18 @@
-import re
 from django.core.urlresolvers import reverse
-from django.db.models import permalink
 from django.db import models
 from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from django.core.files.storage import get_storage_class
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 
 from mptt.models import MPTTModel
 
-from settings import RELATION_MODELS, RELATIONS
+from settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
+                        THUMBNAIL_STORAGE)
+
+STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
 class Category(MPTTModel):
     parent = models.ForeignKey('self', 
@@ -19,6 +22,12 @@ class Category(MPTTModel):
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
+    thumbnail = models.FileField(
+        upload_to=THUMBNAIL_UPLOAD_PATH, 
+        null=True, blank=True,
+        storage=STORAGE(),)
+    thumbnail_width = models.IntegerField(blank=True, null=True)
+    thumbnail_height = models.IntegerField(blank=True, null=True)
     order = models.IntegerField(blank=True, null=True)
     slug = models.SlugField()
     alternate_title = models.CharField(
@@ -48,6 +57,34 @@ class Category(MPTTModel):
         ancestors = list(self.get_ancestors()) + [self,]
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
     
+    if RELATION_MODELS:
+        def get_related_content_type(self, content_type):
+            """
+            Get all related items of the specified content type
+            """
+            return self.categoryrelation_set.filter(
+                content_type__name=content_type)
+        
+        def get_relation_type(self, relation_type):
+            """
+            Get all relations of the specified relation type
+            """
+            return self.categoryrelation_set.filter(relation_type=relation_type)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)[:50]
+        if self.thumbnail:
+            from django.core.files.images import get_image_dimensions
+            width, height = get_image_dimensions(self.thumbnail.file, close=True)
+        else:
+            width, height = None, None
+        
+        self.thumbnail_width = width
+        self.thumbnail_height = height
+        
+        super(Category, self).save(*args, **kwargs)
+    
     class Meta:
         verbose_name_plural = 'categories'
         unique_together = ('parent', 'name')
@@ -58,11 +95,11 @@ class Category(MPTTModel):
         unique_together = ('parent', 'name')
         ordering = ('tree_id', 'lft')
         order_insertion_by = 'name'
-        
+    
     def __unicode__(self):
         ancestors = self.get_ancestors()
         return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
-        
+
 if RELATION_MODELS:
     category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
     class CategoryRelationManager(models.Manager):
@@ -74,11 +111,11 @@ if RELATION_MODELS:
             qs = self.get_query_set()
             return qs.filter(relation_type=relation_type)
     
-    
     class CategoryRelation(models.Model):
         """Related story item"""
         story = models.ForeignKey(Category)
-        content_type = models.ForeignKey(ContentType, limit_choices_to=category_relation_limits)
+        content_type = models.ForeignKey(
+            ContentType, limit_choices_to=category_relation_limits)
         object_id = models.PositiveIntegerField()
         content_object = generic.GenericForeignKey('content_type', 'object_id')
         relation_type = models.CharField(_("Relation Type"), 

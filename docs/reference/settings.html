@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Settings &mdash; Django Categories v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Django Categories v0.6 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>Django Categories v0.6 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Settings</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="../genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="index.html" title="Reference" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="../index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using categories in templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../registering_models.html">Registering Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templatetags.html">Template Tags</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Settings</a></li>
+</ul>
+</li>
+</ul>
+
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="../_sources/reference/settings.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="../search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="settings">
+<span id="reference-settings"></span><h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS</span></tt> dictionary is where you can override the default settings. You don&#8217;t have to include all the settings; only the ones which you want to override.</p>
+<p>The default settings are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CATEGORIES_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;ALLOW_SLUG_CHANGE&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s">&#39;CACHE_VIEW_LENGTH&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&#39;RELATION_MODELS&#39;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s">&#39;M2M_REGISTRY&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s">&#39;FK_REGISTRY&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s">&#39;THUMBNAIL_UPLOAD_PATH&#39;</span><span class="p">:</span> <span class="s">&#39;uploads/categories/thumbnails&#39;</span><span class="p">,</span>
+    <span class="s">&#39;THUMBNAIL_STORAGE&#39;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_FILE_STORAGE</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="allow-slug-change">
+<h2>ALLOW_SLUG_CHANGE<a class="headerlink" href="#allow-slug-change" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> <tt class="xref docutils literal"><span class="pre">False</span></tt></p>
+<p><strong>Description:</strong> Changing the slug for a category can have serious consequences if it is used as part of a URL. Setting this to <tt class="xref docutils literal"><span class="pre">True</span></tt> will allow users to change the slug of a category.</p>
+</div>
+<div class="section" id="cache-view-length">
+<h2>CACHE_VIEW_LENGTH<a class="headerlink" href="#cache-view-length" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> <tt class="docutils literal"><span class="pre">0</span></tt></p>
+<p><strong>Description:</strong> This setting will be deprecated soon, but in the mean time, it allows you to specify the amount of time each view result is cached.</p>
+</div>
+<div class="section" id="relation-models">
+<h2>RELATION_MODELS<a class="headerlink" href="#relation-models" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> <tt class="docutils literal"><span class="pre">[]</span></tt></p>
+<p><strong>Description:</strong> Relation models is a set of models that a user can associate with this category. You specify models using <tt class="docutils literal"><span class="pre">'app_name.modelname'</span></tt> syntax.</p>
+</div>
+<div class="section" id="m2m-registry">
+<h2>M2M_REGISTRY<a class="headerlink" href="#m2m-registry" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> {}</p>
+<p><strong>Description:</strong> A dictionary where the keys are in <tt class="docutils literal"><span class="pre">'app_name.model_name'</span></tt> syntax, and the values are a string, dict, or tuple of dicts. See <a class="reference internal" href="../registering_models.html#registering-models"><em>Registering Models</em></a>.</p>
+</div>
+<div class="section" id="fk-registry">
+<h2>FK_REGISTRY<a class="headerlink" href="#fk-registry" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> {}</p>
+<p><strong>Description:</strong> A dictionary where the keys are in <tt class="docutils literal"><span class="pre">'app_name.model_name'</span></tt> syntax, and the values are a string, dict, or tuple of dicts. See <a class="reference internal" href="../registering_models.html#registering-models"><em>Registering Models</em></a>.</p>
+</div>
+<div class="section" id="thumbnail-upload-path">
+<h2>THUMBNAIL_UPLOAD_PATH<a class="headerlink" href="#thumbnail-upload-path" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> <tt class="docutils literal"><span class="pre">'uploads/categories/thumbnails'</span></tt></p>
+<p><strong>Description:</strong> Where thumbnails for the categories will be saved.</p>
+</div>
+<div class="section" id="thumbnail-storage">
+<h2>THUMBNAIL_STORAGE<a class="headerlink" href="#thumbnail-storage" title="Permalink to this headline">¶</a></h2>
+<p><strong>Default:</strong> <tt class="docutils literal"><span class="pre">settings.DEFAULT_FILE_STORAGE</span></tt></p>
+<p><strong>Description:</strong> How to store the thumbnails. Allows for external storage engines like S3.</p>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2010, CoreyOordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		<a href="index.html" accesskey="U">Reference</a><img src="../_static/triangle_closed.png" height="9" width="9" alt="&gt;">
+		Settings
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="../_static/toc.js"></script>
+  </body>
+</html>

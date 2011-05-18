@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Template Tags &mdash; Django Categories v0.4.8 documentation</title>
+    <title>Template Tags &mdash; Django Categories v0.6 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.4.8',
+        VERSION:     '0.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,12 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.4.8 documentation" href="index.html" />
+    <link rel="top" title="Django Categories v0.6 documentation" href="index.html" />
+    <link rel="next" title="Reference" href="reference/index.html" />
     <link rel="prev" title="Registering Models" href="registering_models.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.4.8 documentation</p>
+	<p>Django Categories v0.6 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Template Tags</h1></div>
@@ -34,6 +35,7 @@
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
 			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="reference/index.html" title="Reference" accesskey="N">next</a></div>
 			<div class="headerButton"><a href="registering_models.html" title="Registering Models" accesskey="P">previous</a></div>
 		</li>
 	</ul>
@@ -54,6 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#breadcrumbs-tag">breadcrumbs tag</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
 </ul>
 
       <h3>This Page</h3>
@@ -92,7 +95,7 @@
 <h1>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="get-top-level-categories">
 <h2>get_top_level_categories<a class="headerlink" href="#get-top-level-categories" title="Permalink to this headline">¶</a></h2>
-<p>Retrieves an alphabetical list of all the categories.</p>
+<p>Retrieves an alphabetical list of all the categories that have no parents.</p>
 <p>Syntax:</p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_top_level_categories</span> <span class="k">as</span> <span class="nv">categories</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
@@ -139,7 +142,7 @@ as an iterable.</p>
 </div>
 <div class="section" id="display-drilldown-as-ul">
 <h2>display_drilldown_as_ul<a class="headerlink" href="#display-drilldown-as-ul" title="Permalink to this headline">¶</a></h2>
-<p>Render the category with ancestors, but no children using the
+<p>Render the category with ancestors and children using the
 <tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt> template.</p>
 <p>Example:</p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_drilldown_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>

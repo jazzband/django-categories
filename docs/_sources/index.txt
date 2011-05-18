@@ -14,6 +14,7 @@ Contents:
    usage
    registering_models
    templatetags
+   reference/index
 
 Indices and tables
 ==================
