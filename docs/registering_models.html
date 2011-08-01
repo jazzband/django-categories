@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Registering Models &mdash; Django Categories v0.6 documentation</title>
+    <title>Registering Models &mdash; Django Categories v0.7beta1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.6',
+        VERSION:     '0.7beta1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,13 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.6 documentation" href="index.html" />
-    <link rel="next" title="Template Tags" href="templatetags.html" />
+    <link rel="top" title="Django Categories v0.7beta1 documentation" href="index.html" />
+    <link rel="next" title="Adding the fields to the database" href="adding_the_fields.html" />
     <link rel="prev" title="Using categories in templates" href="usage.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.6 documentation</p>
+	<p>Django Categories v0.7beta1 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Registering Models</h1></div>
@@ -35,7 +35,7 @@
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
 			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
-			<div class="headerButton"><a href="templatetags.html" title="Template Tags" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="adding_the_fields.html" title="Adding the fields to the database" accesskey="N">next</a></div>
 			<div class="headerButton"><a href="usage.html" title="Using categories in templates" accesskey="P">previous</a></div>
 		</li>
 	</ul>
@@ -53,7 +53,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#registering-a-many-to-many-relationship">Registering a many-to-many relationship</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_the_fields.html">Adding the fields to the database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
 </ul>
 
@@ -164,7 +164,7 @@
 </div>
 </div>
 <div class="section" id="registering-a-many-to-one-relationship">
-<h2>Registering a many-to-one relationship<a class="headerlink" href="#registering-a-many-to-one-relationship" title="Permalink to this headline">¶</a></h2>
+<span id="registering-a-m2one-relationship"></span><h2>Registering a many-to-one relationship<a class="headerlink" href="#registering-a-many-to-one-relationship" title="Permalink to this headline">¶</a></h2>
 <p>To create a many-to-one relationship (foreign key) between a model and Django Categories, you register your model with the <tt class="docutils literal"><span class="pre">register_fk</span></tt> function.</p>
 <dl class="function">
 <dt id="register_fk">

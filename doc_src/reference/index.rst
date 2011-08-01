@@ -9,3 +9,4 @@ Reference
    management_commands
    models
    settings
+   templatetags

@@ -54,11 +54,16 @@ Hard coded connections are done in the exact same way you handle any other forei
 	    name = models.CharField(max_length=100)
 	    category = models.ForeignKey('categories.Category')
 
+Don't forget to add the field or fields to your ``ModelAdmin`` class as well.
+
 
 .. _lazy_connection:
 
 Lazy Connection
 ***************
 
+Lazy connections are done through configuring Django Categories in the project's ``settings.py`` file. When the project starts up, the configured fields are dynamically added to the configured models and admin. 
+
+If you do this before you have created the database (before you ran ``manage.py syncdb``), the fields will also be in the tables. If you do this after you have already created all the tables, you can run ``manage.py add_category_fields`` to create the fields (this requires Django South to be installed).
 
 You add a many-to-one or many-to-many relationship with Django Categories using the ``CATEGORIES_SETTINGS['FK_REGISTRY']`` and ``CATEGORIES_SETTINGS['M2M_REGISTRY']`` settings respectively. For more information see :ref:`registering_models`\ .

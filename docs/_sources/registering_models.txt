@@ -95,6 +95,8 @@ Registering one or more Many-to-Many Category fields to a Model
 	    }
 	}
 
+.. _registering_a_m2one_relationship:
+
 Registering a many-to-one relationship
 ======================================
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reference &mdash; Django Categories v0.7beta1 documentation</title>
+    <title>Management Commands &mdash; Django Categories v0.7beta1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,21 +22,22 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Django Categories v0.7beta1 documentation" href="../index.html" />
-    <link rel="next" title="Management Commands" href="management_commands.html" />
-    <link rel="prev" title="Adding the fields to the database" href="../adding_the_fields.html" /> 
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="next" title="Models" href="models.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
   </head>
   <body>
 <div id="docstitle">
 	<p>Django Categories v0.7beta1 documentation</p>
 </div>
 <div id="header">
-	<div id="title"><h1>Reference</h1></div>
+	<div id="title"><h1>Management Commands</h1></div>
 	<ul id="headerButtons">
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
 			<div class="headerButton"><a href="../genindex.html" title="General Index" accesskey="I">index</a></div>
-			<div class="headerButton"><a href="management_commands.html" title="Management Commands" accesskey="N">next</a></div>
-			<div class="headerButton"><a href="../adding_the_fields.html" title="Adding the fields to the database" accesskey="P">previous</a></div>
+			<div class="headerButton"><a href="models.html" title="Models" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="index.html" title="Reference" accesskey="P">previous</a></div>
 		</li>
 	</ul>
 </div>
@@ -49,8 +50,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Using categories in templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../registering_models.html">Registering Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_the_fields.html">Adding the fields to the database</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="management_commands.html">Management Commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Management Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html">Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="templatetags.html">Template Tags</a></li>
@@ -60,7 +61,7 @@
 
       <h3>This Page</h3>
       <ul class="this-page-menu">
-        <li><a href="../_sources/reference/index.txt"
+        <li><a href="../_sources/reference/management_commands.txt"
                rel="nofollow">Show Source</a></li>
       </ul>
     <div id="searchbox" style="display: none">
@@ -90,39 +91,24 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="reference">
-<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="management_commands.html">Management Commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="management_commands.html#import-categories">import_categories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="management_commands.html#add-category-fields">add_category_fields</a></li>
-<li class="toctree-l2"><a class="reference internal" href="management_commands.html#drop-category-fields">drop_category_fields</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="models.html#category">Category</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#allow-slug-change">ALLOW_SLUG_CHANGE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#cache-view-length">CACHE_VIEW_LENGTH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#relation-models">RELATION_MODELS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#m2m-registry">M2M_REGISTRY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#fk-registry">FK_REGISTRY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#thumbnail-upload-path">THUMBNAIL_UPLOAD_PATH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#thumbnail-storage">THUMBNAIL_STORAGE</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template Tags</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#get-top-level-categories">get_top_level_categories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#display-path-as-ul">display_path_as_ul</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#get-category-drilldown">get_category_drilldown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#display-drilldown-as-ul">display_drilldown_as_ul</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#breadcrumbs-tag">breadcrumbs tag</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="management-commands">
+<span id="id1"></span><h1>Management Commands<a class="headerlink" href="#management-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="import-categories">
+<span id="id2"></span><h2>import_categories<a class="headerlink" href="#import-categories" title="Permalink to this headline">¶</a></h2>
+<p><strong>Usage:</strong> <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">import_categories</span> <span class="pre">/path/to/file.txt</span> <span class="pre">[/path/to/file2.txt]</span></tt></p>
+<p>Imports category tree(s) from a file. Sub categories must be indented by the same multiple of spaces or tabs. The first line in the file cannot start with a space or tab and you can&#8217;t mix spaces and tabs.</p>
+</div>
+<div class="section" id="add-category-fields">
+<span id="id3"></span><h2>add_category_fields<a class="headerlink" href="#add-category-fields" title="Permalink to this headline">¶</a></h2>
+<p><strong>Usage:</strong> <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">add_category_fields</span> <span class="pre">[app1</span> <span class="pre">app2</span> <span class="pre">...]</span></tt></p>
+<p>Add missing registered category fields to the database table of a specified application or all registered applications.</p>
+<p>Requires Django South.</p>
+</div>
+<div class="section" id="drop-category-fields">
+<span id="id4"></span><h2>drop_category_fields<a class="headerlink" href="#drop-category-fields" title="Permalink to this headline">¶</a></h2>
+<p><strong>Usage:</strong> <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">drop_category_field</span> <span class="pre">app_name</span> <span class="pre">model_name</span> <span class="pre">field_name</span></tt></p>
+<p>Drop the <tt class="docutils literal"><span class="pre">field_name</span></tt> field from the <tt class="docutils literal"><span class="pre">app_name_model_name</span></tt> table, if the field is currently registered in <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS</span></tt>.</p>
+<p>Requires Django South.</p>
 </div>
 </div>
 
@@ -139,7 +125,8 @@
       <div class="clearer"></div>
     </div>
 	<div id="breadcrumbs">
-		Reference
+		<a href="index.html" accesskey="U">Reference</a><img src="../_static/triangle_closed.png" height="9" width="9" alt="&gt;">
+		Management Commands
 		</ul>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="../_static/toc.js"></script>
