@@ -5,7 +5,11 @@
 	<script type="text/javascript">
 	(function($) {
 		$(document).ready(function()  {
-		treeTable = $("#result_list").treeTable({initialState : "{{ EDITOR_TREE_INITIAL_STATE }}"});
+    		var srchString = document.getElementById('searchbar').value;
+            if (srchString == '')
+		        treeTable = $("#result_list").treeTable({initialState : "{{ EDITOR_TREE_INITIAL_STATE }}"});
+		    else:
+		        treeTable = $("#result_list").treeTable({initialState : "expanded"});
 		function toggleChildren(index, value) {
 			var row = value.parentNode.parentNode;
 			if (row.className.match(/child-of-node-\d+/)) {
