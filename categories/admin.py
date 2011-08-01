@@ -8,7 +8,7 @@ from editor.tree_editor import TreeEditor
 from genericcollection import GenericCollectionTabularInline
 
 from settings import ALLOW_SLUG_CHANGE, RELATION_MODELS
-from categories import registry
+from categories import model_registry
 from models import Category
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
@@ -102,9 +102,9 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 for model, modeladmin in admin.site._registry.items():
-    if model in registry.values() and modeladmin.fieldsets:
+    if model in model_registry.values() and modeladmin.fieldsets:
         fieldsets = getattr(modeladmin, 'fieldsets', ())
-        fields = [cat.split('.')[1] for cat in registry if registry[cat] == model]
+        fields = [cat.split('.')[2] for cat in model_registry if model_registry[cat] == model]
         # check each field to see if already defined
         for cat in fields:
             for k,v in fieldsets:
