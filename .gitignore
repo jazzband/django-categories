@@ -13,3 +13,4 @@ doc_src/_build
 MANIFEST
 dist/
 .venv
+example/media/
