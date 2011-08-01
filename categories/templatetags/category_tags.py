@@ -1,4 +1,6 @@
 from django import template
+from django.template import Library, Node, TemplateSyntaxError, \
+    Variable, resolve_variable, VariableDoesNotExist, Context
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node
 from mptt.templatetags.mptt_tags import tree_path, tree_info
@@ -206,3 +208,95 @@ def get_top_level_categories(parser, token):
             "Usage: {%% %s as <variable> %%}" % bits[0]
         )
     return TopLevelCategoriesNode(bits[2])
+
+def resolve(var, context):
+    try:
+        return var.resolve(context)
+    except VariableDoesNotExist:
+        try:
+            return var.var
+        except AttributeError:
+            return var
+
+def get_latest_objects_by_category(category, app_label, model_name, set_name, 
+                                    date_field='pub_date', num=15):
+    m = get_model(app_label, model_name)
+    if not isinstance(category, Category):
+        category = Category.objects.get(slug=str(category))
+    children = Category.objects.filter(parent=category)
+    ids = []
+    for cat in list(children) + [category]:
+        if hasattr(cat, '%s_set' % set_name):
+            ids.extend([x.pk for x in getattr(cat, '%s_set' % set_name).all()[:num]])
+    
+    return m.objects.filter(pk__in=ids).order_by('-%s' % date_field)[:num]
+
+class LatestObjectsNode(Node):
+    def __init__(self, var_name, category, app_label, model_name, set_name, 
+                 date_field='pub_date', num=15):
+        """Get latest objects of app_label.model_name"""
+        self.category = Variable(category)
+        self.app_label = Variable(app_label)
+        self.model_name = Variable(model_name)
+        self.set_name = Variable(set_name)
+        self.date_field = Variable(date_field)
+        self.num = Variable(num)
+        self.var_name = var_name
+    
+    def get_cache_key(self, category, app_label, model_name, set_name, 
+                     date_field, num):
+        """Get the cache key"""
+        key = 'latest_objects.%s' % '.'.join([category, app_label, model_name, 
+                set_name, date_field, num])
+    
+    def render(self, context):
+        """Render this sucker"""
+        category = resolve(self.category, context)
+        app_label = resolve(self.app_label, context)
+        model_name = resolve(self.model_name, context)
+        set_name = resolve(self.set_name, context)
+        date_field = resolve(self.date_field, context)
+        num = resolve(self.num, context)
+        
+        cache_key = self.get_cache_key(category, app_label, model_name, set_name, 
+                         date_field, num)
+        result = cache.get(cache_key)
+        if not result:
+            result = get_latest_objects_by_category(category, app_label, model_name, 
+                            set_name, date_field, num)
+        
+            cache.set(key, result, 300)
+        context[self.var_name] = result
+        
+        return ''
+
+def do_get_latest_objects_by_category(parser, token):
+    """
+    Get the latest objects by category
+    
+    {% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}
+    """
+    proper_form = "{% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}"
+    bits = token.split_contents()
+    
+    if bits[-2] != 'as':
+        raise TemplateSyntaxError("%s tag shoud be in the form: %s" % (bits[0], proper_form))
+    if len(bits) < 7:
+        raise TemplateSyntaxError("%s tag shoud be in the form: %s" % (bits[0], proper_form))
+    if len(bits) > 9:
+        raise TemplateSyntaxError("%s tag shoud be in the form: %s" % (bits[0], proper_form))
+    category = bits[1]
+    app_label = bits[2]
+    model_name = bits[3]
+    set_name = bits[4]
+    var_name = bits[-1]
+    if bits[5] != 'as':
+        date_field = bits[5]
+    else:
+        date_field = None
+    if bits[6] != 'as':
+        num = bits[6]
+    else:
+        num = None
+    return LatestObjectsNode(var_name, category, app_label, model_name, set_name, 
+                     date_field, num)
