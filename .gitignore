@@ -12,3 +12,4 @@ media/css/*.r*.css
 doc_src/_build
 MANIFEST
 dist/
+.venv
