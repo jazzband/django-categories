@@ -8,7 +8,7 @@
     		var srchString = document.getElementById('searchbar').value;
             if (srchString == '')
 		        treeTable = $("#result_list").treeTable({initialState : "{{ EDITOR_TREE_INITIAL_STATE }}"});
-		    else:
+		    else
 		        treeTable = $("#result_list").treeTable({initialState : "expanded"});
 		function toggleChildren(index, value) {
 			var row = value.parentNode.parentNode;
