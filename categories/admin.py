@@ -85,7 +85,7 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
             'fields': ('parent', 'name', 'thumbnail')
         }),
         ('Meta Data', {
-            'fields': ('alternate_title', 'description', 'meta_keywords', 'meta_extra'),
+            'fields': ('alternate_title', 'alternate_url', 'description', 'meta_keywords', 'meta_extra'),
             'classes': ('collapse',),
         }),
         ('Advanced', {
