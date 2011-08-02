@@ -1,8 +1,6 @@
-===========================================
-Django Categories v|version| documentation!
-===========================================
-
-
+=============================
+Django Categories v |version|
+=============================
 
 Contents:
 
@@ -13,7 +11,7 @@ Contents:
    getting_started
    usage
    registering_models
-   templatetags
+   adding_the_fields
    reference/index
 
 Indices and tables

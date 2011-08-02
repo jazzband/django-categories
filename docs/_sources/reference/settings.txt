@@ -68,3 +68,10 @@ THUMBNAIL_STORAGE
 **Default:** ``settings.DEFAULT_FILE_STORAGE``
 
 **Description:** How to store the thumbnails. Allows for external storage engines like S3.
+
+JAVASCRIPT_URL
+==============
+
+**Default:** ``STATIC_URL or MEDIA_URL + 'js/'``
+
+**Description:** Allows for customization of javascript placement.

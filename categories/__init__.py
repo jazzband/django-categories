@@ -1,6 +1,6 @@
 __version_info__ = {
     'major': 0,
-    'minor': 6,
+    'minor': 7,
     'micro': 0,
     'releaselevel': 'final',
     'serial': 1
@@ -17,7 +17,8 @@ def get_version():
 
 __version__ = get_version()
 
-registry = {}
+field_registry = {}
+model_registry = {}
 
 try:
     import fields
@@ -30,7 +31,16 @@ try:
         """
         pass
     
-    registry = {}
+    # The field registry keeps track of the individual fields created.
+    #  {'app.model.field': Field(**extra_params)}
+    #  Useful for doing a schema migration
+    field_registry = {}
+    
+    # The model registry keeps track of which models have one or more fields
+    # registered.
+    # {'app': [model1, model2]}
+    # Useful for admin alteration
+    model_registry = {}
     
     def register_m2m(model, field_name='categories', extra_params={}):
         return _register(model, field_name, extra_params, fields.CategoryM2MField)
@@ -39,16 +49,21 @@ try:
         return _register(model, field_name, extra_params, fields.CategoryFKField)
     
     def _register(model, field_name, extra_params={}, field=fields.CategoryFKField):
-        registry_name = "%s.%s" % (model.__name__, field_name)
+        app_label = model._meta.app_label
+        registry_name = ".".join((app_label, model.__name__, field_name)).lower()
         
-        if registry_name in registry:
+        if registry_name in field_registry:
             return #raise AlreadyRegistered
-        registry[registry_name] = model
         opts = model._meta
         try:
             opts.get_field(field_name)
         except FieldDoesNotExist:
-            field(**extra_params).contribute_to_class(model, field_name)
+            if app_label not in model_registry:
+                model_registry[app_label] = []
+            if model not in model_registry[app_label]:
+                model_registry[app_label].append(model)
+            field_registry[registry_name] = field(**extra_params)
+            field_registry[registry_name].contribute_to_class(model, field_name)
     
     from categories import settings
     from django.core.exceptions import ImproperlyConfigured

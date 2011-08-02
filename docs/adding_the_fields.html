@@ -1,0 +1,125 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Adding the fields to the database &mdash; Django Categories v0.7 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Categories v0.7 documentation" href="index.html" />
+    <link rel="next" title="Reference" href="reference/index.html" />
+    <link rel="prev" title="Registering Models" href="registering_models.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>Django Categories v0.7 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Adding the fields to the database</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="reference/index.html" title="Reference" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="registering_models.html" title="Registering Models" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Adding the fields to the database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enter-south">Enter South</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reconfiguring-fields">Reconfiguring Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
+</ul>
+
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="_sources/adding_the_fields.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="adding-the-fields-to-the-database">
+<span id="adding-the-fields"></span><h1>Adding the fields to the database<a class="headerlink" href="#adding-the-fields-to-the-database" title="Permalink to this headline">¶</a></h1>
+<p>While Django will create the appropriate columns and tables if you configure Django Categories first, many times that is not possible. You could also reset the table, but you would loose all data in it. There is another way.</p>
+<div class="section" id="enter-south">
+<h2>Enter South<a class="headerlink" href="#enter-south" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://south.aeracode.org/">South</a> is a Django application for managing database schema changes. South&#8217;s default behavior is for managing permanent changes to a model&#8217;s structure. In the case of dynamically adding a field or fields to a model, this doesn&#8217;t work because you are not making the change permanent. And probably don&#8217;t want to.</p>
+<p>Django Categories has a management command to create any missing fields. It requires South because it uses the South&#8217;s API for making changes to databases. The management command is simple: <tt class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">add_category_fields</span> <span class="pre">[app]</span></tt>. If you do not include an app name, it will attempt to do all applications configured.</p>
+<p>Running this command several times will not hurt any data or cause any errors.</p>
+</div>
+<div class="section" id="reconfiguring-fields">
+<h2>Reconfiguring Fields<a class="headerlink" href="#reconfiguring-fields" title="Permalink to this headline">¶</a></h2>
+<p>You can make changes to the field configurations as long as they do not change the underlying database structure. For example, adding a <tt class="docutils literal"><span class="pre">related_name</span></tt> (see <a class="reference internal" href="registering_models.html#registering-a-m2one-relationship"><em>Registering a many-to-one relationship</em></a>) because it only affects Django code. Changing the name of the field, however, is a different matter.</p>
+<p>Django Categories provides a complementary management command to drop a field from the database (the field must still be in the configuration to do so): <tt class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">drop_category_field</span> <span class="pre">app_name</span> <span class="pre">model_name</span> <span class="pre">field_name</span></tt></p>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2010, CoreyOordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		Adding the fields to the database
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
+  </body>
+</html>
