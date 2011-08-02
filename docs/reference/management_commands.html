@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Management Commands &mdash; Django Categories v0.7beta1 documentation</title>
+    <title>Management Commands &mdash; Django Categories v0.7 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7beta1',
+        VERSION:     '0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,14 +21,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.7beta1 documentation" href="../index.html" />
+    <link rel="top" title="Django Categories v0.7 documentation" href="../index.html" />
     <link rel="up" title="Reference" href="index.html" />
     <link rel="next" title="Models" href="models.html" />
     <link rel="prev" title="Reference" href="index.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.7beta1 documentation</p>
+	<p>Django Categories v0.7 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Management Commands</h1></div>
@@ -104,8 +104,8 @@
 <p>Add missing registered category fields to the database table of a specified application or all registered applications.</p>
 <p>Requires Django South.</p>
 </div>
-<div class="section" id="drop-category-fields">
-<span id="id4"></span><h2>drop_category_fields<a class="headerlink" href="#drop-category-fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="drop-category-field">
+<span id="id4"></span><h2>drop_category_field<a class="headerlink" href="#drop-category-field" title="Permalink to this headline">¶</a></h2>
 <p><strong>Usage:</strong> <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">drop_category_field</span> <span class="pre">app_name</span> <span class="pre">model_name</span> <span class="pre">field_name</span></tt></p>
 <p>Drop the <tt class="docutils literal"><span class="pre">field_name</span></tt> field from the <tt class="docutils literal"><span class="pre">app_name_model_name</span></tt> table, if the field is currently registered in <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS</span></tt>.</p>
 <p>Requires Django South.</p>

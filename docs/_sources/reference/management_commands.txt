@@ -26,9 +26,9 @@ Add missing registered category fields to the database table of a specified appl
 Requires Django South.
 
 
-.. _drop_category_fields:
+.. _drop_category_field:
 
-drop_category_fields
+drop_category_field
 ===================
 
 **Usage:** ``./manage.py drop_category_field app_name model_name field_name``
