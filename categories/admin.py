@@ -7,7 +7,7 @@ from mptt.forms import TreeNodeChoiceField
 from editor.tree_editor import TreeEditor
 from genericcollection import GenericCollectionTabularInline
 
-from settings import ALLOW_SLUG_CHANGE, RELATION_MODELS
+from settings import ALLOW_SLUG_CHANGE, RELATION_MODELS, JAVASCRIPT_URL
 from categories import model_registry
 from models import Category
 
@@ -97,7 +97,7 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
         inlines = [InlineCategoryRelation,]
     
     class Media:
-        js = (settings.STATIC_URL + 'js/genericcollections.js',)
+        js = (JAVASCRIPT_URL + 'genericcollections.js',)
 
 admin.site.register(Category, CategoryAdmin)
 

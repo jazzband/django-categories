@@ -11,6 +11,7 @@ DEFAULT_SETTINGS = {
     'FK_REGISTRY': {},
     'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
     'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
+    'JAVASCRIPT_URL': getattr(settings, 'STATIC_URL', settings.MEDIA_URL) + 'js/',
 }
 
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))
