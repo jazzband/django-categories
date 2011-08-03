@@ -2,6 +2,25 @@ Django Categories grew out of our need to provide a basic hierarchical taxonomy 
 
 As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
 
+New in 0.7
+==========
+
+**Added South migrations**
+	All the previous SQL scripts have been converted to South migrations.
+
+**Can add category fields via management command (and South)**
+	The new ability to setup category relationships in ``settings.py`` works fine if you are starting from scratch, but not if you want to add it after you have set up the database. Now there is a management command to make sure all the correct fields and tables are created.
+
+**Added an alternate_url field**
+	This allows the specification of a URL that is not derived from the category hierarchy.
+
+**New JAVASCRIPT_URL setting**
+	This allows some customization of the ``genericcollections.js`` file.
+
+**New get_latest_objects_by_category template tag**
+	This will do pretty much what it says.
+
+
 New in 0.6
 ==========
 
