@@ -1,5 +1,4 @@
-from django.db import models
-from django.db.utils import DatabaseError
+from django.db import models, DatabaseError
 
 from south.db import db
 from south.signals import post_migrate
