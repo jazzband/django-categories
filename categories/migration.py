@@ -1,5 +1,4 @@
-from django.db import models
-from django.db.utils import DatabaseError
+from django.db import models, DatabaseError
 
 from south.db import db
 from south.signals import post_migrate
@@ -12,8 +11,10 @@ def migrate_app(app, *args, **kwargs):
     Migrate all models of this app registered
     """
     # pull the information from the registry
+    if not isinstance(app, basestring):
+        return
     fields = [fld for fld in field_registry.keys() if fld.startswith(app)]
-
+    
     # call the south commands to add the fields/tables
     for fld in fields:
         app_name, model_name, field_name = fld.split('.')

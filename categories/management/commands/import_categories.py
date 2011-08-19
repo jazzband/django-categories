@@ -29,7 +29,7 @@ class Command(BaseCommand):
         """
         return Category.objects.create(
             name=string.strip(),
-            slug=slugify(string.strip()),
+            slug=slugify(string.strip())[:49],
             parent=parent,
             order=order
         )

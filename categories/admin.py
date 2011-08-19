@@ -1,9 +1,7 @@
-from django.conf import settings
 from django.contrib import admin
 from django import forms
 from django.template.defaultfilters import slugify
 
-from mptt.forms import TreeNodeChoiceField
 from editor.tree_editor import TreeEditor
 from genericcollection import GenericCollectionTabularInline
 
@@ -62,30 +60,34 @@ class CategoryAdminForm(forms.ModelForm):
             kwargs['parent__pk'] = int(self.cleaned_data['parent'].id)
         this_level_slugs = [c['slug'] for c in Category.objects.filter(**kwargs).values('id','slug') if c['id'] != self.instance.id]
         if self.cleaned_data['slug'] in this_level_slugs:
-            raise forms.ValidationError("A category slug must be unique among categories at its level.")
+            raise forms.ValidationError("A category slug must be unique among"
+                                        "categories at its level.")
         
         # Validate Category Parent
         # Make sure the category doesn't set itself or any of its children as its parent."
         if self.cleaned_data.get('parent', None) is None or self.instance.id is None:
             return self.cleaned_data
         elif self.cleaned_data['parent'].id == self.instance.id:
-            raise forms.ValidationError("You can't set the parent of the category to itself.")
+            raise forms.ValidationError("You can't set the parent of the "
+                                        "category to itself.")
         elif self.cleaned_data['parent'].id in [i[0] for i in self.instance.get_descendants().values_list('id')]:
-            raise forms.ValidationError("You can't set the parent of the category to a descendant.")
+            raise forms.ValidationError("You can't set the parent of the "
+                                        "category to a descendant.")
         return self.cleaned_data
 
 
 class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     form = CategoryAdminForm
-    list_display = ('name','order','alternate_title',)
-    search_fields = (('name',))
+    list_display = ('name', 'alternate_title', )
+    search_fields = ('name', 'alternate_title', )
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
         (None, {
             'fields': ('parent', 'name', 'thumbnail')
         }),
         ('Meta Data', {
-            'fields': ('alternate_title', 'alternate_url', 'description', 'meta_keywords', 'meta_extra'),
+            'fields': ('alternate_title', 'alternate_url', 'description', 
+                        'meta_keywords', 'meta_extra'),
             'classes': ('collapse',),
         }),
         ('Advanced', {
@@ -107,7 +109,7 @@ for model, modeladmin in admin.site._registry.items():
         fields = [cat.split('.')[2] for cat in model_registry if model_registry[cat] == model]
         # check each field to see if already defined
         for cat in fields:
-            for k,v in fieldsets:
+            for k, v in fieldsets:
                 if cat in v['fields']:
                     fields.remove(cat)
         # if there are any fields left, add them under the categories fieldset
