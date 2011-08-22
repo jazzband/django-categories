@@ -78,12 +78,12 @@ class CategoryAdminForm(forms.ModelForm):
 
 class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     form = CategoryAdminForm
-    list_display = ('name', 'alternate_title', )
+    list_display = ('name', 'alternate_title', 'active')
     search_fields = ('name', 'alternate_title', )
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
         (None, {
-            'fields': ('parent', 'name', 'thumbnail')
+            'fields': ('parent', 'name', 'thumbnail', 'active')
         }),
         ('Meta Data', {
             'fields': ('alternate_title', 'alternate_url', 'description', 
@@ -95,6 +95,29 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
             'classes': ('collapse',),
         }),
     )
+    
+    actions = ['activate', 'deactivate']
+    
+    def deactivate(self, request, queryset):
+        """
+        Set active to False for selected items
+        """
+        for item in queryset:
+            if item.active:
+                item.active = False
+                item.save()
+    deactivate.short_description = "Deactivate selected categories and their children"
+    
+    def activate(self, request, queryset):
+        """
+        Set active to True for selected items
+        """
+        for item in queryset:
+            if not item.active:
+                item.active = True
+                item.save()
+    activate.short_description = "Activate selected categories and their children"
+    
     if RELATION_MODELS:
         inlines = [InlineCategoryRelation,]
     

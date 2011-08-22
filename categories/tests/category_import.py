@@ -31,11 +31,23 @@ class CategoryImportTest(unittest.TestCase):
     def testImportSpaceDelimited(self):
         Category.objects.all().delete()
         self._import_file('test_category_spaces.txt')
+        
+        items = Category.objects.all()
+        
+        self.assertEqual(items[0].name, 'Category 1')
+        self.assertEqual(items[1].name, 'Category 1-1')
+        self.assertEqual(items[2].name, 'Category 1-2')
     
     
     def testImportTabDelimited(self):
         Category.objects.all().delete()
         self._import_file('test_category_tabs.txt')
+        
+        items = Category.objects.all()
+        
+        self.assertEqual(items[0].name, 'Category 1')
+        self.assertEqual(items[1].name, 'Category 1-1')
+        self.assertEqual(items[2].name, 'Category 1-2')
     
     
     def testMixingTabsSpaces(self):
