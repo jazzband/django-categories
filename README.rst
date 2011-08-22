@@ -2,6 +2,17 @@ Django Categories grew out of our need to provide a basic hierarchical taxonomy 
 
 As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
 
+New in 0.8
+==========
+
+**Added an active field**
+	As an alternative to deleting categories, you can make them inactive.
+	
+	Also added a manager method ``active()`` to query only the active categories and added Admin Actions to activate or deactivate an item.
+
+**Improved import**
+	Previously the import saved items in the reverse order to the imported file. Now them import in order.
+
 New in 0.7
 ==========
 
