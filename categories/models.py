@@ -14,6 +14,16 @@ from settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH,
 
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
+class CategoryManager(models.Manager):
+    """
+    A manager that adds an "active()" method for all active categories
+    """
+    def active(self):
+        """
+        Only categories that are active
+        """
+        return self.get_query_set().filter(active=True)
+
 class Category(MPTTModel):
     parent = models.ForeignKey('self', 
         blank=True, 
@@ -49,6 +59,9 @@ class Category(MPTTModel):
         blank=True,
         default="",
         help_text="(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;")
+    active = models.BooleanField(default=True)
+    
+    objects = CategoryManager()
     
     @property
     def short_title(self):
@@ -88,6 +101,10 @@ class Category(MPTTModel):
         self.thumbnail_width = width
         self.thumbnail_height = height
         
+        for item in self.get_descendants():
+            if item.active != self.active:
+                item.active = self.active
+                item.save()
         super(Category, self).save(*args, **kwargs)
     
     class Meta:
