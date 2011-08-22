@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from categories.models import Category
 from django.template.defaultfilters import slugify
+from django.db import transaction
 
 class Command(BaseCommand):
     """Import category trees from a file."""
@@ -22,17 +23,23 @@ class Command(BaseCommand):
             else:
                 return ' ' * indent_amt
     
-    
+    @transaction.commit_on_success
     def make_category(self, string, parent=None, order=1):
         """
         Make and save a category object from a string
         """
-        return Category.objects.create(
+        cat = Category(
             name=string.strip(),
             slug=slugify(string.strip())[:49],
-            parent=parent,
+            #parent=parent,
             order=order
         )
+        cat._tree_manager.insert_node(cat, parent, 'last-child', True)
+        cat.save()
+        if parent:
+            parent.rght = cat.rght + 1
+            parent.save()
+        return cat
     
     def parse_lines(self, lines):
         """
@@ -60,6 +67,7 @@ class Command(BaseCommand):
             else:
                 # We are back to a zero level, so reset the whole thing
                 current_parents = {0: self.make_category(line)}
+        current_parents[0]._tree_manager.rebuild()
     
     def handle(self, *file_paths, **options):
         """
