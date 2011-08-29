@@ -101,11 +101,12 @@ class Category(MPTTModel):
         self.thumbnail_width = width
         self.thumbnail_height = height
         
+        super(Category, self).save(*args, **kwargs)
+        
         for item in self.get_descendants():
             if item.active != self.active:
                 item.active = self.active
                 item.save()
-        super(Category, self).save(*args, **kwargs)
     
     class Meta:
         verbose_name_plural = 'categories'
