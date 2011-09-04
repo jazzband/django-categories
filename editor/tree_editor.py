@@ -50,8 +50,10 @@ class TreeEditorQuerySet(QuerySet):
         for obj in super(TreeEditorQuerySet, qs).iterator():
             yield obj
     
-    def __getitem__(self, index):
-        return self   # Don't even try to slice
+    # Although slicing isn't nice in a tree, it is used in the deletion action
+    #  in the admin changelist. This causes github issue #25
+    # def __getitem__(self, index):
+    #     return self   # Don't even try to slice
     
     def get(self, *args, **kwargs):
         """
