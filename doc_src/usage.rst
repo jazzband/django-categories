@@ -2,12 +2,29 @@
 Using categories in templates
 =============================
 
-To use the template tags:::
+
+Getting all items within a category
+===================================
+
+The :py:class:`Category` model automatically gets `reverse relationships <https://docs.djangoproject.com/en/1.3/topics/db/queries/#following-relationships-backward>`_ with all other models related to it.
+
+This allows you access to the related objects from the template without altering any views. For example, if you only had ``Entry`` models related to :py:class:`Category`, your ``categories/category_detail.html`` template could look like
+
+.. literalinclude:: usage_example_template.html
+   :language: django
+   :linenos:
+
+
+If you have ``related_name`` parameters to the configuration (see :ref:`registering_models`), then you would use ``category.related_name.all`` instead of ``category.relatedmodel_set.all``\ .
+
+
+Template Tags
+=============
+
+To use the template tags::
 
 	{% import category_tags %}
 
-Filters
-*******
 
 ``tree_info``
 -------------
@@ -42,3 +59,4 @@ comma-separated list of feature names. The valid feature names are:
          Books                    ->  []
             Sci-fi                ->  [u'Books']
                Dystopian Futures  ->  [u'Books', u'Sci-fi']
+

@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Using categories in templates &mdash; Django Categories v0.8 documentation</title>
+    <title>Using categories in templates &mdash; Django Categories v0.8.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.8',
+        VERSION:     '0.8.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,13 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.8 documentation" href="index.html" />
+    <link rel="top" title="Django Categories v0.8.2 documentation" href="index.html" />
     <link rel="next" title="Registering Models" href="registering_models.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.8 documentation</p>
+	<p>Django Categories v0.8.2 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Using categories in templates</h1></div>
@@ -47,7 +47,8 @@
 	<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Using categories in templates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#filters">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-all-items-within-a-category">Getting all items within a category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#template-tags">Template Tags</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
@@ -89,11 +90,74 @@
             
   <div class="section" id="using-categories-in-templates">
 <h1>Using categories in templates<a class="headerlink" href="#using-categories-in-templates" title="Permalink to this headline">¶</a></h1>
-<p>To use the template tags::</p>
+<div class="section" id="getting-all-items-within-a-category">
+<h2>Getting all items within a category<a class="headerlink" href="#getting-all-items-within-a-category" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt> model automatically gets <a class="reference external" href="https://docs.djangoproject.com/en/1.3/topics/db/queries/#following-relationships-backward">reverse relationships</a> with all other models related to it.</p>
+<p>This allows you access to the related objects from the template without altering any views. For example, if you only had <tt class="docutils literal"><span class="pre">Entry</span></tt> models related to <tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt>, your <tt class="docutils literal"><span class="pre">categories/category_detail.html</span></tt> template could look like</p>
+<div class="highlight-django"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;categories/base.html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">category</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">category.parent</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h2&gt;Go up to </span>
+<span class="x">        &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">category.parent.get_absolute_url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">category.parent</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">        &lt;/a&gt;&lt;/h2&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">category.description</span> <span class="cp">%}</span><span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">category.description</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">category.children.count</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;h2&gt;Subcategories&lt;/h2&gt;</span>
+<span class="x">    &lt;ul&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">child</span> <span class="k">in</span> <span class="nv">category.children.all</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">child.get_absolute_url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">child</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;/ul&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;h2&gt;Entries&lt;/h2&gt;</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">category.entries_set.all</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">entry</span> <span class="k">in</span> <span class="nv">category.entries_set.all</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;p&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">entry.get_absolute_url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">entry.headline</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;p&gt;&lt;em&gt;No entries for </span><span class="cp">{{</span> <span class="nv">category</span> <span class="cp">}}</span><span class="x">&lt;/em&gt;&lt;/p&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>If you have <tt class="docutils literal"><span class="pre">related_name</span></tt> parameters to the configuration (see <a class="reference internal" href="registering_models.html#registering-models"><em>Registering Models</em></a>), then you would use <tt class="docutils literal"><span class="pre">category.related_name.all</span></tt> instead of <tt class="docutils literal"><span class="pre">category.relatedmodel_set.all</span></tt>.</p>
+</div>
+<div class="section" id="template-tags">
+<h2>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
+<p>To use the template tags:</p>
 <div class="highlight-python"><pre>{% import category_tags %}</pre>
 </div>
-<div class="section" id="filters">
-<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tree-info">
 <h3><tt class="docutils literal"><span class="pre">tree_info</span></tt><a class="headerlink" href="#tree-info" title="Permalink to this headline">¶</a></h3>
 <p>Given a list of categories, iterates over the list, generating
