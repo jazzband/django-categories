@@ -1,0 +1,28 @@
+{% extends 'categories/base.html' %}
+{% block content %}
+<h1>{{ category }}</h1>
+{% if category.parent %}
+    <h2>Go up to 
+        <a href="{{ category.parent.get_absolute_url }}">
+            {{ category.parent }}
+        </a></h2>
+{% endif %}
+{% if category.description %}<p>{{ category.description }}</p>{% endif %}
+{% if category.children.count %}
+    <h2>Subcategories</h2>
+    <ul>
+        {% for child in category.children.all %}
+        <li><a href="{{ child.get_absolute_url }}">{{ child }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<h2>Entries</h2>
+{% if category.entries_set.all %}
+    {% for entry in category.entries_set.all %}
+        <p><a href="{{ entry.get_absolute_url }}">{{ entry.headline }}</a></p>
+    {% endfor %}
+{% else %}
+    <p><em>No entries for {{ category }}</em></p>
+{% endif %}
+
+{% endblock %}
