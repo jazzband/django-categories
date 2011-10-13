@@ -97,25 +97,37 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     )
     
     actions = ['activate', 'deactivate']
+    def get_actions(self, request):
+        actions = super(CategoryAdmin, self).get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
     
     def deactivate(self, request, queryset):
         """
         Set active to False for selected items
         """
-        for item in queryset:
+        selected_cats = Category.objects.filter(
+            pk__in=[int(x) for x in request.POST.getlist('_selected_action')])
+        
+        for item in selected_cats:
             if item.active:
                 item.active = False
                 item.save()
+                item.children.all().update(active=False)
     deactivate.short_description = "Deactivate selected categories and their children"
     
     def activate(self, request, queryset):
         """
         Set active to True for selected items
         """
-        for item in queryset:
-            if not item.active:
-                item.active = True
-                item.save()
+        selected_cats = Category.objects.filter(
+            pk__in=[int(x) for x in request.POST.getlist('_selected_action')])
+        
+        for item in selected_cats:
+            item.active = True
+            item.save()
+            item.children.all().update(active=True)
     activate.short_description = "Activate selected categories and their children"
     
     if RELATION_MODELS:
