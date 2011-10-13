@@ -97,6 +97,11 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
     )
     
     actions = ['activate', 'deactivate']
+    def get_actions(self, request):
+        actions = super(CategoryAdmin, self).get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
     
     def deactivate(self, request, queryset):
         """
