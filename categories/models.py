@@ -94,7 +94,11 @@ class Category(MPTTModel):
             self.slug = slugify(self.name)[:50]
         if self.thumbnail:
             from django.core.files.images import get_image_dimensions
-            width, height = get_image_dimensions(self.thumbnail.file, close=True)
+            import django
+            if django.VERSION[1] < 2:
+                width, height = get_image_dimensions(self.thumbnail.file)
+            else:
+                width, height = get_image_dimensions(self.thumbnail.file, close=True)
         else:
             width, height = None, None
         
