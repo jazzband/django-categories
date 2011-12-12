@@ -32,6 +32,7 @@ class Category(MPTTModel):
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
+    is_blog = models.BooleanField()
     thumbnail = models.FileField(
         upload_to=THUMBNAIL_UPLOAD_PATH, 
         null=True, blank=True,
