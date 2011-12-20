@@ -71,8 +71,12 @@ class Category(MPTTModel):
         """Return a path"""
         if self.alternate_url:
             return self.alternate_url
-        prefix = reverse('categories_tree_list')
+        try:
+          prefix = reverse('categories_tree_list')
+        except:
+          prefix = '/'
         ancestors = list(self.get_ancestors()) + [self,]
+
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
     
     if RELATION_MODELS:
