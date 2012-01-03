@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &mdash; Django Categories v0.8.6 documentation</title>
+    <title>Installation &mdash; Django Categories v0.8.6 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,18 +21,22 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.8.6 documentation" href="index.html" /> 
+    <link rel="top" title="Django Categories v0.8.6 documentation" href="index.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Django Categories v 0.8" href="index.html" /> 
   </head>
   <body>
 <div id="docstitle">
 	<p>Django Categories v0.8.6 documentation</p>
 </div>
 <div id="header">
-	<div id="title"><h1>Index</h1></div>
+	<div id="title"><h1>Installation</h1></div>
 	<ul id="headerButtons">
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
-			<div class="headerButton"><a href="#" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="getting_started.html" title="Getting Started" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="index.html" title="Django Categories v 0.8" accesskey="P">previous</a></div>
 		</li>
 	</ul>
 </div>
@@ -40,8 +44,8 @@
 <div id="sphinxsidebar">
   <div class="sphinxsidebarwrapper">
 	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
-	<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+	<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
@@ -49,9 +53,11 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
 </ul>
 
-
-   
-
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="_sources/installation.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
     <div id="searchbox" style="display: none">
       
         <form class="search" action="search.html" method="get">
@@ -79,22 +85,26 @@
         <div class="bodywrapper">
           <div class="body">
             
-
-   <h1 id="index">Index</h1>
-
-   <div class="genindex-jumpbox">
-   <a href="#R"><strong>R</strong></a> 
-   </div>
-<h2 id="R">R</h2>
-<table width="100%" class="indextable genindextable"><tr>
-  <td width="33%" valign="top"><dl>
-    <dt><a href="registering_models.html#register_fk">register_fk() (built-in function)</a></dt>
-</dl></td>
-  <td width="33%" valign="top"><dl>
-    <dt><a href="registering_models.html#register_m2m">register_m2m() (built-in function)</a></dt>
-</dl></td>
-</tr></table>
-
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Install django-categories:</p>
+<div class="highlight-python"><pre>pip install django-categories</pre>
+</div>
+</li>
+<li><p class="first">Add <tt class="docutils literal"><span class="pre">&quot;categories&quot;</span></tt> and <tt class="docutils literal"><span class="pre">&quot;editor&quot;</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> list in your project&#8217;s <tt class="docutils literal"><span class="pre">settings.py</span></tt> file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c"># ...</span>
+    <span class="s">&quot;categories&quot;</span><span class="p">,</span>
+    <span class="s">&quot;editor&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">syncdb</span></tt> (or <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">migrate</span> <span class="pre">categories</span></tt> if you are using <a class="reference external" href="http://south.aeracode.org/">South</a>)</p>
+</li>
+</ol>
+</div>
 
 
           </div> 
@@ -109,7 +119,7 @@
       <div class="clearer"></div>
     </div>
 	<div id="breadcrumbs">
-		Index
+		Installation
 		</ul>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>

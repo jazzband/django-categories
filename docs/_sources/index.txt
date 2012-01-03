@@ -8,6 +8,7 @@ Contents:
    :maxdepth: 2
    :glob:
 
+   installation
    getting_started
    usage
    registering_models

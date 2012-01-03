@@ -45,9 +45,9 @@ class Category(MPTTModel):
         default="",
         max_length=100,
         help_text="An alternative title to use on pages with this category.")
-    alternate_url = models.URLField(
+    alternate_url = models.CharField(
         blank=True, 
-        verify_exists=False, 
+        max_length=200, 
         help_text="An alternative URL to use instead of the one derived from the category hierarchy.")
     description = models.TextField(blank=True, null=True)
     meta_keywords = models.CharField(
