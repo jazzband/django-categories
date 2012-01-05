@@ -107,10 +107,14 @@ class Category(MPTTModel):
         
         super(Category, self).save(*args, **kwargs)
         
-        for item in self.get_descendants():
-            if item.active != self.active:
-                item.active = self.active
-                item.save()
+        # While you can activate an item without activating its descendants,
+        # It doesn't make sense that you can deactivate an item and have its 
+        # decendants remain active.
+        if not self.active:
+            for item in self.get_descendants():
+                if item.active != self.active:
+                    item.active = self.active
+                    item.save()
     
     class Meta:
         verbose_name_plural = 'categories'
