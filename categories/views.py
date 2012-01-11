@@ -7,8 +7,8 @@ from django.views.decorators.cache import cache_page
 from django.template.loader import select_template
 from django.utils.translation import ugettext as _
 
-from categories.models import Category
-from settings import CACHE_VIEW_LENGTH
+from .models import Category
+from .settings import CACHE_VIEW_LENGTH
 
 @cache_page(CACHE_VIEW_LENGTH)
 def category_detail(request, path, 

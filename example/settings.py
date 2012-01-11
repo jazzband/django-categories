@@ -116,7 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
     'categories',
-    'editor',
+    'categories.editor',
     'mptt',
     'simpletext',
     'south',

@@ -9,7 +9,7 @@ from django.utils.translation import ugettext as _
 
 from mptt.models import MPTTModel
 
-from settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
+from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
                         THUMBNAIL_STORAGE)
 
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)

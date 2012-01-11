@@ -1,8 +1,6 @@
 from django.db.models import ForeignKey, ManyToManyField
 
-from categories.models import Category
-
-
+from .models import Category
 
 class CategoryM2MField(ManyToManyField):
     def __init__(self, **kwargs):
