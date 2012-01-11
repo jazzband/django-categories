@@ -13,7 +13,7 @@ Installation
        INSTALLED_APPS = [
            # ...
            "categories",
-           "editor",
+           "categories.editor",
        ]
 
 3. Run ``./manage.py syncdb`` (or ``./manage.py migrate categories`` if you are using `South <http://south.aeracode.org/>`_)

@@ -2,8 +2,8 @@ from django.db import models, DatabaseError
 
 from south.db import db
 from south.signals import post_migrate
-from categories.fields import CategoryM2MField, CategoryFKField
-from categories.models import Category
+from .fields import CategoryM2MField, CategoryFKField
+from .models import Category
 from categories import model_registry, field_registry
 
 def migrate_app(app, *args, **kwargs):

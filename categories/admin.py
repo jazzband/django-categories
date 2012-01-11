@@ -2,12 +2,13 @@ from django.contrib import admin
 from django import forms
 from django.template.defaultfilters import slugify
 
-from editor.tree_editor import TreeEditor
 from genericcollection import GenericCollectionTabularInline
 
-from settings import ALLOW_SLUG_CHANGE, RELATION_MODELS, JAVASCRIPT_URL
+from .settings import ALLOW_SLUG_CHANGE, RELATION_MODELS, JAVASCRIPT_URL
+from .editor.tree_editor import TreeEditor
+from .models import Category
 from categories import model_registry
-from models import Category
+
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""

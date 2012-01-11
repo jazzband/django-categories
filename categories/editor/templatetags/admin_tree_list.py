@@ -4,7 +4,7 @@ from django.contrib.admin.templatetags.admin_list import result_headers
 try:
     from django.contrib.admin.util import lookup_field, display_for_field, label_for_field
 except ImportError:
-    from editor.utils import lookup_field, display_for_field, label_for_field
+    from categories.editor.utils import lookup_field, display_for_field, label_for_field
 from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.encoding import smart_unicode, force_unicode
