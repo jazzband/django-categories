@@ -6,6 +6,7 @@ from django.contrib.contenttypes import generic
 from django.core.files.storage import get_storage_class
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
+import caching.base
 
 from mptt.models import MPTTModel
 
@@ -24,7 +25,7 @@ class CategoryManager(models.Manager):
         """
         return self.get_query_set().filter(active=True)
 
-class Category(MPTTModel):
+class Category(caching.base.CachingMixin, MPTTModel):
     parent = models.ForeignKey('self', 
         blank=True, 
         null=True, 
