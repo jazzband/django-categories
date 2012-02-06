@@ -7,7 +7,7 @@ from django.core.files.storage import get_storage_class
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext as _
 
-from mptt.models import MPTTModel
+from mptt.models import MPTTModel, TreeForeignKey
 
 from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
                         THUMBNAIL_STORAGE)
@@ -24,22 +24,58 @@ class CategoryManager(models.Manager):
         """
         return self.get_query_set().filter(active=True)
 
-class Category(MPTTModel):
-    parent = models.ForeignKey('self', 
+
+class CategoryBase(MPTTModel):
+    parent = TreeForeignKey('self', 
         blank=True, 
         null=True, 
         related_name="children", 
         help_text="Leave this blank for an Category Tree", 
         verbose_name='Parent')
     name = models.CharField(max_length=100)
+    slug = models.SlugField()
+    active = models.BooleanField(default=True)
+    
+    objects = CategoryManager()
+    
+    def save(self, *args, **kwargs):
+        """
+        While you can activate an item without activating its descendants,
+        It doesn't make sense that you can deactivate an item and have its 
+        decendants remain active.
+        """
+        if not self.slug:
+            self.slug = slugify(self.name)[:50]
+        
+        super(CategoryBase, self).save(*args, **kwargs)
+        
+        if not self.active:
+            for item in self.get_descendants():
+                if item.active != self.active:
+                    item.active = self.active
+                    item.save()
+    
+    def __unicode__(self):
+        ancestors = self.get_ancestors()
+        return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
+    
+    class Meta:
+        abstract = True
+        unique_together = ('parent', 'name')
+        ordering = ('tree_id', 'lft')
+    
+    class MPTTMeta:
+        order_insertion_by = 'name'
+
+
+class Category(CategoryBase):
     thumbnail = models.FileField(
         upload_to=THUMBNAIL_UPLOAD_PATH, 
         null=True, blank=True,
         storage=STORAGE(),)
     thumbnail_width = models.IntegerField(blank=True, null=True)
     thumbnail_height = models.IntegerField(blank=True, null=True)
-    order = models.IntegerField(blank=True, null=True)
-    slug = models.SlugField()
+    order = models.IntegerField(default=0)
     alternate_title = models.CharField(
         blank=True,
         default="",
@@ -59,9 +95,7 @@ class Category(MPTTModel):
         blank=True,
         default="",
         help_text="(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;")
-    active = models.BooleanField(default=True)
     
-    objects = CategoryManager()
     
     @property
     def short_title(self):
@@ -90,8 +124,6 @@ class Category(MPTTModel):
             return self.categoryrelation_set.filter(relation_type=relation_type)
     
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)[:50]
         if self.thumbnail:
             from django.core.files.images import get_image_dimensions
             import django
@@ -106,56 +138,37 @@ class Category(MPTTModel):
         self.thumbnail_height = height
         
         super(Category, self).save(*args, **kwargs)
-        
-        # While you can activate an item without activating its descendants,
-        # It doesn't make sense that you can deactivate an item and have its 
-        # decendants remain active.
-        if not self.active:
-            for item in self.get_descendants():
-                if item.active != self.active:
-                    item.active = self.active
-                    item.save()
     
-    class Meta:
+    class Meta(CategoryBase.Meta):
         verbose_name_plural = 'categories'
-        unique_together = ('parent', 'name')
-        ordering = ('tree_id', 'lft')
     
     class MPTTMeta:
-        verbose_name_plural = 'categories'
-        unique_together = ('parent', 'name')
-        ordering = ('tree_id', 'lft')
-        order_insertion_by = 'name'
+        order_insertion_by = ('order', 'name')
+
+category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
+class CategoryRelationManager(models.Manager):
+    def get_content_type(self, content_type):
+        qs = self.get_query_set()
+        return qs.filter(content_type__name=content_type)
+    
+    def get_relation_type(self, relation_type):
+        qs = self.get_query_set()
+        return qs.filter(relation_type=relation_type)
+
+class CategoryRelation(models.Model):
+    """Related category item"""
+    category = models.ForeignKey(Category)
+    content_type = models.ForeignKey(
+        ContentType, limit_choices_to=category_relation_limits)
+    object_id = models.PositiveIntegerField()
+    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    relation_type = models.CharField(_("Relation Type"), 
+        max_length="200", 
+        blank=True, 
+        null=True,
+        help_text=_("A generic text field to tag a relation, like 'leadphoto'."))
+    
+    objects = CategoryRelationManager()
     
     def __unicode__(self):
-        ancestors = self.get_ancestors()
-        return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
-
-if RELATION_MODELS:
-    category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
-    class CategoryRelationManager(models.Manager):
-        def get_content_type(self, content_type):
-            qs = self.get_query_set()
-            return qs.filter(content_type__name=content_type)
-        
-        def get_relation_type(self, relation_type):
-            qs = self.get_query_set()
-            return qs.filter(relation_type=relation_type)
-    
-    class CategoryRelation(models.Model):
-        """Related story item"""
-        story = models.ForeignKey(Category)
-        content_type = models.ForeignKey(
-            ContentType, limit_choices_to=category_relation_limits)
-        object_id = models.PositiveIntegerField()
-        content_object = generic.GenericForeignKey('content_type', 'object_id')
-        relation_type = models.CharField(_("Relation Type"), 
-            max_length="200", 
-            blank=True, 
-            null=True,
-            help_text=_("A generic text field to tag a relation, like 'leadphoto'."))
-        
-        objects = CategoryRelationManager()
-        
-        def __unicode__(self):
-            return u"CategoryRelation"
+        return u"CategoryRelation"
