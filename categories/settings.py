@@ -5,7 +5,7 @@ from django.db.models import Q
 
 DEFAULT_SETTINGS = {
     'ALLOW_SLUG_CHANGE': False,
-    'CACHE_VIEW_LENGTH': 0,
+    'CACHE_VIEW_LENGTH': 600,
     'RELATION_MODELS': [],
     'M2M_REGISTRY': {},
     'FK_REGISTRY': {},
