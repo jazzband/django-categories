@@ -14,7 +14,6 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""
     def __init__(self, level_indicator=u'---', *args, **kwargs):
         self.level_indicator = level_indicator
-        #kwargs['empty_label'] = None
         super(NullTreeNodeChoiceField, self).__init__(*args, **kwargs)
 
     def label_from_instance(self, obj):
@@ -22,8 +21,8 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         Creates labels which represent the tree level of each node when
         generating option labels.
         """
-        return u'%s %s' % (self.level_indicator * getattr(obj, obj._meta.level_attr),
-                                obj)
+        return u'%s %s' % (self.level_indicator * getattr(
+                                        obj, obj._mptt_meta.level_attr), obj)
 if RELATION_MODELS:
     from models import CategoryRelation
 
@@ -31,27 +30,18 @@ if RELATION_MODELS:
         model = CategoryRelation
 
 
-class CategoryAdminForm(forms.ModelForm):
+class CategoryBaseAdminForm(forms.ModelForm):
     parent = NullTreeNodeChoiceField(queryset=Category.tree.all(), 
                                  level_indicator=u'+-', 
                                  empty_label='------', 
                                  required=False)
-    class Meta:
-        model = Category
-    
     def clean_slug(self):
         if self.instance is None or not ALLOW_SLUG_CHANGE:
             self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
         return self.cleaned_data['slug'][:50]
     
-    def clean_alternate_title(self):
-        if self.instance is None or not self.cleaned_data['alternate_title']:
-            return self.cleaned_data['name']
-        else:
-            return self.cleaned_data['alternate_title']
-    
     def clean(self):
-        super(CategoryAdminForm, self).clean()
+        super(CategoryBaseAdminForm, self).clean()
         
         # Validate slug is valid in that level
         kwargs = {}
@@ -61,7 +51,7 @@ class CategoryAdminForm(forms.ModelForm):
             kwargs['parent__pk'] = int(self.cleaned_data['parent'].id)
         this_level_slugs = [c['slug'] for c in Category.objects.filter(**kwargs).values('id','slug') if c['id'] != self.instance.id]
         if self.cleaned_data['slug'] in this_level_slugs:
-            raise forms.ValidationError("A category slug must be unique among"
+            raise forms.ValidationError("A category slug must be unique among "
                                         "categories at its level.")
         
         # Validate Category Parent
@@ -76,30 +66,25 @@ class CategoryAdminForm(forms.ModelForm):
                                         "category to a descendant.")
         return self.cleaned_data
 
+class CategoryAdminForm(CategoryBaseAdminForm):
+    class Meta:
+        model = Category
+    
+    def clean_alternate_title(self):
+        if self.instance is None or not self.cleaned_data['alternate_title']:
+            return self.cleaned_data['name']
+        else:
+            return self.cleaned_data['alternate_title']
 
-class CategoryAdmin(TreeEditor, admin.ModelAdmin):
-    form = CategoryAdminForm
-    list_display = ('name', 'alternate_title', 'active')
-    search_fields = ('name', 'alternate_title', )
+class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
+    form = CategoryBaseAdminForm
+    list_display = ('name', 'active')
+    search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
-    fieldsets = (
-        (None, {
-            'fields': ('parent', 'name', 'thumbnail', 'active')
-        }),
-        ('Meta Data', {
-            'fields': ('alternate_title', 'alternate_url', 'description', 
-                        'meta_keywords', 'meta_extra'),
-            'classes': ('collapse',),
-        }),
-        ('Advanced', {
-            'fields': ('order', 'slug'),
-            'classes': ('collapse',),
-        }),
-    )
     
     actions = ['activate', 'deactivate']
     def get_actions(self, request):
-        actions = super(CategoryAdmin, self).get_actions(request)
+        actions = super(CategoryBaseAdmin, self).get_actions(request)
         if 'delete_selected' in actions:
             del actions['delete_selected']
         return actions
@@ -130,6 +115,25 @@ class CategoryAdmin(TreeEditor, admin.ModelAdmin):
             item.save()
             item.children.all().update(active=True)
     activate.short_description = "Activate selected categories and their children"
+
+
+class CategoryAdmin(CategoryBaseAdmin):
+    form = CategoryAdminForm
+    list_display = ('name', 'alternate_title', 'active')
+    fieldsets = (
+        (None, {
+            'fields': ('parent', 'name', 'thumbnail', 'active')
+        }),
+        ('Meta Data', {
+            'fields': ('alternate_title', 'alternate_url', 'description', 
+                        'meta_keywords', 'meta_extra'),
+            'classes': ('collapse',),
+        }),
+        ('Advanced', {
+            'fields': ('order', 'slug'),
+            'classes': ('collapse',),
+        }),
+    )
     
     if RELATION_MODELS:
         inlines = [InlineCategoryRelation,]
