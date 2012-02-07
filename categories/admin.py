@@ -1,12 +1,11 @@
 from django.contrib import admin
 from django import forms
-from django.template.defaultfilters import slugify
 
-from genericcollection import GenericCollectionTabularInline
-
-from .settings import ALLOW_SLUG_CHANGE, RELATION_MODELS, JAVASCRIPT_URL
-from .editor.tree_editor import TreeEditor
+from .genericcollection import GenericCollectionTabularInline
+from .settings import RELATION_MODELS, JAVASCRIPT_URL
 from .models import Category
+from .base import CategoryBaseAdminForm, CategoryBaseAdmin
+
 from categories import model_registry
 
 
@@ -24,47 +23,11 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         return u'%s %s' % (self.level_indicator * getattr(
                                         obj, obj._mptt_meta.level_attr), obj)
 if RELATION_MODELS:
-    from models import CategoryRelation
+    from .models import CategoryRelation
 
     class InlineCategoryRelation(GenericCollectionTabularInline):
         model = CategoryRelation
 
-
-class CategoryBaseAdminForm(forms.ModelForm):
-    parent = NullTreeNodeChoiceField(queryset=Category.tree.all(), 
-                                 level_indicator=u'+-', 
-                                 empty_label='------', 
-                                 required=False)
-    def clean_slug(self):
-        if self.instance is None or not ALLOW_SLUG_CHANGE:
-            self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
-        return self.cleaned_data['slug'][:50]
-    
-    def clean(self):
-        super(CategoryBaseAdminForm, self).clean()
-        
-        # Validate slug is valid in that level
-        kwargs = {}
-        if self.cleaned_data.get('parent', None) is None:
-            kwargs['parent__isnull'] = True
-        else:
-            kwargs['parent__pk'] = int(self.cleaned_data['parent'].id)
-        this_level_slugs = [c['slug'] for c in Category.objects.filter(**kwargs).values('id','slug') if c['id'] != self.instance.id]
-        if self.cleaned_data['slug'] in this_level_slugs:
-            raise forms.ValidationError("A category slug must be unique among "
-                                        "categories at its level.")
-        
-        # Validate Category Parent
-        # Make sure the category doesn't set itself or any of its children as its parent."
-        if self.cleaned_data.get('parent', None) is None or self.instance.id is None:
-            return self.cleaned_data
-        elif self.cleaned_data['parent'].id == self.instance.id:
-            raise forms.ValidationError("You can't set the parent of the "
-                                        "category to itself.")
-        elif self.cleaned_data['parent'].id in [i[0] for i in self.instance.get_descendants().values_list('id')]:
-            raise forms.ValidationError("You can't set the parent of the "
-                                        "category to a descendant.")
-        return self.cleaned_data
 
 class CategoryAdminForm(CategoryBaseAdminForm):
     class Meta:
@@ -75,46 +38,6 @@ class CategoryAdminForm(CategoryBaseAdminForm):
             return self.cleaned_data['name']
         else:
             return self.cleaned_data['alternate_title']
-
-class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
-    form = CategoryBaseAdminForm
-    list_display = ('name', 'active')
-    search_fields = ('name',)
-    prepopulated_fields = {'slug': ('name',)}
-    
-    actions = ['activate', 'deactivate']
-    def get_actions(self, request):
-        actions = super(CategoryBaseAdmin, self).get_actions(request)
-        if 'delete_selected' in actions:
-            del actions['delete_selected']
-        return actions
-    
-    def deactivate(self, request, queryset):
-        """
-        Set active to False for selected items
-        """
-        selected_cats = Category.objects.filter(
-            pk__in=[int(x) for x in request.POST.getlist('_selected_action')])
-        
-        for item in selected_cats:
-            if item.active:
-                item.active = False
-                item.save()
-                item.children.all().update(active=False)
-    deactivate.short_description = "Deactivate selected categories and their children"
-    
-    def activate(self, request, queryset):
-        """
-        Set active to True for selected items
-        """
-        selected_cats = Category.objects.filter(
-            pk__in=[int(x) for x in request.POST.getlist('_selected_action')])
-        
-        for item in selected_cats:
-            item.active = True
-            item.save()
-            item.children.all().update(active=True)
-    activate.short_description = "Activate selected categories and their children"
 
 
 class CategoryAdmin(CategoryBaseAdmin):
