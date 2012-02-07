@@ -14,7 +14,7 @@ from mptt.fields import TreeForeignKey
 from mptt.managers import TreeManager
 
 from .editor.tree_editor import TreeEditor
-from .settings import ALLOW_SLUG_CHANGE
+from .settings import ALLOW_SLUG_CHANGE, SLUG_TRANSLITERATOR
 
 class CategoryManager(models.Manager):
     """
@@ -51,7 +51,7 @@ class CategoryBase(MPTTModel):
         decendants remain active.
         """
         if not self.slug:
-            self.slug = slugify(self.name)[:50]
+            self.slug = slugify(SLUG_TRANSLITERATOR(self.name))[:50]
         
         super(CategoryBase, self).save(*args, **kwargs)
         

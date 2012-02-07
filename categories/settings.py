@@ -12,9 +12,24 @@ DEFAULT_SETTINGS = {
     'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
     'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
     'JAVASCRIPT_URL': getattr(settings, 'STATIC_URL', settings.MEDIA_URL) + 'js/',
+    'SLUG_TRANSLITERATOR': '',
 }
 
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))
+
+if DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']:
+    if callable(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']):
+        pass
+    elif isinstance(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'], basestring):
+        from django.utils.importlib import import_module
+        bits = DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'].split(".")
+        module = import_module(".".join(bits[:-1]))
+        DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'] = getattr(module, bits[-1])
+    else:
+        from django.core.exceptions import ImproperlyConfigured
+        raise ImproperlyConfigured("SLUG_TRANSLITERATOR must be a callable or a string.")
+else:
+    DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'] = lambda x: x
 
 ERR_MSG = "settings.%s is deprecated; use settings.CATEGORIES_SETTINGS instead."
 
