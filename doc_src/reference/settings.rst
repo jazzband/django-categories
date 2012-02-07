@@ -18,6 +18,7 @@ The default settings are:
 	    'FK_REGISTRY': {},
 	    'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
 	    'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
+	    'SLUG_TRANSLITERATOR': lambda x: x,
 	}
 	
 ALLOW_SLUG_CHANGE
@@ -26,6 +27,15 @@ ALLOW_SLUG_CHANGE
 **Default:** ``False``
 
 **Description:** Changing the slug for a category can have serious consequences if it is used as part of a URL. Setting this to ``True`` will allow users to change the slug of a category.
+
+SLUG_TRANSLITERATOR
+===================
+
+**Default:** ``lambda x: x``
+
+**Description:** Allows the specification of a function to convert non-ASCII characters in the potential slug to ASCII characters. Allows specifying a ``callable()`` or a string in the form of ``'path.to.module.function'``.
+
+A great tool for this is `Unidecode <http://pypi.python.org/pypi/Unidecode>`_. Use it by setting ``SLUG_TRANSLITERATOR`` to ``'unidecode.unidecode``.
 
 CACHE_VIEW_LENGTH
 =================
