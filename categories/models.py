@@ -4,69 +4,15 @@ from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.core.files.storage import get_storage_class
-from django.template.defaultfilters import slugify
-from django.utils.translation import ugettext as _
 
-from mptt.models import MPTTModel, TreeForeignKey
+from django.utils.translation import ugettext as _
 
 from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
                         THUMBNAIL_STORAGE)
 
+from .base import CategoryBase
+
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
-
-class CategoryManager(models.Manager):
-    """
-    A manager that adds an "active()" method for all active categories
-    """
-    def active(self):
-        """
-        Only categories that are active
-        """
-        return self.get_query_set().filter(active=True)
-
-
-class CategoryBase(MPTTModel):
-    parent = TreeForeignKey('self', 
-        blank=True, 
-        null=True, 
-        related_name="children", 
-        help_text="Leave this blank for an Category Tree", 
-        verbose_name='Parent')
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
-    active = models.BooleanField(default=True)
-    
-    objects = CategoryManager()
-    
-    def save(self, *args, **kwargs):
-        """
-        While you can activate an item without activating its descendants,
-        It doesn't make sense that you can deactivate an item and have its 
-        decendants remain active.
-        """
-        if not self.slug:
-            self.slug = slugify(self.name)[:50]
-        
-        super(CategoryBase, self).save(*args, **kwargs)
-        
-        if not self.active:
-            for item in self.get_descendants():
-                if item.active != self.active:
-                    item.active = self.active
-                    item.save()
-    
-    def __unicode__(self):
-        ancestors = self.get_ancestors()
-        return ' > '.join([force_unicode(i.name) for i in ancestors]+[self.name,])
-    
-    class Meta:
-        abstract = True
-        unique_together = ('parent', 'name')
-        ordering = ('tree_id', 'lft')
-    
-    class MPTTMeta:
-        order_insertion_by = 'name'
-
 
 class Category(CategoryBase):
     thumbnail = models.FileField(
@@ -84,7 +30,8 @@ class Category(CategoryBase):
     alternate_url = models.CharField(
         blank=True, 
         max_length=200, 
-        help_text="An alternative URL to use instead of the one derived from the category hierarchy.")
+        help_text="An alternative URL to use instead of the one derived from "
+                  "the category hierarchy.")
     description = models.TextField(blank=True, null=True)
     meta_keywords = models.CharField(
         blank=True,
@@ -94,7 +41,8 @@ class Category(CategoryBase):
     meta_extra = models.TextField(
         blank=True,
         default="",
-        help_text="(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;")
+        help_text="(Advanced) Any additional HTML to be placed verbatim "
+                  "in the &lt;head&gt;")
     
     
     @property
@@ -145,13 +93,23 @@ class Category(CategoryBase):
     class MPTTMeta:
         order_insertion_by = ('order', 'name')
 
-category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
+if RELATIONS:
+    CATEGORY_RELATION_LIMITS = reduce(lambda x,y: x|y, RELATIONS)
+else:
+    CATEGORY_RELATION_LIMITS = []
+
 class CategoryRelationManager(models.Manager):
     def get_content_type(self, content_type):
+        """
+        Get all the items of the given content type related to this item.
+        """
         qs = self.get_query_set()
         return qs.filter(content_type__name=content_type)
     
     def get_relation_type(self, relation_type):
+        """
+        Get all the items of the given relationship type related to this item.
+        """
         qs = self.get_query_set()
         return qs.filter(relation_type=relation_type)
 
@@ -159,7 +117,7 @@ class CategoryRelation(models.Model):
     """Related category item"""
     category = models.ForeignKey(Category)
     content_type = models.ForeignKey(
-        ContentType, limit_choices_to=category_relation_limits)
+        ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(_("Relation Type"), 
