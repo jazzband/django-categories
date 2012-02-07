@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+from categories.models import CategoryBase
 
 class SimpleText(models.Model):
     """
@@ -26,6 +26,12 @@ class SimpleText(models.Model):
     @permalink
     def get_absolute_url(self):
         return ('simpletext_detail_view_name', [str(self.id)])
+
+class SimpleCategory(CategoryBase):
+    """A Test of catgorizing"""
+    class Meta:
+        verbose_name_plural = 'simple categories'
+    
 
 #import categories
 
