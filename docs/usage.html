@@ -2,20 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Using categories in templates &mdash; Django Categories 0.8.8 documentation</title>
-    
+    <title>Using categories in templates &mdash; Django Categories v1.0b1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.8.8',
+        VERSION:     '1.0b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,13 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories 0.8.8 documentation" href="index.html" />
+    <link rel="top" title="Django Categories v1.0b1 documentation" href="index.html" />
     <link rel="next" title="Registering Models" href="registering_models.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories 0.8.8 documentation</p>
+	<p>Django Categories v1.0b1 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Using categories in templates</h1></div>
@@ -57,6 +54,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="adding_the_fields.html">Adding the fields to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_categories.html">Creating Custom Categories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
 </ul>
 
@@ -96,8 +94,8 @@
 <h1>Using categories in templates<a class="headerlink" href="#using-categories-in-templates" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-all-items-within-a-category">
 <h2>Getting all items within a category<a class="headerlink" href="#getting-all-items-within-a-category" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt> model automatically gets <a class="reference external" href="https://docs.djangoproject.com/en/1.3/topics/db/queries/#following-relationships-backward">reverse relationships</a> with all other models related to it.</p>
-<p>This allows you access to the related objects from the template without altering any views. For example, if you only had <tt class="docutils literal"><span class="pre">Entry</span></tt> models related to <tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt>, your <tt class="docutils literal"><span class="pre">categories/category_detail.html</span></tt> template could look like</p>
+<p>The <a class="reference internal" href="reference/models.html#Category" title="Category"><tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt></a> model automatically gets <a class="reference external" href="https://docs.djangoproject.com/en/1.3/topics/db/queries/#following-relationships-backward">reverse relationships</a> with all other models related to it.</p>
+<p>This allows you access to the related objects from the template without altering any views. For example, if you only had <tt class="docutils literal"><span class="pre">Entry</span></tt> models related to <a class="reference internal" href="reference/models.html#Category" title="Category"><tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt></a>, your <tt class="docutils literal"><span class="pre">categories/category_detail.html</span></tt> template could look like</p>
 <div class="highlight-django"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -169,21 +167,21 @@ two-tuples of the current tree item and a <tt class="docutils literal"><span cla
 information about the tree structure around the item, with the following
 keys:</p>
 <blockquote>
-<div><dl class="docutils">
+<dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">'new_level'</span></tt></dt>
-<dd><tt class="docutils literal"><span class="pre">True</span></tt> if the current item is the start of a new level in
-the tree, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise.</dd>
+<dd><tt class="xref docutils literal"><span class="pre">True</span></tt> if the current item is the start of a new level in
+the tree, <tt class="xref docutils literal"><span class="pre">False</span></tt> otherwise.</dd>
 <dt><tt class="docutils literal"><span class="pre">'closed_levels'</span></tt></dt>
 <dd>A list of levels which end after the current item. This will
 be an empty list if the next item&#8217;s level is the same as or
 greater than the level of the current item.</dd>
 </dl>
-</div></blockquote>
+</blockquote>
 <p>An optional argument can be provided to specify extra details about the
 structure which should appear in the <tt class="docutils literal"><span class="pre">dict</span></tt>. This should be a
 comma-separated list of feature names. The valid feature names are:</p>
 <blockquote>
-<div><dl class="docutils">
+<dl class="docutils">
 <dt>ancestors</dt>
 <dd><p class="first">Adds a list of unicode representations of the ancestors of the
 current node, in descending order (root node first, immediate
@@ -197,7 +195,7 @@ on the right:</p>
 </div>
 </dd>
 </dl>
-</div></blockquote>
+</blockquote>
 </div>
 </div>
 </div>
@@ -209,7 +207,7 @@ on the right:</p>
     <div class="footer">
     <p>
       &copy; Copyright 2010-2012, Corey Oordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
 	</p>
     </div>
       <div class="clearer"></div>

@@ -1,11 +1,8 @@
-from models import SimpleText, SimpleCategory
 from django.contrib import admin
 
 from categories.admin import CategoryBaseAdmin, CategoryBaseAdminForm
 
-# class SimpleTextAdmin(admin.ModelAdmin):
-#     filter_horizontal = ['cats',]
-# 
+from .models import SimpleCategory
 
 class SimpleCategoryAdminForm(CategoryBaseAdminForm):
     class Meta:
@@ -13,6 +10,5 @@ class SimpleCategoryAdminForm(CategoryBaseAdminForm):
 
 class SimpleCategoryAdmin(CategoryBaseAdmin):
     form = SimpleCategoryAdminForm
-    
-admin.site.register(SimpleText) #, SimpleTextAdmin)
+
 admin.site.register(SimpleCategory, SimpleCategoryAdmin)

@@ -532,6 +532,10 @@ pre {
     padding: 10px;
 }
 
+td.linenos {
+    width: 2em;
+}
+
 td.linenos pre {
     padding: 5px 0px;
     border: 0;
@@ -539,14 +543,23 @@ td.linenos pre {
     color: #aaa;
 }
 
+td.code {
+    
+}
+
 table.highlighttable {
     margin-left: 0.5em;
+    width: 100%;
 }
 
 table.highlighttable td {
     padding: 0 0.5em 0 0.5em;
 }
-
+table.highlighttable td.linenos {
+    text-align: right;
+    width: 1.5em;
+    padding-right: 0;
+}
 tt {
 	font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",Courier,Consolas,monospace;
 

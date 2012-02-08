@@ -2,20 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting Started &mdash; Django Categories 0.8.8 documentation</title>
-    
+    <title>Getting Started &mdash; Django Categories v1.0b1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.8.8',
+        VERSION:     '1.0b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,13 +21,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories 0.8.8 documentation" href="index.html" />
+    <link rel="top" title="Django Categories v1.0b1 documentation" href="index.html" />
     <link rel="next" title="Using categories in templates" href="usage.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories 0.8.8 documentation</p>
+	<p>Django Categories v1.0b1 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Getting Started</h1></div>
@@ -56,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="adding_the_fields.html">Adding the fields to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_categories.html">Creating Custom Categories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
 </ul>
 
@@ -95,7 +93,7 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p>You can use Django Categories in two ways:</p>
 <ol class="arabic">
-<li><p class="first">As storage for one tree of categories, e.g.:</p>
+<li><p class="first">As storage for one tree of categories, using the <a class="reference internal" href="reference/models.html#Category" title="Category"><tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt></a> model:</p>
 <div class="highlight-python"><pre>Top Category 1
   Subcategory 1-1
     Subcategory 1-2
@@ -104,25 +102,24 @@ Top Category 2
   Subcategory 2-1</pre>
 </div>
 </li>
-<li><p class="first">As a storage of several trees of categories, e.g.:</p>
-<div class="highlight-python"><pre>Model 1
-  Category 1
-    Subcategory 1-1
-      Subcategory 1-2
-        subcategory 1-2-1
-  Category 2
-    Subcategory 2-1
-Model 2
-  Category 3
-    Subcategory 3-1
-      Subcategory 3-2
-        subcategory 3-2-1
-  Category 4
-    Subcategory 4-1</pre>
+<li><p class="first">As the basis for several custom categories (see <a class="reference internal" href="custom_categories.html#creating-custom-categories"><em>Creating Custom Categories</em></a>), e.g. a <strong>MusicGenre</strong> model</p>
+<div class="highlight-python"><pre>MusicGenre 1
+  MusicSubGenre 1-1
+  MusicSubGenre 1-2
+    MusicSubGenre 1-2-1
+MusicGenre 2
+  MusicSubGenre 2-1</pre>
+</div>
+<p>and a <strong>Subject</strong> model</p>
+<div class="highlight-python"><pre>Subject 1
+  Discipline 1-1
+  Discipline 1-2
+    SubDiscipline 1-2-1
+Subject 2
+  Discipline 2-1</pre>
 </div>
 </li>
 </ol>
-<p>You can&#8217;t do it as both at the same time, though.</p>
 <div class="section" id="connecting-your-model-with-django-categories">
 <h2>Connecting your model with Django-Categories<a class="headerlink" href="#connecting-your-model-with-django-categories" title="Permalink to this headline">¶</a></h2>
 <p>There are two ways to add Category fields to an application. If you are in control of the code (it&#8217;s your application) or you are willing to take control of the code (fork someone else&#8217;s app) you can make a <a class="reference internal" href="#hard-coded-connection"><em>Hard Coded Connection</em></a>.</p>
@@ -143,7 +140,7 @@ Model 2
 <span id="id2"></span><h3>Lazy Connection<a class="headerlink" href="#lazy-connection" title="Permalink to this headline">¶</a></h3>
 <p>Lazy connections are done through configuring Django Categories in the project&#8217;s <tt class="docutils literal"><span class="pre">settings.py</span></tt> file. When the project starts up, the configured fields are dynamically added to the configured models and admin.</p>
 <p>If you do this before you have created the database (before you ran <tt class="docutils literal"><span class="pre">manage.py</span> <span class="pre">syncdb</span></tt>), the fields will also be in the tables. If you do this after you have already created all the tables, you can run <tt class="docutils literal"><span class="pre">manage.py</span> <span class="pre">add_category_fields</span></tt> to create the fields (this requires Django South to be installed).</p>
-<p>You add a many-to-one or many-to-many relationship with Django Categories using the <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS['FK_REGISTRY']</span></tt> and <tt class="docutils literal"><span class="pre">CATEGORIES_SETTINGS['M2M_REGISTRY']</span></tt> settings respectively. For more information see <a class="reference internal" href="registering_models.html#registering-models"><em>Registering Models</em></a>.</p>
+<p>You add a many-to-one or many-to-many relationship with Django Categories using the <a class="reference internal" href="reference/settings.html#fk-registry"><em>FK_REGISTRY</em></a> and <a class="reference internal" href="reference/settings.html#m2m-registry"><em>M2M_REGISTRY</em></a> settings respectively. For more information see <a class="reference internal" href="registering_models.html#registering-models"><em>Registering Models</em></a>.</p>
 </div>
 </div>
 </div>
@@ -155,7 +152,7 @@ Model 2
     <div class="footer">
     <p>
       &copy; Copyright 2010-2012, Corey Oordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
 	</p>
     </div>
       <div class="clearer"></div>
