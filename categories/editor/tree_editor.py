@@ -78,12 +78,18 @@ class TreeChangeList(ChangeList):
                 list_display_links, list_filter, date_hierarchy, search_fields, 
                 list_select_related, list_per_page, list_max_show_all, 
                 list_editable, model_admin)
-        
+    
     def _get_default_ordering(self):
-        return [] #'', '' #('tree_id', 'lft')
+        if django.VERSION[1] < 4:
+            return '', '' #('tree_id', 'lft')
+        else:
+            return []
     
     def get_ordering(self, request=None):
-        return [] #'', '' #('tree_id', 'lft')
+        if django.VERSION[1] < 4:
+            return '', '' #('tree_id', 'lft')
+        else:
+            return []
     
     def get_query_set(self, *args, **kwargs):
         qs = super(TreeChangeList, self).get_query_set(*args, **kwargs).order_by('tree_id', 'lft')
