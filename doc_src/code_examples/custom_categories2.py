@@ -1,14 +1,10 @@
 from django.contrib import admin
 
-from categories.admin import CategoryBaseAdmin, CategoryBaseAdminForm
+from categories.admin import CategoryBaseAdmin
 
 from .models import SimpleCategory
 
-class SimpleCategoryAdminForm(CategoryBaseAdminForm):
-    class Meta:
-        model = SimpleCategory
-
 class SimpleCategoryAdmin(CategoryBaseAdmin):
-    form = SimpleCategoryAdminForm
+    pass
 
 admin.site.register(SimpleCategory, SimpleCategoryAdmin)

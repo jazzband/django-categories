@@ -16,12 +16,10 @@ For many cases, you want a simple user-managed lookup table. You can do this wit
    .. literalinclude:: code_examples/custom_categories1.py
       :linenos:
 
-#. For the Django admin, create a subclass of :py:class:`CategoryBaseAdminForm`. Create an internal class called :py:class:`Meta` and assign the attribute ``model`` to your model (see line 9 in the example).
+#. Create a subclass of CategoryBaseAdmin.
 
-   .. literalinclude:: code_examples/custom_categories2.py
+   .. literalinclude:: code_examples/custom_categories1.py
       :linenos:
-
-#. Create a subclass of CategoryBaseAdmin and assign ``form`` attribute the class created above (see line 12 in the above example).
 
 #. Register your model and custom model admin class.
 
