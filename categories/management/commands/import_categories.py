@@ -1,7 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
-from categories.models import Category
 from django.template.defaultfilters import slugify
 from django.db import transaction
+
+from categories.models import Category
+from categories.settings import SLUG_TRANSLITERATOR
 
 class Command(BaseCommand):
     """Import category trees from a file."""
@@ -30,7 +32,7 @@ class Command(BaseCommand):
         """
         cat = Category(
             name=string.strip(),
-            slug=slugify(string.strip())[:49],
+            slug=slugify(SLUG_TRANSLITERATOR(string.strip()))[:49],
             #parent=parent,
             order=order
         )

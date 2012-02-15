@@ -67,17 +67,25 @@ class TreeEditorQuerySet(QuerySet):
 
 class TreeChangeList(ChangeList):
     def _get_default_ordering(self):
-        return '', '' #('tree_id', 'lft')
+        if django.VERSION[1] < 4:
+            return '', '' #('tree_id', 'lft')
+        else:
+            return []
     
     def get_ordering(self, request=None):
-        return '', '' #('tree_id', 'lft')
+        if django.VERSION[1] < 4:
+            return '', '' #('tree_id', 'lft')
+        else:
+            return []
     
-    def get_query_set(self):
-        qs = super(TreeChangeList, self).get_query_set()
-        return qs.order_by('tree_id', 'lft')
+    def get_query_set(self, *args, **kwargs):
+        qs = super(TreeChangeList, self).get_query_set(*args, **kwargs).order_by('tree_id', 'lft')
+        return qs
 
 class TreeEditor(admin.ModelAdmin):
     list_per_page = 999999999 # We can't have pagination
+    list_max_show_all = 200 # new in django 1.4
+    
     class Media:
         css = {'all':(settings.MEDIA_PATH + "jquery.treeTable.css",)}
         js = []
@@ -131,7 +139,8 @@ class TreeEditor(admin.ModelAdmin):
             cl = TreeChangeList(request, self.model, list_display, 
                 self.list_display_links, self.list_filter, self.date_hierarchy, 
                 self.search_fields, self.list_select_related, 
-                self.list_per_page, self.list_editable, self)
+                self.list_per_page, self.list_max_show_all, 
+                self.list_editable, self)
         except IncorrectLookupParameters:
             # Wacky lookup parameters were given, so redirect to the main
             # changelist page, without parameters, and pass an 'invalid=1'
@@ -212,12 +221,22 @@ class TreeEditor(admin.ModelAdmin):
             'cl': cl,
             'media': media,
             'has_add_permission': self.has_add_permission(request),
-            'root_path': self.admin_site.root_path,
             'app_label': app_label,
             'action_form': action_form,
             'actions_on_top': self.actions_on_top,
             'actions_on_bottom': self.actions_on_bottom,
         }
+        if django.VERSION[1] < 4:
+            context['root_path'] = self.admin_site.root_path
+        else:
+            selection_note_all = ungettext('%(total_count)s selected',
+                'All %(total_count)s selected', cl.result_count)
+            
+            context.update({
+                'module_name': force_unicode(opts.verbose_name_plural),
+                'selection_note': _('0 of %(cnt)s selected') % {'cnt': len(cl.result_list)},
+                'selection_note_all': selection_note_all % {'total_count': cl.result_count},
+            })
         context.update(extra_context or {})
         context_instance = template.RequestContext(
             request, current_app=self.admin_site.name
@@ -236,7 +255,7 @@ class TreeEditor(admin.ModelAdmin):
         extra_context = extra_context or {}
         extra_context['EDITOR_MEDIA_PATH'] = settings.MEDIA_PATH
         extra_context['EDITOR_TREE_INITIAL_STATE'] = settings.TREE_INITIAL_STATE
-        if django.VERSION[2] >= 2:
+        if django.VERSION[1] >= 2:
             return super(TreeEditor, self).changelist_view(
                                     request, extra_context, *args, **kwargs)
         else:

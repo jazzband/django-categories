@@ -2,20 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Models &mdash; Django Categories 0.8.8 documentation</title>
-    
+    <title>Models &mdash; Django Categories v1.0b2 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.8',
+        VERSION:     '1.0b2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,14 +21,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Django Categories 0.8.8 documentation" href="../index.html" />
+    <link rel="top" title="Django Categories v1.0b2 documentation" href="../index.html" />
     <link rel="up" title="Reference" href="index.html" />
     <link rel="next" title="Settings" href="settings.html" />
     <link rel="prev" title="Management Commands" href="management_commands.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories 0.8.8 documentation</p>
+	<p>Django Categories v1.0b2 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Models</h1></div>
@@ -54,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Using categories in templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../registering_models.html">Registering Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_the_fields.html">Adding the fields to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_categories.html">Creating Custom Categories</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="management_commands.html">Management Commands</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Models</a></li>
@@ -97,34 +95,138 @@
             
   <div class="section" id="models">
 <h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="categorybase">
+<h2>CategoryBase<a class="headerlink" href="#categorybase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="CategoryBase">
+<em class="property">class </em><tt class="descname">CategoryBase</tt><a class="headerlink" href="#CategoryBase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="CategoryBase.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#CategoryBase.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">TreeForeignKey</span></tt> <tt class="docutils literal"><span class="pre">(self)</span></tt></p>
+<p>The category&#8217;s parent category. Leave this blank for an root category.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CategoryBase.name">
+<tt class="descname">name</tt><a class="headerlink" href="#CategoryBase.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> <tt class="docutils literal"><span class="pre">CharField(100)</span></tt></p>
+<p>The name of the category.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CategoryBase.slug">
+<tt class="descname">slug</tt><a class="headerlink" href="#CategoryBase.slug" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> <tt class="docutils literal"><span class="pre">SlugField</span></tt></p>
+<p>URL-friendly title. It is automatically generated from the title.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CategoryBase.active">
+<tt class="descname">active</tt><a class="headerlink" href="#CategoryBase.active" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> <tt class="docutils literal"><span class="pre">BooleanField</span></tt> <em>default:</em> <tt class="xref docutils literal"><span class="pre">True</span></tt></p>
+<p>Is this item active. If it is inactive, all children are set to inactive as well.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CategoryBase.objects">
+<tt class="descname">objects</tt><a class="headerlink" href="#CategoryBase.objects" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">CategoryManager</span></tt></p>
+<p>An object manager that adds an <tt class="docutils literal"><span class="pre">active</span></tt> method for only selecting items whose <tt class="docutils literal"><span class="pre">active</span></tt> attribute is <tt class="xref docutils literal"><span class="pre">True</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CategoryBase.tree">
+<tt class="descname">tree</tt><a class="headerlink" href="#CategoryBase.tree" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">TreeManager</span></tt></p>
+<p>A Django-MPTT <a class="reference external" href="http://readthedocs.org/docs/django-mptt/en/latest/models.html#the-treemanager-custom-manager">TreeManager</a> instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="category">
 <h2>Category<a class="headerlink" href="#category" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><strong>parent</strong></dt>
-<dd>The category&#8217;s parent category. Leave this blank for an Category Tree.</dd>
-<dt><strong>name</strong></dt>
-<dd>The name of the category.</dd>
-<dt><strong>thumbnail</strong></dt>
-<dd>An optional thumbnail, that is uploaded to <tt class="docutils literal"><span class="pre">CATEGORY_SETTINGS['THUMBNAIL_UPLOAD_PATH']</span></tt> via <tt class="docutils literal"><span class="pre">CATEGORY_SETTINGS['THUMBNAIL_STORAGE']</span></tt>.</dd>
-<dt><strong>thumbnail_width</strong></dt>
-<dd>The thumbnail width.</dd>
-<dt><strong>thumbnail_height</strong></dt>
-<dd>The thumbnail height.</dd>
-<dt><strong>order</strong></dt>
-<dd>The order of this category in the listing</dd>
-<dt><strong>slug</strong></dt>
-<dd>A slug created from the name field</dd>
-<dt><strong>alternate_title</strong></dt>
-<dd>An alternative title to use on pages with this category.</dd>
-<dt><strong>alternate_url</strong></dt>
-<dd>An alternative URL to use instead of the one derived from the category hierarchy.</dd>
-<dt><strong>description</strong></dt>
-<dd>An optional longer description of the category.</dd>
-<dt><strong>meta_keywords</strong></dt>
-<dd>Comma-separated keywords for search engines.</dd>
-<dt><strong>meta_extra</strong></dt>
-<dd>(Advanced) Any additional HTML to be placed verbatim in the <tt class="docutils literal"><span class="pre">&lt;head&gt;</span></tt></dd>
-</dl>
+<dl class="class">
+<dt id="Category">
+<em class="property">class </em><tt class="descname">Category</tt><a class="headerlink" href="#Category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Category is a subclass of <a class="reference internal" href="#CategoryBase" title="CategoryBase"><tt class="xref py py-class docutils literal"><span class="pre">CategoryBase</span></tt></a> and includes all its attributes.</p>
+<dl class="attribute">
+<dt id="Category.thumbnail">
+<tt class="descname">thumbnail</tt><a class="headerlink" href="#Category.thumbnail" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">FileField</span></tt></p>
+<p>An optional thumbnail, that is uploaded to <a class="reference internal" href="settings.html#thumbnail-upload-path"><em>THUMBNAIL_UPLOAD_PATH</em></a>  via <a class="reference internal" href="settings.html#thumbnail-storage"><em>THUMBNAIL_STORAGE</em></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Why isn&#8217;t this an <tt class="docutils literal"><span class="pre">ImageField</span></tt>?</p>
+<p>For <tt class="docutils literal"><span class="pre">ImageField</span></tt>s, Django checks the file system for the existance of the files to handle the height and width. In many cases this can lead to problems and impact performance.</p>
+<p class="last">For these reasons, a <tt class="docutils literal"><span class="pre">FileField</span></tt> that manually manages the width and height was chosen.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.thumbnail_width">
+<tt class="descname">thumbnail_width</tt><a class="headerlink" href="#Category.thumbnail_width" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">IntegerField</span></tt></p>
+<p>The thumbnail width. Automatically set on save if a thumbnail is uploaded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.thumbnail_height">
+<tt class="descname">thumbnail_height</tt><a class="headerlink" href="#Category.thumbnail_height" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">IntegerField</span></tt></p>
+<p>The thumbnail height. Automatically set on save if a thumbnail is uploaded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.order">
+<tt class="descname">order</tt><a class="headerlink" href="#Category.order" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> <tt class="docutils literal"><span class="pre">IntegerField</span></tt> <em>default:</em> 0</p>
+<p>A manually-managed order of this category in the listing. Items with the same order are sorted alphabetically.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.alternate_title">
+<tt class="descname">alternate_title</tt><a class="headerlink" href="#Category.alternate_title" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">CharField(100)</span></tt></p>
+<p>An alternative title to use on pages with this category.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.alternate_url">
+<tt class="descname">alternate_url</tt><a class="headerlink" href="#Category.alternate_url" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">CharField(200)</span></tt></p>
+<p>An alternative URL to use instead of the one derived from the category hierarchy.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Why isn&#8217;t this a <tt class="docutils literal"><span class="pre">URLField</span></tt>?</p>
+<p class="last">For <tt class="docutils literal"><span class="pre">URLField</span></tt>s, Django checks that the URL includes <tt class="docutils literal"><span class="pre">http://</span></tt> and the site name. This makes it impossible to use relative URLs in that field.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.description">
+<tt class="descname">description</tt><a class="headerlink" href="#Category.description" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">TextField</span></tt></p>
+<p>An optional longer description of the category. Very useful on category landing pages.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.meta_keywords">
+<tt class="descname">meta_keywords</tt><a class="headerlink" href="#Category.meta_keywords" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">CharField(255)</span></tt></p>
+<p>Comma-separated keywords for search engines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Category.meta_extra">
+<tt class="descname">meta_extra</tt><a class="headerlink" href="#Category.meta_extra" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">TextField</span></tt></p>
+<p>(Advanced) Any additional HTML to be placed verbatim in the <tt class="docutils literal"><span class="pre">&lt;head&gt;</span></tt> of the page.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -135,7 +237,7 @@
     <div class="footer">
     <p>
       &copy; Copyright 2010-2012, Corey Oordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
 	</p>
     </div>
       <div class="clearer"></div>
