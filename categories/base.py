@@ -129,8 +129,7 @@ class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
         """
         Set active to False for selected items
         """
-        opts = self._meta
-        selected_cats = opts.model.objects.filter(
+        selected_cats = self.model.objects.filter(
             pk__in=[int(x) for x in request.POST.getlist('_selected_action')])
         
         for item in selected_cats:
@@ -144,9 +143,7 @@ class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
         """
         Set active to True for selected items
         """
-        opts = self._meta
-        
-        selected_cats = opts.model.objects.filter(
+        selected_cats = self.model.objects.filter(
             pk__in=[int(x) for x in request.POST.getlist('_selected_action')])
         
         for item in selected_cats:
