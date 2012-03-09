@@ -1,7 +1,7 @@
 __version_info__ = {
     'major': 1,
     'minor': 0,
-    'micro': 1,
+    'micro': 2,
     'releaselevel': 'final',
     'serial': 1
 }
@@ -67,7 +67,7 @@ try:
     
     from categories import settings
     from django.core.exceptions import ImproperlyConfigured
-    from django.db.models import get_model
+    from django.db.models.loading import get_model
     
     for key, value in settings.FK_REGISTRY.items():
         model = get_model(*key.split('.'))
