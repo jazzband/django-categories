@@ -8,10 +8,11 @@ class Migration(DataMigration):
 
     def forwards(self, orm):
         "Write your forwards methods here."
-        orm.Category.objects.filter(order__isnull=True).update(order=0)
+        orm.CategoryRelation.objects.update(category=models.F('story'))
 
     def backwards(self, orm):
         "Write your backwards methods here."
+        orm.CategoryRelation.objects.update(story=models.F('category'))
 
 
     models = {
@@ -38,11 +39,12 @@ class Migration(DataMigration):
         },
         'categories.categoryrelation': {
             'Meta': {'object_name': 'CategoryRelation'},
-            'story': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['categories.Category']"}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'new_cats'", 'null': 'True', 'to': "orm['categories.Category']"}),
             'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'object_id': ('django.db.models.fields.PositiveIntegerField', [], {}),
-            'relation_type': ('django.db.models.fields.CharField', [], {'max_length': "'200'", 'null': 'True', 'blank': 'True'})
+            'relation_type': ('django.db.models.fields.CharField', [], {'max_length': "'200'", 'null': 'True', 'blank': 'True'}),
+            'story': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['categories.Category']"})
         },
         'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},

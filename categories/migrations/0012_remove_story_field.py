@@ -1,17 +1,20 @@
 # encoding: utf-8
 import datetime
 from south.db import db
-from south.v2 import DataMigration
+from south.v2 import SchemaMigration
 from django.db import models
 
-class Migration(DataMigration):
+class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        "Write your forwards methods here."
-        orm.Category.objects.filter(order__isnull=True).update(order=0)
+        # Deleting field 'CategoryRelation.story'
+        db.delete_column('categories_categoryrelation', 'story_id')
+        
+
 
     def backwards(self, orm):
-        "Write your backwards methods here."
+        # Adding field 'CategoryRelation.story'
+        db.add_column('categories_categoryrelation', 'story', self.gf('django.db.models.fields.related.ForeignKey')(null=True, to=orm['categories.Category']))
 
 
     models = {
@@ -38,7 +41,7 @@ class Migration(DataMigration):
         },
         'categories.categoryrelation': {
             'Meta': {'object_name': 'CategoryRelation'},
-            'story': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['categories.Category']"}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['categories.Category']"}),
             'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'object_id': ('django.db.models.fields.PositiveIntegerField', [], {}),
