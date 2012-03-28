@@ -38,7 +38,7 @@ class Migration(DataMigration):
         },
         'categories.categoryrelation': {
             'Meta': {'object_name': 'CategoryRelation'},
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['categories.Category']"}),
+            'story': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['categories.Category']"}),
             'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'object_id': ('django.db.models.fields.PositiveIntegerField', [], {}),
