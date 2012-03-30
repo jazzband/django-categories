@@ -72,7 +72,7 @@ class TreeChangeList(ChangeList):
         else:
             return []
     
-    def get_ordering(self, request=None):
+    def get_ordering(self, request=None, queryset=None):
         if django.VERSION[1] < 4:
             return '', '' #('tree_id', 'lft')
         else:
