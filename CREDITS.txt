@@ -4,8 +4,9 @@ Martin Ogden     githun.com/martinogden
 Ramiro Morales   github.com/ramiro
 Evan Culver      github.com/eculver
 Andrzej Herok    github.com/aherok
-Jonathan Hensley 
+Jonathan Hensley github.com/jhensley
 Justin Quick     github.com/justquick
 Josh Ourisman    github.com/joshourisman
 Jose Soares      github.com/josesoa
 David Charbonnier github.com/oxys
+Brad Jasper      github.com/bradjasper
