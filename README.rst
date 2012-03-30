@@ -2,6 +2,24 @@ Django Categories grew out of our need to provide a basic hierarchical taxonomy 
 
 As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
 
+Upgrade path from 1.0.2 to 1.0.3
+================================
+
+Due to some data corruption with 1.0.2 migrations, a partially new set of migrations has been written in 1.0.3; and this will cause issues for users on 1.0.2 version.
+
+For a clean upgrade from 1.0.2 to 1.0.3 you have to delete previous version of 0010 migration (named 0010_changed_category_relation.py) and fakes the new 00010, 0011 and 0012.
+
+Therefore after installing new version of django-categories, for each project to upgrade you should execute the following commans in order:
+
+    python manage.py migrate categories 0010_add_field_categoryrelation_category --fake --delete-ghost-migrations
+    python manage.py migrate categories 0011_move_category_fks --fake
+    python manage.py migrate categories 0012_remove_story_field --fakes
+    python manage.py migrate categories 0013_null_category_id
+
+This way both the exact database layout and migration history is restored between the two installation paths (new installation from 1.0.3 and upgrade from 1.0.2 to 1.0.3).
+
+Last migration is needed to set the correct null value for `category_id` field when upgrading from 1.0.2 while is a noop for 1.0.3.
+
 New in 1.0
 ==========
 
