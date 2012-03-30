@@ -13,7 +13,7 @@ Therefore after installing new version of django-categories, for each project to
 
     python manage.py migrate categories 0010_add_field_categoryrelation_category --fake --delete-ghost-migrations
     python manage.py migrate categories 0011_move_category_fks --fake
-    python manage.py migrate categories 0012_remove_story_field --fakes
+    python manage.py migrate categories 0012_remove_story_field --fake
     python manage.py migrate categories 0013_null_category_id
 
 This way both the exact database layout and migration history is restored between the two installation paths (new installation from 1.0.3 and upgrade from 1.0.2 to 1.0.3).
