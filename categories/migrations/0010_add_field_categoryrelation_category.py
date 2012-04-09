@@ -7,9 +7,6 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Changing field 'Category.parent'
-        db.alter_column('categories_category', 'parent_id', self.gf('mptt.fields.TreeForeignKey')(null=True, to=orm['categories.Category']))
-
         # Changing field 'Category.order'
         db.alter_column('categories_category', 'order', self.gf('django.db.models.fields.IntegerField')())
 
