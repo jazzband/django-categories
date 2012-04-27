@@ -1,6 +1,7 @@
 from django import template
 from django.template import Library, Node, TemplateSyntaxError, \
     Variable, resolve_variable, VariableDoesNotExist, Context
+from categories.base import CategoryBase
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node
 from mptt.templatetags.mptt_tags import tree_path, tree_info
@@ -100,7 +101,7 @@ def breadcrumbs(category,separator="/"):
     Render breadcrumbs, using the ``categories/breadcrumbs.html`` template,
     using the optional ``separator`` argument.
     """
-    if isinstance(category, Category):
+    if isinstance(category, CategoryBase):
         cat = category
     else:
         cat = get_category(category)
@@ -141,7 +142,7 @@ def display_drilldown_as_ul(category):
           </li>
         </ul>
     """
-    if isinstance(category, Category):
+    if isinstance(category, CategoryBase):
         cat = category
     else:
         cat = get_category(category)
@@ -172,7 +173,7 @@ def display_path_as_ul(category):
             </li>
         </ul>
     """
-    if isinstance(category, Category):
+    if isinstance(category, CategoryBase):
         cat = category
     else:
         cat = get_category(category)
@@ -221,9 +222,9 @@ def resolve(var, context):
 def get_latest_objects_by_category(category, app_label, model_name, set_name, 
                                     date_field='pub_date', num=15):
     m = get_model(app_label, model_name)
-    if not isinstance(category, Category):
+    if not isinstance(category, CategoryBase):
         category = Category.objects.get(slug=str(category))
-    children = Category.objects.filter(parent=category)
+    children = category.children.all()
     ids = []
     for cat in list(children) + [category]:
         if hasattr(cat, '%s_set' % set_name):
@@ -300,3 +301,39 @@ def do_get_latest_objects_by_category(parser, token):
         num = None
     return LatestObjectsNode(var_name, category, app_label, model_name, set_name, 
                      date_field, num)
+
+
+@register.filter
+def tree_queryset(value):
+    """
+    Converts a normal queryset from an MPTT model to include all the ancestors
+    so a filtered subset of items can be formatted correctly
+    """
+    from django.db.models.query import QuerySet
+    from copy import deepcopy
+    if not isinstance(value, QuerySet):
+        return value
+    
+    qs = value
+    qs2 = deepcopy(qs)
+    # Reaching into the bowels of query sets to find out whether the qs is
+    # actually filtered and we need to do the INCLUDE_ANCESTORS dance at all.
+    # INCLUDE_ANCESTORS is quite expensive, so don't do it if not needed.
+    is_filtered = bool(qs.query.where.children)
+    if is_filtered:
+        include_pages = set()
+        # Order by 'rght' will return the tree deepest nodes first;
+        # this cuts down the number of queries considerably since all ancestors
+        # will already be in include_pages when they are checked, thus not
+        # trigger additional queries.
+        for p in qs2.order_by('rght').iterator():
+            if p.parent_id and p.parent_id not in include_pages and \
+                               p.id not in include_pages:
+                ancestor_id_list = p.get_ancestors().values_list('id', flat=True)
+                include_pages.update(ancestor_id_list)
+        
+        if include_pages:
+            qs = qs | qs.model._default_manager.filter(id__in=include_pages)
+        
+        qs = qs.distinct()
+    return qs
