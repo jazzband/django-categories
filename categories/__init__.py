@@ -2,8 +2,8 @@ __version_info__ = {
     'major': 1,
     'minor': 0,
     'micro': 4,
-    'releaselevel': 'beta',
-    'serial': 2
+    'releaselevel': 'final',
+    'serial': 1
 }
 
 def get_version(short=False):
@@ -22,36 +22,36 @@ model_registry = {}
 
 try:
     import fields
-    
+
     from django.db.models import FieldDoesNotExist
-    
+
     class AlreadyRegistered(Exception):
         """
         An attempt was made to register a model more than once.
         """
         pass
-    
+
     # The field registry keeps track of the individual fields created.
     #  {'app.model.field': Field(**extra_params)}
     #  Useful for doing a schema migration
     field_registry = {}
-    
+
     # The model registry keeps track of which models have one or more fields
     # registered.
     # {'app': [model1, model2]}
     # Useful for admin alteration
     model_registry = {}
-    
+
     def register_m2m(model, field_name='categories', extra_params={}):
         return _register(model, field_name, extra_params, fields.CategoryM2MField)
-    
+
     def register_fk(model, field_name='category', extra_params={}):
         return _register(model, field_name, extra_params, fields.CategoryFKField)
-    
+
     def _register(model, field_name, extra_params={}, field=fields.CategoryFKField):
         app_label = model._meta.app_label
         registry_name = ".".join((app_label, model.__name__, field_name)).lower()
-        
+
         if registry_name in field_registry:
             return #raise AlreadyRegistered
         opts = model._meta
@@ -64,11 +64,11 @@ try:
                 model_registry[app_label].append(model)
             field_registry[registry_name] = field(**extra_params)
             field_registry[registry_name].contribute_to_class(model, field_name)
-    
+
     from categories import settings
     from django.core.exceptions import ImproperlyConfigured
     from django.db.models.loading import get_model
-    
+
     for key, value in settings.FK_REGISTRY.items():
         model = get_model(*key.split('.'))
         if model is None:
@@ -109,6 +109,6 @@ try:
             register_m2m(model, field_name, extra_params=value)
         else:
             raise ImproperlyConfigured("CATEGORY_SETTINGS['M2M_REGISTRY'] doesn't recognize the value of %s" % key)
-    
+
 except ImportError:
     pass
