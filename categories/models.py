@@ -5,7 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.core.files.storage import get_storage_class
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, 
                         THUMBNAIL_STORAGE)
