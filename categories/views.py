@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.http import HttpResponse, Http404
 from django.views.decorators.cache import cache_page
 from django.template.loader import select_template
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from .models import Category
 from .settings import CACHE_VIEW_LENGTH
