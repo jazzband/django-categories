@@ -13,6 +13,7 @@ DEFAULT_SETTINGS = {
     'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
     'JAVASCRIPT_URL': getattr(settings, 'STATIC_URL', settings.MEDIA_URL) + 'js/',
     'SLUG_TRANSLITERATOR': '',
+    'REGISTER_ADMIN': True,
 }
 
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))
