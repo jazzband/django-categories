@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.conf import settings
 from django import forms
 
 from .genericcollection import GenericCollectionTabularInline
@@ -64,7 +65,8 @@ class CategoryAdmin(CategoryBaseAdmin):
     class Media:
         js = (JAVASCRIPT_URL + 'genericcollections.js',)
 
-admin.site.register(Category, CategoryAdmin)
+if getattr(settings, 'REGISTER_CATEGORY_MODEL_IN_ADMIN', True):
+    admin.site.register(Category, CategoryAdmin)
 
 for model, modeladmin in admin.site._registry.items():
     if model in model_registry.values() and modeladmin.fieldsets:
