@@ -85,6 +85,16 @@ FK_REGISTRY
 
 .. _THUMBNAIL_UPLOAD_PATH:
 
+.. _REGISTER_ADMIN:
+
+REGISTER_ADMIN
+==============
+
+**Default:** ``True``
+
+**Description:** If you write your own category class by subclassing ``CategoryBase`` then you probably have no use for registering the default ``Category`` class in the admin.
+
+
 THUMBNAIL_UPLOAD_PATH
 =====================
 
