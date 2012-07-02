@@ -5,7 +5,7 @@ As a news site, our stories, photos, and other content get divided into "section
 Upgrade path from 1.0.2 to 1.0.3
 ================================
 
-Due to some data corruption with 1.0.2 migrations, a partially new set of migrations has been written in 1.0.3; and this will cause issues for users on 1.0.2 version.
+Due to some data corruption with 1.0.2 migrations, a partially new set of migrations has been written in 1.0.3; and this will cause issues for users on 1.0.2 version. There is also an issue with South version 0.7.4. South version 0.7.3 or 0.7.5 or greater works fine.
 
 For a clean upgrade from 1.0.2 to 1.0.3 you have to delete previous version of 0010 migration (named 0010_changed_category_relation.py) and fakes the new 00010, 0011 and 0012.
 
@@ -25,9 +25,9 @@ New in 1.0
 
 **Abstract Base Class for generic hierarchical category models**
    When you want a multiple types of categories and don't want them all part of the same model, you can now easily create new models by subclassing ``CategoryBase``. You can also add additional metadata as necessary.
-   
+
    Your model's can subclass ``CategoryBaseAdminForm`` and ``CategoryBaseAdmin`` to get the hierarchical management in the admin.
-   
+
    See the docs for more information.
 
 **Increased the default caching time on views**
@@ -62,7 +62,7 @@ New in 0.8
 
 **Added an active field**
 	As an alternative to deleting categories, you can make them inactive.
-	
+
 	Also added a manager method ``active()`` to query only the active categories and added Admin Actions to activate or deactivate an item.
 
 **Improved import**
@@ -131,7 +131,7 @@ Features of the project
 
 	**Show one level of a tree**
 		All root categories or just children of a specified category
-	
+
 	**Show multiple levels**
 		Ancestors of category, category and all children of category or  a category and its children
 
@@ -144,7 +144,7 @@ Contributors
 * Ramiro Morales   http://github.com/ramiro
 * Evan Culver      http://github.com/eculver
 * Andrzej Herok    http://github.com/aherok
-* Jonathan Hensley 
+* Jonathan Hensley
 * Justin Quick     http://github.com/justquick
 * Josh Ourisman    http://github.com/joshourisman
 * Jose Soares      http://github.com/josesoa
