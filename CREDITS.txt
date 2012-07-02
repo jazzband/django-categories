@@ -11,3 +11,4 @@ Jose Soares       github.com/jsoa
 David Charbonnier github.com/oxys
 Brad Jasper       github.com/bradjasper
 Martin Matusiak   github.com/numerodix
+Iacopo Spalletti  github.com/yakky
