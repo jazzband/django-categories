@@ -9,7 +9,7 @@ Due to some data corruption with 1.0.2 migrations, a partially new set of migrat
 
 For a clean upgrade from 1.0.2 to 1.0.3 you have to delete previous version of 0010 migration (named 0010_changed_category_relation.py) and fakes the new 00010, 0011 and 0012.
 
-Therefore after installing new version of django-categories, for each project to upgrade you should execute the following commans in order:
+Therefore after installing new version of django-categories, for each project to upgrade you should execute the following commans in order::
 
     python manage.py migrate categories 0010_add_field_categoryrelation_category --fake --delete-ghost-migrations
     python manage.py migrate categories 0011_move_category_fks --fake
