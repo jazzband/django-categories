@@ -32,7 +32,7 @@ if RELATION_MODELS:
 class CategoryAdminForm(CategoryBaseAdminForm):
     class Meta:
         model = Category
-    
+
     def clean_alternate_title(self):
         if self.instance is None or not self.cleaned_data['alternate_title']:
             return self.cleaned_data['name']
@@ -48,7 +48,7 @@ class CategoryAdmin(CategoryBaseAdmin):
             'fields': ('parent', 'name', 'thumbnail', 'active')
         }),
         ('Meta Data', {
-            'fields': ('alternate_title', 'alternate_url', 'description', 
+            'fields': ('alternate_title', 'alternate_url', 'description',
                         'meta_keywords', 'meta_extra'),
             'classes': ('collapse',),
         }),
@@ -57,10 +57,10 @@ class CategoryAdmin(CategoryBaseAdmin):
             'classes': ('collapse',),
         }),
     )
-    
+
     if RELATION_MODELS:
-        inlines = [InlineCategoryRelation,]
-    
+        inlines = [InlineCategoryRelation, ]
+
     class Media:
         js = (JAVASCRIPT_URL + 'genericcollections.js',)
 
