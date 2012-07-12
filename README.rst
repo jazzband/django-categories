@@ -1,6 +1,23 @@
+=================
+Django Categories
+=================
+
 Django Categories grew out of our need to provide a basic hierarchical taxonomy management system that multiple applications could use independently or in concert.
 
 As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
+
+
+New in 1.1
+==========
+
+* Fixed a cosmetic bug in the Django 1.4 admin. Action checkboxes now only appear once.
+
+* Template tags are refactored to allow easy use of any model derived from ``CategoryBase``.
+
+* Improved test suite.
+
+* Improved some of the documentation.
+
 
 Upgrade path from 1.0.2 to 1.0.3
 ================================

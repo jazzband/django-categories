@@ -2,20 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Template Tags &mdash; Django Categories 1.0.5 documentation</title>
-    
+    <title>Template tags and filters &mdash; Django Categories v1.1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.5',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,16 +21,16 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Django Categories 1.0.5 documentation" href="../index.html" />
+    <link rel="top" title="Django Categories v1.1 documentation" href="../index.html" />
     <link rel="up" title="Reference" href="index.html" />
     <link rel="prev" title="Settings" href="settings.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories 1.0.5 documentation</p>
+	<p>Django Categories v1.1 documentation</p>
 </div>
 <div id="header">
-	<div id="title"><h1>Template Tags</h1></div>
+	<div id="title"><h1>Template tags and filters</h1></div>
 	<ul id="headerButtons">
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
@@ -57,7 +54,7 @@
 <li class="toctree-l2"><a class="reference internal" href="management_commands.html">Management Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html">Settings</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Template Tags</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Template tags and filters</a></li>
 </ul>
 </li>
 </ul>
@@ -94,25 +91,128 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="template-tags">
-<h1>Template Tags<a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="get-top-level-categories">
-<h2>get_top_level_categories<a class="headerlink" href="#get-top-level-categories" title="Permalink to this headline">¶</a></h2>
-<p>Retrieves an alphabetical list of all the categories that have no parents.</p>
-<p>Syntax:</p>
-<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_top_level_categories</span> <span class="k">as</span> <span class="nv">categories</span> <span class="cp">%}</span><span class="x"></span>
+  <div class="section" id="template-tags-and-filters">
+<h1>Template tags and filters<a class="headerlink" href="#template-tags-and-filters" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#filters" id="id2">Filters</a><ul>
+<li><a class="reference internal" href="#category-path" id="id3"><tt class="docutils literal"><span class="pre">category_path</span></tt></a></li>
+<li><a class="reference internal" href="#tree-info" id="id4"><tt class="docutils literal"><span class="pre">tree_info</span></tt></a></li>
+<li><a class="reference internal" href="#tree-queryset" id="id5"><tt class="docutils literal"><span class="pre">tree_queryset</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inclusion-tags" id="id6">Inclusion tags</a><ul>
+<li><a class="reference internal" href="#display-path-as-ul" id="id7"><tt class="docutils literal"><span class="pre">display_path_as_ul</span></tt></a></li>
+<li><a class="reference internal" href="#display-drilldown-as-ul" id="id8"><tt class="docutils literal"><span class="pre">display_drilldown_as_ul</span></tt></a></li>
+<li><a class="reference internal" href="#breadcrumbs-tag" id="id9"><tt class="docutils literal"><span class="pre">breadcrumbs</span> <span class="pre">tag</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#template-tags" id="id10">Template Tags</a><ul>
+<li><a class="reference internal" href="#get-top-level-categories" id="id11"><tt class="docutils literal"><span class="pre">get_top_level_categories</span></tt></a></li>
+<li><a class="reference internal" href="#get-category-drilldown" id="id12"><tt class="docutils literal"><span class="pre">get_category_drilldown</span></tt></a></li>
+<li><a class="reference internal" href="#recursetree" id="id13"><tt class="docutils literal"><span class="pre">recursetree</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="filters">
+<h2><a class="toc-backref" href="#contents">Filters</a><a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="category-path">
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">category_path</span></tt></a><a class="headerlink" href="#category-path" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional Parameter:</strong> separator string. <em>Default:</em> <tt class="docutils literal"><span class="pre">&quot;</span> <span class="pre">::</span> <span class="pre">&quot;</span></tt></p>
+<p>Creates a path represented by a categories by joining the items with a separator.</p>
+<p>Each path item will be coerced to unicode, so you can pass a list of category instances, if required.</p>
+<p><strong>Example using a list of categories:</strong></p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">some_list</span><span class="o">|</span><span class="nf">category_path</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>Returns an list of categories <tt class="docutils literal"><span class="pre">[&lt;category&gt;,</span> <span class="pre">&lt;category&gt;,</span> <span class="pre">&lt;category,</span> <span class="pre">...]</span></tt></p>
+<p>If <tt class="docutils literal"><span class="pre">some_list</span></tt> is <tt class="docutils literal"><span class="pre">[</span> <span class="pre">&lt;Category:</span> <span class="pre">Country&gt;,</span> <span class="pre">&lt;Category:</span> <span class="pre">Country</span> <span class="pre">pop&gt;,</span> <span class="pre">&lt;Category:</span> <span class="pre">Urban</span> <span class="pre">Cowboy&gt;]</span></tt> the result will be:</p>
+<div class="highlight-python"><pre>Country :: Country pop :: Urban Cowboy</pre>
 </div>
+<p><strong>Example using a category node and optional separator parameter:</strong></p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">some_node.get_ancestors</span><span class="o">|</span><span class="nf">category_path</span><span class="s2">:&quot; &gt; &quot;</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>If <tt class="docutils literal"><span class="pre">some_node</span></tt> was category &#8220;Urban Cowboy&#8221;, the result will be:</p>
+<div class="highlight-python"><pre>Country &gt; Country pop &gt; Urban Cowboy</pre>
+</div>
+</div>
+<div class="section" id="tree-info">
+<span id="id1"></span><h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">tree_info</span></tt></a><a class="headerlink" href="#tree-info" title="Permalink to this headline">¶</a></h3>
+<p><strong>Optional Parameter:</strong> <tt class="docutils literal"><span class="pre">&quot;ancestors&quot;</span></tt></p>
+<p>Given a list of categories, it iterates over the list, generating a tuple of the current category and a dict containing information about the tree structure around it, with the following keys:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">'new_level'</span></tt></dt>
+<dd><tt class="xref docutils literal"><span class="pre">True</span></tt> if the current item is the start of a new level in the tree, <tt class="xref docutils literal"><span class="pre">False</span></tt> otherwise.</dd>
+<dt><tt class="docutils literal"><span class="pre">'closed_levels'</span></tt></dt>
+<dd>A list of levels which end after the current item. This will be an empty list if the next category&#8217;s level is the same as or greater than the level of the current item.</dd>
+</dl>
+<p>Provide the optional argument, <tt class="docutils literal"><span class="pre">&quot;ancestors&quot;</span></tt>, to add a list of unicode representations of the ancestors of the current category, in descending order (root node first, immediate parent last), under the key &#8216;ancestors&#8217;.</p>
+<p>For example: given the sample tree below, the contents of the list which would be available under the &#8216;ancestors&#8217; key are given on the right:</p>
+<div class="highlight-python"><pre>Country             -&gt;  []
+   Country pop      -&gt;  [u'Country pop']
+      Urban Cowboy  -&gt;  [u'Country', u'Country pop']</pre>
+</div>
+<p>Using this filter with unpacking in a {% for %} tag, you should have enough information about the tree structure to create a hierarchical representation of the tree.</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">node</span><span class="o">,</span><span class="nv">structure</span> <span class="k">in</span> <span class="nv">objects</span><span class="o">|</span><span class="nf">tree_info</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">structure.new_level</span> <span class="cp">%}</span><span class="x">&lt;ul&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x">&lt;/li&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">structure.closed_levels</span> <span class="cp">%}</span><span class="x">&lt;/li&gt;&lt;/ul&gt;</span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tree-queryset">
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">tree_queryset</span></tt></a><a class="headerlink" href="#tree-queryset" title="Permalink to this headline">¶</a></h3>
+<p>Convert a regular category <tt class="xref py py-class docutils literal"><span class="pre">QuerySet</span></tt> into a new, ordered <tt class="xref py py-class docutils literal"><span class="pre">QuerySet</span></tt> that includes the categories selected and their ancestors.</p>
+<p>This is especially helpful when you have a subset of categories and want to show the hierarchy for all the items.</p>
+<p>For example, if we add it to the example for <a class="reference internal" href="#tree-info"><em>tree_info</em></a>:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">node</span><span class="o">,</span><span class="nv">structure</span> <span class="k">in</span> <span class="nv">objects</span><span class="o">|</span><span class="nf">tree_queryset</span><span class="o">|</span><span class="nf">tree_info</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">structure.new_level</span> <span class="cp">%}</span><span class="x">&lt;ul&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x">&lt;/li&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">structure.closed_levels</span> <span class="cp">%}</span><span class="x">&lt;/li&gt;&lt;/ul&gt;</span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>A list of unrelated categories such as <tt class="docutils literal"><span class="pre">[&lt;Category:</span> <span class="pre">Urban</span> <span class="pre">cowboy&gt;,</span> <span class="pre">&lt;Category:</span> <span class="pre">Urban</span> <span class="pre">comtemporary&gt;]</span></tt>, the above template example will output the two categories and their ancestors:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul&gt;&lt;li&gt;</span>
+Country
+<span class="nt">&lt;ul&gt;&lt;li&gt;</span>
+Country pop
+<span class="nt">&lt;ul&gt;&lt;li&gt;</span>
+Urban cowboy
+<span class="nt">&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</span>
+<span class="nt">&lt;ul&gt;&lt;li&gt;</span>
+Rhythm and blues
+<span class="nt">&lt;ul&gt;&lt;li&gt;</span>
+Urban contemporary
+<span class="nt">&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Categories that have similar ancestors are grouped accordingly. There is no duplication of the ancestor tree.</p>
+</div>
+</div>
+</div>
+<div class="section" id="inclusion-tags">
+<h2><a class="toc-backref" href="#contents">Inclusion tags</a><a class="headerlink" href="#inclusion-tags" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="display-path-as-ul">
-<h2>display_path_as_ul<a class="headerlink" href="#display-path-as-ul" title="Permalink to this headline">¶</a></h2>
-<p>Render the category with ancestors, but no children using the <tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt> template.</p>
-<p>Example:</p>
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">display_path_as_ul</span></tt></a><a class="headerlink" href="#display-path-as-ul" title="Permalink to this headline">¶</a></h3>
+<p><strong>Template Rendered:</strong> <tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt></p>
+<p><strong>Syntax 1:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">display_path_as_ul</span> <span class="pre">&lt;category_obj&gt;</span> <span class="pre">%}</span></tt></p>
+<p><strong>Syntax 2:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">display_path_as_ul</span> <span class="pre">&lt;path_string&gt;[</span> <span class="pre">using=&quot;app.Model&quot;]</span> <span class="pre">%}</span></tt></p>
+<p>Render the category with ancestors, but no children.</p>
+<p>Pass either an object that subclasses <a class="reference internal" href="models.html#CategoryBase" title="CategoryBase"><tt class="xref py py-class docutils literal"><span class="pre">CategoryBase</span></tt></a> or a path string for the category. Add <tt class="docutils literal"><span class="pre">using=&quot;app.Model&quot;</span></tt> to specify which model when using a path string. The default model used is <a class="reference internal" href="models.html#Category" title="Category"><tt class="xref py py-class docutils literal"><span class="pre">Category</span></tt></a>.</p>
+<p><strong>Example, using Category model:</strong></p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_path_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>or</p>
+<p><strong>Example, using custom model:</strong></p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_path_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="nv">using</span><span class="o">=</span><span class="s2">&quot;coolapp.MusicGenre&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p><strong>Example, using an object:</strong></p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_path_as_ul</span> <span class="nv">category_obj</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
@@ -127,31 +227,21 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="get-category-drilldown">
-<h2>get_category_drilldown<a class="headerlink" href="#get-category-drilldown" title="Permalink to this headline">¶</a></h2>
-<p>Retrieves the specified category, its ancestors and its immediate children
-as an iterable.</p>
-<p>Example:</p>
-<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_category_drilldown</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="k">as</span> <span class="nv">family</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
-</div>
-<p>or</p>
-<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_category_drilldown</span> <span class="nv">category_obj</span> <span class="k">as</span> <span class="nv">family</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
-</div>
-<p>Sets <tt class="docutils literal"><span class="pre">family</span></tt> to:</p>
-<div class="highlight-python"><pre>[Grandparent, Parent, Child 1, Child 2, Child n]</pre>
-</div>
-</div>
 <div class="section" id="display-drilldown-as-ul">
-<h2>display_drilldown_as_ul<a class="headerlink" href="#display-drilldown-as-ul" title="Permalink to this headline">¶</a></h2>
-<p>Render the category with ancestors and children using the
-<tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt> template.</p>
-<p>Example:</p>
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">display_drilldown_as_ul</span></tt></a><a class="headerlink" href="#display-drilldown-as-ul" title="Permalink to this headline">¶</a></h3>
+<p><strong>Template rendered:</strong> <tt class="docutils literal"><span class="pre">categories/ul_tree.html</span></tt></p>
+<p><strong>Syntax 1:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">display_drilldown_as_ul</span> <span class="pre">category_obj</span> <span class="pre">%}</span></tt></p>
+<p><strong>Syntax 2:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">display_drilldown_as_ul</span> <span class="pre">&quot;/Grandparent/Parent&quot;</span> <span class="pre">[using=&quot;app.Model&quot;]</span> <span class="pre">%}</span></tt></p>
+<p>Render the category with ancestors and children.</p>
+<p><strong>Example, using Category model:</strong></p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_drilldown_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>or:</p>
+<p><strong>Example, using custom model:</strong></p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_drilldown_as_ul</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="nv">using</span><span class="o">=</span><span class="s2">&quot;coolapp.MusicGenre&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p><strong>Example, using an object:</strong></p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">display_drilldown_as_ul</span> <span class="nv">category_obj</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
@@ -177,13 +267,20 @@ as an iterable.</p>
 </div>
 </div>
 <div class="section" id="breadcrumbs-tag">
-<h2>breadcrumbs tag<a class="headerlink" href="#breadcrumbs-tag" title="Permalink to this headline">¶</a></h2>
-<p>Render breadcrumbs, using the <tt class="docutils literal"><span class="pre">categories/breadcrumbs.html</span></tt> template, using the optional <tt class="docutils literal"><span class="pre">separator</span></tt> argument.</p>
-<p>Example:</p>
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">breadcrumbs</span> <span class="pre">tag</span></tt></a><a class="headerlink" href="#breadcrumbs-tag" title="Permalink to this headline">¶</a></h3>
+<p><strong>Template rendered:</strong> <tt class="docutils literal"><span class="pre">categories/breadcrumbs.html</span></tt></p>
+<p><strong>Syntax 1:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">breadcrumbs</span> <span class="pre">category_obj</span> <span class="pre">[separator=&quot;</span> <span class="pre">::</span> <span class="pre">&quot;]</span> <span class="pre">%}</span></tt></p>
+<p><strong>Syntax 2:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">breadcrumbs</span> <span class="pre">&quot;/Grandparent/Parent&quot;</span> <span class="pre">[separator=&quot;</span> <span class="pre">::</span> <span class="pre">&quot;]</span> <span class="pre">[using=&quot;app.Model&quot;]</span> <span class="pre">%}</span></tt></p>
+<p>Render breadcrumbs for the given path using <tt class="docutils literal"><span class="pre">::</span></tt> or the given separator.</p>
+<p><strong>Example using Category model:</strong></p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>or:</p>
+<p><strong>Example using a custom model:</strong></p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="nv">using</span><span class="o">=</span><span class="s2">&quot;coolapp.MusicGenre&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p><strong>Example using an object:</strong></p>
 <div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="nv">category_obj</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
@@ -191,13 +288,85 @@ as an iterable.</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;</span> / Parent
 </pre></div>
 </div>
-<p>You can alter the separator used in the template by adding a string argument to be the separator:</p>
-<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="nv">category_obj</span> <span class="s2">&quot;::&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<p>You can alter the separator used in the template by adding a separator argument:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">breadcrumbs</span> <span class="nv">category_obj</span> <span class="nv">separator</span><span class="o">=</span><span class="s2">&quot; &amp;gt; &quot;</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;</span> :: Parent
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/categories/grandparent/&quot;</span><span class="nt">&gt;</span>Grandparent<span class="nt">&lt;/a&gt;</span> <span class="ni">&amp;gt;</span> Parent
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="template-tags">
+<h2><a class="toc-backref" href="#contents">Template Tags</a><a class="headerlink" href="#template-tags" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-top-level-categories">
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">get_top_level_categories</span></tt></a><a class="headerlink" href="#get-top-level-categories" title="Permalink to this headline">¶</a></h3>
+<p>Retrieves an alphabetical list of all the categories that have no parents.</p>
+<p>Syntax:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_top_level_categories</span> <span class="o">[</span><span class="nv">using</span> <span class="s2">&quot;app.Model&quot;</span><span class="o">]</span> <span class="k">as</span> <span class="nv">categories</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Returns an list of categories <tt class="docutils literal"><span class="pre">[&lt;category&gt;,</span> <span class="pre">&lt;category&gt;,</span> <span class="pre">&lt;category,</span> <span class="pre">...]</span></tt></p>
+</div>
+<div class="section" id="get-category-drilldown">
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">get_category_drilldown</span></tt></a><a class="headerlink" href="#get-category-drilldown" title="Permalink to this headline">¶</a></h3>
+<p><strong>Syntax 1:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">get_category_drilldown</span> <span class="pre">&lt;path_string&gt;</span> <span class="pre">[using</span> <span class="pre">&quot;app.Model&quot;]</span> <span class="pre">as</span> <span class="pre">&lt;varname&gt;</span> <span class="pre">%}</span></tt></p>
+<p><strong>Syntax 2:</strong> <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">get_category_drilldown</span> <span class="pre">&lt;object&gt;</span> <span class="pre">as</span> <span class="pre">&lt;varname&gt;</span> <span class="pre">%}</span></tt></p>
+<p>Retrieves the specified category, its ancestors and its immediate children as an iterable. Syntax 1 allows for the retrieval of the category object via a slash-delimited path. The optional <tt class="docutils literal"><span class="pre">using</span> <span class="pre">&quot;app.Model&quot;</span></tt> allows you to specify from which model to retrieve the object.</p>
+<p>Example:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_category_drilldown</span> <span class="s2">&quot;/Grandparent/Parent&quot;</span> <span class="nv">using</span> <span class="s2">&quot;family.Member&quot;</span> <span class="k">as</span> <span class="nv">family</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>The second syntax uses an instance of any object that subclasses <a class="reference internal" href="models.html#CategoryBase" title="CategoryBase"><tt class="xref py py-class docutils literal"><span class="pre">CategoryBase</span></tt></a></p>
+<div class="highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">get_category_drilldown</span> <span class="nv">category_obj</span> <span class="k">as</span> <span class="nv">family</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Both examples sets <tt class="docutils literal"><span class="pre">family</span></tt> to:</p>
+<div class="highlight-python"><pre>[Grandparent, Parent, Child 1, Child 2, Child n]</pre>
+</div>
+</div>
+<div class="section" id="recursetree">
+<h3><a class="toc-backref" href="#contents"><tt class="docutils literal"><span class="pre">recursetree</span></tt></a><a class="headerlink" href="#recursetree" title="Permalink to this headline">¶</a></h3>
+<p>This tag renders a section of your template recursively for each node in your
+tree.</p>
+<p>For example:</p>
+<div class="highlight-django"><div class="highlight"><pre><span class="x">&lt;ul class=&quot;root&quot;&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">recursetree</span> <span class="nv">nodes</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;li&gt;</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">node.is_leaf_node</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">                &lt;ul class=&quot;children&quot;&gt;</span>
+<span class="x">                    </span><span class="cp">{{</span> <span class="nv">children</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">                &lt;/ul&gt;</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        &lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endrecursetree</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<p>Note the special variables <tt class="docutils literal"><span class="pre">node</span></tt> and <tt class="docutils literal"><span class="pre">children</span></tt>.
+These are magically inserted into your context while you&#8217;re inside the
+<tt class="docutils literal"><span class="pre">recursetree</span></tt> tag.</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">node</span></tt> is an instance of your MPTT model.</p>
+<p><tt class="docutils literal"><span class="pre">children</span></tt> : This variable holds the rendered HTML for the children of
+<tt class="docutils literal"><span class="pre">node</span></tt>.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you already have variables called <tt class="docutils literal"><span class="pre">node</span></tt> or <tt class="docutils literal"><span class="pre">children</span></tt> in your
+template, and you need to access them inside the <tt class="docutils literal"><span class="pre">recursetree</span></tt> block,
+you&#8217;ll need to alias them to some other name first:</p>
+<div class="last highlight-django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">with</span> <span class="nv">node</span> <span class="k">as</span> <span class="nv">friendly_node</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">recursetree</span> <span class="nv">nodes</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="x"> is friends with </span><span class="cp">{{</span> <span class="nv">friendly_node.name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">children</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endrecursetree</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endwith</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -209,14 +378,14 @@ as an iterable.</p>
     <div class="footer">
     <p>
       &copy; Copyright 2010-2012, Corey Oordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
 	</p>
     </div>
       <div class="clearer"></div>
     </div>
 	<div id="breadcrumbs">
 		<a href="index.html" accesskey="U">Reference</a><img src="../_static/triangle_closed.png" height="9" width="9" alt="&gt;">
-		Template Tags
+		Template tags and filters
 		</ul>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="../_static/toc.js"></script>

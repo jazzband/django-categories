@@ -1,4 +1,4 @@
-{% load category_tags %}
+{% load category_tags %}{% spaceless %}
 <ul><li><a href="{% url categories_tree_list %}">Top</a>
 {% for node,structure in path|tree_info %}
 	{% if structure.new_level %}<ul><li>
@@ -8,4 +8,4 @@
 	{% else %}<a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
 	{% endifequal %}
 	{% for level in structure.closed_levels %}</li></ul>{% endfor %}
-{% endfor %}</li></ul>
+{% endfor %}</li></ul>{% endspaceless %}

@@ -3,8 +3,12 @@ Provides compatibility with Django 1.1
 
 Copied from django.contrib.admin.util
 """
+from django.forms.forms import pretty_name
 from django.db import models
+from django.db.models.related import RelatedObject
 from django.utils.encoding import force_unicode, smart_unicode, smart_str
+from django.utils import formats
+
 
 def lookup_field(name, obj, model_admin=None):
     opts = obj._meta
@@ -81,10 +85,11 @@ def label_for_field(name, model, model_admin=None, return_attr=False):
     else:
         return label
 
+
 def display_for_field(value, field):
     from django.contrib.admin.templatetags.admin_list import _boolean_icon
     from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
-    
+
     if field.flatchoices:
         return dict(field.flatchoices).get(value, EMPTY_CHANGELIST_VALUE)
     # NullBooleanField needs special-case null-handling, so it comes
