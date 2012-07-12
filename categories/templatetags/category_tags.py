@@ -1,18 +1,17 @@
 from django import template
 from django.db.models import get_model
-from django.template import (Node, TemplateSyntaxError, Variable,
-                             VariableDoesNotExist)
+from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist,
+                             FilterExpression)
 from categories.base import CategoryBase
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node
-from mptt.templatetags.mptt_tags import (tree_path, tree_info, recursetree,
+from mptt.templatetags.mptt_tags import (tree_path, tree_info, RecurseTreeNode,
                                          full_tree_for_model)
 
 register = template.Library()
 
 register.filter("category_path", tree_path)
 register.filter(tree_info)
-register.tag(recursetree)
 register.tag("full_tree_for_category", full_tree_for_model)
 
 
@@ -72,7 +71,7 @@ def get_category(category_string, model=Category):
 
 class CategoryDrillDownNode(template.Node):
     def __init__(self, category, varname, model):
-        self.category = template.Variable(category)
+        self.category = category
         self.varname = varname
         self.model = model
 
@@ -133,7 +132,7 @@ def get_category_drilldown(parser, token):
         if bits[2] == 'using':
             varname = bits[5].strip("'\"")
             model = bits[3].strip("'\"")
-    category = bits[1]
+    category = FilterExpression(bits[1], parser)
     return CategoryDrillDownNode(category, varname, model)
 
 
@@ -282,12 +281,12 @@ class LatestObjectsNode(Node):
         """
         Get latest objects of app_label.model_name
         """
-        self.category = Variable(category)
-        self.app_label = Variable(app_label)
-        self.model_name = Variable(model_name)
-        self.set_name = Variable(set_name)
-        self.date_field = Variable(date_field)
-        self.num = Variable(num)
+        self.category = category
+        self.app_label = app_label
+        self.model_name = model_name
+        self.set_name = set_name
+        self.date_field = date_field
+        self.num = num
         self.var_name = var_name
 
     def render(self, context):
@@ -323,19 +322,19 @@ def do_get_latest_objects_by_category(parser, token):
         raise TemplateSyntaxError("%s tag shoud be in the form: %s" % (bits[0], proper_form))
     if len(bits) > 9:
         raise TemplateSyntaxError("%s tag shoud be in the form: %s" % (bits[0], proper_form))
-    category = bits[1]
-    app_label = bits[2]
-    model_name = bits[3]
-    set_name = bits[4]
+    category = FilterExpression(bits[1], parser)
+    app_label = FilterExpression(bits[2], parser)
+    model_name = FilterExpression(bits[3], parser)
+    set_name = FilterExpression(bits[4], parser)
     var_name = bits[-1]
     if bits[5] != 'as':
-        date_field = bits[5]
+        date_field = FilterExpression(bits[5], parser)
     else:
-        date_field = None
+        date_field = FilterExpression(None, parser)
     if bits[6] != 'as':
-        num = bits[6]
+        num = FilterExpression(bits[6], parser)
     else:
-        num = None
+        num = FilterExpression(None, parser)
     return LatestObjectsNode(var_name, category, app_label, model_name, set_name,
                      date_field, num)
 
@@ -376,3 +375,35 @@ def tree_queryset(value):
 
         qs = qs.distinct()
     return qs
+
+
+@register.tag
+def recursetree(parser, token):
+    """
+    Iterates over the nodes in the tree, and renders the contained block for each node.
+    This tag will recursively render children into the template variable {{ children }}.
+    Only one database query is required (children are cached for the whole tree)
+
+    Usage:
+            <ul>
+                {% recursetree nodes %}
+                    <li>
+                        {{ node.name }}
+                        {% if not node.is_leaf_node %}
+                            <ul>
+                                {{ children }}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endrecursetree %}
+            </ul>
+    """
+    bits = token.contents.split()
+    if len(bits) != 2:
+        raise template.TemplateSyntaxError('%s tag requires a queryset' % bits[0])
+    queryset_var = FilterExpression(bits[1], parser)
+
+    template_nodes = parser.parse(('endrecursetree',))
+    parser.delete_first_token()
+
+    return RecurseTreeNode(template_nodes, queryset_var)

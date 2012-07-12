@@ -58,11 +58,10 @@ class CategoryTagsTest(TestCase):
         self.assertEqual(resp, expected_resp)
 
         # recursetree
-        expected_resp = u'<ul><li><a href="/categories/">Top</a><ul><li><a href="/categories/world/">World</a></li></ul></li></ul>'
-        ctxt = {'nodes': Category.objects.filter(name__in=("Worldbeat", "Urban cowboy"))}
+        expected_resp = u'<ul><li>Country<ul><li>Country pop<ul><li>Urban Cowboy</li></ul></li></ul></li><li>World<ul><li>Worldbeat<ul></ul></li></ul></li></ul>'
+        ctxt = {'nodes': Category.objects.filter(name__in=("Worldbeat", "Urban Cowboy"))}
         resp = self.render_template('{% load category_tags %}'
-            '<ul class="root">{% recursetree nodes|treeinfo %}<li>{{ node.name }}'
-            '{% if not node.is_leaf_node %}<ul class="children">{{ children }}'
+            '<ul>{% recursetree nodes|tree_queryset %}<li>{{ node.name }}'
+            '{% if not node.is_leaf_node %}<ul>{{ children }}'
             '</ul>{% endif %}</li>{% endrecursetree %}</ul>', ctxt)
         self.assertEqual(resp, expected_resp)
-
