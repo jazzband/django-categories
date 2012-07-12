@@ -18,7 +18,7 @@ For many cases, you want a simple user-managed lookup table. You can do this wit
 
 #. Create a subclass of CategoryBaseAdmin.
 
-   .. literalinclude:: code_examples/custom_categories1.py
+   .. literalinclude:: code_examples/custom_categories2.py
       :linenos:
 
 #. Register your model and custom model admin class.

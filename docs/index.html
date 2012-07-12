@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Django Categories v 1.0 &mdash; Django Categories v1.0.5 documentation</title>
+    <title>Django Categories v 1.1 &mdash; Django Categories v1.1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0.5',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,15 +21,15 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v1.0.5 documentation" href="#" />
+    <link rel="top" title="Django Categories v1.1 documentation" href="#" />
     <link rel="next" title="Installation" href="installation.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v1.0.5 documentation</p>
+	<p>Django Categories v1.1 documentation</p>
 </div>
 <div id="header">
-	<div id="title"><h1>Django Categories v 1.0</h1></div>
+	<div id="title"><h1>Django Categories v 1.1</h1></div>
 	<ul id="headerButtons">
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
@@ -85,26 +85,17 @@
           <div class="body">
             
   <div class="section" id="django-categories-v-version">
-<h1>Django Categories v 1.0<a class="headerlink" href="#django-categories-v-version" title="Permalink to this headline">¶</a></h1>
+<h1>Django Categories v 1.1<a class="headerlink" href="#django-categories-v-version" title="Permalink to this headline">¶</a></h1>
 <p>Django Categories grew out of our need to provide a basic hierarchical taxonomy management system that multiple applications could use independently or in concert.</p>
 <p>As a news site, our stories, photos, and other content get divided into &#8220;sections&#8221; and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.</p>
-<div class="section" id="new-in-1-0">
-<h2>New in 1.0<a class="headerlink" href="#new-in-1-0" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><strong>Abstract Base Class for generic hierarchical category models</strong></dt>
-<dd><p class="first">When you want a multiple types of categories and don&#8217;t want them all part of the same model, you can now easily create new models by subclassing <tt class="docutils literal"><span class="pre">CategoryBase</span></tt>. You can also add additional metadata as necessary.</p>
-<p>Your model&#8217;s can subclass <tt class="docutils literal"><span class="pre">CategoryBaseAdminForm</span></tt> and <tt class="docutils literal"><span class="pre">CategoryBaseAdmin</span></tt> to get the hierarchical management in the admin.</p>
-<p class="last">See the docs for more information.</p>
-</dd>
-<dt><strong>Increased the default caching time on views</strong></dt>
-<dd>The default setting for <tt class="docutils literal"><span class="pre">CACHE_VIEW_LENGTH</span></tt> was <tt class="docutils literal"><span class="pre">0</span></tt>, which means it would tell the browser to <em>never</em> cache the page. It is now <tt class="docutils literal"><span class="pre">600</span></tt>, which is the default for <a class="reference external" href="https://docs.djangoproject.com/en/1.3/ref/settings/#cache-middleware-seconds">CACHE_MIDDLEWARE_SECONDS</a></dd>
-<dt><strong>Updated for use with Django-MPTT 0.5</strong></dt>
-<dd>Just a few tweaks.</dd>
-<dt><strong>Initial compatibility with Django 1.4</strong></dt>
-<dd>More is coming, but at least it works.</dd>
-<dt><strong>Slug transliteration for non-ASCII characters</strong></dt>
-<dd>A new setting, <tt class="docutils literal"><span class="pre">SLUG_TRANSLITERATOR</span></tt>, allows you to specify a function for converting the non-ASCII characters to ASCII characters before the slugification. Works great with <a class="reference external" href="http://pypi.python.org/pypi/Unidecode">Unidecode</a>.</dd>
-</dl>
+<div class="section" id="new-in-1-1">
+<h2>New in 1.1<a class="headerlink" href="#new-in-1-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed a cosmetic bug in the Django 1.4 admin. Action checkboxes now only appear once.</li>
+<li>Template tags are refactored to allow easy use of any model derived from <tt class="docutils literal"><span class="pre">CategoryBase</span></tt>.</li>
+<li>Improved test suite.</li>
+<li>Improved some of the documentation.</li>
+</ul>
 </div>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
@@ -167,13 +158,13 @@
     <div class="footer">
     <p>
       &copy; Copyright 2010-2012, Corey Oordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
 	</p>
     </div>
       <div class="clearer"></div>
     </div>
 	<div id="breadcrumbs">
-		Django Categories v 1.0
+		Django Categories v 1.1
 		</ul>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
