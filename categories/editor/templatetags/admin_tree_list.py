@@ -1,6 +1,7 @@
+import django
 from django.db import models
 from django.template import Library
-from django.contrib.admin.templatetags.admin_list import result_headers
+from django.contrib.admin.templatetags.admin_list import result_headers, _boolean_icon
 try:
     from django.contrib.admin.util import lookup_field, display_for_field, label_for_field
 except ImportError:
@@ -12,6 +13,7 @@ from django.utils.html import escape, conditional_escape
 from django.utils.safestring import mark_safe
 
 register = Library()
+
 
 def items_for_tree_result(cl, result, form):
     """
@@ -27,6 +29,9 @@ def items_for_tree_result(cl, result, form):
             result_repr = EMPTY_CHANGELIST_VALUE
         else:
             if f is None:
+                if django.VERSION[1] == 4:
+                    if field_name == 'action_checkbox':
+                        row_class = ' class="action-checkbox disclosure"'
                 allow_tags = getattr(attr, 'allow_tags', False)
                 boolean = getattr(attr, 'boolean', False)
                 if boolean:
@@ -50,21 +55,26 @@ def items_for_tree_result(cl, result, form):
                 if isinstance(f, models.DateField) or isinstance(f, models.TimeField):
                     row_class = ' class="nowrap"'
             if first:
-                try:
-                    f, attr, checkbox_value = lookup_field('action_checkbox', result, cl.model_admin)
-                    #result_repr = mark_safe("%s%s" % (value, result_repr))
-                    if row_class:
-                        row_class = "%s%s" % (row_class[:-1],' disclosure"')
-                    else:
-                        row_class = ' class="disclosure"'
-                except (AttributeError, ObjectDoesNotExist):
-                    pass
-                
+                if django.VERSION[1] < 4:
+                    try:
+                        f, attr, checkbox_value = lookup_field('action_checkbox', result, cl.model_admin)
+                        #result_repr = mark_safe("%s%s" % (value, result_repr))
+                        if row_class:
+                            row_class = "%s%s" % (row_class[:-1], ' disclosure"')
+                        else:
+                            row_class = ' class="disclosure"'
+                    except (AttributeError, ObjectDoesNotExist):
+                        pass
+
         if force_unicode(result_repr) == '':
             result_repr = mark_safe('&nbsp;')
         # If list_display_links not defined, add the link tag to the first field
         if (first and not cl.list_display_links) or field_name in cl.list_display_links:
-            table_tag = 'td' #{True:'th', False:'td'}[first]
+            if django.VERSION[1] < 4:
+                table_tag = 'td'  # {True:'th', False:'td'}[first]
+            else:
+                table_tag = {True:'th', False:'td'}[first]
+
             url = cl.url_for_result(result)
             # Convert the pk to something that can be used in Javascript.
             # Problem cases are long ints (23L) and non-ASCII strings.
@@ -75,8 +85,13 @@ def items_for_tree_result(cl, result, form):
             value = result.serializable_value(attr)
             result_id = repr(force_unicode(value))[1:]
             first = False
-            yield mark_safe(u'<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
-                (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
+            if django.VERSION[1] < 4:
+                yield mark_safe(u'<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
+                    (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
+            else:
+                yield mark_safe(u'<%s%s><a href="%s"%s>%s</a></%s>' % \
+                    (table_tag, row_class, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
+
         else:
             # By default the fields come from ModelAdmin.list_editable, but if we pull
             # the fields out of the form instead of list_editable custom admins
@@ -90,8 +105,10 @@ def items_for_tree_result(cl, result, form):
     if form and not form[cl.model._meta.pk.name].is_hidden:
         yield mark_safe(u'<td>%s</td>' % force_unicode(form[cl.model._meta.pk.name]))
 
+
 class TreeList(list):
     pass
+
 
 def tree_results(cl):
     if cl.formset:
@@ -114,6 +131,7 @@ def tree_results(cl):
                 else:
                     res.parent_pk = None
             yield result
+
 
 def result_tree_list(cl):
     """
