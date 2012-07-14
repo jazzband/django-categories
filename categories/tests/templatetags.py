@@ -34,13 +34,13 @@ class CategoryTagsTest(TestCase):
         # display_drilldown_as_ul
         expected_resp = u'<ul><li><a href="/categories/">Top</a><ul><li><a href="/categories/world/">World</a><ul><li><strong>Worldbeat</strong><ul><li><a href="/categories/world/worldbeat/afrobeat/">Afrobeat</a></li></ul></li></ul></li></ul></li></ul>'
         resp = self.render_template('{% load category_tags %}'
-            '{% display_drilldown_as_ul "/World/Worldbeat" using="categories.category" %}')
+            '{% display_drilldown_as_ul "/World/Worldbeat" "categories.category" %}')
         self.assertEqual(resp, expected_resp)
 
         # breadcrumbs
         expected_resp = u'<a href="/categories/world/">World</a> &gt; Worldbeat'
         resp = self.render_template('{% load category_tags %}'
-            '{% breadcrumbs "/World/Worldbeat" using="categories.category" %}')
+            '{% breadcrumbs "/World/Worldbeat" " &gt; " "categories.category" %}')
         self.assertEqual(resp, expected_resp)
 
         # get_top_level_categories
