@@ -8,6 +8,7 @@ env:
 install:
   - pip install Django==$DJANGO_VERSION
   - pip install -e .
+  - pip install South
 script:
   - ./example/manage.py test categories
 branches:
