@@ -3,7 +3,6 @@ These functions handle the adding of fields to other models
 """
 from django.db.models import FieldDoesNotExist
 import fields
-
 from settings import FIELD_REGISTRY, MODEL_REGISTRY
 
 
