@@ -14,6 +14,7 @@ DEFAULT_SETTINGS = {
     'JAVASCRIPT_URL': getattr(settings, 'STATIC_URL', settings.MEDIA_URL) + 'js/',
     'SLUG_TRANSLITERATOR': '',
     'REGISTER_ADMIN': True,
+    'RELATION_MODELS': [],
 }
 
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))
@@ -54,3 +55,14 @@ if hasattr(settings, 'CATEGORIES_RELATION_MODELS'):
 globals().update(DEFAULT_SETTINGS)
 
 RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in RELATION_MODELS]]
+
+# The field registry keeps track of the individual fields created.
+#  {'app.model.field': Field(**extra_params)}
+#  Useful for doing a schema migration
+FIELD_REGISTRY = {}
+
+# The model registry keeps track of which models have one or more fields
+# registered.
+# {'app': [model1, model2]}
+# Useful for admin alteration
+MODEL_REGISTRY = {}
