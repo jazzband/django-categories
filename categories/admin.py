@@ -5,8 +5,7 @@ from .genericcollection import GenericCollectionTabularInline
 from .settings import RELATION_MODELS, JAVASCRIPT_URL, REGISTER_ADMIN
 from .models import Category
 from .base import CategoryBaseAdminForm, CategoryBaseAdmin
-
-from categories import model_registry
+from .settings import MODEL_REGISTRY
 
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
@@ -68,9 +67,9 @@ if REGISTER_ADMIN:
     admin.site.register(Category, CategoryAdmin)
 
 for model, modeladmin in admin.site._registry.items():
-    if model in model_registry.values() and modeladmin.fieldsets:
+    if model in MODEL_REGISTRY.values() and modeladmin.fieldsets:
         fieldsets = getattr(modeladmin, 'fieldsets', ())
-        fields = [cat.split('.')[2] for cat in model_registry if model_registry[cat] == model]
+        fields = [cat.split('.')[2] for cat in MODEL_REGISTRY if MODEL_REGISTRY[cat] == model]
         # check each field to see if already defined
         for cat in fields:
             for k, v in fieldsets:
