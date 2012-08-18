@@ -41,11 +41,11 @@ class CategoryRegistrationTest(TestCase):
         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
 
 
-class Categorym2mTest(TestCase):
-    def test_m2m_string(self):
-        M2M_REGISTRY = {
-            'flatpages.flatpage': 'categories'
-        }
-        _process_registry(M2M_REGISTRY, register_m2m)
-        from django.contrib.flatpages.models import FlatPage
-        self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+# class Categorym2mTest(TestCase):
+#     def test_m2m_string(self):
+#         M2M_REGISTRY = {
+#             'flatpages.flatpage': 'categories'
+#         }
+#         _process_registry(M2M_REGISTRY, register_m2m)
+#         from django.contrib.flatpages.models import FlatPage
+#         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
