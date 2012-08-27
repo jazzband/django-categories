@@ -104,10 +104,15 @@ class TreeEditor(admin.ModelAdmin):
             self.list_display.remove('action_checkbox')
 
         opts = self.model._meta
+
+        grappelli_prefix = ""
+        if settings.IS_GRAPPELLI_INSTALLED:
+            grappelli_prefix = "grappelli_"
+
         self.change_list_template = [
-            'admin/%s/%s/editor/tree_editor.html' % (opts.app_label, opts.object_name.lower()),
-            'admin/%s/editor/tree_editor.html' % opts.app_label,
-            'admin/editor/tree_editor.html',
+            'admin/%s/%s/editor/%stree_editor.html' % (opts.app_label, opts.object_name.lower(), grappelli_prefix),
+            'admin/%s/editor/%stree_editor.html' % (opts.app_label, grappelli_prefix),
+            'admin/editor/%stree_editor.html' % grappelli_prefix,
         ]
 
     def get_changelist(self, request, **kwargs):
