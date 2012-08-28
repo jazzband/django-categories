@@ -135,8 +135,9 @@ class CategoryRelation(models.Model):
         return u"CategoryRelation"
 
 try:
+    from south.db import db  # South is required for migrating. Need to check for it
     from django.db.models.signals import post_syncdb
     from categories.migration import migrate_app
     post_syncdb.connect(migrate_app)
 except ImportError, e:
-    print e
+    pass
