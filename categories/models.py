@@ -133,3 +133,10 @@ class CategoryRelation(models.Model):
 
     def __unicode__(self):
         return u"CategoryRelation"
+
+try:
+    from django.db.models.signals import post_syncdb
+    from categories.migration import migrate_app
+    post_syncdb.connect(migrate_app)
+except ImportError, e:
+    print e
