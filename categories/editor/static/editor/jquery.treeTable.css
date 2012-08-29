@@ -14,6 +14,10 @@
   zoom: 1; /* IE7 Hack */
 }
 
+
+.treeTable td.action-checkbox, .treeTable th.action-checkbox-column {
+  padding-left: 20px;
+}
 .treeTable tr.collapsed td .expander {
   background-image: url(toggle-expand-dark.png);
 }

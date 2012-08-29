@@ -5,7 +5,7 @@
     <script type="text/javascript">
     (function($) {
         $(document).ready(function()  {
-            var srchString = document.getElementById('searchbar').value;
+            var srchString = document.getElementById('grp-changelist-search').value;
             if (srchString == '')
                 treeTable = $("#result_list").treeTable({initialState : "{{ EDITOR_TREE_INITIAL_STATE }}"});
             else
@@ -33,7 +33,6 @@
     </script>
 {% endblock %}
 {% block result_list %}
-    {% if action_form and actions_on_top and cl.full_result_count %}{% admin_actions %}{% endif %}
     {% result_tree_list cl %}
     {% if action_form and actions_on_bottom and cl.full_result_count %}{% admin_actions %}{% endif %}
 {% endblock %}
