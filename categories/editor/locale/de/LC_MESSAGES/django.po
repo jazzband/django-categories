@@ -1,0 +1,40 @@
+# German translation of django-categories
+# Copyright (C) 2012 winniehell
+# This file is distributed under the same license as django-categories.
+# winniehell <git@winniehell.de>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-categories 1.1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-02 12:39+0200\n"
+"PO-Revision-Date: 2012-09-01 02:38+0200\n"
+"Last-Translator: winniehell <git@winniehell.de>\n"
+"Language-Team: winniehell <git@winniehell.de>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: tree_editor.py:167
+msgid "Database error"
+msgstr ""
+
+#: tree_editor.py:206
+#, python-format
+msgid "%(count)s %(name)s was changed successfully."
+msgid_plural "%(count)s %(name)s were changed successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#: tree_editor.py:247
+#, python-format
+msgid "%(total_count)s selected"
+msgid_plural "All %(total_count)s selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: tree_editor.py:252
+#, python-format
+msgid "0 of %(cnt)s selected"
+msgstr ""

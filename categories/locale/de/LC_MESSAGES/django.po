@@ -1,0 +1,154 @@
+# German translation of django-categories
+# Copyright (C) 2012 winniehell
+# This file is distributed under the same license as django-categories.
+# winniehell <git@winniehell.de>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-categories 1.1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-02 15:59+0200\n"
+"PO-Revision-Date: 2012-09-01 02:38+0200\n"
+"Last-Translator: winniehell <git@winniehell.de>\n"
+"Language-Team: winniehell <git@winniehell.de>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: admin.py:50
+msgid "Meta Data"
+msgstr "Meta-Daten"
+
+#: admin.py:55
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: base.py:41
+msgid "parent"
+msgstr "oberkategorie"
+
+#: base.py:42
+msgid "name"
+msgstr "name"
+
+#: base.py:43
+msgid "slug"
+msgstr "slug"
+
+#: base.py:44
+msgid "active"
+msgstr "aktiv"
+
+#: base.py:99
+msgid "The slug must be unique among the items at its level."
+msgstr "Der Slug muss eindeutig innerhalb der Kategorien einer Ebene sein."
+
+#: base.py:109
+msgid "You can't set the parent of the item to itself."
+msgstr "Eine Kategorie kann nicht Oberkategorie von sich selbst sein."
+
+#: base.py:112
+msgid "You can't set the parent of the item to a descendant."
+msgstr "Die Oberkategorie kann keine untergeordnete Kategorie sein."
+
+#: base.py:143
+msgid "Deactivate selected categories and their children"
+msgstr "Markierte Kategorien und ihre Unterkategorien deaktivieren"
+
+#: base.py:156
+msgid "Activate selected categories and their children"
+msgstr "Markierte Kategorien und ihre Unterkategorien aktivieren"
+
+#: migration.py:21 migration.py:91
+msgid "%(dependency) must be installed for this command to work"
+msgstr ""
+"%(dependency) muss installiert sein, damit dieses Kommando funktioniert"
+
+#: migration.py:43
+msgid "Added ForeignKey %(field_name) to %(model_name)"
+msgstr "Fremdschlüssel %(field_name) zu %(model_name) hinzugefügt"
+
+#: migration.py:49
+msgid "ForeignKey %(field_name) to %(model_name) already exists"
+msgstr "Fremdschlüssel %(field_name) zu %(model_name) existiert bereits"
+
+#: migration.py:66
+msgid "Added Many2Many table between %(model_name) and %(category_table)"
+msgstr "M:N-Beziehung zwischen %(model_name) und %(category_table) hinzugefügt"
+
+#: migration.py:72
+msgid ""
+"Many2Many table between %(model_name) and %(category_table) already exists"
+msgstr ""
+"M:N-Beziehung zwischen %(model_name) und %(category_table) existiert bereits"
+
+#: migration.py:98
+msgid "Dropping ForeignKey %(field_name) from %(model_name)"
+msgstr "Entferne Fremdschlüssel %(field_name) zu %(model_name)"
+
+#: migration.py:109
+msgid "Dropping Many2Many table between %(model_name) and %(category_table)"
+msgstr "Entferne M:N-Beziehung zwischen %(model_name) und %(category_table)"
+
+#: models.py:91 models.py:122
+msgid "category"
+msgstr "kategorie"
+
+#: models.py:92
+msgid "categories"
+msgstr "kategorien"
+
+#: models.py:124
+msgid "content type"
+msgstr "content type"
+
+#: models.py:125
+msgid "object id"
+msgstr "objekt-ID"
+
+#: models.py:127
+msgid "relation type"
+msgstr "relationstyp"
+
+#: models.py:131
+msgid "A generic text field to tag a relation, like 'leadphoto'."
+msgstr ""
+"Ein generisches Textfeld um eine Relation zu bezeichnen, z.B. 'leadphoto'"
+
+#: registration.py:45
+#, python-format
+msgid "%(key) is not a model"
+msgstr "%(key) ist kein Model"
+
+#: registration.py:54 registration.py:62
+msgid "%(settings) doesn't recognize the value of %(key)"
+msgstr "%(settings) erkennt den Wert von %(key) nicht"
+
+#: settings.py:33
+msgid "%(transliterator) must be a callable or a string."
+msgstr "%(transliterator) muss callable oder string sein"
+
+#: settings.py:39
+#, python-format
+msgid "%(deprecated_setting) is deprecated; use %(replacement)s instead."
+msgstr ""
+"%(deprecated_setting) ist veraltet und wurde durch %(replacement)s ersetzt."
+
+#: views.py:73
+msgid "Category detail view %(view) must be called with a %(path_field)."
+msgstr ""
+"Kategorie-Detailansicht %(view) muss ein %(path_field) übergeben bekommen."
+
+#: views.py:80
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "Es wurde kein passendes Objekt für %(verbose_name)s gefunden"
+
+#: templates/admin/edit_inline/gen_coll_tabular.html:13
+msgid "Delete?"
+msgstr "Löschen?"
+
+#: templates/admin/edit_inline/gen_coll_tabular.html:24
+msgid "View on site"
+msgstr "Anzeigen"
