@@ -70,14 +70,14 @@ if ((django.VERSION[0] >= 1 and django.VERSION[1] >= 3) or HAS_CBV):
 
         def get_object(self, **kwargs):
             if self.path_field not in self.kwargs:
-                raise AttributeError(u"Category detail view %s must be called with "
-                                     u"a %s." % self.__class__.__name__, self.path_field)
+                raise AttributeError(_('Category detail view %(view) must be called with a %(path_field).') %
+                                     {'view' : self.__class__.__name__, 'path_field' : self.path_field})
             if self.queryset is None:
                 queryset = self.get_queryset()
             try:
                 return get_category_for_path(self.kwargs[self.path_field])
             except ObjectDoesNotExist:
-                raise Http404(_(u"No %(verbose_name)s found matching the query") %
+                raise Http404(_('No %(verbose_name)s found matching the query') %
                               {'verbose_name': queryset.model._meta.verbose_name})
 
         def get_template_names(self):

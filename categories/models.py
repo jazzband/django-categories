@@ -88,7 +88,8 @@ class Category(CategoryBase):
         super(Category, self).save(*args, **kwargs)
 
     class Meta(CategoryBase.Meta):
-        verbose_name_plural = 'categories'
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
 
     class MPTTMeta:
         order_insertion_by = ('order', 'name')
@@ -118,12 +119,12 @@ class CategoryRelationManager(models.Manager):
 
 class CategoryRelation(models.Model):
     """Related category item"""
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, verbose_name=_('category'))
     content_type = models.ForeignKey(
-        ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS)
-    object_id = models.PositiveIntegerField()
+        ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
+    object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    relation_type = models.CharField(_("Relation Type"),
+    relation_type = models.CharField(verbose_name=_('relation type'),
         max_length="200",
         blank=True,
         null=True,
