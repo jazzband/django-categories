@@ -13,7 +13,7 @@ The ``CATEGORIES_SETTINGS`` dictionary is where you can override the default set
 The default settings are:
 
 .. code-block:: python
-	
+
 	CATEGORIES_SETTINGS = {
 	    'ALLOW_SLUG_CHANGE': False,
 	    'CACHE_VIEW_LENGTH': 0,
@@ -23,6 +23,7 @@ The default settings are:
 	    'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
 	    'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
 	    'SLUG_TRANSLITERATOR': lambda x: x,
+	    'ADMIN_FIELDSETS': {}
 	}
 
 
@@ -119,3 +120,12 @@ JAVASCRIPT_URL
 **Default:** ``STATIC_URL or MEDIA_URL + 'js/'``
 
 **Description:** Allows for customization of javascript placement.
+
+.. _ADMIN_FIELDSETS:
+
+ADMIN_FIELDSETS
+===============
+
+**Default:** ``{}``
+
+**Description:** Allows for selective customization of the default behavior of adding the fields to the admin class. See :ref:`admin_settings` for more information.
