@@ -82,7 +82,12 @@ class CategoryBaseAdminForm(forms.ModelForm):
         return self.cleaned_data['slug'][:50]
 
     def clean(self):
+
         super(CategoryBaseAdminForm, self).clean()
+
+        if not self.is_valid():
+            return self.cleaned_data
+
         opts = self._meta
 
         # Validate slug is valid in that level
