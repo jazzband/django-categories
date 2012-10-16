@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from categories.models import Category
+from .models import Category
 
 categorytree_dict = {
     'queryset': Category.objects.filter(level=0)

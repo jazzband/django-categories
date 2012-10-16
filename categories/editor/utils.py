@@ -3,8 +3,15 @@ Provides compatibility with Django 1.1
 
 Copied from django.contrib.admin.util
 """
+from django.forms.forms import pretty_name
 from django.db import models
+from django.db.models.related import RelatedObject
 from django.utils.encoding import force_unicode, smart_unicode, smart_str
+from django.utils.translation import get_date_formats
+from django.utils.text import capfirst
+from django.utils import dateformat
+from django.utils.html import escape
+
 
 def lookup_field(name, obj, model_admin=None):
     opts = obj._meta
@@ -81,10 +88,11 @@ def label_for_field(name, model, model_admin=None, return_attr=False):
     else:
         return label
 
+
 def display_for_field(value, field):
     from django.contrib.admin.templatetags.admin_list import _boolean_icon
     from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
-    
+
     if field.flatchoices:
         return dict(field.flatchoices).get(value, EMPTY_CHANGELIST_VALUE)
     # NullBooleanField needs special-case null-handling, so it comes
@@ -94,10 +102,23 @@ def display_for_field(value, field):
     elif value is None:
         return EMPTY_CHANGELIST_VALUE
     elif isinstance(field, models.DateField) or isinstance(field, models.TimeField):
-        return formats.localize(value)
+        if value:
+            (date_format, datetime_format, time_format) = get_date_formats()
+            if isinstance(field, models.DateTimeField):
+                return capfirst(dateformat.format(value, datetime_format))
+            elif isinstance(field, models.TimeField):
+                return capfirst(dateformat.time_format(value, time_format))
+            else:
+                return capfirst(dateformat.format(value, date_format))
+        else:
+            return EMPTY_CHANGELIST_VALUE
+
     elif isinstance(field, models.DecimalField):
-        return formats.number_format(value, field.decimal_places)
+        if value is not None:
+            return ('%%.%sf' % field.decimal_places) % value
+        else:
+            return EMPTY_CHANGELIST_VALUE
     elif isinstance(field, models.FloatField):
-        return formats.number_format(value)
+        return escape(value)
     else:
         return smart_unicode(value)

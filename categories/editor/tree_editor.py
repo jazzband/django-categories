@@ -11,15 +11,16 @@ import django
 
 import settings
 
+
 class TreeEditorQuerySet(QuerySet):
     """
     The TreeEditorQuerySet is a special query set used only in the TreeEditor
     ChangeList page. The only difference to a regular QuerySet is that it
     will enforce:
-    
+
         (a) The result is ordered in correct tree order so that
             the TreeAdmin works all right.
-            
+
         (b) It ensures that all ancestors of selected items are included
             in the result set, so the resulting tree display actually
             makes sense.
@@ -41,20 +42,20 @@ class TreeEditorQuerySet(QuerySet):
                                    p.id not in include_pages:
                     ancestor_id_list = p.get_ancestors().values_list('id', flat=True)
                     include_pages.update(ancestor_id_list)
-            
+
             if include_pages:
                 qs = qs | self.model._default_manager.filter(id__in=include_pages)
-            
+
             qs = qs.distinct()
-            
+
         for obj in super(TreeEditorQuerySet, qs).iterator():
             yield obj
-    
+
     # Although slicing isn't nice in a tree, it is used in the deletion action
     #  in the admin changelist. This causes github issue #25
     # def __getitem__(self, index):
     #     return self   # Don't even try to slice
-    
+
     def get(self, *args, **kwargs):
         """
         Quick and dirty hack to fix change_view and delete_view; they use
@@ -65,46 +66,61 @@ class TreeEditorQuerySet(QuerySet):
         """
         return self.model._default_manager.get(*args, **kwargs)
 
+
 class TreeChangeList(ChangeList):
     def _get_default_ordering(self):
-        return '', '' #('tree_id', 'lft')
-    
-    def get_ordering(self, request=None):
-        return '', '' #('tree_id', 'lft')
-    
-    def get_query_set(self):
-        qs = super(TreeChangeList, self).get_query_set()
-        return qs.order_by('tree_id', 'lft')
+        if django.VERSION[1] < 4:
+            return '', ''  # ('tree_id', 'lft')
+        else:
+            return []
+
+    def get_ordering(self, request=None, queryset=None):
+        if django.VERSION[1] < 4:
+            return '', ''  # ('tree_id', 'lft')
+        else:
+            return []
+
+    def get_query_set(self, *args, **kwargs):
+        qs = super(TreeChangeList, self).get_query_set(*args, **kwargs).order_by('tree_id', 'lft')
+        return qs
+
 
 class TreeEditor(admin.ModelAdmin):
-    list_per_page = 999999999 # We can't have pagination
+    list_per_page = 999999999  # We can't have pagination
+    list_max_show_all = 200  # new in django 1.4
+
     class Media:
-        css = {'all':(settings.MEDIA_PATH + "jquery.treeTable.css",)}
+        css = {'all': (settings.MEDIA_PATH + "jquery.treeTable.css", )}
         js = []
-        
-        js.extend((settings.MEDIA_PATH + "jquery.treeTable.js",))
-    
+
+        js.extend((settings.MEDIA_PATH + "jquery.treeTable.js", ))
+
     def __init__(self, *args, **kwargs):
         super(TreeEditor, self).__init__(*args, **kwargs)
-        
+
         self.list_display = list(self.list_display)
-        
+
         if 'action_checkbox' in self.list_display:
             self.list_display.remove('action_checkbox')
-        
+
         opts = self.model._meta
+
+        grappelli_prefix = ""
+        if settings.IS_GRAPPELLI_INSTALLED:
+            grappelli_prefix = "grappelli_"
+
         self.change_list_template = [
-            'admin/%s/%s/editor/tree_editor.html' % (opts.app_label, opts.object_name.lower()),
-            'admin/%s/editor/tree_editor.html' % opts.app_label,
-            'admin/editor/tree_editor.html',
+            'admin/%s/%s/editor/%stree_editor.html' % (opts.app_label, opts.object_name.lower(), grappelli_prefix),
+            'admin/%s/editor/%stree_editor.html' % (opts.app_label, grappelli_prefix),
+            'admin/editor/%stree_editor.html' % grappelli_prefix,
         ]
-    
+
     def get_changelist(self, request, **kwargs):
         """
         Returns the ChangeList class for use on the changelist page.
         """
         return TreeChangeList
-    
+
     def old_changelist_view(self, request, extra_context=None):
         "The 'change list' admin view for this model."
         from django.contrib.admin.views.main import ERROR_FLAG
@@ -128,10 +144,18 @@ class TreeEditor(admin.ModelAdmin):
                 pass
 
         try:
-            cl = TreeChangeList(request, self.model, list_display, 
-                self.list_display_links, self.list_filter, self.date_hierarchy, 
-                self.search_fields, self.list_select_related, 
-                self.list_per_page, self.list_editable, self)
+            if django.VERSION[1] < 4:
+                params = (request, self.model, list_display,
+                    self.list_display_links, self.list_filter, self.date_hierarchy,
+                    self.search_fields, self.list_select_related,
+                    self.list_per_page, self.list_editable, self)
+            else:
+                params = (request, self.model, list_display,
+                    self.list_display_links, self.list_filter, self.date_hierarchy,
+                    self.search_fields, self.list_select_related,
+                    self.list_per_page, self.list_max_show_all,
+                    self.list_editable, self)
+            cl = TreeChangeList(*params)
         except IncorrectLookupParameters:
             # Wacky lookup parameters were given, so redirect to the main
             # changelist page, without parameters, and pass an 'invalid=1'
@@ -212,12 +236,22 @@ class TreeEditor(admin.ModelAdmin):
             'cl': cl,
             'media': media,
             'has_add_permission': self.has_add_permission(request),
-            'root_path': self.admin_site.root_path,
             'app_label': app_label,
             'action_form': action_form,
             'actions_on_top': self.actions_on_top,
             'actions_on_bottom': self.actions_on_bottom,
         }
+        if django.VERSION[1] < 4:
+            context['root_path'] = self.admin_site.root_path
+        else:
+            selection_note_all = ungettext('%(total_count)s selected',
+                'All %(total_count)s selected', cl.result_count)
+
+            context.update({
+                'module_name': force_unicode(opts.verbose_name_plural),
+                'selection_note': _('0 of %(cnt)s selected') % {'cnt': len(cl.result_list)},
+                'selection_note_all': selection_note_all % {'total_count': cl.result_count},
+            })
         context.update(extra_context or {})
         context_instance = template.RequestContext(
             request, current_app=self.admin_site.name
@@ -227,7 +261,7 @@ class TreeEditor(admin.ModelAdmin):
             'admin/%s/change_list.html' % app_label,
             'admin/change_list.html'
         ], context, context_instance=context_instance)
-    
+
     def changelist_view(self, request, extra_context=None, *args, **kwargs):
         """
         Handle the changelist view, the django view for the model instances
@@ -236,12 +270,12 @@ class TreeEditor(admin.ModelAdmin):
         extra_context = extra_context or {}
         extra_context['EDITOR_MEDIA_PATH'] = settings.MEDIA_PATH
         extra_context['EDITOR_TREE_INITIAL_STATE'] = settings.TREE_INITIAL_STATE
-        if django.VERSION[2] >= 2:
+        if django.VERSION[1] >= 2:
             return super(TreeEditor, self).changelist_view(
                                     request, extra_context, *args, **kwargs)
         else:
             return self.old_changelist_view(request, extra_context)
-    
+
     def queryset(self, request):
         """
         Returns a QuerySet of all model instances that can be edited by the

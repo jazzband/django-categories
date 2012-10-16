@@ -5,6 +5,11 @@
  * Copyright 2010, Ludo van den Boom
  * Dual licensed under the MIT or GPL Version 2 licenses.
  */
+ if (typeof django == "undefined") {
+     var django = {
+         "jQuery": $.noConflict()
+     };
+ };
 (function($) {
   // Helps to make options available to all functions
   // TODO: This gives problems when there are both expandable and non-expandable

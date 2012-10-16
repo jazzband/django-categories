@@ -1,44 +1,53 @@
 from django.db import models, DatabaseError
+from django.core.exceptions import ImproperlyConfigured
 
-from south.db import db
-from south.signals import post_migrate
-from categories.fields import CategoryM2MField, CategoryFKField
-from categories.models import Category
-from categories import model_registry, field_registry
 
-def migrate_app(app, *args, **kwargs):
+def migrate_app(sender, app, created_models, verbosity, *args, **kwargs):
     """
     Migrate all models of this app registered
     """
+    from .fields import CategoryM2MField, CategoryFKField
+    from .models import Category
+    from .settings import FIELD_REGISTRY
+    import sys
+    import StringIO
+
+    org_stderror = sys.stderr
+    sys.stderr = StringIO.StringIO()  # south will print out errors to stderr
+    try:
+        from south.db import db
+    except ImportError:
+        raise ImproperlyConfigured("South must be installed for this command to work")
     # pull the information from the registry
-    if not isinstance(app, basestring):
-        return
-    fields = [fld for fld in field_registry.keys() if fld.startswith(app)]
-    
+    app_name = app.__name__.split('.')[-2]
+
+    fields = [fld for fld in FIELD_REGISTRY.keys() if fld.startswith(app_name)]
     # call the south commands to add the fields/tables
     for fld in fields:
         app_name, model_name, field_name = fld.split('.')
-        
+
         # Table is typically appname_modelname, but it could be different
         #   always best to be sure.
         mdl = models.get_model(app_name, model_name)
-        
-        if isinstance(field_registry[fld], CategoryFKField):
-            print "Adding ForeignKey %s to %s" % (field_name, model_name)
+
+        if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
             try:
                 db.start_transaction()
                 table_name = mdl._meta.db_table
-                field_registry[fld].default=-1
-                db.add_column(table_name, field_name, field_registry[fld], keep_default=False)
+                FIELD_REGISTRY[fld].default = -1
+                db.add_column(table_name, field_name, FIELD_REGISTRY[fld], keep_default=False)
                 db.commit_transaction()
+                if verbosity:
+                    print "Added ForeignKey %s to %s" % (field_name, model_name)
             except DatabaseError, e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
-                    print "Already exists"
+                    if verbosity > 1:
+                        print "ForeignKey %s to %s already exists" % (field_name, model_name)
                 else:
+                    sys.stderr = org_stderror
                     raise e
-        elif isinstance(field_registry[fld], CategoryM2MField):
-            print "Adding Many2Many table between %s and %s" % (model_name, 'category')
+        elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
             table_name = "%s_%s" % (mdl._meta.db_table, 'categories')
             try:
                 db.start_transaction()
@@ -49,12 +58,18 @@ def migrate_app(app, *args, **kwargs):
                 ))
                 db.create_unique(table_name, ['%s_id' % model_name, 'category_id'])
                 db.commit_transaction()
+                if verbosity:
+                    print "Added Many2Many table between %s and %s" % (model_name, 'category')
             except DatabaseError, e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
-                    print "Already exists"
+                    if verbosity > 1:
+                        print "Many2Many table between %s and %s already exists" % (model_name, 'category')
                 else:
+                    sys.stderr = org_stderror
                     raise e
+    sys.stderr = org_stderror
+
 
 def drop_field(app_name, model_name, field_name):
     """
@@ -62,11 +77,17 @@ def drop_field(app_name, model_name, field_name):
     """
     # Table is typically appname_modelname, but it could be different
     #   always best to be sure.
+    from .fields import CategoryM2MField, CategoryFKField
+    from .settings import FIELD_REGISTRY
+    try:
+        from south.db import db
+    except ImportError:
+        raise ImproperlyConfigured("South must be installed for this command to work")
     mdl = models.get_model(app_name, model_name)
-    
+
     fld = "%s.%s.%s" % (app_name, model_name, field_name)
-    
-    if isinstance(field_registry[fld], CategoryFKField):
+
+    if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
         print "Dropping ForeignKey %s from %s" % (field_name, model_name)
         try:
             db.start_transaction()
@@ -76,7 +97,7 @@ def drop_field(app_name, model_name, field_name):
         except DatabaseError, e:
             db.rollback_transaction()
             raise e
-    elif isinstance(field_registry[fld], CategoryM2MField):
+    elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
         print "Dropping Many2Many table between %s and %s" % (model_name, 'category')
         table_name = "%s_%s" % (mdl._meta.db_table, 'categories')
         try:
@@ -86,6 +107,3 @@ def drop_field(app_name, model_name, field_name):
         except DatabaseError, e:
             db.rollback_transaction()
             raise e
-
-
-post_migrate.connect(migrate_app)
