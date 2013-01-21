@@ -1,12 +1,9 @@
-import warnings
-
 from django.conf import settings
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 
 DEFAULT_SETTINGS = {
     'ALLOW_SLUG_CHANGE': False,
-    'CACHE_VIEW_LENGTH': 600,
     'RELATION_MODELS': [],
     'M2M_REGISTRY': {},
     'FK_REGISTRY': {},
@@ -31,29 +28,10 @@ if DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']:
     else:
         from django.core.exceptions import ImproperlyConfigured
         raise ImproperlyConfigured(_('%(transliterator) must be a callable or a string.') %
-                                   {'transliterator' : 'SLUG_TRANSLITERATOR'})
+                                   {'transliterator': 'SLUG_TRANSLITERATOR'})
 else:
     DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'] = lambda x: x
 
-def warn_deprecated(deprecated_setting, replacement):
-    warnings.warn(_('%(deprecated_setting) is deprecated; use %(replacement)s instead.') %
-                  {'deprecated_setting' : deprecated_setting, 'replacement' : replacement}, DeprecationWarning)
-
-if hasattr(settings, 'CATEGORIES_ALLOW_SLUG_CHANGE'):
-    warn_deprecated('settings.CATEGORIES_ALLOW_SLUG_CHANGE', 'settings.CATEGORIES_SETTINGS')
-    DEFAULT_SETTINGS["ALLOW_SLUG_CHANGE"] = getattr(settings, 'CATEGORIES_ALLOW_SLUG_CHANGE')
-
-if hasattr(settings, 'CATEGORIES_CACHE_VIEW_LENGTH'):
-    warn_deprecated('settings.CATEGORIES_CACHE_VIEW_LENGTH', 'settings.CATEGORIES_SETTINGS')
-    DEFAULT_SETTINGS["CACHE_VIEW_LENGTH"] = getattr(settings, 'CATEGORIES_CACHE_VIEW_LENGTH')
-
-if hasattr(settings, 'CATEGORIES_THUMBNAIL_UPLOAD_PATH'):
-    warn_deprecated('settings.CATEGORIES_THUMBNAIL_UPLOAD_PATH', 'settings.CATEGORIES_SETTINGS')
-    DEFAULT_SETTINGS["THUMBNAIL_UPLOAD_PATH"] = getattr(settings, 'CATEGORIES_THUMBNAIL_UPLOAD_PATH')
-
-if hasattr(settings, 'CATEGORIES_RELATION_MODELS'):
-    warn_deprecated('settings.CATEGORIES_RELATION_MODELS', 'settings.CATEGORIES_SETTINGS')
-    DEFAULT_SETTINGS["RELATION_MODELS"] = getattr(settings, 'CATEGORIES_RELATION_MODELS')
 
 # Add all the keys/values to the module's namespace
 globals().update(DEFAULT_SETTINGS)
