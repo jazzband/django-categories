@@ -46,7 +46,7 @@ def get_category(category_string, model=Category):
     Convert a string, including a path, and return the Category object
     """
     model_class = get_cat_model(model)
-    category = category_string.strip("'\"")
+    category = str(category_string).strip("'\"")
     category = category.strip('/')
 
     cat_list = category.split('/')
