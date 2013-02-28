@@ -184,7 +184,10 @@ def display_drilldown_as_ul(category, using='categories.Category'):
         </ul>
     """
     cat = get_category(category, using)
-    return {'category': cat, 'path': drilldown_tree_for_node(cat) or []}
+    if cat is None:
+        return {'category': cat, 'path': []}
+    else:                          
+        return {'category': cat, 'path': drilldown_tree_for_node(cat)}
 
 
 @register.inclusion_tag('categories/ul_tree.html')
