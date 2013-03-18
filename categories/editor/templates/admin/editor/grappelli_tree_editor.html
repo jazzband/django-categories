@@ -1,7 +1,7 @@
 {% extends "admin/change_list.html" %}
-{% load adminmedia admin_list i18n admin_tree_list %}
+{% load admin_list i18n admin_tree_list %}
 {% block extrahead %}
-    {{block.super}}
+    {{ block.super }}
     <script type="text/javascript">
     (function($) {
         $(document).ready(function()  {
@@ -31,6 +31,16 @@
         });
     })(django.jQuery);
     </script>
+    <style type="text/css">
+    #result_list.treeTable .expander {
+        margin-left: -10px !important;
+        padding-right: 13px !important;
+        padding-left: 0px !important;
+    }
+    #result_list.treeTable .action-select {
+        margin-left: 7px;
+    }
+    </style>
 {% endblock %}
 {% block result_list %}
     {% result_tree_list cl %}
