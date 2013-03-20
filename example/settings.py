@@ -123,7 +123,7 @@ CATEGORIES_SETTINGS = {
     },
 }
 
-if django.VERSION[1] == 4:
+if django.VERSION[1] >= 4:
     from settings14 import *
 if django.VERSION[1] == 3:
     from settings13 import *
