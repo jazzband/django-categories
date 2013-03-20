@@ -1,5 +1,5 @@
 {% load category_tags %}{% spaceless %}
-<ul><li><a href="{% url categories_tree_list %}">Top</a>
+<ul><li><a href="{% url 'categories_tree_list' %}">Top</a>
 {% for node,structure in path|tree_info %}
 	{% if structure.new_level %}<ul><li>
 	{% else %}</li><li>
