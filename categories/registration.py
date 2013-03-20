@@ -42,7 +42,7 @@ def _process_registry(registry, call_func):
     for key, value in registry.items():
         model = get_model(*key.split('.'))
         if model is None:
-            raise ImproperlyConfigured('%s is not a model' % key)
+            raise ImproperlyConfigured(_('%(key) is not a model') % {'key' : key})
         if isinstance(value, (tuple, list)):
             for item in value:
                 if isinstance(item, basestring):
@@ -51,11 +51,13 @@ def _process_registry(registry, call_func):
                     field_name = item.pop('name')
                     call_func(model, field_name, extra_params=item)
                 else:
-                    raise ImproperlyConfigured("CATEGORY_SETTINGS doesn't recognize the value of %s" % key)
+                    raise ImproperlyConfigured(_("%(settings) doesn't recognize the value of %(key)") %
+                                               {'settings' : 'CATEGORY_SETTINGS', 'key' : key})
         elif isinstance(value, basestring):
             call_func(model, value)
         elif isinstance(value, dict):
             field_name = value.pop('name')
             call_func(model, field_name, extra_params=value)
         else:
-            raise ImproperlyConfigured("CATEGORY_SETTINGS doesn't recognize the value of %s" % key)
+            raise ImproperlyConfigured(_("%(settings) doesn't recognize the value of %(key)") %
+                                       {'settings' : 'CATEGORY_SETTINGS', 'key' : key})

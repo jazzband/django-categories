@@ -12,4 +12,7 @@ recursive-include doc_src *.rst *.txt *.png *.css *.html *.js
 include doc_src/Makefile
 include doc_src/make.bat
 
+recursive-include categories/locale *.mo *.po
+recursive-include categories/editor/locale *.mo *.po
+
 prune example
