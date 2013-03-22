@@ -4,7 +4,7 @@ Getting Started
 
 You can use Django Categories in two ways:
 
-1. As storage for one tree of categories, e.g.::
+1. As storage for one tree of categories, using the :py:class:`Category` model::
 
 	Top Category 1
 	  Subcategory 1-1
@@ -13,24 +13,29 @@ You can use Django Categories in two ways:
 	Top Category 2
 	  Subcategory 2-1
 
-2. As a storage of several trees of categories, e.g.::
+2. As the basis for several custom categories (see :ref:`creating_custom_categories`), e.g. a **MusicGenre** model
+   
+   ::
+   
+   	MusicGenre 1
+   	  MusicSubGenre 1-1
+   	  MusicSubGenre 1-2
+   	    MusicSubGenre 1-2-1
+   	MusicGenre 2
+   	  MusicSubGenre 2-1
+   
+   and a **Subject** model
+   
+   ::
+   
+   	Subject 1
+   	  Discipline 1-1
+   	  Discipline 1-2
+   	    SubDiscipline 1-2-1
+   	Subject 2
+   	  Discipline 2-1
 
-	Model 1
-	  Category 1
-	    Subcategory 1-1
-	      Subcategory 1-2
-	        subcategory 1-2-1
-	  Category 2
-	    Subcategory 2-1
-	Model 2
-	  Category 3
-	    Subcategory 3-1
-	      Subcategory 3-2
-	        subcategory 3-2-1
-	  Category 4
-	    Subcategory 4-1
 
-You can't do it as both at the same time, though.
 
 Connecting your model with Django-Categories
 ============================================
@@ -42,7 +47,7 @@ For 3rd-party apps or even your own apps that you don't wish to add Django-Categ
 .. _hard_coded_connection:
 
 Hard Coded Connection
-*********************
+---------------------
 
 Hard coded connections are done in the exact same way you handle any other foreign key or many-to-many relations to a model.
 
@@ -60,10 +65,10 @@ Don't forget to add the field or fields to your ``ModelAdmin`` class as well.
 .. _lazy_connection:
 
 Lazy Connection
-***************
+---------------
 
 Lazy connections are done through configuring Django Categories in the project's ``settings.py`` file. When the project starts up, the configured fields are dynamically added to the configured models and admin. 
 
 If you do this before you have created the database (before you ran ``manage.py syncdb``), the fields will also be in the tables. If you do this after you have already created all the tables, you can run ``manage.py add_category_fields`` to create the fields (this requires Django South to be installed).
 
-You add a many-to-one or many-to-many relationship with Django Categories using the ``CATEGORIES_SETTINGS['FK_REGISTRY']`` and ``CATEGORIES_SETTINGS['M2M_REGISTRY']`` settings respectively. For more information see :ref:`registering_models`\ .
+You add a many-to-one or many-to-many relationship with Django Categories using the :ref:`FK_REGISTRY` and :ref:`M2M_REGISTRY` settings respectively. For more information see :ref:`registering_models`\ .

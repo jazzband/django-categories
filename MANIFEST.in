@@ -5,8 +5,8 @@ include CREDITS.txt
 include LICENSE.txt
 
 recursive-include categories *.html *.txt *.json *.html
-
-recursive-include editor *.html *.gif *.png *.css *.js
+recursive-include categories/static *.html *.gif *.png *.css *.txt *.js
+recursive-include categories/editor *.html *.gif *.png *.css *.js
 
 recursive-include doc_src *.rst *.txt *.png *.css *.html *.js
 include doc_src/Makefile

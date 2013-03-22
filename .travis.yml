@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+env:
+  - DJANGO_VERSION=1.3.1
+  - DJANGO_VERSION=1.4
+install:
+  - pip install Django==$DJANGO_VERSION
+  - pip install -e .
+  - pip install South
+script:
+  - ./example/manage.py test categories
+branches:
+  only:
+    - master

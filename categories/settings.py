@@ -5,16 +5,33 @@ from django.db.models import Q
 
 DEFAULT_SETTINGS = {
     'ALLOW_SLUG_CHANGE': False,
-    'CACHE_VIEW_LENGTH': 0,
+    'CACHE_VIEW_LENGTH': 600,
     'RELATION_MODELS': [],
     'M2M_REGISTRY': {},
     'FK_REGISTRY': {},
     'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
     'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
     'JAVASCRIPT_URL': getattr(settings, 'STATIC_URL', settings.MEDIA_URL) + 'js/',
+    'SLUG_TRANSLITERATOR': '',
+    'REGISTER_ADMIN': True,
+    'RELATION_MODELS': [],
 }
 
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))
+
+if DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']:
+    if callable(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']):
+        pass
+    elif isinstance(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'], basestring):
+        from django.utils.importlib import import_module
+        bits = DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'].split(".")
+        module = import_module(".".join(bits[:-1]))
+        DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'] = getattr(module, bits[-1])
+    else:
+        from django.core.exceptions import ImproperlyConfigured
+        raise ImproperlyConfigured("SLUG_TRANSLITERATOR must be a callable or a string.")
+else:
+    DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'] = lambda x: x
 
 ERR_MSG = "settings.%s is deprecated; use settings.CATEGORIES_SETTINGS instead."
 
@@ -38,3 +55,14 @@ if hasattr(settings, 'CATEGORIES_RELATION_MODELS'):
 globals().update(DEFAULT_SETTINGS)
 
 RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in RELATION_MODELS]]
+
+# The field registry keeps track of the individual fields created.
+#  {'app.model.field': Field(**extra_params)}
+#  Useful for doing a schema migration
+FIELD_REGISTRY = {}
+
+# The model registry keeps track of which models have one or more fields
+# registered.
+# {'app': [model1, model2]}
+# Useful for admin alteration
+MODEL_REGISTRY = {}

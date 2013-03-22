@@ -1,4 +1,5 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
+
 
 class Command(BaseCommand):
     """
@@ -8,7 +9,7 @@ class Command(BaseCommand):
     args = "[appname ...]"
     can_import_settings = True
     requires_model_validation = False
-    
+
     def handle(self, *args, **options):
         """
         Alter the tables
@@ -17,12 +18,12 @@ class Command(BaseCommand):
             from south.db import db
         except ImportError:
             raise ImproperlyConfigured("South must be installed for this command to work")
-        
+
         from categories.migration import migrate_app
-        from categories import model_registry
+        from categories import MODEL_REGISTRY
         if args:
             for app in args:
                 migrate_app(app)
         else:
-            for app in model_registry:
+            for app in MODEL_REGISTRY:
                 migrate_app(app)

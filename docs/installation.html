@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; Django Categories v1.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Categories v1.1 documentation" href="index.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Django Categories v 1.1" href="index.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>Django Categories v1.1 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Installation</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="getting_started.html" title="Getting Started" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="index.html" title="Django Categories v 1.1" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#to-use-the-category-model">To use the Category model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-only-subclass-categorybase">To only subclass CategoryBase</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using categories in templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registering_models.html">Registering Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_the_fields.html">Adding the fields to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_categories.html">Creating Custom Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
+</ul>
+
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="_sources/installation.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="to-use-the-category-model">
+<h2>To use the Category model<a class="headerlink" href="#to-use-the-category-model" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Install django-categories:</p>
+<div class="highlight-python"><pre>pip install django-categories</pre>
+</div>
+</li>
+<li><p class="first">Add <tt class="docutils literal"><span class="pre">&quot;categories&quot;</span></tt> and <tt class="docutils literal"><span class="pre">&quot;categories.editor&quot;</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> list in your project&#8217;s <tt class="docutils literal"><span class="pre">settings.py</span></tt> file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c"># ...</span>
+    <span class="s">&quot;categories&quot;</span><span class="p">,</span>
+    <span class="s">&quot;categories.editor&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">syncdb</span></tt> (or <tt class="docutils literal"><span class="pre">./manage.py</span> <span class="pre">migrate</span> <span class="pre">categories</span></tt> if you are using <a class="reference external" href="http://south.aeracode.org/">South</a>)</p>
+</li>
+</ol>
+</div>
+<div class="section" id="to-only-subclass-categorybase">
+<h2>To only subclass CategoryBase<a class="headerlink" href="#to-only-subclass-categorybase" title="Permalink to this headline">¶</a></h2>
+<p>If you are going to create your own models using <a class="reference internal" href="reference/models.html#CategoryBase" title="CategoryBase"><tt class="xref py py-class docutils literal"><span class="pre">CategoryBase</span></tt></a>, (see <a class="reference internal" href="custom_categories.html#creating-custom-categories"><em>Creating Custom Categories</em></a>) you&#8217;ll need a few different steps.</p>
+<ol class="arabic">
+<li><p class="first">Install django-categories:</p>
+<div class="highlight-python"><pre>pip install django-categories</pre>
+</div>
+</li>
+<li><p class="first">Add <tt class="docutils literal"><span class="pre">&quot;categories.editor&quot;</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> list in your project&#8217;s <tt class="docutils literal"><span class="pre">settings.py</span></tt> file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c"># ...</span>
+    <span class="s">&quot;categories.editor&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create your own models.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2010-2012, Corey Oordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		Installation
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
+  </body>
+</html>

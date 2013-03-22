@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reference &mdash; Django Categories v0.8.2 documentation</title>
+    <title>Reference &mdash; Django Categories v1.1 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.2',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,13 +21,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Django Categories v0.8.2 documentation" href="../index.html" />
+    <link rel="top" title="Django Categories v1.1 documentation" href="../index.html" />
     <link rel="next" title="Management Commands" href="management_commands.html" />
-    <link rel="prev" title="Adding the fields to the database" href="../adding_the_fields.html" /> 
+    <link rel="prev" title="Creating Custom Categories" href="../custom_categories.html" /> 
   </head>
   <body>
 <div id="docstitle">
-	<p>Django Categories v0.8.2 documentation</p>
+	<p>Django Categories v1.1 documentation</p>
 </div>
 <div id="header">
 	<div id="title"><h1>Reference</h1></div>
@@ -36,7 +36,7 @@
 		<li id="page_buttons">
 			<div class="headerButton"><a href="../genindex.html" title="General Index" accesskey="I">index</a></div>
 			<div class="headerButton"><a href="management_commands.html" title="Management Commands" accesskey="N">next</a></div>
-			<div class="headerButton"><a href="../adding_the_fields.html" title="Adding the fields to the database" accesskey="P">previous</a></div>
+			<div class="headerButton"><a href="../custom_categories.html" title="Creating Custom Categories" accesskey="P">previous</a></div>
 		</li>
 	</ul>
 </div>
@@ -45,15 +45,17 @@
   <div class="sphinxsidebarwrapper">
 	<ul><li class="toctree-l1"><a href="../index.html">Main Page</a></li></ul>
 	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Using categories in templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../registering_models.html">Registering Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adding_the_fields.html">Adding the fields to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_categories.html">Creating Custom Categories</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="management_commands.html">Management Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html">Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html">Template Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatetags.html">Template tags and filters</a></li>
 </ul>
 </li>
 </ul>
@@ -101,26 +103,27 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#categorybase">CategoryBase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html#category">Category</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#allow-slug-change">ALLOW_SLUG_CHANGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#slug-transliterator">SLUG_TRANSLITERATOR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#cache-view-length">CACHE_VIEW_LENGTH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#relation-models">RELATION_MODELS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#m2m-registry">M2M_REGISTRY</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#fk-registry">FK_REGISTRY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings.html#thumbnail-upload-path">THUMBNAIL_UPLOAD_PATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#register-admin">REGISTER_ADMIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#id8">THUMBNAIL_UPLOAD_PATH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#thumbnail-storage">THUMBNAIL_STORAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#javascript-url">JAVASCRIPT_URL</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template Tags</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#get-top-level-categories">get_top_level_categories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#display-path-as-ul">display_path_as_ul</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#get-category-drilldown">get_category_drilldown</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#display-drilldown-as-ul">display_drilldown_as_ul</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templatetags.html#breadcrumbs-tag">breadcrumbs tag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template tags and filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templatetags.html#filters">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatetags.html#inclusion-tags">Inclusion tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatetags.html#template-tags">Template Tags</a></li>
 </ul>
 </li>
 </ul>
@@ -133,8 +136,8 @@
       </div>
     <div class="footer">
     <p>
-      &copy; Copyright 2010, CoreyOordt.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      &copy; Copyright 2010-2012, Corey Oordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
 	</p>
     </div>
       <div class="clearer"></div>

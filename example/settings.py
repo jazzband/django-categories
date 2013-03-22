@@ -1,5 +1,7 @@
 # Django settings for sample project.
-import os, sys
+import os
+import sys
+import django
 
 APP = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJ_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -75,11 +77,6 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'bwq#m)-zsey-fs)0#4*o=2z(v5g!ei=zytl9t-1hesh4b&-u^d'
 
@@ -106,37 +103,27 @@ TEMPLATE_DIRS = (
     os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates')),
 )
 
-INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.flatpages',
-    'categories',
-    'editor',
-    'mptt',
-    'simpletext',
-    'south',
-)
 
 CATEGORIES_SETTINGS = {
     'ALLOW_SLUG_CHANGE': True,
-    'RELATION_MODELS': ['simpletext.simpletext','flatpages.flatpage'],
+    'RELATION_MODELS': ['simpletext.simpletext', 'flatpages.flatpage'],
     'FK_REGISTRY': {
         'flatpages.flatpage': 'category',
         'simpletext.simpletext': (
-            'primary_category', 
+            'primary_category',
             {'name': 'secondary_category', 'related_name': 'simpletext_sec_cat'},
         ),
     },
     'M2M_REGISTRY': {
         'simpletext.simpletext': {'name': 'categories', 'related_name': 'm2mcats'},
         'flatpages.flatpage': (
-            {'name': 'other_categories', 'related_name': 'other_cats'}, 
-            {'name': 'more_categories', 'related_name': 'more_cats'}, 
+            {'name': 'other_categories', 'related_name': 'other_cats'},
+            {'name': 'more_categories', 'related_name': 'more_cats'},
         ),
     },
 }
+
+if django.VERSION[1] == 4:
+    from settings14 import *
+if django.VERSION[1] == 3:
+    from settings13 import *
