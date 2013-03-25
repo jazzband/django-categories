@@ -188,7 +188,6 @@ if RELATION_MODELS:
         
         def __unicode__(self):
             return u"CategoryRelation"
-        return u"CategoryRelation"
 
 try:
     from south.db import db  # South is required for migrating. Need to check for it
