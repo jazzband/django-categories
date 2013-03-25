@@ -14,26 +14,8 @@ from .base import CategoryBase
 
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
-class CategoryManager(models.Manager):
-    """
-    A manager that adds an "active()" method for all active categories
-    """
-    def active(self):
-        """
-        Only categories that are active
-        """
-        return self.get_query_set().filter(active=True)
 
-class Category(MPTTModel):
-    parent = models.ForeignKey('self', 
-        blank=True, 
-        null=True, 
-        related_name="children", 
-        help_text="Leave this blank for an Category Tree", 
-        verbose_name='Parent')
-    name = models.CharField(max_length=100)
-    is_blog = models.BooleanField()
-
+class Category(CategoryBase):
     thumbnail = models.FileField(
         upload_to=THUMBNAIL_UPLOAD_PATH,
         null=True, blank=True,
@@ -63,7 +45,7 @@ class Category(MPTTModel):
         help_text="(Advanced) Any additional HTML to be placed verbatim "
                   "in the &lt;head&gt;")
     is_blog = models.BooleanField(default=False, blank=False, null=False)
-    
+
     @property
     def short_title(self):
         return self.name
@@ -107,7 +89,8 @@ class Category(MPTTModel):
         super(Category, self).save(*args, **kwargs)
 
     class Meta(CategoryBase.Meta):
-        verbose_name_plural = 'categories'
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
 
     class MPTTMeta:
         order_insertion_by = ('order', 'name')
@@ -137,12 +120,12 @@ class CategoryRelationManager(models.Manager):
 
 class CategoryRelation(models.Model):
     """Related category item"""
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, verbose_name=_('category'))
     content_type = models.ForeignKey(
-        ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS)
-    object_id = models.PositiveIntegerField()
+        ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
+    object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    relation_type = models.CharField(_("Relation Type"),
+    relation_type = models.CharField(verbose_name=_('relation type'),
         max_length="200",
         blank=True,
         null=True,
@@ -151,43 +134,7 @@ class CategoryRelation(models.Model):
     objects = CategoryRelationManager()
 
     def __unicode__(self):
-        ancestors = self.get_ancestors()
-
-        # remove top-level category from display
-        ancestors_list = list(ancestors)
-        if len(ancestors_list) > 0:
-            del ancestors_list[0]
-
-        return ' > '.join([force_unicode(i.name) for i in ancestors_list]+[self.name,])
-
-if RELATION_MODELS:
-    category_relation_limits = reduce(lambda x,y: x|y, RELATIONS)
-    class CategoryRelationManager(models.Manager):
-        def get_content_type(self, content_type):
-            qs = self.get_query_set()
-            return qs.filter(content_type__name=content_type)
-        
-        def get_relation_type(self, relation_type):
-            qs = self.get_query_set()
-            return qs.filter(relation_type=relation_type)
-    
-    class CategoryRelation(models.Model):
-        """Related story item"""
-        story = models.ForeignKey(Category)
-        content_type = models.ForeignKey(
-            ContentType, limit_choices_to=category_relation_limits)
-        object_id = models.PositiveIntegerField()
-        content_object = generic.GenericForeignKey('content_type', 'object_id')
-        relation_type = models.CharField(_("Relation Type"), 
-            max_length="200", 
-            blank=True, 
-            null=True,
-            help_text=_("A generic text field to tag a relation, like 'leadphoto'."))
-        
-        objects = CategoryRelationManager()
-        
-        def __unicode__(self):
-            return u"CategoryRelation"
+        return u"CategoryRelation"
 
 try:
     from south.db import db  # South is required for migrating. Need to check for it

@@ -5,7 +5,7 @@ import django
 
 APP = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJ_ROOT = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(APP)
+sys.path.insert(0, APP)
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -123,7 +123,7 @@ CATEGORIES_SETTINGS = {
     },
 }
 
-if django.VERSION[1] == 4:
+if django.VERSION[1] >= 4:
     from settings14 import *
 if django.VERSION[1] == 3:
     from settings13 import *

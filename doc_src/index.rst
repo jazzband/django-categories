@@ -31,6 +31,7 @@ Contents
    usage
    registering_models
    adding_the_fields
+   admin_settings
    custom_categories
    reference/index
 

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 from .genericcollection import GenericCollectionTabularInline
 from .settings import RELATION_MODELS, JAVASCRIPT_URL, REGISTER_ADMIN
@@ -44,14 +45,14 @@ class CategoryAdmin(CategoryBaseAdmin):
     list_display = ('name', 'alternate_title', 'active')
     fieldsets = (
         (None, {
-            'fields': ('parent', 'name', 'is_blog', 'thumbnail', 'active')
+            'fields': ('parent', 'name', 'thumbnail', 'active')
         }),
-        ('Meta Data', {
+        (_('Meta Data'), {
             'fields': ('alternate_title', 'alternate_url', 'description',
                         'meta_keywords', 'meta_extra'),
             'classes': ('collapse',),
         }),
-        ('Advanced', {
+        (_('Advanced'), {
             'fields': ('order', 'slug'),
             'classes': ('collapse',),
         }),

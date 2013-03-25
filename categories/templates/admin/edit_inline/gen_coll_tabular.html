@@ -1,4 +1,4 @@
-{% load i18n adminmedia %}
+{% load i18n staticfiles %}
 <div class="inline-group">
 	<div class="tabular inline-related {% if forloop.last %}last-related{% endif %}">
 		{{ inline_admin_formset.formset.management_form }}
@@ -46,7 +46,7 @@
 											{% ifequal field.field.name inline_admin_formset.formset.ct_fk_field %}
 												{{ field.field }} 
 												<a id="lookup_id_{{field.field.html_name}}" class="related-lookup" onclick="return showGenericRelatedObjectLookupPopup(this, {{ inline_admin_formset.formset.content_types }});" href="#">
-													<img width="16" height="16" alt="Lookup" src="{% admin_media_prefix %}img/admin/selector-search.gif"/>
+													<img width="16" height="16" alt="Lookup" src="{% static 'img/admin/selector-search.gif' %}"/>
 												</a>
 											{% else %}{{ field.field }} {% endifequal %}
 										{% endif %}
