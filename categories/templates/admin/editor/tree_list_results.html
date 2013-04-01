@@ -1,0 +1,34 @@
+{% load i18n %}
+{% if result_hidden_fields %}
+<div class="hiddenfields"> {# DIV for HTML validation #}
+{% for item in result_hidden_fields %}{{ item }}{% endfor %}
+</div>
+{% endif %}
+{% if results %}
+<div class="results">
+<table cellspacing="0" id="result_list">
+<thead>
+<tr>
+{% for header in result_headers %}<th scope="col" {{ header.class_attrib }}>
+   {% if header.sortable %}
+     {% if header.sort_priority > 0 %}
+       <div class="sortoptions">
+         <a class="sortremove" href="{{ header.url_remove }}" title="{% trans "Remove from sorting" %}"></a>
+         {% if num_sorted_fields > 1 %}<span class="sortpriority" title="{% blocktrans with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktrans %}">{{ header.sort_priority }}</span>{% endif %}
+         <a href="{{ header.url_toggle }}" class="toggle {% if header.ascending %}ascending{% else %}descending{% endif %}" title="{% trans "Toggle sorting" %}"></a>
+       </div>
+     {% endif %}
+   {% endif %}
+   <div class="text">{% if header.sortable %}<a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>{% else %}<span>{{ header.text|capfirst }}</span>{% endif %}</div>
+   <div class="clear"></div>
+</th>{% endfor %}
+</tr>
+</thead>
+<tbody>
+{% for result in results %}
+<tr id="node-{{ result.pk }}" class="{% cycle 'row1' 'row2' %}{% if result.parent_pk %} child-of-node-{{result.parent_pk}}{% endif %}">{% for item in result %}{{ item }}{% endfor %}</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endif %}
