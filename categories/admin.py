@@ -50,11 +50,11 @@ class CategoryAdmin(CategoryBaseAdmin):
         (_('Meta Data'), {
             'fields': ('alternate_title', 'alternate_url', 'description',
                         'meta_keywords', 'meta_extra'),
-            'classes': ('collapse',),
+            'classes': ('grp-collapse',),
         }),
         (_('Advanced'), {
             'fields': ('order', 'slug'),
-            'classes': ('collapse',),
+            'classes': ('grp-collapse',),
         }),
     )
 
