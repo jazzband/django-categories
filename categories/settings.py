@@ -9,7 +9,7 @@ DEFAULT_SETTINGS = {
     'FK_REGISTRY': {},
     'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
     'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
-    'JAVASCRIPT_URL': getattr(settings, 'STATIC_URL', settings.MEDIA_URL) + 'js/',
+    'JAVASCRIPT_URL': getattr(settings, 'NON_CDN_STATIC_URL', settings.MEDIA_URL) + 'js/',
     'SLUG_TRANSLITERATOR': '',
     'REGISTER_ADMIN': True,
     'RELATION_MODELS': [],
