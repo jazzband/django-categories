@@ -70,7 +70,6 @@ class CategoryBase(MPTTModel):
     def __unicode__(self):
         if self.unicode_name:
             return self.unicode_name
-        ancestors = self.get_ancestors()
         return self.generate_unicode_name()
 
     def generate_unicode_name(self):
