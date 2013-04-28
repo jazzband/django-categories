@@ -12,7 +12,13 @@ from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH,
 
 from .base import CategoryBase
 
+from django.db import transaction
+
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
+
+@transaction.commit_manually
+def flush_transaction():
+    transaction.commit()
 
 
 class Category(CategoryBase):
@@ -45,6 +51,24 @@ class Category(CategoryBase):
         help_text="(Advanced) Any additional HTML to be placed verbatim "
                   "in the &lt;head&gt;")
     is_blog = models.BooleanField(default=False, blank=False, null=False)
+    show_converser_ad = models.BooleanField("Show a converser ad?", default=False,
+        help_text="Select to enable a converser ad for the category page. A 600x300 converser ad unit must be " \
+                  "active in Dart.")
+
+    @property
+    def display_converser(self):
+        """
+This method flushes the database cache to get the current value of the "show_converser_ad" field
+        """
+        if not hasattr(self, '_uncached_show_converser_ad'):
+            flush_transaction()
+            uncached_show_converser_ad_list = Category.objects.values('show_converser_ad').filter(id=self.id)
+            if len(uncached_show_converser_ad_list) > 0:
+                if uncached_show_converser_ad_list[0]['show_converser_ad']:
+                    self._uncached_show_converser_ad = True
+                else:
+                    self._uncached_show_converser_ad = False
+        return self._uncached_show_converser_ad
 
     @property
     def short_title(self):
@@ -56,6 +80,9 @@ class Category(CategoryBase):
             return self.alternate_url
         prefix = reverse('categories_tree_list')
         ancestors = list(self.get_ancestors()) + [self, ]
+        # remove top-level category from display
+        if len(ancestors) > 0:
+            del ancestors[0]
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
 
     if RELATION_MODELS:

@@ -42,6 +42,10 @@ class CategoryBase(MPTTModel):
     name = models.CharField(max_length=100, verbose_name=_('name'))
     slug = models.SlugField(verbose_name=_('slug'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
+    unicode_name = models.CharField(
+        blank=True,
+        default=None,
+        max_length=255)
 
     objects = CategoryManager()
     tree = TreeManager()
@@ -64,7 +68,18 @@ class CategoryBase(MPTTModel):
                     item.save()
 
     def __unicode__(self):
+        if self.unicode_name:
+            return self.unicode_name
         ancestors = self.get_ancestors()
+        return self.generate_unicode_name()
+
+    def generate_unicode_name(self):
+        ancestors = self.get_ancestors()
+        # remove top-level category from display
+        ancestors_list = list(ancestors)
+        # added hack to show "magazine" in the section title
+        if len(ancestors_list) > 0 and not ancestors_list[0].slug == "magazine" and not ancestors_list[0].slug == "nextgov-categories":
+            del ancestors_list[0]
         return ' > '.join([force_unicode(i.name) for i in ancestors] + [self.name, ])
 
     class Meta:
