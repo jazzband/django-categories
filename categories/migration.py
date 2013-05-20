@@ -3,7 +3,7 @@ from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import ugettext_lazy as _
 
 
-def migrate_app(sender, app, created_models, verbosity, *args, **kwargs):
+def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwargs):
     """
     Migrate all models of this app registered
     """
@@ -19,9 +19,12 @@ def migrate_app(sender, app, created_models, verbosity, *args, **kwargs):
         from south.db import db
     except ImportError:
         raise ImproperlyConfigured(_('%(dependency) must be installed for this command to work') %
-                                   {'dependency' : 'South'})
+                                   {'dependency': 'South'})
     # pull the information from the registry
-    app_name = app.__name__.split('.')[-2]
+    if isinstance(app, basestring):
+        app_name = app
+    else:
+        app_name = app.__name__.split('.')[-2]
 
     fields = [fld for fld in FIELD_REGISTRY.keys() if fld.startswith(app_name)]
     # call the south commands to add the fields/tables
@@ -41,13 +44,13 @@ def migrate_app(sender, app, created_models, verbosity, *args, **kwargs):
                 db.commit_transaction()
                 if verbosity:
                     print (_('Added ForeignKey %(field_name) to %(model_name)') %
-                           {'field_name' : field_name, 'model_name' : model_name})
+                           {'field_name': field_name, 'model_name': model_name})
             except DatabaseError, e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
                         print (_('ForeignKey %(field_name) to %(model_name) already exists') %
-                               {'field_name' : field_name, 'model_name' : model_name})
+                               {'field_name': field_name, 'model_name': model_name})
                 else:
                     sys.stderr = org_stderror
                     raise e
@@ -64,13 +67,13 @@ def migrate_app(sender, app, created_models, verbosity, *args, **kwargs):
                 db.commit_transaction()
                 if verbosity:
                     print (_('Added Many2Many table between %(model_name) and %(category_table)') %
-                           {'model_name' : model_name, 'category_table' : 'category'})
+                           {'model_name': model_name, 'category_table': 'category'})
             except DatabaseError, e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
                         print (_('Many2Many table between %(model_name) and %(category_table) already exists') %
-                               {'model_name' : model_name, 'category_table' : 'category'})
+                               {'model_name': model_name, 'category_table': 'category'})
                 else:
                     sys.stderr = org_stderror
                     raise e
@@ -89,14 +92,14 @@ def drop_field(app_name, model_name, field_name):
         from south.db import db
     except ImportError:
         raise ImproperlyConfigured(_('%(dependency) must be installed for this command to work') %
-                                   {'dependency' : 'South'})
+                                   {'dependency': 'South'})
     mdl = models.get_model(app_name, model_name)
 
     fld = '%s.%s.%s' % (app_name, model_name, field_name)
 
     if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
         print (_('Dropping ForeignKey %(field_name) from %(model_name)') %
-               {'field_name' : field_name, 'model_name' : model_name})
+               {'field_name': field_name, 'model_name': model_name})
         try:
             db.start_transaction()
             table_name = mdl._meta.db_table
@@ -107,7 +110,7 @@ def drop_field(app_name, model_name, field_name):
             raise e
     elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
         print (_('Dropping Many2Many table between %(model_name) and %(category_table)') %
-               {'model_name' : model_name, 'category_table' : 'category'})
+               {'model_name': model_name, 'category_table': 'category'})
         try:
             db.start_transaction()
             db.delete_table(table_name, cascade=False)
