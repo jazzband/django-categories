@@ -1,0 +1,184 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Iacopo Spalletti, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-05 12:22+0200\n"
+"PO-Revision-Date: 2013-06-05 12:48+0200\n"
+"Last-Translator: Iacopo Spalletti\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: admin.py:50
+msgid "Meta Data"
+msgstr "Metadati"
+
+#: admin.py:55
+msgid "Advanced"
+msgstr "Avanzate"
+
+#: base.py:41
+msgid "parent"
+msgstr "livello superiore"
+
+#: base.py:42
+msgid "name"
+msgstr "nome"
+
+#: base.py:43
+msgid "slug"
+msgstr "slug"
+
+#: base.py:44
+msgid "active"
+msgstr "attivo"
+
+#: base.py:104
+msgid "The slug must be unique among the items at its level."
+msgstr "Lo slug deve essere unico fra gli elementi allo stesso livello."
+
+#: base.py:114
+msgid "You can't set the parent of the item to itself."
+msgstr ""
+"Non è possibile selezionare come livello superiore di un elemento l'elemento "
+"stesso."
+
+#: base.py:117
+msgid "You can't set the parent of the item to a descendant."
+msgstr ""
+"Non è possibile selezionare come livello superiore di un elemento uno dei "
+"suoi discendenti."
+
+#: base.py:148
+msgid "Deactivate selected categories and their children"
+msgstr "Disattiva le categorie selezionate e i discendenti"
+
+#: base.py:161
+msgid "Activate selected categories and their children"
+msgstr "Attiva le categorie selezionate e i discendenti"
+
+#: migration.py:21 migration.py:94
+msgid "%(dependency) must be installed for this command to work"
+msgstr "%(dependency) deve essere installato per far funzionare il comando"
+
+#: migration.py:46
+msgid "Added ForeignKey %(field_name) to %(model_name)"
+msgstr "Aggiunta ForeignKey %(field_name) a %(model_name)"
+
+#: migration.py:52
+msgid "ForeignKey %(field_name) to %(model_name) already exists"
+msgstr "La ForeignKey %(field_name) a %(model_name) esiste già"
+
+#: migration.py:69
+msgid "Added Many2Many table between %(model_name) and %(category_table)"
+msgstr "Aggiunta tabella Many2Many fra %(model_name) e %(category_table)"
+
+#: migration.py:75
+msgid ""
+"Many2Many table between %(model_name) and %(category_table) already exists"
+msgstr "La tabella Many2Many fra %(model_name) e %(category_table) esiste già"
+
+#: migration.py:101
+msgid "Dropping ForeignKey %(field_name) from %(model_name)"
+msgstr "Eliminazione ForeignKey %(field_name) da %(model_name)"
+
+#: migration.py:112
+msgid "Dropping Many2Many table between %(model_name) and %(category_table)"
+msgstr ""
+"Eliminazione della tabella Many2Many fra %(model_name) e %(category_table)"
+
+#: models.py:91 models.py:122
+msgid "category"
+msgstr "categoria"
+
+#: models.py:92
+msgid "categories"
+msgstr "categorie"
+
+#: models.py:124
+msgid "content type"
+msgstr "content type"
+
+#: models.py:125
+msgid "object id"
+msgstr "object id"
+
+#: models.py:127
+msgid "relation type"
+msgstr "tipo di relazione"
+
+#: models.py:131
+msgid "A generic text field to tag a relation, like 'leadphoto'."
+msgstr ""
+"Un campo di testo generico per marcare la relazione, ad es: 'leadphoto'."
+
+#: registration.py:45
+#, python-format
+msgid "%(key)s is not a model"
+msgstr "%(key)s non è un model"
+
+#: registration.py:54 registration.py:62
+msgid "%(settings)s doesn't recognize the value of %(key)"
+msgstr "%(settings)s non riconosce il valore di %(key)"
+
+#: settings.py:30
+msgid "%(transliterator)s must be a callable or a string."
+msgstr "%(transliterator)s deve essere un callable o una stringa."
+
+#: views.py:73
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "Nessun %(verbose_name)s corrispondente alla ricerca"
+
+#: editor/tree_editor.py:167
+msgid "Database error"
+msgstr "Errore di database"
+
+#: editor/tree_editor.py:206
+#, python-format
+msgid "%(count)s %(name)s was changed successfully."
+msgid_plural "%(count)s %(name)s were changed successfully."
+msgstr[0] "%(count)s %(name)s modificati."
+msgstr[1] ""
+
+#: editor/tree_editor.py:247
+#, python-format
+msgid "%(total_count)s selected"
+msgid_plural "All %(total_count)s selected"
+msgstr[0] "%(total_count)s selezionati"
+msgstr[1] ""
+
+#: editor/tree_editor.py:252
+#, python-format
+msgid "0 of %(cnt)s selected"
+msgstr "selezionati 0 su %(cnt)s"
+
+#: editor/templates/admin/editor/tree_list_results.html:16
+msgid "Remove from sorting"
+msgstr "Rimuovi dall'ordinamento"
+
+#: editor/templates/admin/editor/tree_list_results.html:17
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr "Priorità di ordinamento: %(priority_number)s"
+
+#: editor/templates/admin/editor/tree_list_results.html:18
+msgid "Toggle sorting"
+msgstr "Inverti ordinamento"
+
+#: templates/admin/edit_inline/gen_coll_tabular.html:13
+msgid "Delete?"
+msgstr "Cancella?"
+
+#: templates/admin/edit_inline/gen_coll_tabular.html:24
+msgid "View on site"
+msgstr "Vedi sul sito"
+
