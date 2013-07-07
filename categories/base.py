@@ -78,8 +78,9 @@ class CategoryBase(MPTTModel):
 
 class CategoryBaseAdminForm(forms.ModelForm):
     def clean_slug(self):
-        if self.instance is None or not ALLOW_SLUG_CHANGE:
-            self.cleaned_data['slug'] = slugify(self.cleaned_data['name'])
+        if not self.cleaned_data.get('slug', None):
+            if self.instance is None or not ALLOW_SLUG_CHANGE:
+                self.cleaned_data['slug'] = slugify(SLUG_TRANSLITERATOR(self.cleaned_data['name']))
         return self.cleaned_data['slug'][:50]
 
     def clean(self):
