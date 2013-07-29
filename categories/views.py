@@ -68,7 +68,7 @@ class CategoryDetailView(DetailView):
         if self.queryset is None:
             queryset = self.get_queryset()
         try:
-            return get_category_for_path(self.kwargs[self.path_field])
+            return get_category_for_path(self.kwargs[self.path_field], self.model.objects.all())
         except ObjectDoesNotExist:
             raise Http404(_(u"No %(verbose_name)s found matching the query") %
                           {'verbose_name': queryset.model._meta.verbose_name})
