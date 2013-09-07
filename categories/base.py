@@ -6,13 +6,13 @@ with customizable metadata and its own name space.
 from django.contrib import admin
 from django.db import models
 from django import forms
-from django.template.defaultfilters import slugify
 from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext as _
 
 from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
 from mptt.managers import TreeManager
+from slugify import slugify
 
 from .editor.tree_editor import TreeEditor
 from .settings import ALLOW_SLUG_CHANGE, SLUG_TRANSLITERATOR
