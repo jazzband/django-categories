@@ -1,1 +1,2 @@
 django-mptt>=0.5.2
+unicode-slugify==0.1.1
