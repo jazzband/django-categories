@@ -20,15 +20,14 @@ from .models import Category
 def category_detail(request, path,
     template_name='categories/category_detail.html', extra_context={}):
     path_items = path.strip('/').split('/')
-    if len(path_items) >= 2:
-        category = get_object_or_404(Category,
-            slug__iexact=path_items[-1],
-            level=len(path_items) - 1,
-            parent__slug__iexact=path_items[-2])
-    else:
-        category = get_object_or_404(Category,
-            slug__iexact=path_items[-1],
-            level=len(path_items) - 1)
+    categories = []
+    parent = None
+    for slug in path_items:
+        category = get_object_or_404(Category, 
+            slug__iexact=slug, 
+            parent=parent)
+        categories.append(category)
+        parent = categories[-1]
 
     templates = []
     while path_items:
