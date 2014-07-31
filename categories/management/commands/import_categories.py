@@ -34,7 +34,7 @@ class Command(BaseCommand):
         """
         cat = Category(
             name=string.strip(),
-            slug=slugify(SLUG_TRANSLITERATOR(string.strip()))[:49],
+            slug=slugify(SLUG_TRANSLITERATOR(string.strip()).decode("utf-8"))[:49],
             #parent=parent,
             order=order
         )
