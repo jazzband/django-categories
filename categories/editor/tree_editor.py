@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 
 import django
 
-import settings
+from categories.editor import settings
 
 
 class TreeEditorQuerySet(QuerySet):

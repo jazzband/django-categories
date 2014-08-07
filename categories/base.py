@@ -6,7 +6,7 @@ with customizable metadata and its own name space.
 from django.contrib import admin
 from django.db import models
 from django import forms
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.translation import ugettext as _
 
 from mptt.models import MPTTModel
@@ -65,7 +65,10 @@ class CategoryBase(MPTTModel):
 
     def __unicode__(self):
         ancestors = self.get_ancestors()
-        return ' > '.join([force_unicode(i.name) for i in ancestors] + [self.name, ])
+        return ' > '.join([force_text(i.name) for i in ancestors] + [self.name, ])
+
+    def __str__(self):
+        return self.__unicode__()
 
     class Meta:
         abstract = True
