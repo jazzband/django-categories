@@ -11,10 +11,13 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
     from .models import Category
     from .settings import FIELD_REGISTRY
     import sys
-    import StringIO
+    try:
+        from StringIO import StringIO
+    except ImportError:
+        from io import StringIO
 
     org_stderror = sys.stderr
-    sys.stderr = StringIO.StringIO()  # south will print out errors to stderr
+    sys.stderr = StringIO()  # south will print out errors to stderr
     try:
         from south.db import db
     except ImportError:
@@ -45,7 +48,7 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 if verbosity:
                     print (_('Added ForeignKey %(field_name) to %(model_name)') %
                            {'field_name': field_name, 'model_name': model_name})
-            except DatabaseError, e:
+            except DatabaseError as e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
@@ -68,7 +71,7 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 if verbosity:
                     print (_('Added Many2Many table between %(model_name) and %(category_table)') %
                            {'model_name': model_name, 'category_table': 'category'})
-            except DatabaseError, e:
+            except DatabaseError as e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
@@ -105,7 +108,7 @@ def drop_field(app_name, model_name, field_name):
             table_name = mdl._meta.db_table
             db.delete_column(table_name, field_name)
             db.commit_transaction()
-        except DatabaseError, e:
+        except DatabaseError as e:
             db.rollback_transaction()
             raise e
     elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
@@ -115,6 +118,6 @@ def drop_field(app_name, model_name, field_name):
             db.start_transaction()
             db.delete_table(table_name, cascade=False)
             db.commit_transaction()
-        except DatabaseError, e:
+        except DatabaseError as e:
             db.rollback_transaction()
             raise e
