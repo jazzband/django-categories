@@ -81,6 +81,18 @@ class CategoryBase(MPTTModel):
             del ancestors_list[0]
         return ' > '.join([force_unicode(i.name) for i in ancestors] + [self.name, ])
 
+    def all_categories(self, delimiter='::'):
+        if hasattr(self, '__all_categories'):
+            return self.__all_categories
+        self.__all_categories = []
+        for category in self.get_ancestors(include_self=True):
+            tmp = []
+            for existing in self.__all_categories:
+                tmp.append(existing)
+            tmp.append(category.name)
+            self.__all_categories.append(delimiter.join(tmp))
+        return self.__all_categories
+
     class Meta:
         abstract = True
         unique_together = ('parent', 'name')
