@@ -68,7 +68,7 @@ class CategoryBase(MPTTModel):
                     item.save()
 
     def __unicode__(self):
-        if self.unicode_name:
+        if hasattr(self, 'unicode_name') and self.unicode_name:
             return self.unicode_name
         return self.generate_unicode_name()
 
