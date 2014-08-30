@@ -2,7 +2,8 @@
 This is the base class on which to build a hierarchical category-like model
 with customizable metadata and its own name space.
 """
-
+from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.contrib import admin
 from django.db import models
 from django import forms
@@ -28,7 +29,7 @@ class CategoryManager(models.Manager):
         """
         return self.get_query_set().filter(active=True)
 
-
+@python_2_unicode_compatible
 class CategoryBase(MPTTModel):
     """
     This base model includes the absolute bare bones fields and methods. One
@@ -63,12 +64,9 @@ class CategoryBase(MPTTModel):
                     item.active = self.active
                     item.save()
 
-    def __unicode__(self):
+    def __str__(self):
         ancestors = self.get_ancestors()
         return ' > '.join([force_text(i.name) for i in ancestors] + [self.name, ])
-
-    def __str__(self):
-        return self.__unicode__()
 
     class Meta:
         abstract = True

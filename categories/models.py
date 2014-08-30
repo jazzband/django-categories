@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import force_text
@@ -116,7 +118,7 @@ class CategoryRelationManager(models.Manager):
         qs = self.get_query_set()
         return qs.filter(relation_type=relation_type)
 
-
+@python_2_unicode_compatible
 class CategoryRelation(models.Model):
     """Related category item"""
     category = models.ForeignKey(Category, verbose_name=_('category'))
@@ -132,8 +134,8 @@ class CategoryRelation(models.Model):
 
     objects = CategoryRelationManager()
 
-    def __unicode__(self):
-        return u"CategoryRelation"
+    def __str__(self):
+        return "CategoryRelation"
 
 try:
     from south.db import db  # South is required for migrating. Need to check for it
