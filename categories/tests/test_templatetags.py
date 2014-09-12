@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django import template
+import re
 
 from categories.models import Category
 
@@ -29,12 +30,14 @@ class CategoryTagsTest(TestCase):
         # display_path_as_ul
         rock_resp = u'<ul><li><a href="/categories/">Top</a></li></ul>'
         resp = self.render_template('{% load category_tags %}{% display_path_as_ul "/Rock" %}')
+        resp = re.sub(r'\n$', "", resp)
         self.assertEqual(resp, rock_resp)
 
         # display_drilldown_as_ul
         expected_resp = u'<ul><li><a href="/categories/">Top</a><ul><li><a href="/categories/world/">World</a><ul><li><strong>Worldbeat</strong><ul><li><a href="/categories/world/worldbeat/afrobeat/">Afrobeat</a></li></ul></li></ul></li></ul></li></ul>'
         resp = self.render_template('{% load category_tags %}'
             '{% display_drilldown_as_ul "/World/Worldbeat" "categories.category" %}')
+        resp = re.sub(r'\n$', "", resp)
         self.assertEqual(resp, expected_resp)
 
         # breadcrumbs
