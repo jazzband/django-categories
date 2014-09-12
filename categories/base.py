@@ -26,7 +26,7 @@ class CategoryManager(models.Manager):
         """
         Only categories that are active
         """
-        return self.get_query_set().filter(active=True)
+        return self.get_queryset().filter(active=True)
 
 
 class CategoryBase(MPTTModel):
