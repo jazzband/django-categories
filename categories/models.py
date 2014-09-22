@@ -1,6 +1,8 @@
+from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.core.files.storage import get_storage_class
@@ -55,7 +57,7 @@ class Category(CategoryBase):
             return self.alternate_url
         prefix = reverse('categories_tree_list')
         ancestors = list(self.get_ancestors()) + [self, ]
-        return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
+        return prefix + '/'.join([force_text(i.slug) for i in ancestors]) + '/'
 
     if RELATION_MODELS:
         def get_related_content_type(self, content_type):
@@ -116,7 +118,7 @@ class CategoryRelationManager(models.Manager):
         qs = self.get_query_set()
         return qs.filter(relation_type=relation_type)
 
-
+@python_2_unicode_compatible
 class CategoryRelation(models.Model):
     """Related category item"""
     category = models.ForeignKey(Category, verbose_name=_('category'))
@@ -132,8 +134,8 @@ class CategoryRelation(models.Model):
 
     objects = CategoryRelationManager()
 
-    def __unicode__(self):
-        return u"CategoryRelation"
+    def __str__(self):
+        return "CategoryRelation"
 
 try:
     from south.db import db  # South is required for migrating. Need to check for it

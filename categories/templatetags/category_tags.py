@@ -14,6 +14,10 @@ register.filter("category_path", tree_path)
 register.filter(tree_info)
 register.tag("full_tree_for_category", full_tree_for_model)
 
+try:
+    basestring
+except NameError:
+    basestring = str
 
 def resolve(var, context):
     try:
@@ -119,13 +123,13 @@ def get_category_drilldown(parser, token):
                 '{%% %(tagname)s category_obj as varname %%}.'
     if len(bits) == 4:
         if bits[2] != 'as':
-            raise template.TemplateSyntaxError, error_str % {'tagname': bits[0]}
+            raise template.TemplateSyntaxError(error_str % {'tagname': bits[0]})
         if bits[2] == 'as':
             varname = bits[3].strip("'\"")
             model = "categories.category"
     if len(bits) == 6:
         if bits[2] not in ('using', 'as') or bits[4] not in ('using', 'as'):
-            raise template.TemplateSyntaxError, error_str % {'tagname': bits[0]}
+            raise template.TemplateSyntaxError(error_str % {'tagname': bits[0]})
         if bits[2] == 'as':
             varname = bits[3].strip("'\"")
             model = bits[5].strip("'\"")

@@ -8,7 +8,7 @@ except ImportError:
     from categories.editor.utils import lookup_field, display_for_field, label_for_field
 from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
 from django.core.exceptions import ObjectDoesNotExist
-from django.utils.encoding import smart_unicode, force_unicode
+from django.utils.encoding import force_text
 from django.utils.html import escape, conditional_escape
 from django.utils.safestring import mark_safe
 
@@ -44,7 +44,7 @@ def items_for_tree_result(cl, result, form):
                     allow_tags = True
                     result_repr = _boolean_icon(value)
                 else:
-                    result_repr = smart_unicode(value)
+                    result_repr = force_text(value)
                 # Strip HTML tags in the resulting text, except if the
                 # function has an "allow_tags" attribute set to True.
                 if not allow_tags:
@@ -72,7 +72,7 @@ def items_for_tree_result(cl, result, form):
                     except (AttributeError, ObjectDoesNotExist):
                         pass
 
-        if force_unicode(result_repr) == '':
+        if force_text(result_repr) == '':
             result_repr = mark_safe('&nbsp;')
         # If list_display_links not defined, add the link tag to the first field
         if (first and not cl.list_display_links) or field_name in cl.list_display_links:
@@ -89,7 +89,7 @@ def items_for_tree_result(cl, result, form):
             else:
                 attr = pk
             value = result.serializable_value(attr)
-            result_id = repr(force_unicode(value))[1:]
+            result_id = repr(force_text(value))[1:]
             first = False
             if django.VERSION[1] < 4:
                 yield mark_safe(u'<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
@@ -104,12 +104,12 @@ def items_for_tree_result(cl, result, form):
             # can provide fields on a per request basis
             if form and field_name in form.fields:
                 bf = form[field_name]
-                result_repr = mark_safe(force_unicode(bf.errors) + force_unicode(bf))
+                result_repr = mark_safe(force_text(bf.errors) + force_text(bf))
             else:
                 result_repr = conditional_escape(result_repr)
             yield mark_safe(u'<td%s>%s</td>' % (row_class, result_repr))
     if form and not form[cl.model._meta.pk.name].is_hidden:
-        yield mark_safe(u'<td>%s</td>' % force_unicode(form[cl.model._meta.pk.name]))
+        yield mark_safe(u'<td>%s</td>' % force_text(form[cl.model._meta.pk.name]))
 
 
 class TreeList(list):

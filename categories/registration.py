@@ -2,8 +2,13 @@
 These functions handle the adding of fields to other models
 """
 from django.db.models import FieldDoesNotExist
-import fields
-from settings import FIELD_REGISTRY, MODEL_REGISTRY
+from categories import fields
+from categories.settings import FIELD_REGISTRY, MODEL_REGISTRY
+
+try:
+    basestring
+except NameError:
+    basestring = str
 
 
 def register_m2m(model, field_name='categories', extra_params={}):
