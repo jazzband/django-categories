@@ -121,6 +121,9 @@ class CategoryBaseAdminForm(forms.ModelForm):
                                           "item to a descendant."))
         return self.cleaned_data
 
+    class Meta:
+        fields = "__all__"
+
 
 class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
     form = CategoryBaseAdminForm
