@@ -122,7 +122,7 @@ class CategoryBaseAdminForm(forms.ModelForm):
         return self.cleaned_data
 
     class Meta:
-        fields = "__all__"
+        exclude = []
 
 
 class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
