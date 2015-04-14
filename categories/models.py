@@ -2,7 +2,10 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+try:
+    from django.contrib.contenttypes.fields import GenericForeignKey
+except ImportError:
+    from django.contrib.contenttypes.generic import GenericForeignKey
 from django.core.files.storage import get_storage_class
 
 from django.utils.translation import ugettext_lazy as _
@@ -123,7 +126,7 @@ class CategoryRelation(models.Model):
     content_type = models.ForeignKey(
         ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    content_object = GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(verbose_name=_('relation type'),
         max_length="200",
         blank=True,
