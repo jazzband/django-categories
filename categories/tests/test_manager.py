@@ -1,9 +1,11 @@
 # test active returns only active items
-import unittest
+from django.test import TestCase
 from categories.models import Category
 
 
-class CategoryManagerTest(unittest.TestCase):
+class CategoryManagerTest(TestCase):
+    fixtures = ['categories.json']
+
     def setUp(self):
         pass
 

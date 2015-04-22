@@ -1,0 +1,16 @@
+[
+    {
+        "fields": {
+            "level": 0,
+            "lft": 1,
+            "name": "Category 1",
+            "order": 1,
+            "parent": null,
+            "rght": 10,
+            "slug": "category-1",
+            "tree_id": 1
+        },
+        "model": "categories.category",
+        "pk": 1
+    }
+]

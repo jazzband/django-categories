@@ -1,7 +1,7 @@
 from django import template
 from django.db.models import get_model
-from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist,
-                             FilterExpression)
+from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist)
+from django.template.base import FilterExpression
 from categories.base import CategoryBase
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node
@@ -186,7 +186,7 @@ def display_drilldown_as_ul(category, using='categories.Category'):
     cat = get_category(category, using)
     if cat is None:
         return {'category': cat, 'path': []}
-    else:                          
+    else:
         return {'category': cat, 'path': drilldown_tree_for_node(cat)}
 
 
