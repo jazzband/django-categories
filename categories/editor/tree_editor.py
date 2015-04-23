@@ -270,11 +270,9 @@ class TreeEditor(admin.ModelAdmin):
         extra_context = extra_context or {}
         extra_context['EDITOR_MEDIA_PATH'] = settings.MEDIA_PATH
         extra_context['EDITOR_TREE_INITIAL_STATE'] = settings.TREE_INITIAL_STATE
-        if django.VERSION[1] >= 2:
-            return super(TreeEditor, self).changelist_view(
-                                    request, extra_context, *args, **kwargs)
-        else:
-            return self.old_changelist_view(request, extra_context)
+
+        # FIXME
+        return self.old_changelist_view(request, extra_context)
 
     def get_queryset(self, request):
         """
