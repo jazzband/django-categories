@@ -18,7 +18,7 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
     try:
         from south.db import db
     except ImportError:
-        raise ImproperlyConfigured(_('%(dependency) must be installed for this command to work') %
+        raise ImproperlyConfigured(_('%(dependency)s must be installed for this command to work') %
                                    {'dependency': 'South'})
     # pull the information from the registry
     if isinstance(app, basestring):
@@ -43,13 +43,13 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 db.add_column(table_name, field_name, FIELD_REGISTRY[fld], keep_default=False)
                 db.commit_transaction()
                 if verbosity:
-                    print (_('Added ForeignKey %(field_name) to %(model_name)') %
+                    print (_('Added ForeignKey %(field_name)s to %(model_name)s') %
                            {'field_name': field_name, 'model_name': model_name})
             except DatabaseError, e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
-                        print (_('ForeignKey %(field_name) to %(model_name) already exists') %
+                        print (_('ForeignKey %(field_name)s to %(model_name)s already exists') %
                                {'field_name': field_name, 'model_name': model_name})
                 else:
                     sys.stderr = org_stderror
@@ -66,13 +66,13 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 db.create_unique(table_name, ['%s_id' % model_name, 'category_id'])
                 db.commit_transaction()
                 if verbosity:
-                    print (_('Added Many2Many table between %(model_name) and %(category_table)') %
+                    print (_('Added Many2Many table between %(model_name)s and %(category_table)s') %
                            {'model_name': model_name, 'category_table': 'category'})
             except DatabaseError, e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
-                        print (_('Many2Many table between %(model_name) and %(category_table) already exists') %
+                        print (_('Many2Many table between %(model_name)s and %(category_table)s already exists') %
                                {'model_name': model_name, 'category_table': 'category'})
                 else:
                     sys.stderr = org_stderror
@@ -91,14 +91,14 @@ def drop_field(app_name, model_name, field_name):
     try:
         from south.db import db
     except ImportError:
-        raise ImproperlyConfigured(_('%(dependency) must be installed for this command to work') %
+        raise ImproperlyConfigured(_('%(dependency)s must be installed for this command to work') %
                                    {'dependency': 'South'})
     mdl = models.get_model(app_name, model_name)
 
     fld = '%s.%s.%s' % (app_name, model_name, field_name)
 
     if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
-        print (_('Dropping ForeignKey %(field_name) from %(model_name)') %
+        print (_('Dropping ForeignKey %(field_name)s from %(model_name)s') %
                {'field_name': field_name, 'model_name': model_name})
         try:
             db.start_transaction()
@@ -109,7 +109,7 @@ def drop_field(app_name, model_name, field_name):
             db.rollback_transaction()
             raise e
     elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
-        print (_('Dropping Many2Many table between %(model_name) and %(category_table)') %
+        print (_('Dropping Many2Many table between %(model_name)s and %(category_table)s') %
                {'model_name': model_name, 'category_table': 'category'})
         try:
             db.start_transaction()
