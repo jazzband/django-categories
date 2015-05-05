@@ -4,6 +4,7 @@ These functions handle the adding of fields to other models
 from django.db.models import FieldDoesNotExist
 import fields
 from settings import FIELD_REGISTRY, MODEL_REGISTRY
+from django.utils.translation import ugettext_lazy as _
 
 
 def register_m2m(model, field_name='categories', extra_params={}):
@@ -42,7 +43,7 @@ def _process_registry(registry, call_func):
     for key, value in registry.items():
         model = get_model(*key.split('.'))
         if model is None:
-            raise ImproperlyConfigured(_('%(key) is not a model') % {'key' : key})
+            raise ImproperlyConfigured(_('%(key)s is not a model') % {'key': key})
         if isinstance(value, (tuple, list)):
             for item in value:
                 if isinstance(item, basestring):
@@ -51,13 +52,13 @@ def _process_registry(registry, call_func):
                     field_name = item.pop('name')
                     call_func(model, field_name, extra_params=item)
                 else:
-                    raise ImproperlyConfigured(_("%(settings) doesn't recognize the value of %(key)") %
-                                               {'settings' : 'CATEGORY_SETTINGS', 'key' : key})
+                    raise ImproperlyConfigured(_("%(settings)s doesn't recognize the value of %(key)s") %
+                                               {'settings': 'CATEGORY_SETTINGS', 'key': key})
         elif isinstance(value, basestring):
             call_func(model, value)
         elif isinstance(value, dict):
             field_name = value.pop('name')
             call_func(model, field_name, extra_params=value)
         else:
-            raise ImproperlyConfigured(_("%(settings) doesn't recognize the value of %(key)") %
-                                       {'settings' : 'CATEGORY_SETTINGS', 'key' : key})
+            raise ImproperlyConfigured(_("%(settings)s doesn't recognize the value of %(key)s") %
+                                       {'settings': 'CATEGORY_SETTINGS', 'key': key})
