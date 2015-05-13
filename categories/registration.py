@@ -60,11 +60,16 @@ class Registry(object):
             field_definitions = [field_definitions]
 
         for fld in field_definitions:
-            extra_params = {'to': 'categories.Category', 'null': True, 'blank': True}
+            extra_params = {'to': 'categories.Category', 'blank': True}
+            if field_type != 'ManyToManyField':
+                extra_params['null'] = True
             if isinstance(fld, basestring):
                 field_name = fld
             elif isinstance(fld, dict):
-                field_name = fld.pop('name')
+                if 'name' in fld:
+                    field_name = fld.pop('name')
+                else:
+                    continue
                 extra_params.update(fld)
             else:
                 raise ImproperlyConfigured(_("%(settings)s doesn't recognize the "
