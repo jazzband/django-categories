@@ -35,11 +35,14 @@ def drop_field(app_name, model_name, field_name):
         schema_editor.remove_field(model, field)
 
 
-def migrate_app(sender, app_config, verbosity=False, *args, **kwargs):
+def migrate_app(sender, *args, **kwargs):
     """
     Migrate all models of this app registered
     """
     from .registration import registry
+    if 'app_config' not in kwargs:
+        return
+    app_config = kwargs['app_config']
 
     app_name = app_config.label
 
