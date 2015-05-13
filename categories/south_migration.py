@@ -9,7 +9,7 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
     """
     from .fields import CategoryM2MField, CategoryFKField
     from .models import Category
-    from .settings import FIELD_REGISTRY
+    from .registration import registry
     import sys
     import StringIO
 
@@ -26,7 +26,7 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
     else:
         app_name = app.__name__.split('.')[-2]
 
-    fields = [fld for fld in FIELD_REGISTRY.keys() if fld.startswith(app_name)]
+    fields = [fld for fld in registry._field_registry.keys() if fld.startswith(app_name)]
     # call the south commands to add the fields/tables
     for fld in fields:
         app_name, model_name, field_name = fld.split('.')
@@ -35,12 +35,12 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
         #   always best to be sure.
         mdl = models.get_model(app_name, model_name)
 
-        if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
+        if isinstance(registry._field_registry[fld], CategoryFKField):
             try:
                 db.start_transaction()
                 table_name = mdl._meta.db_table
-                FIELD_REGISTRY[fld].default = -1
-                db.add_column(table_name, field_name, FIELD_REGISTRY[fld], keep_default=False)
+                registry._field_registry[fld].default = -1
+                db.add_column(table_name, field_name, registry._field_registry[fld], keep_default=False)
                 db.commit_transaction()
                 if verbosity:
                     print (_('Added ForeignKey %(field_name)s to %(model_name)s') %
@@ -54,7 +54,7 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 else:
                     sys.stderr = org_stderror
                     raise e
-        elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
+        elif isinstance(registry._field_registry[fld], CategoryM2MField):
             table_name = '%s_%s' % (mdl._meta.db_table, 'categories')
             try:
                 db.start_transaction()
@@ -87,7 +87,7 @@ def drop_field(app_name, model_name, field_name):
     # Table is typically appname_modelname, but it could be different
     #   always best to be sure.
     from .fields import CategoryM2MField, CategoryFKField
-    from .settings import FIELD_REGISTRY
+    from .registration import registry
     try:
         from south.db import db
     except ImportError:
@@ -97,7 +97,7 @@ def drop_field(app_name, model_name, field_name):
 
     fld = '%s.%s.%s' % (app_name, model_name, field_name)
 
-    if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
+    if isinstance(registry._field_registry[fld], CategoryFKField):
         print (_('Dropping ForeignKey %(field_name)s from %(model_name)s') %
                {'field_name': field_name, 'model_name': model_name})
         try:
@@ -108,7 +108,7 @@ def drop_field(app_name, model_name, field_name):
         except DatabaseError, e:
             db.rollback_transaction()
             raise e
-    elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
+    elif isinstance(registry._field_registry[fld], CategoryM2MField):
         print (_('Dropping Many2Many table between %(model_name)s and %(category_table)s') %
                {'model_name': model_name, 'category_table': 'category'})
         try:
