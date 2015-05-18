@@ -30,20 +30,21 @@ class Registry(object):
         from django.apps import apps
         import collections
 
-        app_config = apps.get_app_config(app)
-        app_label = app_config.label
+        app_label = app
 
         if isinstance(field_definitions, basestring):
             field_definitions = [field_definitions]
         elif not isinstance(field_definitions, collections.Iterable):
             raise ImproperlyConfigured(_('Field configuration for %(app)s should '
-                'be a string or iterable') % {'app': app_config.label})
+                'be a string or iterable') % {'app': app})
 
         if field_type not in ('ForeignKey', 'ManyToManyField'):
             raise ImproperlyConfigured(_('`field_type` must be either `"ForeignKey"` or `"ManyToManyField"`.'))
 
         try:
             if not hasattr(model_name, "_meta"):
+                app_config = apps.get_app_config(app)
+                app_label = app_config.label
                 model = app_config.get_model(model_name)
             else:
                 model = model_name
@@ -77,7 +78,7 @@ class Registry(object):
                         'settings': 'CATEGORY_SETTINGS',
                         'app': app,
                         'model': model_name})
-            registry_name = ".".join([app_config.label, model_name.lower(), field_name])
+            registry_name = ".".join([app_label, model_name.lower(), field_name])
             if registry_name in self._field_registry:
                 continue
 
