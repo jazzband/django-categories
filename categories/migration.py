@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, connection
+from django.db import connection, transaction
 from django.apps import apps
+from django.db.utils import ProgrammingError
 
 
 def table_exists(table_name):
@@ -48,10 +49,16 @@ def migrate_app(sender, *args, **kwargs):
 
     fields = [fld for fld in registry._field_registry.keys() if fld.startswith(app_name)]
 
-    with connection.schema_editor() as schema_editor:
-        for fld in fields:
-            model_name, field_name = fld.split('.')[1:]
-            if field_exists(app_name, model_name, field_name):
-                continue
-            model = app_config.get_model(model_name)
-            schema_editor.add_field(model, registry._field_registry[fld])
+    sid = transaction.savepoint()
+    for fld in fields:
+        model_name, field_name = fld.split('.')[1:]
+        if field_exists(app_name, model_name, field_name):
+            continue
+        model = app_config.get_model(model_name)
+        try:
+            with connection.schema_editor() as schema_editor:
+                schema_editor.add_field(model, registry._field_registry[fld])
+                transaction.savepoint_commit(sid)
+        except ProgrammingError:
+            transaction.savepoint_rollback(sid)
+            continue
