@@ -57,6 +57,16 @@ class Category(CategoryBase):
         ancestors = list(self.get_ancestors()) + [self, ]
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
 
+    # for ads
+    def get_ads_url(self):
+        return reverse('category-ads', args=[self.parent.slug, self.slug])
+
+    # for ads
+    def get_parent_list_url(self):
+        if self.parent:
+            return reverse('category-list', args=[self.parent.slug])
+        return reverse('category-list', args=[self.slug])
+
     if RELATION_MODELS:
         def get_related_content_type(self, content_type):
             """

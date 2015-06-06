@@ -4,10 +4,12 @@ with customizable metadata and its own name space.
 """
 
 from django.contrib import admin
+from django.http import HttpResponse
 from django.db import models
 from django import forms
 from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext as _
+from django.utils.html import escape
 
 from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
@@ -119,6 +121,9 @@ class CategoryBaseAdminForm(forms.ModelForm):
                                           "item to a descendant."))
         return self.cleaned_data
 
+    class Meta:
+        exclude = []
+
 
 class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
     form = CategoryBaseAdminForm
@@ -127,6 +132,17 @@ class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
     actions = ['activate', 'deactivate']
+
+    def response_add(self, request, obj, post_url_continue='../%s/'):
+        """
+        Overriding to force the widget to update tree in customized function
+        this function dismissAddAnotherPopupTree should be specified in change_form.html (extrahead block)
+        """
+        resp = super(CategoryBaseAdmin, self).response_add(request, obj, post_url_continue)
+        if request.POST.has_key("_popup") and request.GET.has_key("tree"):
+            return HttpResponse('<script type="text/javascript">opener.dismissAddAnotherPopupTree(window, "%s", "%s", "%s");</script>' % \
+                (escape(obj._get_pk_val()), escape(obj.short_title), escape(obj.parent.pk) if obj.parent is not None else ""))
+        return resp
 
     def get_actions(self, request):
         actions = super(CategoryBaseAdmin, self).get_actions(request)

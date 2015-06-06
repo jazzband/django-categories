@@ -6,7 +6,7 @@ from .genericcollection import GenericCollectionTabularInline
 from .settings import RELATION_MODELS, JAVASCRIPT_URL, REGISTER_ADMIN
 from .models import Category
 from .base import CategoryBaseAdminForm, CategoryBaseAdmin
-from .settings import MODEL_REGISTRY
+from .settings import MODEL_REGISTRY, FIELD_REGISTRY
 
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
@@ -32,6 +32,7 @@ if RELATION_MODELS:
 class CategoryAdminForm(CategoryBaseAdminForm):
     class Meta:
         model = Category
+        fields = "__all__"
 
     def clean_alternate_title(self):
         if self.instance is None or not self.cleaned_data['alternate_title']:
@@ -67,20 +68,23 @@ class CategoryAdmin(CategoryBaseAdmin):
 if REGISTER_ADMIN:
     admin.site.register(Category, CategoryAdmin)
 
+model_regs = []
+for key, value in MODEL_REGISTRY.items():
+    for model in value:
+        model_regs.append(model)
+
 for model, modeladmin in admin.site._registry.items():
-    if model in MODEL_REGISTRY.values() and modeladmin.fieldsets:
-        fieldsets = getattr(modeladmin, 'fieldsets', ())
-        fields = [cat.split('.')[2] for cat in MODEL_REGISTRY if MODEL_REGISTRY[cat] == model]
-        # check each field to see if already defined
-        for cat in fields:
-            for k, v in fieldsets:
-                if cat in v['fields']:
-                    fields.remove(cat)
+    if model in model_regs and modeladmin.fieldsets:
+        fieldsets = tuple(getattr(modeladmin, 'fieldsets', ()))
+        fields = [cat.split('.')[2] for cat in FIELD_REGISTRY if model in MODEL_REGISTRY[cat.split('.')[0]]]
+
         # if there are any fields left, add them under the categories fieldset
         if len(fields) > 0:
             admin.site.unregister(model)
-            admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
-                'fieldsets': fieldsets + (('Categories', {
-                    'fields': fields
+            fieldsets += (('Categories', {
+                    'fields': tuple(fields)
                 }),)
+            
+            admin.site.register(model, type('newadmin', (modeladmin.__class__,), {
+                'fieldsets': fieldsets
             }))
