@@ -123,6 +123,8 @@ CATEGORIES_SETTINGS = {
     },
 }
 
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 if django.VERSION[1] >= 4:
     from settings14 import *
 if django.VERSION[1] == 3:
