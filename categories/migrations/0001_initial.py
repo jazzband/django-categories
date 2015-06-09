@@ -1,53 +1,59 @@
-# encoding: utf-8
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
-class Migration(SchemaMigration):
-
-    def forwards(self, orm):
-        
-        # Adding model 'Category'
-        db.create_table('categories_category', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('parent', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='children', null=True, to=orm['categories.Category'])),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('order', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50, db_index=True)),
-            ('lft', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            ('rght', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            ('tree_id', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            ('level', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-        ))
-        db.send_create_signal('categories', ['Category'])
-
-        # Adding unique constraint on 'Category', fields ['parent', 'name']
-        db.create_unique('categories_category', ['parent_id', 'name'])
+from django.db import models, migrations
+import django.core.files.storage
+import mptt.fields
 
 
-    def backwards(self, orm):
-        
-        # Removing unique constraint on 'Category', fields ['parent', 'name']
-        db.delete_unique('categories_category', ['parent_id', 'name'])
+class Migration(migrations.Migration):
 
-        # Deleting model 'Category'
-        db.delete_table('categories_category')
+    dependencies = [
+        ('contenttypes', '0001_initial'),
+    ]
 
-
-    models = {
-        'categories.category': {
-            'Meta': {'ordering': "('tree_id', 'lft')", 'unique_together': "(('parent', 'name'),)", 'object_name': 'Category'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'order': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['categories.Category']"}),
-            'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
-            'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
-        }
-    }
-
-    complete_apps = ['categories']
+    operations = [
+        migrations.CreateModel(
+            name='Category',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=100, verbose_name='name')),
+                ('slug', models.SlugField(verbose_name='slug')),
+                ('active', models.BooleanField(default=True, verbose_name='active')),
+                ('thumbnail', models.FileField(storage=django.core.files.storage.FileSystemStorage(), null=True, upload_to=b'uploads/categories/thumbnails', blank=True)),
+                ('thumbnail_width', models.IntegerField(null=True, blank=True)),
+                ('thumbnail_height', models.IntegerField(null=True, blank=True)),
+                ('order', models.IntegerField(default=0)),
+                ('alternate_title', models.CharField(default=b'', help_text=b'An alternative title to use on pages with this category.', max_length=100, blank=True)),
+                ('alternate_url', models.CharField(help_text=b'An alternative URL to use instead of the one derived from the category hierarchy.', max_length=200, blank=True)),
+                ('description', models.TextField(null=True, blank=True)),
+                ('meta_keywords', models.CharField(default=b'', help_text=b'Comma-separated keywords for search engines.', max_length=255, blank=True)),
+                ('meta_extra', models.TextField(default=b'', help_text=b'(Advanced) Any additional HTML to be placed verbatim in the &lt;head&gt;', blank=True)),
+                ('lft', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('rght', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('tree_id', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('level', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('parent', mptt.fields.TreeForeignKey(related_name='children', verbose_name='parent', blank=True, to='categories.Category', null=True)),
+            ],
+            options={
+                'ordering': ('tree_id', 'lft'),
+                'abstract': False,
+                'verbose_name': 'category',
+                'verbose_name_plural': 'categories',
+            },
+        ),
+        migrations.CreateModel(
+            name='CategoryRelation',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('object_id', models.PositiveIntegerField(verbose_name='object id')),
+                ('relation_type', models.CharField(help_text="A generic text field to tag a relation, like 'leadphoto'.", max_length=b'200', null=True, verbose_name='relation type', blank=True)),
+                ('category', models.ForeignKey(verbose_name='category', to='categories.Category')),
+                ('content_type', models.ForeignKey(verbose_name='content type', to='contenttypes.ContentType')),
+            ],
+        ),
+        migrations.AlterUniqueTogether(
+            name='category',
+            unique_together=set([('parent', 'name')]),
+        ),
+    ]

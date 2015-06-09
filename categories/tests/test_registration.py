@@ -2,11 +2,10 @@
 # Test adding 1 fk dict
 # test adding many-to-many
 # test adding 1 fk, 1 m2m
-
+import django
 from django.test import TestCase
 
-from categories.registration import (_process_registry, register_fk,
-                                        register_m2m)
+from categories.registration import _process_registry, registry
 
 
 class CategoryRegistrationTest(TestCase):
@@ -18,7 +17,7 @@ class CategoryRegistrationTest(TestCase):
         FK_REGISTRY = {
             'flatpages.flatpage': 'category'
         }
-        _process_registry(FK_REGISTRY, register_fk)
+        _process_registry(FK_REGISTRY, registry.register_fk)
         from django.contrib.flatpages.models import FlatPage
         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
 
@@ -26,7 +25,7 @@ class CategoryRegistrationTest(TestCase):
         FK_REGISTRY = {
             'flatpages.flatpage': {'name': 'category'}
         }
-        _process_registry(FK_REGISTRY, register_fk)
+        _process_registry(FK_REGISTRY, registry.register_fk)
         from django.contrib.flatpages.models import FlatPage
         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
 
@@ -36,16 +35,24 @@ class CategoryRegistrationTest(TestCase):
                 {'name': 'category', 'related_name': 'cats'},
             )
         }
-        _process_registry(FK_REGISTRY, register_fk)
+        _process_registry(FK_REGISTRY, registry.register_fk)
+        from django.contrib.flatpages.models import FlatPage
+        self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+
+    if django.VERSION[1] >= 7:
+        def test_new_foreignkey_string(self):
+            registry.register_model('flatpages', 'flatpage', 'ForeignKey', 'category')
+            from django.contrib.flatpages.models import FlatPage
+            self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+
+
+class Categorym2mTest(TestCase):
+    def test_m2m_string(self):
+        M2M_REGISTRY = {
+            'flatpages.flatpage': 'categories'
+        }
+        _process_registry(M2M_REGISTRY, register_m2m)
         from django.contrib.flatpages.models import FlatPage
         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
 
 
-# class Categorym2mTest(TestCase):
-#     def test_m2m_string(self):
-#         M2M_REGISTRY = {
-#             'flatpages.flatpage': 'categories'
-#         }
-#         _process_registry(M2M_REGISTRY, register_m2m)
-#         from django.contrib.flatpages.models import FlatPage
-#         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())

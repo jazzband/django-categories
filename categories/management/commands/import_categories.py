@@ -27,7 +27,7 @@ class Command(BaseCommand):
             else:
                 return ' ' * indent_amt
 
-    @transaction.commit_on_success
+    @transaction.atomic
     def make_category(self, string, parent=None, order=1):
         """
         Make and save a category object from a string

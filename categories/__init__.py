@@ -1,7 +1,7 @@
 __version_info__ = {
     'major': 1,
-    'minor': 2,
-    'micro': 3,
+    'minor': 3,
+    'micro': 0,
     'releaselevel': 'final',
     'serial': 1
 }
@@ -19,13 +19,14 @@ def get_version(short=False):
 __version__ = get_version()
 
 
+default_app_config = 'categories.apps.CategoriesConfig'
+
 def register():
     from categories import settings
     from categories.registration import (_process_registry, register_fk,
                                         register_m2m)
     _process_registry(settings.FK_REGISTRY, register_fk)
     _process_registry(settings.M2M_REGISTRY, register_m2m)
-
 try:
     register()
 except Exception as e:
