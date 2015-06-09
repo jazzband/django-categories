@@ -54,9 +54,14 @@ class Category(CategoryBase):
 
     def get_absolute_url(self):
         """Return a path"""
+        from django.core.urlresolvers import NoReverseMatch
+
         if self.alternate_url:
             return self.alternate_url
-        prefix = reverse('categories_tree_list')
+        try:
+            prefix = reverse('categories_tree_list')
+        except NoReverseMatch:
+            prefix = '/'
         ancestors = list(self.get_ancestors()) + [self, ]
         return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
 
