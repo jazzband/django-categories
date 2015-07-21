@@ -80,9 +80,15 @@ class TreeChangeList(ChangeList):
         else:
             return []
 
-    def get_query_set(self, *args, **kwargs):
-        qs = super(TreeChangeList, self).get_query_set(*args, **kwargs).order_by('tree_id', 'lft')
-        return qs
+    def get_queryset(self, *args, **kwargs):
+        if django.VERSION < (1, 7):
+            qs = super(TreeChangeList, self).get_query_set(*args, **kwargs)
+        else:
+            qs = super(TreeChangeList, self).get_queryset(*args, **kwargs)
+        return qs.order_by('tree_id', 'lft')
+
+    if django.VERSION < (1, 7):
+        get_query_set = get_queryset
 
 
 class TreeEditor(admin.ModelAdmin):
@@ -171,7 +177,10 @@ class TreeEditor(admin.ModelAdmin):
         # Try to look up an action first, but if this isn't an action the POST
         # will fall through to the bulk edit check, below.
         if actions and request.method == 'POST':
-            response = self.response_action(request, queryset=cl.get_query_set())
+            if django.VERSION < (1, 7):
+                response = self.response_action(request, queryset=cl.get_query_set())
+            else:
+                response = self.response_action(request, queryset=cl.get_queryset())
             if response:
                 return response
 
@@ -276,11 +285,17 @@ class TreeEditor(admin.ModelAdmin):
         else:
             return self.old_changelist_view(request, extra_context)
 
-    def queryset(self, request):
+    def get_queryset(self, request):
         """
         Returns a QuerySet of all model instances that can be edited by the
         admin site. This is used by changelist_view.
         """
-        qs = self.model._default_manager.get_query_set()
+        if django.VERSION < (1, 7):
+            qs = self.model._default_manager.get_query_set()
+        else:
+            qs = self.model._default_manager.get_queryset()
         qs.__class__ = TreeEditorQuerySet
         return qs
+
+    if django.VERSION < (1, 7):
+        queryset = get_queryset
