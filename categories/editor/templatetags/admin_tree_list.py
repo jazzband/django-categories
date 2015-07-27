@@ -3,7 +3,7 @@ from django.db import models
 from django.template import Library
 from django.contrib.admin.templatetags.admin_list import result_headers, _boolean_icon
 try:
-    from django.contrib.admin.util import lookup_field, display_for_field, label_for_field
+    from django.contrib.admin.utils import lookup_field, display_for_field, label_for_field
 except ImportError:
     from categories.editor.utils import lookup_field, display_for_field, label_for_field
 from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
