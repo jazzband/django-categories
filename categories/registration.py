@@ -37,7 +37,13 @@ def _process_registry(registry, call_func):
     Given a dictionary, and a registration function, process the registry
     """
     from django.core.exceptions import ImproperlyConfigured
-    from django.db.models.loading import get_model
+    from django.utils.translation import ugettext_lazy as _
+    try:
+        from django.apps import apps
+    except ImportError:
+        from django.db.models.loading import get_model
+    else:
+        get_model = apps.get_model
 
     for key, value in registry.items():
         model = get_model(*key.split('.'))
