@@ -17,13 +17,3 @@ def get_version(short=False):
     return ''.join(vers)
 
 __version__ = get_version()
-
-
-try:
-    from categories import settings
-    from categories.registration import (_process_registry, register_fk,
-                                        register_m2m)
-    _process_registry(settings.FK_REGISTRY, register_fk)
-    _process_registry(settings.M2M_REGISTRY, register_m2m)
-except:
-    pass

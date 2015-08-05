@@ -149,3 +149,12 @@ try:
     post_syncdb.connect(migrate_app)
 except ImportError:
     pass
+
+try:
+    from categories import settings
+    from categories.registration import (_process_registry, register_fk,
+                                        register_m2m)
+    _process_registry(settings.FK_REGISTRY, register_fk)
+    _process_registry(settings.M2M_REGISTRY, register_m2m)
+except:
+    pass
