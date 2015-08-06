@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models, DatabaseError
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import ugettext_lazy as _
@@ -15,6 +16,8 @@ def migrate_app(sender, app, created_models, verbosity, *args, **kwargs):
 
     org_stderror = sys.stderr
     sys.stderr = StringIO.StringIO()  # south will print out errors to stderr
+    if 'south' not in settings.INSTALLED_APPS:
+        return
     try:
         from south.db import db
     except ImportError:

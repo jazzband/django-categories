@@ -1,4 +1,5 @@
 import django
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import force_unicode
@@ -146,7 +147,8 @@ class CategoryRelation(models.Model):
         return u"CategoryRelation"
 
 try:
-    from south.db import db  # South is required for migrating. Need to check for it
+    if 'south' in settings.INSTALLED_APPS:
+        from south.db import db  # South is required for migrating. Need to check for it
     from django.db.models.signals import post_syncdb
     from categories.migration import migrate_app
     post_syncdb.connect(migrate_app)
