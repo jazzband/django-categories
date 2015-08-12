@@ -32,6 +32,7 @@ if RELATION_MODELS:
 class CategoryAdminForm(CategoryBaseAdminForm):
     class Meta:
         model = Category
+        fields = '__all__'
 
     def clean_alternate_title(self):
         if self.instance is None or not self.cleaned_data['alternate_title']:
