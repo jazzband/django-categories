@@ -51,7 +51,7 @@ class Categorym2mTest(TestCase):
         M2M_REGISTRY = {
             'flatpages.flatpage': 'categories'
         }
-        _process_registry(M2M_REGISTRY, register_m2m)
+        _process_registry(M2M_REGISTRY, registry.register_m2m)
         from django.contrib.flatpages.models import FlatPage
         self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
 
