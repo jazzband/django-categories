@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.db import models
 from django import forms
 from django.utils.encoding import force_unicode
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
