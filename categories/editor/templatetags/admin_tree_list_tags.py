@@ -65,7 +65,7 @@ def items_for_tree_result(cl, result, form):
                 if isinstance(f.rel, models.ManyToOneRel):
                     result_repr = escape(getattr(result, f.name))
                 else:
-                    result_repr = display_for_field(value, f)
+                    result_repr = display_for_field(value, f, '')
                 if isinstance(f, models.DateField) or isinstance(f, models.TimeField):
                     row_class = ' class="nowrap"'
             if first:
