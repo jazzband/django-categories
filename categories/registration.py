@@ -119,10 +119,10 @@ def _process_registry(registry, call_func):
     Given a dictionary, and a registration function, process the registry
     """
     from django.core.exceptions import ImproperlyConfigured
-    from django.db.models.loading import get_model
+    from django.apps import apps
 
     for key, value in registry.items():
-        model = get_model(*key.split('.'))
+        model = apps.get_model(*key.split('.'))
         if model is None:
             raise ImproperlyConfigured(_('%(key)s is not a model') % {'key': key})
         if isinstance(value, (tuple, list)):
