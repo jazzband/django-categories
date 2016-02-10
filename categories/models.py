@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.contrib.contenttypes.models import ContentType
 from functools import reduce
 try:
@@ -64,7 +64,7 @@ class Category(CategoryBase):
         except NoReverseMatch:
             prefix = '/'
         ancestors = list(self.get_ancestors()) + [self, ]
-        return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
+        return prefix + '/'.join([force_text(i.slug) for i in ancestors]) + '/'
 
     if RELATION_MODELS:
         def get_related_content_type(self, content_type):
