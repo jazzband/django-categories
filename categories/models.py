@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
+from functools import reduce
 try:
     from django.contrib.contenttypes.fields import GenericForeignKey
 except ImportError:
@@ -141,7 +142,7 @@ class CategoryRelation(models.Model):
     objects = CategoryRelationManager()
 
     def __unicode__(self):
-        return u"CategoryRelation"
+        return "CategoryRelation"
 
 try:
     from south.db import db  # South is required for migrating. Need to check for it

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+
 
 from django.db import connection, transaction
 from django.apps import apps
@@ -47,7 +47,7 @@ def migrate_app(sender, *args, **kwargs):
 
     app_name = app_config.label
 
-    fields = [fld for fld in registry._field_registry.keys() if fld.startswith(app_name)]
+    fields = [fld for fld in list(registry._field_registry.keys()) if fld.startswith(app_name)]
 
     sid = transaction.savepoint()
     for fld in fields:

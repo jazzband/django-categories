@@ -26,12 +26,12 @@ def handle_class_prepared(sender, **kwargs):
     sender_app = sender._meta.app_label
     sender_name = sender._meta.model_name
 
-    for key, val in FK_REGISTRY.items():
+    for key, val in list(FK_REGISTRY.items()):
         app_name, model_name = key.split('.')
         if app_name == sender_app and sender_name == model_name:
             registry.register_model(app_name, sender, 'ForeignKey', val)
 
-    for key, val in M2M_REGISTRY.items():
+    for key, val in list(M2M_REGISTRY.items()):
         app_name, model_name = key.split('.')
         if app_name == sender_app and sender_name == model_name:
             registry.register_model(app_name, sender, 'ManyToManyField', val)

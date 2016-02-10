@@ -91,10 +91,10 @@ def items_for_tree_result(cl, result, form):
             result_id = repr(force_unicode(value))[1:]
             first = False
             if django.VERSION[1] < 4:
-                yield mark_safe(u'<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
+                yield mark_safe('<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
                     (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
             else:
-                yield mark_safe(u'<%s%s><a href="%s"%s>%s</a></%s>' % \
+                yield mark_safe('<%s%s><a href="%s"%s>%s</a></%s>' % \
                     (table_tag, row_class, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
 
         else:
@@ -106,9 +106,9 @@ def items_for_tree_result(cl, result, form):
                 result_repr = mark_safe(force_unicode(bf.errors) + force_unicode(bf))
             else:
                 result_repr = conditional_escape(result_repr)
-            yield mark_safe(u'<td%s>%s</td>' % (row_class, result_repr))
+            yield mark_safe('<td%s>%s</td>' % (row_class, result_repr))
     if form and not form[cl.model._meta.pk.name].is_hidden:
-        yield mark_safe(u'<td>%s</td>' % force_unicode(form[cl.model._meta.pk.name]))
+        yield mark_safe('<td>%s</td>' % force_unicode(form[cl.model._meta.pk.name]))
 
 
 class TreeList(list):

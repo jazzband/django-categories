@@ -11,6 +11,7 @@ from django.utils.translation import get_date_formats
 from django.utils.text import capfirst
 from django.utils import dateformat
 from django.utils.html import escape
+import collections
 
 
 def lookup_field(name, obj, model_admin=None):
@@ -20,7 +21,7 @@ def lookup_field(name, obj, model_admin=None):
     except models.FieldDoesNotExist:
         # For non-field values, the value is either a method, property or
         # returned via a callable.
-        if callable(name):
+        if isinstance(name, collections.Callable):
             attr = name
             value = attr(obj)
         elif (model_admin is not None and hasattr(model_admin, name) and
@@ -29,7 +30,7 @@ def lookup_field(name, obj, model_admin=None):
             value = attr(obj)
         else:
             attr = getattr(obj, name)
-            if callable(attr):
+            if isinstance(attr, collections.Callable):
                 value = attr()
             else:
                 value = attr
@@ -57,12 +58,12 @@ def label_for_field(name, model, model_admin=None, return_attr=False):
     except models.FieldDoesNotExist:
         if name == "__unicode__":
             label = force_unicode(model._meta.verbose_name)
-            attr = unicode
+            attr = str
         elif name == "__str__":
             label = smart_str(model._meta.verbose_name)
             attr = str
         else:
-            if callable(name):
+            if isinstance(name, collections.Callable):
                 attr = name
             elif model_admin is not None and hasattr(model_admin, name):
                 attr = getattr(model_admin, name)
@@ -76,7 +77,7 @@ def label_for_field(name, model, model_admin=None, return_attr=False):
 
             if hasattr(attr, "short_description"):
                 label = attr.short_description
-            elif callable(attr):
+            elif isinstance(attr, collections.Callable):
                 if attr.__name__ == "<lambda>":
                     label = "--"
                 else:

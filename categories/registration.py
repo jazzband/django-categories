@@ -2,7 +2,7 @@
 These functions handle the adding of fields to other models
 """
 from django.db.models import FieldDoesNotExist, ForeignKey, ManyToManyField
-import fields
+from . import fields
 # from settings import self._field_registry, self._model_registry
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ImproperlyConfigured
@@ -32,7 +32,7 @@ class Registry(object):
 
         app_label = app
 
-        if isinstance(field_definitions, basestring):
+        if isinstance(field_definitions, str):
             field_definitions = [field_definitions]
         elif not isinstance(field_definitions, collections.Iterable):
             raise ImproperlyConfigured(_('Field configuration for %(app)s should '
@@ -64,7 +64,7 @@ class Registry(object):
             extra_params = {'to': 'categories.Category', 'blank': True}
             if field_type != 'ManyToManyField':
                 extra_params['null'] = True
-            if isinstance(fld, basestring):
+            if isinstance(fld, str):
                 field_name = fld
             elif isinstance(fld, dict):
                 if 'name' in fld:
@@ -121,13 +121,13 @@ def _process_registry(registry, call_func):
     from django.core.exceptions import ImproperlyConfigured
     from django.db.models.loading import get_model
 
-    for key, value in registry.items():
+    for key, value in list(registry.items()):
         model = get_model(*key.split('.'))
         if model is None:
             raise ImproperlyConfigured(_('%(key)s is not a model') % {'key': key})
         if isinstance(value, (tuple, list)):
             for item in value:
-                if isinstance(item, basestring):
+                if isinstance(item, str):
                     call_func(model, item)
                 elif isinstance(item, dict):
                     field_name = item.pop('name')
@@ -135,7 +135,7 @@ def _process_registry(registry, call_func):
                 else:
                     raise ImproperlyConfigured(_("%(settings)s doesn't recognize the value of %(key)s") %
                                                {'settings': 'CATEGORY_SETTINGS', 'key': key})
-        elif isinstance(value, basestring):
+        elif isinstance(value, str):
             call_func(model, value)
         elif isinstance(value, dict):
             field_name = value.pop('name')

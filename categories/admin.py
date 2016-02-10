@@ -11,7 +11,7 @@ from .settings import MODEL_REGISTRY
 
 class NullTreeNodeChoiceField(forms.ModelChoiceField):
     """A ModelChoiceField for tree nodes."""
-    def __init__(self, level_indicator=u'---', *args, **kwargs):
+    def __init__(self, level_indicator='---', *args, **kwargs):
         self.level_indicator = level_indicator
         super(NullTreeNodeChoiceField, self).__init__(*args, **kwargs)
 
@@ -20,7 +20,7 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         Creates labels which represent the tree level of each node when
         generating option labels.
         """
-        return u'%s %s' % (self.level_indicator * getattr(
+        return '%s %s' % (self.level_indicator * getattr(
                                         obj, obj._mptt_meta.level_attr), obj)
 if RELATION_MODELS:
     from .models import CategoryRelation
@@ -68,8 +68,8 @@ class CategoryAdmin(CategoryBaseAdmin):
 if REGISTER_ADMIN:
     admin.site.register(Category, CategoryAdmin)
 
-for model, modeladmin in admin.site._registry.items():
-    if model in MODEL_REGISTRY.values() and modeladmin.fieldsets:
+for model, modeladmin in list(admin.site._registry.items()):
+    if model in list(MODEL_REGISTRY.values()) and modeladmin.fieldsets:
         fieldsets = getattr(modeladmin, 'fieldsets', ())
         fields = [cat.split('.')[2] for cat in MODEL_REGISTRY if MODEL_REGISTRY[cat] == model]
         # check each field to see if already defined

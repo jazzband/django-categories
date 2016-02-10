@@ -30,7 +30,7 @@ def get_cat_model(model):
     Return a class from a string or class
     """
     try:
-        if isinstance(model, basestring):
+        if isinstance(model, str):
             model_class = get_model(*model.split("."))
         elif issubclass(model, CategoryBase):
             model_class = model
@@ -119,13 +119,13 @@ def get_category_drilldown(parser, token):
                 '{%% %(tagname)s category_obj as varname %%}.'
     if len(bits) == 4:
         if bits[2] != 'as':
-            raise template.TemplateSyntaxError, error_str % {'tagname': bits[0]}
+            raise template.TemplateSyntaxError(error_str % {'tagname': bits[0]})
         if bits[2] == 'as':
             varname = bits[3].strip("'\"")
             model = "categories.category"
     if len(bits) == 6:
         if bits[2] not in ('using', 'as') or bits[4] not in ('using', 'as'):
-            raise template.TemplateSyntaxError, error_str % {'tagname': bits[0]}
+            raise template.TemplateSyntaxError(error_str % {'tagname': bits[0]})
         if bits[2] == 'as':
             varname = bits[3].strip("'\"")
             model = bits[5].strip("'\"")

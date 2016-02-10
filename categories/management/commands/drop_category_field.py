@@ -21,6 +21,6 @@ class Command(BaseCommand):
 
         from categories.migration import drop_field
         if len(args) != 3:
-            print "You must specify an Application name, a Model name and a Field name"
+            print("You must specify an Application name, a Model name and a Field name")
 
         drop_field(*args)
