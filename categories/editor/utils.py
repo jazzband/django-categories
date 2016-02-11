@@ -1,7 +1,7 @@
 """
 Provides compatibility with Django 1.1
 
-Copied from django.contrib.admin.util
+Copied from django.contrib.admin.utils
 """
 from django.forms.forms import pretty_name
 from django.db import models
