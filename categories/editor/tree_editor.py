@@ -38,8 +38,7 @@ class TreeEditorQuerySet(QuerySet):
             # will already be in include_pages when they are checked, thus not
             # trigger additional queries.
             for p in super(TreeEditorQuerySet, self.order_by('rght')).iterator():
-                if p.parent_id and p.parent_id not in include_pages and \
-                                   p.id not in include_pages:
+                if p.parent_id and p.parent_id not in include_pages and p.id not in include_pages:
                     ancestor_id_list = p.get_ancestors().values_list('id', flat=True)
                     include_pages.update(ancestor_id_list)
 
@@ -145,12 +144,14 @@ class TreeEditor(admin.ModelAdmin):
 
         try:
             if django.VERSION[1] < 4:
-                params = (request, self.model, list_display,
+                params = (
+                    request, self.model, list_display,
                     self.list_display_links, self.list_filter, self.date_hierarchy,
                     self.search_fields, self.list_select_related,
                     self.list_per_page, self.list_editable, self)
             else:
-                params = (request, self.model, list_display,
+                params = (
+                    request, self.model, list_display,
                     self.list_display_links, self.list_filter, self.date_hierarchy,
                     self.search_fields, self.list_select_related,
                     self.list_per_page, self.list_max_show_all,
@@ -244,8 +245,7 @@ class TreeEditor(admin.ModelAdmin):
         if django.VERSION[1] < 4:
             context['root_path'] = self.admin_site.root_path
         else:
-            selection_note_all = ungettext('%(total_count)s selected',
-                'All %(total_count)s selected', cl.result_count)
+            selection_note_all = ungettext('%(total_count)s selected', 'All %(total_count)s selected', cl.result_count)
 
             context.update({
                 'module_name': force_text(opts.verbose_name_plural),

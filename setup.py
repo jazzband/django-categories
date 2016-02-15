@@ -25,6 +25,6 @@ setup(
     classifiers=[
         'Framework :: Django',
     ],
-    install_requires = reqs,
-    dependency_links = []
+    install_requires=reqs,
+    dependency_links=[]
 )

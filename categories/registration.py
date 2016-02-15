@@ -35,8 +35,7 @@ class Registry(object):
         if isinstance(field_definitions, str):
             field_definitions = [field_definitions]
         elif not isinstance(field_definitions, collections.Iterable):
-            raise ImproperlyConfigured(_('Field configuration for %(app)s should '
-                'be a string or iterable') % {'app': app})
+            raise ImproperlyConfigured(_('Field configuration for %(app)s should be a string or iterable') % {'app': app})
 
         if field_type not in ('ForeignKey', 'ManyToManyField'):
             raise ImproperlyConfigured(_('`field_type` must be either `"ForeignKey"` or `"ManyToManyField"`.'))
@@ -73,8 +72,8 @@ class Registry(object):
                     continue
                 extra_params.update(fld)
             else:
-                raise ImproperlyConfigured(_("%(settings)s doesn't recognize the "
-                    "value of %(app)s.%(model)s") % {
+                raise ImproperlyConfigured(
+                    _("%(settings)s doesn't recognize the value of %(app)s.%(model)s") % {
                         'settings': 'CATEGORY_SETTINGS',
                         'app': app,
                         'model': model_name})

@@ -1,8 +1,12 @@
+from categories import models, settings
+from categories.base import CategoryBase
+
+
 class Category(CategoryBase):
     thumbnail = models.FileField(
-        upload_to=THUMBNAIL_UPLOAD_PATH, 
+        upload_to=settings.THUMBNAIL_UPLOAD_PATH,
         null=True, blank=True,
-        storage=STORAGE(),)
+        storage=settings.THUMBNAIL_STORAGE,)
     thumbnail_width = models.IntegerField(blank=True, null=True)
     thumbnail_height = models.IntegerField(blank=True, null=True)
     order = models.IntegerField(default=0)
@@ -12,8 +16,8 @@ class Category(CategoryBase):
         max_length=100,
         help_text="An alternative title to use on pages with this category.")
     alternate_url = models.CharField(
-        blank=True, 
-        max_length=200, 
+        blank=True,
+        max_length=200,
         help_text="An alternative URL to use instead of the one derived from "
                   "the category hierarchy.")
     description = models.TextField(blank=True, null=True)

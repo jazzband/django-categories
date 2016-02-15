@@ -14,10 +14,6 @@ class Command(BaseCommand):
         """
         Alter the tables
         """
-        try:
-            from south.db import db
-        except ImportError:
-            raise ImproperlyConfigured("South must be installed for this command to work")
 
         from categories.migration import drop_field
         if len(args) != 3:

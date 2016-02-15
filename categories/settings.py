@@ -5,7 +5,6 @@ import collections
 
 DEFAULT_SETTINGS = {
     'ALLOW_SLUG_CHANGE': False,
-    'RELATION_MODELS': [],
     'M2M_REGISTRY': {},
     'FK_REGISTRY': {},
     'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
@@ -37,7 +36,7 @@ else:
 # Add all the keys/values to the module's namespace
 globals().update(DEFAULT_SETTINGS)
 
-RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in RELATION_MODELS]]
+RELATIONS = [Q(app_label=al, model=m) for al, m in [x.split('.') for x in DEFAULT_SETTINGS['RELATION_MODELS']]]
 
 # The field registry keeps track of the individual fields created.
 #  {'app.model.field': Field(**extra_params)}

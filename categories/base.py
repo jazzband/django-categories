@@ -35,7 +35,8 @@ class CategoryBase(MPTTModel):
     This base model includes the absolute bare bones fields and methods. One
     could simply subclass this model and do nothing else and it should work.
     """
-    parent = TreeForeignKey('self',
+    parent = TreeForeignKey(
+        'self',
         blank=True,
         null=True,
         related_name='children',
@@ -99,9 +100,7 @@ class CategoryBaseAdminForm(forms.ModelForm):
             kwargs['parent__isnull'] = True
         else:
             kwargs['parent__pk'] = int(self.cleaned_data['parent'].id)
-        this_level_slugs = [c['slug'] for c in opts.model.objects.filter(
-                                **kwargs).values('id', 'slug'
-                                ) if c['id'] != self.instance.id]
+        this_level_slugs = [c['slug'] for c in opts.model.objects.filter(**kwargs).values('id', 'slug') if c['id'] != self.instance.id]
         if self.cleaned_data['slug'] in this_level_slugs:
             raise forms.ValidationError(_('The slug must be unique among '
                                           'the items at its level.'))

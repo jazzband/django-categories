@@ -54,8 +54,7 @@ def get_category(category_string, model=Category):
     if len(cat_list) == 0:
         return None
     try:
-        categories = model_class.objects.filter(name=cat_list[-1],
-                                          level=len(cat_list) - 1)
+        categories = model_class.objects.filter(name=cat_list[-1], level=len(cat_list) - 1)
         if len(cat_list) == 1 and len(categories) > 1:
             return None
         # If there is only one, use it. If there is more than one, check
@@ -265,8 +264,7 @@ def get_top_level_categories(parser, token):
     return TopLevelCategoriesNode(varname, model)
 
 
-def get_latest_objects_by_category(category, app_label, model_name, set_name,
-                                    date_field='pub_date', num=15):
+def get_latest_objects_by_category(category, app_label, model_name, set_name, date_field='pub_date', num=15):
     m = apps.get_model(app_label, model_name)
     if not isinstance(category, CategoryBase):
         category = Category.objects.get(slug=str(category))
@@ -304,8 +302,7 @@ class LatestObjectsNode(Node):
         date_field = resolve(self.date_field, context)
         num = resolve(self.num, context)
 
-        result = get_latest_objects_by_category(category, app_label, model_name,
-                            set_name, date_field, num)
+        result = get_latest_objects_by_category(category, app_label, model_name, set_name, date_field, num)
         context[self.var_name] = result
 
         return ''
@@ -339,8 +336,7 @@ def do_get_latest_objects_by_category(parser, token):
         num = FilterExpression(bits[6], parser)
     else:
         num = FilterExpression(None, parser)
-    return LatestObjectsNode(var_name, category, app_label, model_name, set_name,
-                     date_field, num)
+    return LatestObjectsNode(var_name, category, app_label, model_name, set_name, date_field, num)
 
 register.tag("get_latest_objects_by_category", do_get_latest_objects_by_category)
 
@@ -369,8 +365,7 @@ def tree_queryset(value):
         # will already be in include_pages when they are checked, thus not
         # trigger additional queries.
         for p in qs2.order_by('rght').iterator():
-            if p.parent_id and p.parent_id not in include_pages and \
-                               p.id not in include_pages:
+            if p.parent_id and p.parent_id not in include_pages and p.id not in include_pages:
                 ancestor_id_list = p.get_ancestors().values_list('id', flat=True)
                 include_pages.update(ancestor_id_list)
 

@@ -20,8 +20,8 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         Creates labels which represent the tree level of each node when
         generating option labels.
         """
-        return '%s %s' % (self.level_indicator * getattr(
-                                        obj, obj._mptt_meta.level_attr), obj)
+        return '%s %s' % (self.level_indicator * getattr(obj, obj._mptt_meta.level_attr), obj)
+
 if RELATION_MODELS:
     from .models import CategoryRelation
 
@@ -50,7 +50,7 @@ class CategoryAdmin(CategoryBaseAdmin):
         }),
         (_('Meta Data'), {
             'fields': ('alternate_title', 'alternate_url', 'description',
-                        'meta_keywords', 'meta_extra'),
+                       'meta_keywords', 'meta_extra'),
             'classes': ('collapse',),
         }),
         (_('Advanced'), {
