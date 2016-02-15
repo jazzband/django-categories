@@ -83,7 +83,7 @@ class Command(BaseCommand):
             if not os.path.isfile(file_path):
                 print("File %s not found." % file_path)
                 continue
-            f = file(file_path, 'r')
+            f = open(file_path, 'r')
             data = f.readlines()
             f.close()
 
