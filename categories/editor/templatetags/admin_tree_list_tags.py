@@ -6,7 +6,6 @@ try:
     from django.contrib.admin.utils import lookup_field, display_for_field, label_for_field
 except ImportError:
     from categories.editor.utils import lookup_field, display_for_field, label_for_field
-from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.encoding import smart_text, force_text
 from django.utils.html import escape, conditional_escape
@@ -21,6 +20,15 @@ if settings.IS_GRAPPELLI_INSTALLED:
     TREE_LIST_RESULTS_TEMPLATE = 'admin/editor/grappelli_tree_list_results.html'
 
 
+def get_empty_value_display(cl):
+    if hasattr(cl.model_admin, 'get_empty_value_display'):
+        return cl.model_admin.get_empty_value_display()
+    else:
+        # Django < 1.9
+        from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
+        return EMPTY_CHANGELIST_VALUE
+
+
 def items_for_tree_result(cl, result, form):
     """
     Generates the actual list of data.
@@ -32,7 +40,7 @@ def items_for_tree_result(cl, result, form):
         try:
             f, attr, value = lookup_field(field_name, result, cl.model_admin)
         except (AttributeError, ObjectDoesNotExist):
-            result_repr = EMPTY_CHANGELIST_VALUE
+            result_repr = get_empty_value_display(cl)
         else:
             if f is None:
                 if django.VERSION[1] == 4:
@@ -53,7 +61,7 @@ def items_for_tree_result(cl, result, form):
                     result_repr = mark_safe(result_repr)
             else:
                 if value is None:
-                    result_repr = EMPTY_CHANGELIST_VALUE
+                    result_repr = get_empty_value_display(cl)
                 if isinstance(f.rel, models.ManyToOneRel):
                     result_repr = escape(getattr(result, f.name))
                 else:
