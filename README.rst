@@ -13,6 +13,13 @@ Django Categories grew out of our need to provide a basic hierarchical taxonomy 
 
 As a news site, our stories, photos, and other content get divided into "sections" and we wanted all the apps to use the same set of sections. As our needs grew, the Django Categories grew in the functionality it gave to category handling within web pages.
 
+New in 1.4
+==========
+
+*  Support for Python 2.7, 3.4 and 3.5
+*  Support for Django 1.9
+*  Major help from Brent O'Connor (epicserve)
+
 New in 1.3
 ==========
 
