@@ -5,6 +5,7 @@ branches:
     - master
 
 env:
+  - TOXENV=py27-lint
   - TOXENV=py27-django18
   - TOXENV=py27-django19
   - TOXENV=py34-django18

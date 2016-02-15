@@ -14,11 +14,6 @@ class Command(BaseCommand):
         """
         Alter the tables
         """
-        from django.core.exceptions import ImproperlyConfigured
-        try:
-            from south.db import db
-        except ImportError:
-            raise ImproperlyConfigured("South must be installed for this command to work")
 
         from categories.migration import migrate_app
         from categories.settings import MODEL_REGISTRY

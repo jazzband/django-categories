@@ -35,7 +35,7 @@ class Command(BaseCommand):
         cat = Category(
             name=string.strip(),
             slug=slugify(SLUG_TRANSLITERATOR(string.strip()))[:49],
-            #parent=parent,
+            # arent=parent,
             order=order
         )
         cat._tree_manager.insert_node(cat, parent, 'last-child', True)

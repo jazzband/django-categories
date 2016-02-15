@@ -1,3 +1,6 @@
+from categories.models import Category
+
+
 def save(self, *args, **kwargs):
     if self.thumbnail:
         from django.core.files.images import get_image_dimensions
@@ -8,8 +11,8 @@ def save(self, *args, **kwargs):
             width, height = get_image_dimensions(self.thumbnail.file, close=True)
     else:
         width, height = None, None
-    
+
     self.thumbnail_width = width
     self.thumbnail_height = height
-    
+
     super(Category, self).save(*args, **kwargs)

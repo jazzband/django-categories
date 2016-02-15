@@ -21,6 +21,7 @@ __version__ = get_version()
 
 default_app_config = 'categories.apps.CategoriesConfig'
 
+
 def register():
     from categories import settings
     from categories.registration import (_process_registry, registry)

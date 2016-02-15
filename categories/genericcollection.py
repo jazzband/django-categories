@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
 
+
 class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
     ct_field = "content_type"
     ct_fk_field = "object_id"
@@ -16,6 +17,7 @@ class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
         result.content_types = self.content_types
         result.ct_fk_field = self.ct_fk_field
         return result
+
 
 class GenericCollectionTabularInline(GenericCollectionInlineModelAdmin):
     template = 'admin/edit_inline/gen_coll_tabular.html'

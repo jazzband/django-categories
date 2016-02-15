@@ -11,8 +11,7 @@ from django.core.files.storage import get_storage_class
 
 from django.utils.translation import ugettext_lazy as _
 
-from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH,
-                        THUMBNAIL_STORAGE)
+from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, THUMBNAIL_STORAGE)
 
 from .base import CategoryBase
 
@@ -133,7 +132,8 @@ class CategoryRelation(models.Model):
         ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = GenericForeignKey('content_type', 'object_id')
-    relation_type = models.CharField(verbose_name=_('relation type'),
+    relation_type = models.CharField(
+        verbose_name=_('relation type'),
         max_length=200,
         blank=True,
         null=True,
@@ -145,7 +145,7 @@ class CategoryRelation(models.Model):
         return "CategoryRelation"
 
 try:
-    from south.db import db  # South is required for migrating. Need to check for it
+    from south.db import db  # noqa, South is required for migrating. Need to check for it
     from django.db.models.signals import post_syncdb
     from categories.migration import migrate_app
     post_syncdb.connect(migrate_app)

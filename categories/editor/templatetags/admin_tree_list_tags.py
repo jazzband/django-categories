@@ -3,9 +3,9 @@ from django.db import models
 from django.template import Library
 from django.contrib.admin.templatetags.admin_list import result_headers, _boolean_icon
 try:
-    from django.contrib.admin.utils import lookup_field, display_for_field, label_for_field
+    from django.contrib.admin.utils import lookup_field, display_for_field
 except ImportError:
-    from categories.editor.utils import lookup_field, display_for_field, label_for_field
+    from categories.editor.utils import lookup_field, display_for_field
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.encoding import smart_text, force_text
 from django.utils.html import escape, conditional_escape
@@ -99,10 +99,12 @@ def items_for_tree_result(cl, result, form):
             result_id = repr(force_text(value))[1:]
             first = False
             if django.VERSION[1] < 4:
-                yield mark_safe('<%s%s>%s<a href="%s"%s>%s</a></%s>' % \
+                yield mark_safe(
+                    '<%s%s>%s<a href="%s"%s>%s</a></%s>' %
                     (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
             else:
-                yield mark_safe('<%s%s><a href="%s"%s>%s</a></%s>' % \
+                yield mark_safe(
+                    '<%s%s><a href="%s"%s>%s</a></%s>' %
                     (table_tag, row_class, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
 
         else:
@@ -151,9 +153,11 @@ def result_tree_list(cl):
     Displays the headers and data list together
     """
     import django
-    result = {'cl': cl,
-            'result_headers': list(result_headers(cl)),
-            'results': list(tree_results(cl))}
+    result = {
+        'cl': cl,
+        'result_headers': list(result_headers(cl)),
+        'results': list(tree_results(cl))
+    }
     if django.VERSION[1] > 2:
         from django.contrib.admin.templatetags.admin_list import result_hidden_fields
         result['result_hidden_fields'] = list(result_hidden_fields(cl))

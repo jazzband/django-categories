@@ -4,6 +4,7 @@ from categories.admin import CategoryBaseAdmin
 
 from .models import SimpleCategory
 
+
 class SimpleCategoryAdmin(CategoryBaseAdmin):
     pass
 
