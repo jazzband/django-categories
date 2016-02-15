@@ -134,7 +134,7 @@ class CategoryRelation(models.Model):
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(verbose_name=_('relation type'),
-        max_length="200",
+        max_length=200,
         blank=True,
         null=True,
         help_text=_("A generic text field to tag a relation, like 'leadphoto'."))
