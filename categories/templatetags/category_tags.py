@@ -2,6 +2,7 @@ from django import template
 from django.apps import apps
 from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist)
 from django.template.base import FilterExpression
+from django.utils.six import string_types
 from categories.base import CategoryBase
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node
@@ -30,7 +31,7 @@ def get_cat_model(model):
     Return a class from a string or class
     """
     try:
-        if isinstance(model, str):
+        if isinstance(model, string_types):
             model_class = apps.get_model(*model.split("."))
         elif issubclass(model, CategoryBase):
             model_class = model
