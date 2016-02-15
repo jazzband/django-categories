@@ -7,7 +7,6 @@ APP = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJ_ROOT = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, APP)
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -66,11 +65,6 @@ STATICFILES_FINDERS = (
 
 SECRET_KEY = 'bwq#m)-zsey-fs)0#4*o=2z(v5g!ei=zytl9t-1hesh4b&-u^d'
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -81,9 +75,16 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = (
-    os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates')),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))],
+        'OPTIONS': {
+            'debug': DEBUG,
+        }
+    },
+]
 
 if django.VERSION[1] > 5:
     TEST_RUNNER = 'django.test.runner.DiscoverRunner'

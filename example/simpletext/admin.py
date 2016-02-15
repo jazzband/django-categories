@@ -1,4 +1,4 @@
-from models import SimpleText, SimpleCategory
+from .models import SimpleText, SimpleCategory
 from django.contrib import admin
 
 from categories.admin import CategoryBaseAdmin, CategoryBaseAdminForm

@@ -19,7 +19,7 @@ class CategoryRegistrationTest(TestCase):
         }
         _process_registry(FK_REGISTRY, registry.register_fk)
         from django.contrib.flatpages.models import FlatPage
-        self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+        self.assertTrue('category' in [f.name for f in FlatPage()._meta.get_fields()])
 
     def test_foreignkey_dict(self):
         FK_REGISTRY = {
@@ -27,7 +27,7 @@ class CategoryRegistrationTest(TestCase):
         }
         _process_registry(FK_REGISTRY, registry.register_fk)
         from django.contrib.flatpages.models import FlatPage
-        self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+        self.assertTrue('category' in [f.name for f in FlatPage()._meta.get_fields()])
 
     def test_foreignkey_list(self):
         FK_REGISTRY = {
@@ -37,13 +37,13 @@ class CategoryRegistrationTest(TestCase):
         }
         _process_registry(FK_REGISTRY, registry.register_fk)
         from django.contrib.flatpages.models import FlatPage
-        self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+        self.assertTrue('category' in [f.name for f in FlatPage()._meta.get_fields()])
 
     if django.VERSION[1] >= 7:
         def test_new_foreignkey_string(self):
             registry.register_model('flatpages', 'flatpage', 'ForeignKey', 'category')
             from django.contrib.flatpages.models import FlatPage
-            self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+            self.assertTrue('category' in [f.name for f in FlatPage()._meta.get_fields()])
 
 
 class Categorym2mTest(TestCase):
@@ -53,6 +53,6 @@ class Categorym2mTest(TestCase):
         }
         _process_registry(M2M_REGISTRY, registry.register_m2m)
         from django.contrib.flatpages.models import FlatPage
-        self.assertTrue('category' in FlatPage()._meta.get_all_field_names())
+        self.assertTrue('category' in [f.name for f in FlatPage()._meta.get_fields()])
 
 

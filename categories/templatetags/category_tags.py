@@ -1,7 +1,8 @@
 from django import template
-from django.db.models import get_model
+from django.apps import apps
 from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist)
 from django.template.base import FilterExpression
+from django.utils.six import string_types
 from categories.base import CategoryBase
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node
@@ -30,8 +31,8 @@ def get_cat_model(model):
     Return a class from a string or class
     """
     try:
-        if isinstance(model, basestring):
-            model_class = get_model(*model.split("."))
+        if isinstance(model, string_types):
+            model_class = apps.get_model(*model.split("."))
         elif issubclass(model, CategoryBase):
             model_class = model
         if model_class is None:
@@ -119,13 +120,13 @@ def get_category_drilldown(parser, token):
                 '{%% %(tagname)s category_obj as varname %%}.'
     if len(bits) == 4:
         if bits[2] != 'as':
-            raise template.TemplateSyntaxError, error_str % {'tagname': bits[0]}
+            raise template.TemplateSyntaxError(error_str % {'tagname': bits[0]})
         if bits[2] == 'as':
             varname = bits[3].strip("'\"")
             model = "categories.category"
     if len(bits) == 6:
         if bits[2] not in ('using', 'as') or bits[4] not in ('using', 'as'):
-            raise template.TemplateSyntaxError, error_str % {'tagname': bits[0]}
+            raise template.TemplateSyntaxError(error_str % {'tagname': bits[0]})
         if bits[2] == 'as':
             varname = bits[3].strip("'\"")
             model = bits[5].strip("'\"")
@@ -266,7 +267,7 @@ def get_top_level_categories(parser, token):
 
 def get_latest_objects_by_category(category, app_label, model_name, set_name,
                                     date_field='pub_date', num=15):
-    m = get_model(app_label, model_name)
+    m = apps.get_model(app_label, model_name)
     if not isinstance(category, CategoryBase):
         category = Category.objects.get(slug=str(category))
     children = category.children.all()

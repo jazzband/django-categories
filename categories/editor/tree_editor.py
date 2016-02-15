@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 
 import django
 
-import settings
+from . import settings
 
 
 class TreeEditorQuerySet(QuerySet):
@@ -125,7 +125,7 @@ class TreeEditor(admin.ModelAdmin):
         "The 'change list' admin view for this model."
         from django.contrib.admin.views.main import ERROR_FLAG
         from django.core.exceptions import PermissionDenied
-        from django.utils.encoding import force_unicode
+        from django.utils.encoding import force_text
         from django.utils.translation import ungettext
         opts = self.model._meta
         app_label = opts.app_label
@@ -162,7 +162,7 @@ class TreeEditor(admin.ModelAdmin):
             # parameter via the query string. If wacky parameters were given and
             # the 'invalid=1' parameter was already in the query string, something
             # is screwed up with the database, so display an error page.
-            if ERROR_FLAG in request.GET.keys():
+            if ERROR_FLAG in list(request.GET.keys()):
                 return render_to_response(
                     'admin/invalid_setup.html', {'title': _('Database error')})
             return HttpResponseRedirect(request.path + '?' + ERROR_FLAG + '=1')
@@ -199,15 +199,15 @@ class TreeEditor(admin.ModelAdmin):
 
                 if changecount:
                     if changecount == 1:
-                        name = force_unicode(opts.verbose_name)
+                        name = force_text(opts.verbose_name)
                     else:
-                        name = force_unicode(opts.verbose_name_plural)
+                        name = force_text(opts.verbose_name_plural)
                     msg = ungettext(
                         "%(count)s %(name)s was changed successfully.",
                         "%(count)s %(name)s were changed successfully.",
                         changecount) % {'count': changecount,
                                         'name': name,
-                                        'obj': force_unicode(obj)}
+                                        'obj': force_text(obj)}
                     self.message_user(request, msg)
 
                 return HttpResponseRedirect(request.get_full_path())
@@ -248,7 +248,7 @@ class TreeEditor(admin.ModelAdmin):
                 'All %(total_count)s selected', cl.result_count)
 
             context.update({
-                'module_name': force_unicode(opts.verbose_name_plural),
+                'module_name': force_text(opts.verbose_name_plural),
                 'selection_note': _('0 of %(cnt)s selected') % {'cnt': len(cl.result_list)},
                 'selection_note_all': selection_note_all % {'total_count': cl.result_count},
             })

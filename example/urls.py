@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, include
+from django.conf.urls import include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.views.static import serve
+
 admin.autodiscover()
 
 
@@ -9,7 +11,7 @@ import os
 
 ROOT_PATH = os.path.dirname(os.path.dirname(__file__))
 
-urlpatterns = patterns('',
+urlpatterns = (
     # Example:
     # (r'^sample/', include('sample.foo.urls')),
 
@@ -18,18 +20,18 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    (r'^admin/', include(admin.site.urls)),
-    (r'^categories/', include('categories.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^categories/', include('categories.urls')),
     #(r'^cats/', include('categories.urls')),
 
-    (r'^static/categories/(?P<path>.*)$', 'django.views.static.serve',
+    url(r'^static/categories/(?P<path>.*)$', serve,
         {'document_root': ROOT_PATH + '/categories/media/categories/'}),
 
     # (r'^static/editor/(?P<path>.*)$', 'django.views.static.serve',
     #     {'document_root': ROOT_PATH + '/editor/media/editor/',
     #      'show_indexes':True}),
 
-     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+    url(r'^static/(?P<path>.*)$', serve,
          {'document_root': os.path.join(ROOT_PATH, 'example', 'static')}),
 
 )

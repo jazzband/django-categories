@@ -40,8 +40,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Django Categories'
-copyright = u'2010-2012, Corey Oordt'
+project = 'Django Categories'
+copyright = '2010-2012, Corey Oordt'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -175,8 +175,8 @@ htmlhelp_basename = 'DjangoCategoriesdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'DjangoCategories.tex', u'Django Categories Documentation',
-   u'CoreyOordt', 'manual'),
+  ('index', 'DjangoCategories.tex', 'Django Categories Documentation',
+   'CoreyOordt', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

@@ -1,7 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.contrib.contenttypes.models import ContentType
+from functools import reduce
 try:
     from django.contrib.contenttypes.fields import GenericForeignKey
 except ImportError:
@@ -63,7 +64,7 @@ class Category(CategoryBase):
         except NoReverseMatch:
             prefix = '/'
         ancestors = list(self.get_ancestors()) + [self, ]
-        return prefix + '/'.join([force_unicode(i.slug) for i in ancestors]) + '/'
+        return prefix + '/'.join([force_text(i.slug) for i in ancestors]) + '/'
 
     if RELATION_MODELS:
         def get_related_content_type(self, content_type):
@@ -133,7 +134,7 @@ class CategoryRelation(models.Model):
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(verbose_name=_('relation type'),
-        max_length="200",
+        max_length=200,
         blank=True,
         null=True,
         help_text=_("A generic text field to tag a relation, like 'leadphoto'."))
@@ -141,7 +142,7 @@ class CategoryRelation(models.Model):
     objects = CategoryRelationManager()
 
     def __unicode__(self):
-        return u"CategoryRelation"
+        return "CategoryRelation"
 
 try:
     from south.db import db  # South is required for migrating. Need to check for it

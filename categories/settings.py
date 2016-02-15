@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
+import collections
 
 DEFAULT_SETTINGS = {
     'ALLOW_SLUG_CHANGE': False,
@@ -18,9 +19,9 @@ DEFAULT_SETTINGS = {
 DEFAULT_SETTINGS.update(getattr(settings, 'CATEGORIES_SETTINGS', {}))
 
 if DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']:
-    if callable(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR']):
+    if isinstance(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'], collections.Callable):
         pass
-    elif isinstance(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'], basestring):
+    elif isinstance(DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'], str):
         from django.utils.importlib import import_module
         bits = DEFAULT_SETTINGS['SLUG_TRANSLITERATOR'].split(".")
         module = import_module(".".join(bits[:-1]))

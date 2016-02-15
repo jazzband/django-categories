@@ -1,5 +1,6 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from .models import Category
+from . import views
 
 try:
     from django.views.generic import DetailView, ListView
@@ -15,12 +16,12 @@ categorytree_dict = {
     'queryset': Category.objects.filter(level=0)
 }
 
-urlpatterns = patterns('',
+urlpatterns = (
     url(
         r'^$', ListView.as_view(**categorytree_dict), name='categories_tree_list'
     ),
 )
 
-urlpatterns += patterns('categories.views',
-    url(r'^(?P<path>.+)/$', 'category_detail', name='categories_category'),
+urlpatterns += (
+    url(r'^(?P<path>.+)/$', views.category_detail, name='categories_category'),
 )

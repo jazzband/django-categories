@@ -11,22 +11,22 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
     from .models import Category
     from .registration import registry
     import sys
-    import StringIO
+    import io
 
     org_stderror = sys.stderr
-    sys.stderr = StringIO.StringIO()  # south will print out errors to stderr
+    sys.stderr = io.StringIO()  # south will print out errors to stderr
     try:
         from south.db import db
     except ImportError:
         raise ImproperlyConfigured(_('%(dependency)s must be installed for this command to work') %
                                    {'dependency': 'South'})
     # pull the information from the registry
-    if isinstance(app, basestring):
+    if isinstance(app, str):
         app_name = app
     else:
         app_name = app.__name__.split('.')[-2]
 
-    fields = [fld for fld in registry._field_registry.keys() if fld.startswith(app_name)]
+    fields = [fld for fld in list(registry._field_registry.keys()) if fld.startswith(app_name)]
     # call the south commands to add the fields/tables
     for fld in fields:
         app_name, model_name, field_name = fld.split('.')
@@ -43,14 +43,14 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 db.add_column(table_name, field_name, registry._field_registry[fld], keep_default=False)
                 db.commit_transaction()
                 if verbosity:
-                    print (_('Added ForeignKey %(field_name)s to %(model_name)s') %
-                           {'field_name': field_name, 'model_name': model_name})
-            except DatabaseError, e:
+                    print((_('Added ForeignKey %(field_name)s to %(model_name)s') %
+                           {'field_name': field_name, 'model_name': model_name}))
+            except DatabaseError as e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
-                        print (_('ForeignKey %(field_name)s to %(model_name)s already exists') %
-                               {'field_name': field_name, 'model_name': model_name})
+                        print((_('ForeignKey %(field_name)s to %(model_name)s already exists') %
+                               {'field_name': field_name, 'model_name': model_name}))
                 else:
                     sys.stderr = org_stderror
                     raise e
@@ -66,14 +66,14 @@ def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwar
                 db.create_unique(table_name, ['%s_id' % model_name, 'category_id'])
                 db.commit_transaction()
                 if verbosity:
-                    print (_('Added Many2Many table between %(model_name)s and %(category_table)s') %
-                           {'model_name': model_name, 'category_table': 'category'})
-            except DatabaseError, e:
+                    print((_('Added Many2Many table between %(model_name)s and %(category_table)s') %
+                           {'model_name': model_name, 'category_table': 'category'}))
+            except DatabaseError as e:
                 db.rollback_transaction()
                 if "already exists" in str(e):
                     if verbosity > 1:
-                        print (_('Many2Many table between %(model_name)s and %(category_table)s already exists') %
-                               {'model_name': model_name, 'category_table': 'category'})
+                        print((_('Many2Many table between %(model_name)s and %(category_table)s already exists') %
+                               {'model_name': model_name, 'category_table': 'category'}))
                 else:
                     sys.stderr = org_stderror
                     raise e
@@ -98,23 +98,23 @@ def drop_field(app_name, model_name, field_name):
     fld = '%s.%s.%s' % (app_name, model_name, field_name)
 
     if isinstance(registry._field_registry[fld], CategoryFKField):
-        print (_('Dropping ForeignKey %(field_name)s from %(model_name)s') %
-               {'field_name': field_name, 'model_name': model_name})
+        print((_('Dropping ForeignKey %(field_name)s from %(model_name)s') %
+               {'field_name': field_name, 'model_name': model_name}))
         try:
             db.start_transaction()
             table_name = mdl._meta.db_table
             db.delete_column(table_name, field_name)
             db.commit_transaction()
-        except DatabaseError, e:
+        except DatabaseError as e:
             db.rollback_transaction()
             raise e
     elif isinstance(registry._field_registry[fld], CategoryM2MField):
-        print (_('Dropping Many2Many table between %(model_name)s and %(category_table)s') %
-               {'model_name': model_name, 'category_table': 'category'})
+        print((_('Dropping Many2Many table between %(model_name)s and %(category_table)s') %
+               {'model_name': model_name, 'category_table': 'category'}))
         try:
             db.start_transaction()
             db.delete_table(table_name, cascade=False)
             db.commit_transaction()
-        except DatabaseError, e:
+        except DatabaseError as e:
             db.rollback_transaction()
             raise e
