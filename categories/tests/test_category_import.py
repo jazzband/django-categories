@@ -3,12 +3,16 @@
 # test mixed
 import os
 
-from django.test import TestCase
+from django.conf import settings
+from django.test import TestCase, override_settings
 from categories.models import Category
 from categories.management.commands.import_categories import Command
 from django.core.management.base import CommandError
 
+from categories.registration import _process_registry, registry
 
+
+@override_settings(INSTALLED_APPS=(app for app in settings.INSTALLED_APPS if app != 'django.contrib.flatpages'))
 class CategoryImportTest(TestCase):
     def setUp(self):
         pass

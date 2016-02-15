@@ -1,16 +1,23 @@
 language: python
-python:
-  - "2.7"
-env:
-  - DJANGO_VERSION=1.6.11
-  - DJANGO_VERSION=1.7.7
-  - DJANGO_VERSION=1.8
-install:
-  - pip install Django==$DJANGO_VERSION
-  - pip install -e .
-  - pip install South
-script:
-  - ./example/manage.py test categories --settings='settings-testing' 
+
 branches:
   only:
     - master
+
+env:
+  - TOXENV=py27-django18
+  - TOXENV=py27-django19
+  - TOXENV=py34-django18
+  - TOXENV=py34-django19
+  - TOXENV=py35-django18
+  - TOXENV=py35-django19
+
+install:
+  - pip install tox
+
+script:
+  - tox -e $TOXENV
+
+after_success:
+  - pip install codecov
+  - codecov -e TOXENV
