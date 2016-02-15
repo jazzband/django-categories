@@ -1,5 +1,5 @@
 from django import template
-from django.db.models import get_model
+from django.apps import apps
 from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist)
 from django.template.base import FilterExpression
 from categories.base import CategoryBase
@@ -31,7 +31,7 @@ def get_cat_model(model):
     """
     try:
         if isinstance(model, str):
-            model_class = get_model(*model.split("."))
+            model_class = apps.get_model(*model.split("."))
         elif issubclass(model, CategoryBase):
             model_class = model
         if model_class is None:
@@ -266,7 +266,7 @@ def get_top_level_categories(parser, token):
 
 def get_latest_objects_by_category(category, app_label, model_name, set_name,
                                     date_field='pub_date', num=15):
-    m = get_model(app_label, model_name)
+    m = apps.get_model(app_label, model_name)
     if not isinstance(category, CategoryBase):
         category = Category.objects.get(slug=str(category))
     children = category.children.all()
