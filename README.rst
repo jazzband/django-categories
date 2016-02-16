@@ -18,7 +18,7 @@ New in 1.4
 
 *  Support for Python 2.7, 3.4 and 3.5
 *  Support for Django 1.9
-*  Major help from Brent O'Connor (epicserve)
+*  Dropped support for Django 1.7 and older
 
 New in 1.3
 ==========
