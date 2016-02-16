@@ -1,3 +1,6 @@
+Contributors
+============
+
 Corey Oordt       github.com/coordt
 Erik Simmler      github.com/tgecho
 Martin Ogden      githun.com/martinogden

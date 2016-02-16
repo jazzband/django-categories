@@ -180,17 +180,3 @@ Features of the project
 
 	**Show multiple levels**
 		Ancestors of category, category and all children of category or  a category and its children
-
-Contributors
-============
-
-* Corey Oordt      http://github.com/coordt
-* Erik Simmler     http://github.com/tgecho
-* Martin Ogden     http://github.com/martinogden
-* Ramiro Morales   http://github.com/ramiro
-* Evan Culver      http://github.com/eculver
-* Andrzej Herok    http://github.com/aherok
-* Jonathan Hensley
-* Justin Quick     http://github.com/justquick
-* Josh Ourisman    http://github.com/joshourisman
-* Jose Soares      http://github.com/josesoa
