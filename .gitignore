@@ -15,3 +15,5 @@ dist/
 .venv
 example/media/
 .tox/
+htmlcov
+.coverage
