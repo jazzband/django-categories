@@ -34,8 +34,3 @@ class SimpleCategory(CategoryBase):
     class Meta:
         verbose_name_plural = 'simple categories'
 
-
-# mport categories
-
-# ategories.register_fk(SimpleText, 'primary_category', {'related_name':'simpletext_primary_set'})
-# ategories.register_m2m(SimpleText, 'cats', )

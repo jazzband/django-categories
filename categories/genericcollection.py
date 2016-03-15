@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
+from django.db import OperationalError
 
 
 class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
@@ -8,7 +9,12 @@ class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
 
     def __init__(self, parent_model, admin_site):
         super(GenericCollectionInlineModelAdmin, self).__init__(parent_model, admin_site)
-        ctypes = ContentType.objects.all().order_by('id').values_list('id', 'app_label', 'model')
+        # todo: Change it so you don't have to use a try/except
+        try:
+            ctypes = ContentType.objects.all().order_by('id').values_list('id', 'app_label', 'model')
+            assert ctypes
+        except OperationalError:
+            ctypes = []
         elements = ["%s: '%s/%s'" % (x, y, z) for x, y, z in ctypes]
         self.content_types = "{%s}" % ",".join(elements)
 
