@@ -2,10 +2,8 @@ import django
 from django.db import models
 from django.template import Library
 from django.contrib.admin.templatetags.admin_list import result_headers, _boolean_icon
-try:
-    from django.contrib.admin.utils import lookup_field, display_for_field
-except ImportError:
-    from categories.editor.utils import lookup_field, display_for_field
+from django.contrib.admin.utils import lookup_field
+from categories.editor.utils import display_for_field
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.encoding import smart_text, force_text
 from django.utils.html import escape, conditional_escape
