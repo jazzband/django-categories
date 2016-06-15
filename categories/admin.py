@@ -45,7 +45,7 @@ class CategoryAdmin(CategoryBaseAdmin):
     list_display = ('name', 'alternate_title', 'active')
     fieldsets = (
         (None, {
-            'fields': ('parent', 'name', 'thumbnail', 'active')
+            'fields': ('parent', 'name', 'thumbnail', 'mobile_thumbnail', 'active')
         }),
         (_('Meta Data'), {
             'fields': ('alternate_title', 'alternate_url', 'description',

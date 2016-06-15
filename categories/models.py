@@ -28,6 +28,12 @@ class Category(CategoryBase):
         storage=STORAGE(),)
     thumbnail_width = models.IntegerField(blank=True, null=True)
     thumbnail_height = models.IntegerField(blank=True, null=True)
+    mobile_thumbnail = models.FileField(
+        upload_to=THUMBNAIL_UPLOAD_PATH,
+        null=True, blank=True,
+        storage=STORAGE(),)
+    mobile_thumbnail_width = models.IntegerField(blank=True, null=True)
+    mobile_thumbnail_height = models.IntegerField(blank=True, null=True)
     order = models.IntegerField(default=0)
     alternate_title = models.CharField(
         blank=True,
