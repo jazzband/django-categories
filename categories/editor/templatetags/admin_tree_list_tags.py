@@ -6,7 +6,7 @@ from django.contrib.admin.utils import lookup_field
 from categories.editor.utils import display_for_field
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.encoding import smart_text, force_text
-from django.utils.html import escape, conditional_escape
+from django.utils.html import escape, conditional_escape, escapejs, format_html
 from django.utils.safestring import mark_safe
 
 from categories.editor import settings
@@ -96,14 +96,27 @@ def items_for_tree_result(cl, result, form):
             value = result.serializable_value(attr)
             result_id = repr(force_text(value))[1:]
             first = False
-            if django.VERSION[1] < 4:
+            if django.VERSION[1] < 4:  # versions 1.3 and smaller
                 yield mark_safe(
                     '<%s%s>%s<a href="%s"%s>%s</a></%s>' %
                     (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
-            else:
+            elif django.VERSION[1] < 7:  # versions 1.4 to 1.7
                 yield mark_safe(
                     '<%s%s><a href="%s"%s>%s</a></%s>' %
                     (table_tag, row_class, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
+            else:  # versions 1.8 and greater
+                result_id = escapejs(value)
+                yield mark_safe(
+                    format_html(
+                        '<{}{}><a href="{}"{}>{}</a><{}>',
+                        table_tag,
+                        row_class,
+                        url,
+                        format_html(
+                            ' onclick="opener.dismissRelatedLookupPopup(window, '
+                            '&#39;{}&#39;); return false;"', result_id
+                        ) if cl.is_popup else '', result_repr, table_tag)
+                )
 
         else:
             # By default the fields come from ModelAdmin.list_editable, but if we pull
