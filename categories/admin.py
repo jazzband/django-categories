@@ -22,6 +22,7 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         """
         return '%s %s' % (self.level_indicator * getattr(obj, obj._mptt_meta.level_attr), obj)
 
+
 if RELATION_MODELS:
     from .models import CategoryRelation
 
@@ -64,6 +65,7 @@ class CategoryAdmin(CategoryBaseAdmin):
 
     class Media:
         js = (JAVASCRIPT_URL + 'genericcollections.js',)
+
 
 if REGISTER_ADMIN:
     admin.site.register(Category, CategoryAdmin)

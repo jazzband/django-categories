@@ -173,4 +173,6 @@ def result_tree_list(cl):
         from django.contrib.admin.templatetags.admin_list import result_hidden_fields
         result['result_hidden_fields'] = list(result_hidden_fields(cl))
     return result
+
+
 result_tree_list = register.inclusion_tag(TREE_LIST_RESULTS_TEMPLATE)(result_tree_list)

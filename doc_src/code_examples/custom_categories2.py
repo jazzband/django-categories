@@ -8,4 +8,5 @@ from .models import SimpleCategory
 class SimpleCategoryAdmin(CategoryBaseAdmin):
     pass
 
+
 admin.site.register(SimpleCategory, SimpleCategoryAdmin)

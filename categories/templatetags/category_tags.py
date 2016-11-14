@@ -338,6 +338,7 @@ def do_get_latest_objects_by_category(parser, token):
         num = FilterExpression(None, parser)
     return LatestObjectsNode(var_name, category, app_label, model_name, set_name, date_field, num)
 
+
 register.tag("get_latest_objects_by_category", do_get_latest_objects_by_category)
 
 

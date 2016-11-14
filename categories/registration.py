@@ -110,6 +110,7 @@ class Registry(object):
             self._field_registry[registry_name] = field(**extra_params)
             self._field_registry[registry_name].contribute_to_class(model, field_name)
 
+
 registry = Registry()
 
 

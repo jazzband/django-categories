@@ -16,6 +16,7 @@ class CategoryFKField(ForeignKey):
             kwargs.pop('to')
         super(CategoryFKField, self).__init__(to=Category, **kwargs)
 
+
 try:
     from south.modelsinspector import add_introspection_rules
     add_introspection_rules([], ["^categories\.fields\.CategoryFKField"])

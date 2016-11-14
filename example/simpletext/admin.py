@@ -21,5 +21,6 @@ class SimpleCategoryAdminForm(CategoryBaseAdminForm):
 class SimpleCategoryAdmin(CategoryBaseAdmin):
     form = SimpleCategoryAdminForm
 
+
 admin.site.register(SimpleText, SimpleTextAdmin)
 admin.site.register(SimpleCategory, SimpleCategoryAdmin)
