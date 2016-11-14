@@ -19,7 +19,7 @@ class CategoryImportTest(TestCase):
         root_cats = ['Category 1', 'Category 2', 'Category 3']
         testfile = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'fixtures', filename))
         cmd = Command()
-        cmd.execute(testfile)
+        cmd.handle(testfile)
         roots = Category.tree.root_nodes()
 
         self.assertEqual(len(roots), 3)
