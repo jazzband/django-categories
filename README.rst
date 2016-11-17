@@ -5,7 +5,7 @@ Django Categories
 |BUILD|_
 
 .. |BUILD| image::
-   https://secure.travis-ci.org/callowayproject/django-categories.png?branch=master
+   https://secure.travis-ci.org/callowayproject/django-categories.svg?branch=master
 .. _BUILD: http://travis-ci.org/#!/callowayproject/django-categories
 
 
