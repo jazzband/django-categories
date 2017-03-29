@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.test import Client, TestCase
+from django.utils.encoding import smart_text
 
 from categories.models import Category
 
@@ -16,7 +19,7 @@ class TestCategoryAdmin(TestCase):
         url = reverse('admin:categories_category_add')
         data = {
             'parent': '',
-            'name': "Parent",
+            'name': smart_text('Parent Catégory'),
             'thumbnail': '',
             'filename': '',
             'active': 'on',
@@ -34,7 +37,7 @@ class TestCategoryAdmin(TestCase):
         self.assertEqual(1, Category.objects.count())
 
         # update parent
-        data.update({'name': 'Parent (Changed)'})
+        data.update({'name': smart_text('Parent Catégory (Changed)')})
         resp = self.client.post(reverse('admin:categories_category_change', args=(1,)), data=data)
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(1, Category.objects.count())
@@ -42,8 +45,8 @@ class TestCategoryAdmin(TestCase):
         # add a child
         data.update({
             'parent': '1',
-            'name': 'Child',
-            'slug': 'child',
+            'name': smart_text('Child Catégory'),
+            'slug': smart_text('child-category'),
         })
         resp = self.client.post(url, data=data)
         self.assertEqual(resp.status_code, 302)
@@ -54,3 +57,8 @@ class TestCategoryAdmin(TestCase):
         resp = self.client.post(reverse('admin:categories_category_change', args=(2,)), data=data)
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(2, Category.objects.count())
+
+        # test the admin list view
+        url = reverse('admin:categories_category_changelist')
+        resp = self.client.get(url)
+        self.assertEqual(resp.status_code, 200)
