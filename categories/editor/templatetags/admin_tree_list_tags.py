@@ -98,17 +98,17 @@ def items_for_tree_result(cl, result, form):
             first = False
             if django.VERSION[1] < 4:  # versions 1.3 and smaller
                 yield mark_safe(
-                    '<%s%s>%s<a href="%s"%s>%s</a></%s>' %
+                    u'<%s%s>%s<a href="%s"%s>%s</a></%s>' %
                     (table_tag, row_class, checkbox_value, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
             elif django.VERSION[1] < 7:  # versions 1.4 to 1.7
                 yield mark_safe(
-                    '<%s%s><a href="%s"%s>%s</a></%s>' %
+                    u'<%s%s><a href="%s"%s>%s</a></%s>' %
                     (table_tag, row_class, url, (cl.is_popup and ' onclick="opener.dismissRelatedLookupPopup(window, %s); return false;"' % result_id or ''), conditional_escape(result_repr), table_tag))
             else:  # versions 1.8 and greater
                 result_id = escapejs(value)
                 yield mark_safe(
                     format_html(
-                        '<{}{}><a href="{}"{}>{}</a></{}>',
+                        u'<{}{}><a href="{}"{}>{}</a></{}>',
                         table_tag,
                         row_class,
                         url,
@@ -127,7 +127,7 @@ def items_for_tree_result(cl, result, form):
                 result_repr = mark_safe(force_text(bf.errors) + force_text(bf))
             else:
                 result_repr = conditional_escape(result_repr)
-            yield mark_safe('<td%s>%s</td>' % (row_class, result_repr))
+            yield mark_safe(u'<td%s>%s</td>' % (row_class, result_repr))
     if form and not form[cl.model._meta.pk.name].is_hidden:
         yield mark_safe('<td>%s</td>' % force_text(form[cl.model._meta.pk.name]))
 
