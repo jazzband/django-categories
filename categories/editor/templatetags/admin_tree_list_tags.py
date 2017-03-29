@@ -108,7 +108,7 @@ def items_for_tree_result(cl, result, form):
                 result_id = escapejs(value)
                 yield mark_safe(
                     format_html(
-                        '<{}{}><a href="{}"{}>{}</a></{}>',
+                        u'<{}{}><a href="{}"{}>{}</a></{}>',
                         table_tag,
                         row_class,
                         url,
