@@ -1,3 +1,4 @@
+from django.core.files.images import get_image_dimensions
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import force_text
@@ -81,12 +82,7 @@ class Category(CategoryBase):
 
     def save(self, *args, **kwargs):
         if self.thumbnail:
-            from django.core.files.images import get_image_dimensions
-            import django
-            if django.VERSION[1] < 2:
-                width, height = get_image_dimensions(self.thumbnail.file)
-            else:
-                width, height = get_image_dimensions(self.thumbnail.file, close=True)
+            width, height = get_image_dimensions(self.thumbnail.file)
         else:
             width, height = None, None
 
