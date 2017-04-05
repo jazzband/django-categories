@@ -44,6 +44,7 @@ class CategoryBase(MPTTModel):
     active = models.BooleanField(default=True, verbose_name=_('active'))
     unicode_name = models.CharField(
         blank=True,
+        null=True,
         default=None,
         max_length=255)
 
