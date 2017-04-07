@@ -34,7 +34,7 @@ class Category(CategoryBase):
         storage=STORAGE(),)
     mobile_thumbnail_width = models.IntegerField(blank=True, null=True)
     mobile_thumbnail_height = models.IntegerField(blank=True, null=True)
-    order = models.IntegerField(default=0)
+    order = models.IntegerField(default=0, null=True)
     alternate_title = models.CharField(
         blank=True,
         default="",
