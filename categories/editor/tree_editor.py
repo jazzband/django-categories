@@ -261,7 +261,7 @@ class TreeEditor(admin.ModelAdmin):
             'admin/%s/%s/change_list.html' % (app_label, opts.object_name.lower()),
             'admin/%s/change_list.html' % app_label,
             'admin/change_list.html'
-        ], context=context_instance)
+        ], context=context_instance.flatten())
 
     def changelist_view(self, request, extra_context=None, *args, **kwargs):
         """
