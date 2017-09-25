@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
-from django.template import RequestContext
 from django.http import HttpResponse, Http404
 from django.template.loader import select_template
 from django.utils.translation import ugettext_lazy as _
@@ -37,8 +36,7 @@ def category_detail(request, path, template_name='categories/category_detail.htm
         path_items.pop()
     templates.append(template_name)
 
-    context = RequestContext(request)
-    context.update({'category': category})
+    context = {'category': category}
     if extra_context:
         context.update(extra_context)
     return HttpResponse(select_template(templates).render(context))
