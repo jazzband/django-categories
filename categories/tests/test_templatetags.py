@@ -14,8 +14,7 @@ class CategoryTagsTest(TestCase):
         Return the rendered string or raise an exception.
         """
         tpl = template.Template(template_string)
-        ctxt = template.Context(context)
-        return tpl.render(ctxt)
+        return tpl.render(context)
 
     def testTooFewArguments(self):
         """
