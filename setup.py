@@ -21,7 +21,7 @@ setup(
     author_email='coreyoordt@gmail.com',
     include_package_data=True,
     url='http://github.com/callowayproject/django-categories',
-    packages=find_packages(),
+    packages=find_packages(exclude=['example*', ]),
     classifiers=[
         'Framework :: Django',
     ],
