@@ -139,12 +139,3 @@ class CategoryRelation(models.Model):
 
     def __unicode__(self):
         return "CategoryRelation"
-
-
-try:
-    from south.db import db  # noqa, South is required for migrating. Need to check for it
-    from django.db.models.signals import post_syncdb
-    from categories.migration import migrate_app
-    post_syncdb.connect(migrate_app)
-except ImportError:
-    pass
