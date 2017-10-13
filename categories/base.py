@@ -111,7 +111,11 @@ class CategoryBaseAdminForm(forms.ModelForm):
 
         if self.cleaned_data.get('parent', None) is None or self.instance.id is None:
             return self.cleaned_data
-        decendant_ids = self.instance.get_descendants().values_list('id', flat=True)
+        if self.instance.pk:
+            decendant_ids = self.instance.get_descendants().values_list('id', flat=True)
+        else:
+            decendant_ids = []
+
         if self.cleaned_data['parent'].id == self.instance.id:
             raise forms.ValidationError(_("You can't set the parent of the "
                                           "item to itself."))
