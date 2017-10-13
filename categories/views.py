@@ -1,17 +1,8 @@
 from django.shortcuts import get_object_or_404
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse, Http404
 from django.template.loader import select_template
 from django.utils.translation import ugettext_lazy as _
-try:
-    from django.views.generic import DetailView, ListView
-except ImportError:
-    try:
-        from cbv import DetailView, ListView
-    except ImportError:
-        from django.core.exceptions import ImproperlyConfigured
-        raise ImproperlyConfigured("For older versions of Django, you need django-cbv.")
-
+from django.views.generic import DetailView, ListView
 
 from .models import Category
 
@@ -63,12 +54,12 @@ class CategoryDetailView(DetailView):
     def get_object(self, **kwargs):
         if self.path_field not in self.kwargs:
             raise AttributeError("Category detail view %s must be called with "
-                                 "a %s." % self.__class__.__name__, self.path_field)
+                                 "a %s." % (self.__class__.__name__, self.path_field))
         if self.queryset is None:
             queryset = self.get_queryset()
         try:
             return get_category_for_path(self.kwargs[self.path_field], self.model.objects.all())
-        except ObjectDoesNotExist:
+        except Category.DoesNotExist:
             raise Http404(_("No %(verbose_name)s found matching the query") %
                           {'verbose_name': queryset.model._meta.verbose_name})
 
@@ -87,9 +78,16 @@ class CategoryRelatedDetail(DetailView):
     object_name_field = None
 
     def get_object(self, **kwargs):
+        if self.path_field not in self.kwargs:
+            raise AttributeError("Category detail view %s must be called with "
+                                 "a %s." % (self.__class__.__name__, self.path_field))
         queryset = super(CategoryRelatedDetail, self).get_queryset()
-        category = get_category_for_path(self.kwargs[self.path_field])
-        return queryset.get(category=category, slug=self.kwargs[self.slug_field])
+        try:
+            category = get_category_for_path(self.kwargs[self.path_field])
+        except Category.DoesNotExist:
+            raise Http404(_("No %(verbose_name)s found matching the query") %
+                          {'verbose_name': queryset.model._meta.verbose_name})
+        return queryset.get(category=category)
 
     def get_template_names(self):
         names = []
@@ -118,8 +116,11 @@ class CategoryRelatedList(ListView):
     path_field = 'category_path'
 
     def get_queryset(self):
+        if self.path_field not in self.kwargs:
+            raise AttributeError("Category detail view %s must be called with "
+                                 "a %s." % (self.__class__.__name__, self.path_field))
         queryset = super(CategoryRelatedList, self).get_queryset()
-        category = get_category_for_path(self.kwargs['category_path'])
+        category = get_category_for_path(self.kwargs[self.path_field])
         return queryset.filter(category=category)
 
     def get_template_names(self):
