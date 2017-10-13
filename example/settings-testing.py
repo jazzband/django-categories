@@ -1,7 +1,6 @@
 # Django settings for sample project.
 import os
 import sys
-import django
 
 APP = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJ_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -96,5 +95,23 @@ TEMPLATES = [
     },
 ]
 
-if django.VERSION[1] > 5:
-    TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+CATEGORIES_SETTINGS = {
+    'ALLOW_SLUG_CHANGE': True,
+    'RELATION_MODELS': ['simpletext.simpletext', 'flatpages.flatpage'],
+    'FK_REGISTRY': {
+        'flatpages.flatpage': 'category',
+        'simpletext.simpletext': (
+            'primary_category',
+            {'name': 'secondary_category', 'related_name': 'simpletext_sec_cat'},
+        ),
+    },
+    'M2M_REGISTRY': {
+        # 'simpletext.simpletext': {'name': 'categories', 'related_name': 'm2mcats'},
+        'flatpages.flatpage': (
+            {'name': 'other_categories', 'related_name': 'other_cats'},
+            {'name': 'more_categories', 'related_name': 'more_cats'},
+        ),
+    },
+}
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
