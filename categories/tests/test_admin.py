@@ -31,6 +31,10 @@ class TestCategoryAdmin(TestCase):
             'order': 0,
             'slug': 'parent',
             '_save': '_save',
+            'categoryrelation_set-TOTAL_FORMS': '0',
+            'categoryrelation_set-INITIAL_FORMS': '0',
+            'categoryrelation_set-MIN_NUM_FORMS': '1000',
+            'categoryrelation_set-MAX_NUM_FORMS': '1000',
         }
         resp = self.client.post(url, data=data)
         self.assertEqual(resp.status_code, 302)
