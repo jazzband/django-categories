@@ -8,7 +8,10 @@ class Command(BaseCommand):
     help = "Alter the tables for all registered models, or just specified models"
     args = "[appname ...]"
     can_import_settings = True
-    requires_model_validation = False
+    requires_system_checks = False
+
+    def add_arguments(self, parser):
+        parser.add_argument('app_names', nargs='*')
 
     def handle(self, *args, **options):
         """
@@ -17,8 +20,8 @@ class Command(BaseCommand):
 
         from categories.migration import migrate_app
         from categories.settings import MODEL_REGISTRY
-        if args:
-            for app in args:
+        if options['app_names']:
+            for app in options['app_names']:
                 migrate_app(None, app)
         else:
             for app in MODEL_REGISTRY:
