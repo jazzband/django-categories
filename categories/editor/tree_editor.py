@@ -4,7 +4,6 @@ from django.contrib.admin.views.main import ChangeList
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.options import IncorrectLookupParameters
-from django import template
 from django.shortcuts import render_to_response
 
 import django
@@ -253,15 +252,11 @@ class TreeEditor(admin.ModelAdmin):
                 'selection_note_all': selection_note_all % {'total_count': cl.result_count},
             })
         context.update(extra_context or {})
-        context_instance = template.RequestContext(
-            request,
-            context
-        )
         return render_to_response(self.change_list_template or [
             'admin/%s/%s/change_list.html' % (app_label, opts.object_name.lower()),
             'admin/%s/change_list.html' % app_label,
             'admin/change_list.html'
-        ], context=context_instance.flatten())
+        ], context=context)
 
     def changelist_view(self, request, extra_context=None, *args, **kwargs):
         """
