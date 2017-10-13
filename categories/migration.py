@@ -58,7 +58,9 @@ def migrate_app(sender, *args, **kwargs):
         try:
             with connection.schema_editor() as schema_editor:
                 schema_editor.add_field(model, registry._field_registry[fld])
-                transaction.savepoint_commit(sid)
+                if sid:
+                    transaction.savepoint_commit(sid)
         except ProgrammingError:
-            transaction.savepoint_rollback(sid)
+            if sid:
+                transaction.savepoint_rollback(sid)
             continue
