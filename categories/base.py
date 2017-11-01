@@ -96,7 +96,7 @@ class CategoryBase(MPTTModel):
 
     class Meta:
         abstract = True
-        unique_together = ('parent', 'name')
+        unique_together = (('parent', 'name'),('tree_id', 'slug'),)
         ordering = ('tree_id', 'lft')
 
     class MPTTMeta:
