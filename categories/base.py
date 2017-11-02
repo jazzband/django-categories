@@ -96,7 +96,7 @@ class CategoryBase(MPTTModel):
 
     class Meta:
         abstract = True
-        unique_together = ('parent', 'name')
+        unique_together = (('parent', 'name'),('tree_id', 'slug'),)
         ordering = ('tree_id', 'lft')
 
     class MPTTMeta:
@@ -118,18 +118,22 @@ class CategoryBaseAdminForm(forms.ModelForm):
 
         opts = self._meta
 
-        # Validate slug is valid in that level
-        kwargs = {}
+        # Validate slug (no duplicate slugs within same tree_id)
+        kwargs = {} 
+        this_tree_slugs = []               
         if self.cleaned_data.get('parent', None) is None:
-            kwargs['parent__isnull'] = True
-        else:
-            kwargs['parent__pk'] = int(self.cleaned_data['parent'].id)
-        this_level_slugs = [c['slug'] for c in opts.model.objects.filter(
-                                **kwargs).values('id', 'slug'
-                                ) if c['id'] != self.instance.id]
-        if self.cleaned_data['slug'] in this_level_slugs:
+            # This is a top level category, so its tree_id cannot be checked
+            pass       
+        else:                
+            # Retrieve all other slugs in the same tree (using the tree_id of the parent category)
+            parent_tree_id = int(self.cleaned_data['parent'].tree_id)
+            this_tree_slugs = [c['slug'] for c in opts.model.objects.filter(
+                                    tree_id=parent_tree_id).values('id', 'slug'
+                                    ) if c['id'] != self.instance.id]
+        # Raise error if any other slugs in the same tree match the new category slug      
+        if self.cleaned_data['slug'] in this_tree_slugs:
             raise forms.ValidationError(_('The slug must be unique among '
-                                          'the items at its level.'))
+                                          ' items in the same tree.'))
 
         # Validate Category Parent
         # Make sure the category doesn't set itself or any of its children as
