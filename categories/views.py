@@ -23,8 +23,8 @@ def category_detail(request, path,
     categories = []
     parent = None
     for slug in path_items:
-        category = get_object_or_404(Category, 
-            slug__iexact=slug, 
+        category = get_object_or_404(Category,
+            slug__iexact=slug,
             parent=parent)
         categories.append(category)
         parent = categories[-1]
@@ -44,6 +44,11 @@ def category_detail(request, path,
 
 def get_category_for_path(path, queryset=Category.objects.all()):
     path_items = path.strip('/').split('/')
+    for slug in path_items:
+        queryset = queryset.filter(
+            slug__iexact=slug)
+    """
+    path_items = path.strip('/').split('/')
     if len(path_items) >= 2:
         queryset = queryset.filter(
             slug__iexact=path_items[-1],
@@ -53,6 +58,7 @@ def get_category_for_path(path, queryset=Category.objects.all()):
         queryset = queryset.filter(
             slug__iexact=path_items[-1],
             level=len(path_items) - 1)
+    """
     return queryset.get()
 
 
