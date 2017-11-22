@@ -14,6 +14,7 @@ class SimpleTextAdmin(admin.ModelAdmin):
 class SimpleCategoryAdminForm(CategoryBaseAdminForm):
     class Meta:
         model = SimpleCategory
+        fields = '__all__'
 
 class SimpleCategoryAdmin(CategoryBaseAdmin):
     form = SimpleCategoryAdminForm

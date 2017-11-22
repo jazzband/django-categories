@@ -64,7 +64,6 @@ def items_for_tree_result(cl, result, form):
                 if django.VERSION[1] < 4:
                     try:
                         f, attr, checkbox_value = lookup_field('action_checkbox', result, cl.model_admin)
-                        #result_repr = mark_safe("%s%s" % (value, result_repr))
                         if row_class:
                             row_class = "%s%s" % (row_class[:-1], ' disclosure"')
                         else:
@@ -79,7 +78,7 @@ def items_for_tree_result(cl, result, form):
             if django.VERSION[1] < 4:
                 table_tag = 'td'  # {True:'th', False:'td'}[first]
             else:
-                table_tag = {True:'th', False:'td'}[first]
+                table_tag = {True: 'th', False: 'td'}[first]
 
             url = cl.url_for_result(result)
             # Convert the pk to something that can be used in Javascript.

@@ -1,14 +1,15 @@
 # test spaces in hierarchy
 # test tabs in hierarchy
 # test mixed
-import unittest
 import os
+
+from django.test import TestCase
 from categories.models import Category
 from categories.management.commands.import_categories import Command
 from django.core.management.base import CommandError
 
 
-class CategoryImportTest(unittest.TestCase):
+class CategoryImportTest(TestCase):
     def setUp(self):
         pass
 

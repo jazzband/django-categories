@@ -1,120 +1,64 @@
-from django.db import models, DatabaseError
-from django.core.exceptions import ImproperlyConfigured
-from django.utils.translation import ugettext_lazy as _
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import connection, transaction
+from django.apps import apps
+from django.db.utils import ProgrammingError
 
 
-def migrate_app(sender, app, created_models=None, verbosity=False, *args, **kwargs):
+def table_exists(table_name):
     """
-    Migrate all models of this app registered
+    Check if a table exists in the database
     """
-    from .fields import CategoryM2MField, CategoryFKField
-    from .models import Category
-    from .settings import FIELD_REGISTRY
-    import sys
-    import StringIO
+    pass
 
-    org_stderror = sys.stderr
-    sys.stderr = StringIO.StringIO()  # south will print out errors to stderr
-    try:
-        from south.db import db
-    except ImportError:
-        raise ImproperlyConfigured(_('%(dependency) must be installed for this command to work') %
-                                   {'dependency': 'South'})
-    # pull the information from the registry
-    if isinstance(app, basestring):
-        app_name = app
-    else:
-        app_name = app.__name__.split('.')[-2]
 
-    fields = [fld for fld in FIELD_REGISTRY.keys() if fld.startswith(app_name)]
-    # call the south commands to add the fields/tables
-    for fld in fields:
-        app_name, model_name, field_name = fld.split('.')
-
-        # Table is typically appname_modelname, but it could be different
-        #   always best to be sure.
-        mdl = models.get_model(app_name, model_name)
-
-        if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
-            try:
-                db.start_transaction()
-                table_name = mdl._meta.db_table
-                FIELD_REGISTRY[fld].default = -1
-                db.add_column(table_name, field_name, FIELD_REGISTRY[fld], keep_default=False)
-                db.commit_transaction()
-                if verbosity:
-                    print (_('Added ForeignKey %(field_name) to %(model_name)') %
-                           {'field_name': field_name, 'model_name': model_name})
-            except DatabaseError, e:
-                db.rollback_transaction()
-                if "already exists" in str(e):
-                    if verbosity > 1:
-                        print (_('ForeignKey %(field_name) to %(model_name) already exists') %
-                               {'field_name': field_name, 'model_name': model_name})
-                else:
-                    sys.stderr = org_stderror
-                    raise e
-        elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
-            table_name = '%s_%s' % (mdl._meta.db_table, 'categories')
-            try:
-                db.start_transaction()
-                db.create_table(table_name, (
-                    ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-                    (model_name, models.ForeignKey(mdl, null=False)),
-                    ('category', models.ForeignKey(Category, null=False))
-                ))
-                db.create_unique(table_name, ['%s_id' % model_name, 'category_id'])
-                db.commit_transaction()
-                if verbosity:
-                    print (_('Added Many2Many table between %(model_name) and %(category_table)') %
-                           {'model_name': model_name, 'category_table': 'category'})
-            except DatabaseError, e:
-                db.rollback_transaction()
-                if "already exists" in str(e):
-                    if verbosity > 1:
-                        print (_('Many2Many table between %(model_name) and %(category_table) already exists') %
-                               {'model_name': model_name, 'category_table': 'category'})
-                else:
-                    sys.stderr = org_stderror
-                    raise e
-    sys.stderr = org_stderror
+def field_exists(app_name, model_name, field_name):
+    """
+    Does the FK or M2M table exist in the database already?
+    """
+    model = apps.get_model(app_name, model_name)
+    table_name = model._meta.db_table
+    cursor = connection.cursor()
+    field_info = connection.introspection.get_table_description(cursor, table_name)
+    field_names = [f.name for f in field_info]
+    return field_name in field_names
 
 
 def drop_field(app_name, model_name, field_name):
     """
     Drop the given field from the app's model
     """
-    # Table is typically appname_modelname, but it could be different
-    #   always best to be sure.
-    from .fields import CategoryM2MField, CategoryFKField
-    from .settings import FIELD_REGISTRY
-    try:
-        from south.db import db
-    except ImportError:
-        raise ImproperlyConfigured(_('%(dependency) must be installed for this command to work') %
-                                   {'dependency': 'South'})
-    mdl = models.get_model(app_name, model_name)
+    app_config = apps.get_app_config(app_name)
+    model = app_config.get_model(model_name)
+    field = model._meta.get_field(field_name)
+    with connection.schema_editor() as schema_editor:
+        schema_editor.remove_field(model, field)
 
-    fld = '%s.%s.%s' % (app_name, model_name, field_name)
 
-    if isinstance(FIELD_REGISTRY[fld], CategoryFKField):
-        print (_('Dropping ForeignKey %(field_name) from %(model_name)') %
-               {'field_name': field_name, 'model_name': model_name})
+def migrate_app(sender, *args, **kwargs):
+    """
+    Migrate all models of this app registered
+    """
+    from .registration import registry
+    if 'app_config' not in kwargs:
+        return
+    app_config = kwargs['app_config']
+
+    app_name = app_config.label
+
+    fields = [fld for fld in registry._field_registry.keys() if fld.startswith(app_name)]
+
+    sid = transaction.savepoint()
+    for fld in fields:
+        model_name, field_name = fld.split('.')[1:]
+        if field_exists(app_name, model_name, field_name):
+            continue
+        model = app_config.get_model(model_name)
         try:
-            db.start_transaction()
-            table_name = mdl._meta.db_table
-            db.delete_column(table_name, field_name)
-            db.commit_transaction()
-        except DatabaseError, e:
-            db.rollback_transaction()
-            raise e
-    elif isinstance(FIELD_REGISTRY[fld], CategoryM2MField):
-        print (_('Dropping Many2Many table between %(model_name) and %(category_table)') %
-               {'model_name': model_name, 'category_table': 'category'})
-        try:
-            db.start_transaction()
-            db.delete_table(table_name, cascade=False)
-            db.commit_transaction()
-        except DatabaseError, e:
-            db.rollback_transaction()
-            raise e
+            with connection.schema_editor() as schema_editor:
+                schema_editor.add_field(model, registry._field_registry[fld])
+                transaction.savepoint_commit(sid)
+        except ProgrammingError:
+            transaction.savepoint_rollback(sid)
+            continue
