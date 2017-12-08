@@ -1,25 +1,21 @@
-from django.core.urlresolvers import reverse
-from django.db import models
-from django.utils.encoding import force_unicode
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.core.files.storage import get_storage_class
-
+from django.core.urlresolvers import reverse
+from django.db import models
+from django.db import transaction
+from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
 
-from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH,
+from categories.base import CategoryBase
+from categories.settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH,
                         THUMBNAIL_STORAGE)
-
-from .base import CategoryBase
-
-from django.db import transaction
 
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
 @transaction.commit_manually
 def flush_transaction():
     transaction.commit()
-
 
 class Category(CategoryBase):
     thumbnail = models.FileField(
@@ -61,10 +57,20 @@ class Category(CategoryBase):
         help_text="Select to enable a converser ad for the category page. A 600x300 converser ad unit must be " \
                   "active in Dart.")
 
+    is_sponsored = models.BooleanField(default=False, blank=False, null=False,
+                                       help_text="This field is automatically marked as true if there are one or more sponsors assigned to this category. " \
+                                                 "It may also be manually marked true if there are no assigned sponsors.")
+
+    sponsorships = models.ManyToManyField(
+        "post_manager.ContentSponsorship",
+        through="categories.CategorySponsor",
+        help_text="Adding a sponsor will automatically mark 'Is sponsored' as true. " \
+                  "Removing a sponsor or all sponsors will not affect the value of 'Is sponsored'.")
+
     @property
     def display_converser(self):
         """
-This method flushes the database cache to get the current value of the "show_converser_ad" field
+        This method flushes the database cache to get the current value of the "show_converser_ad" field
         """
         if not hasattr(self, '_uncached_show_converser_ad'):
             flush_transaction()
@@ -126,7 +132,7 @@ This method flushes the database cache to get the current value of the "show_con
         verbose_name_plural = _('categories')
 
     class MPTTMeta:
-        order_insertion_by = ('order', 'name')
+        order_insertion_by = ('name')
 
 
 if RELATIONS:
@@ -169,10 +175,12 @@ class CategoryRelation(models.Model):
     def __unicode__(self):
         return u"CategoryRelation"
 
-try:
-    from south.db import db  # South is required for migrating. Need to check for it
-    from django.db.models.signals import post_syncdb
-    from categories.migration import migrate_app
-    post_syncdb.connect(migrate_app)
-except ImportError:
-    pass
+class CategorySponsor(models.Model):
+    category = models.ForeignKey(Category)
+    sponsorship = models.ForeignKey("post_manager.ContentSponsorship", verbose_name=u"sponsor")
+    url = models.URLField(u"URL", null=True, blank=True)
+    order = models.IntegerField()
+
+    class Meta:
+        verbose_name = u"sponsor"
+        db_table = "post_manager_categorysponsor"

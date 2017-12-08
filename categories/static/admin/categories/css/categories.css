@@ -1,0 +1,3 @@
+#result_list [src*="admin/img/icon-no.gif"] {
+  display: none;
+}
