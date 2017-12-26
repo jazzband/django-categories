@@ -62,6 +62,7 @@ class Registry(object):
         for fld in field_definitions:
             extra_params = {'to': 'categories.Category', 'blank': True}
             if field_type != 'ManyToManyField':
+                extra_params['on_delete'] = 'CASCADE'
                 extra_params['null'] = True
             if isinstance(fld, str):
                 field_name = fld

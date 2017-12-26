@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('rght', models.PositiveIntegerField(editable=False, db_index=True)),
                 ('tree_id', models.PositiveIntegerField(editable=False, db_index=True)),
                 ('level', models.PositiveIntegerField(editable=False, db_index=True)),
-                ('parent', mptt.fields.TreeForeignKey(related_name='children', verbose_name='parent', blank=True, to='categories.Category', null=True)),
+                ('parent', mptt.fields.TreeForeignKey(related_name='children', verbose_name='parent', blank=True, to='categories.Category', on_delete=models.CASCADE, null=True)),
             ],
             options={
                 'ordering': ('tree_id', 'lft'),
@@ -48,8 +48,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('object_id', models.PositiveIntegerField(verbose_name='object id')),
                 ('relation_type', models.CharField(help_text="A generic text field to tag a relation, like 'leadphoto'.", max_length='200', null=True, verbose_name='relation type', blank=True)),
-                ('category', models.ForeignKey(verbose_name='category', to='categories.Category')),
-                ('content_type', models.ForeignKey(verbose_name='content type', to='contenttypes.ContentType')),
+                ('category', models.ForeignKey(verbose_name='category', to='categories.Category', on_delete=models.CASCADE)),
+                ('content_type', models.ForeignKey(verbose_name='content type', to='contenttypes.ContentType', on_delete=models.CASCADE)),
             ],
         ),
         migrations.AlterUniqueTogether(

@@ -2,6 +2,8 @@
 import os
 import sys
 
+from django.db import models
+
 APP = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 PROJ_ROOT = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, APP)
@@ -64,13 +66,14 @@ STATICFILES_FINDERS = (
 
 SECRET_KEY = 'bwq#m)-zsey-fs)0#4*o=2z(v5g!ei=zytl9t-1hesh4b&-u^d'
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
+MIDDLEWARE = (
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -99,7 +102,10 @@ CATEGORIES_SETTINGS = {
     'ALLOW_SLUG_CHANGE': True,
     'RELATION_MODELS': ['simpletext.simpletext', 'flatpages.flatpage'],
     'FK_REGISTRY': {
-        'flatpages.flatpage': 'category',
+        'flatpages.flatpage': (
+            'category',
+            {'on_delete': models.CASCADE}
+        ),
         'simpletext.simpletext': (
             'primary_category',
             {'name': 'secondary_category', 'related_name': 'simpletext_sec_cat'},

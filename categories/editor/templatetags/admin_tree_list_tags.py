@@ -41,7 +41,7 @@ def items_for_tree_result(cl, result, form):
             result_repr = get_empty_value_display(cl)
         else:
             if f is None:
-                if django.VERSION[1] == 4:
+                if django.VERSION[0] == 1 and django.VERSION[1] == 4:
                     if field_name == 'action_checkbox':
                         row_class = ' class="action-checkbox disclosure"'
                 allow_tags = getattr(attr, 'allow_tags', False)
@@ -60,14 +60,14 @@ def items_for_tree_result(cl, result, form):
             else:
                 if value is None:
                     result_repr = get_empty_value_display(cl)
-                if isinstance(f.rel, models.ManyToOneRel):
+                if hasattr(f, 'rel') and isinstance(f.rel, models.ManyToOneRel):
                     result_repr = escape(getattr(result, f.name))
                 else:
                     result_repr = display_for_field(value, f, '')
                 if isinstance(f, models.DateField) or isinstance(f, models.TimeField):
                     row_class = ' class="nowrap"'
             if first:
-                if django.VERSION[1] < 4:
+                if django.VERSION[0] == 1 and django.VERSION[1] < 4:
                     try:
                         f, attr, checkbox_value = lookup_field('action_checkbox', result, cl.model_admin)
                         if row_class:
@@ -81,7 +81,7 @@ def items_for_tree_result(cl, result, form):
             result_repr = mark_safe('&nbsp;')
         # If list_display_links not defined, add the link tag to the first field
         if (first and not cl.list_display_links) or field_name in cl.list_display_links:
-            if django.VERSION[1] < 4:
+            if django.VERSION[0] == 1 and django.VERSION[1] < 4:
                 table_tag = 'td'  # {True:'th', False:'td'}[first]
             else:
                 table_tag = {True: 'th', False: 'td'}[first]
@@ -160,7 +160,7 @@ def result_tree_list(cl):
         'result_headers': list(result_headers(cl)),
         'results': list(tree_results(cl))
     }
-    if django.VERSION[1] > 2:
+    if django.VERSION[0] == 1 and django.VERSION[1] > 2:
         from django.contrib.admin.templatetags.admin_list import result_hidden_fields
         result['result_hidden_fields'] = list(result_hidden_fields(cl))
     return result

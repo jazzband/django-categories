@@ -1,5 +1,5 @@
 from django.core.files.images import get_image_dimensions
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.encoding import force_text
 from django.contrib.contenttypes.models import ContentType
@@ -55,7 +55,7 @@ class Category(CategoryBase):
 
     def get_absolute_url(self):
         """Return a path"""
-        from django.core.urlresolvers import NoReverseMatch
+        from django.urls import NoReverseMatch
 
         if self.alternate_url:
             return self.alternate_url
@@ -123,9 +123,9 @@ class CategoryRelationManager(models.Manager):
 
 class CategoryRelation(models.Model):
     """Related category item"""
-    category = models.ForeignKey(Category, verbose_name=_('category'))
+    category = models.ForeignKey(Category, verbose_name=_('category'), on_delete=models.CASCADE)
     content_type = models.ForeignKey(
-        ContentType, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
+        ContentType, on_delete=models.CASCADE, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(

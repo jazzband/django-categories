@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
-from django.core.urlresolvers import reverse, NoReverseMatch
+from django.urls import reverse, NoReverseMatch
 import json
 
 

@@ -86,7 +86,7 @@ class CategoryDrillDownNode(template.Node):
                 context[self.varname] = drilldown_tree_for_node(cat)
             else:
                 context[self.varname] = []
-        except:
+        except Exception:
             context[self.varname] = []
         return ''
 

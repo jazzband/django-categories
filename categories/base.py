@@ -37,10 +37,12 @@ class CategoryBase(MPTTModel):
     """
     parent = TreeForeignKey(
         'self',
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
         related_name='children',
-        verbose_name=_('parent'))
+        verbose_name=_('parent'),
+    )
     name = models.CharField(max_length=100, verbose_name=_('name'))
     slug = models.SlugField(verbose_name=_('slug'))
     active = models.BooleanField(default=True, verbose_name=_('active'))

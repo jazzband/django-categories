@@ -67,13 +67,13 @@ class TreeEditorQuerySet(QuerySet):
 
 class TreeChangeList(ChangeList):
     def _get_default_ordering(self):
-        if django.VERSION[1] < 4:
+        if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             return '', ''  # ('tree_id', 'lft')
         else:
             return []
 
     def get_ordering(self, request=None, queryset=None):
-        if django.VERSION[1] < 4:
+        if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             return '', ''  # ('tree_id', 'lft')
         else:
             return []
@@ -142,7 +142,7 @@ class TreeEditor(admin.ModelAdmin):
                 pass
 
         try:
-            if django.VERSION[1] < 4:
+            if django.VERSION[0] == 1 and django.VERSION[1] < 4:
                 params = (
                     request, self.model, list_display,
                     self.list_display_links, self.list_filter, self.date_hierarchy,
@@ -241,7 +241,7 @@ class TreeEditor(admin.ModelAdmin):
             'actions_on_top': self.actions_on_top,
             'actions_on_bottom': self.actions_on_bottom,
         }
-        if django.VERSION[1] < 4:
+        if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             context['root_path'] = self.admin_site.root_path
         else:
             selection_note_all = ungettext('%(total_count)s selected', 'All %(total_count)s selected', cl.result_count)
