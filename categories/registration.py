@@ -1,7 +1,7 @@
 """
 These functions handle the adding of fields to other models
 """
-from django.db.models import FieldDoesNotExist, ForeignKey, ManyToManyField
+from django.db.models import FieldDoesNotExist, ForeignKey, ManyToManyField, CASCADE
 from . import fields
 # from settings import self._field_registry, self._model_registry
 from django.utils.translation import ugettext_lazy as _
