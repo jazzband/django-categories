@@ -9,13 +9,11 @@ branches:
 
 env:
   - TOXENV=py27-lint
-  - TOXENV=py27-django18
-  - TOXENV=py27-django19
   - TOXENV=py27-django110
-  - TOXENV=py36-django18
-  - TOXENV=py36-django19
+  - TOXENV=py27-django111
   - TOXENV=py36-django110
   - TOXENV=py36-django111
+  - TOXENV=py36-django2
 
 install:
   - pip install tox
