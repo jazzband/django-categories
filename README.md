@@ -38,6 +38,10 @@ Easy ways for displaying the tree data in templates:
 
 ## Changes
 
+### New in 2.0
+
+* Added REST API endpoint
+
 ### New in 1.8
 
 * Support for Django 3.1

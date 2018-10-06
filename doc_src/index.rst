@@ -19,6 +19,7 @@ Contents
    user_guide/index
    reference/index
    api/index
+   api
    changelog
 
 Indices and tables
