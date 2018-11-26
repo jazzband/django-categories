@@ -148,6 +148,13 @@ class TreeEditor(admin.ModelAdmin):
                     self.list_display_links, self.list_filter, self.date_hierarchy,
                     self.search_fields, self.list_select_related,
                     self.list_per_page, self.list_editable, self)
+            elif django.VERSION[0] == 2:
+                params = (
+                    request, self.model, list_display,
+                    self.list_display_links, self.list_filter, self.date_hierarchy,
+                    self.search_fields, self.list_select_related,
+                    self.list_per_page, self.list_max_show_all,
+                    self.list_editable, self.sortable_by, self)
             else:
                 params = (
                     request, self.model, list_display,
