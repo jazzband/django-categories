@@ -148,7 +148,7 @@ class TreeEditor(admin.ModelAdmin):
                     self.list_display_links, self.list_filter, self.date_hierarchy,
                     self.search_fields, self.list_select_related,
                     self.list_per_page, self.list_editable, self)
-            elif django.VERSION[0] == 2:
+            elif django.VERSION[0] >= 2:
                 params = (
                     request, self.model, list_display,
                     self.list_display_links, self.list_filter, self.date_hierarchy,
@@ -250,6 +250,8 @@ class TreeEditor(admin.ModelAdmin):
         }
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             context['root_path'] = self.admin_site.root_path
+        elif django.VERSION[0] >= 2:
+            context['opts'] = self..model._meta
         else:
             selection_note_all = ungettext('%(total_count)s selected', 'All %(total_count)s selected', cl.result_count)
 
