@@ -21,12 +21,14 @@ class SimpleText(models.Model):
     def __unicode__(self):
         return self.name
 
-    # If using the get_absolute_url method, put the following line at the top of this file:
-    from django.db.models import permalink
 
-    @permalink
     def get_absolute_url(self):
-        return ('simpletext_detail_view_name', [str(self.id)])
+        try:
+            from django.db.models import permalink
+            return permalink('simpletext_detail_view_name', [str(self.id)])
+        except ImportError:
+            from django.urls import reverse
+            return reverse('simpletext_detail_view_name', args=[str(self.id)])
 
 
 class SimpleCategory(CategoryBase):
