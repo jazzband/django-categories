@@ -260,7 +260,7 @@ class TreeEditor(admin.ModelAdmin):
             })
         else:
             context['opts'] = self.model._meta
-            
+
         context.update(extra_context or {})
         return render_to_response(self.change_list_template or [
             'admin/%s/%s/change_list.html' % (app_label, opts.object_name.lower()),
