@@ -21,7 +21,6 @@ class SimpleText(models.Model):
     def __unicode__(self):
         return self.name
 
-
     def get_absolute_url(self):
         try:
             from django.db.models import permalink
