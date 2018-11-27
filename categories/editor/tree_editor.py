@@ -251,7 +251,7 @@ class TreeEditor(admin.ModelAdmin):
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             context['root_path'] = self.admin_site.root_path
         elif django.VERSION[0] >= 2:
-            context['opts'] = self..model._meta
+            context['opts'] = self.model._meta
         else:
             selection_note_all = ungettext('%(total_count)s selected', 'All %(total_count)s selected', cl.result_count)
 
