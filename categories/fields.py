@@ -19,7 +19,7 @@ class CategoryFKField(ForeignKey):
 
 try:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ["^categories\.fields\.CategoryFKField"])
-    add_introspection_rules([], ["^categories\.fields\.CategoryM2MField"])
+    add_introspection_rules([], [r"^categories\.fields\.CategoryFKField"])
+    add_introspection_rules([], [r"^categories\.fields\.CategoryM2MField"])
 except ImportError:
     pass
