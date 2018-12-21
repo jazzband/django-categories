@@ -148,13 +148,20 @@ class TreeEditor(admin.ModelAdmin):
                     self.list_display_links, self.list_filter, self.date_hierarchy,
                     self.search_fields, self.list_select_related,
                     self.list_per_page, self.list_editable, self)
-            else:
+            elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
                 params = (
                     request, self.model, list_display,
                     self.list_display_links, self.list_filter, self.date_hierarchy,
                     self.search_fields, self.list_select_related,
                     self.list_per_page, self.list_max_show_all,
                     self.list_editable, self)
+            else:
+                params = (
+                    request, self.model, list_display,
+                    self.list_display_links, self.list_filter, self.date_hierarchy,
+                    self.search_fields, self.list_select_related,
+                    self.list_per_page, self.list_max_show_all,
+                    self.list_editable, self, self.sortable_by)
             cl = TreeChangeList(*params)
         except IncorrectLookupParameters:
             # Wacky lookup parameters were given, so redirect to the main
@@ -243,7 +250,7 @@ class TreeEditor(admin.ModelAdmin):
         }
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             context['root_path'] = self.admin_site.root_path
-        else:
+        elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
             selection_note_all = ungettext('%(total_count)s selected', 'All %(total_count)s selected', cl.result_count)
 
             context.update({
@@ -251,6 +258,9 @@ class TreeEditor(admin.ModelAdmin):
                 'selection_note': _('0 of %(cnt)s selected') % {'cnt': len(cl.result_list)},
                 'selection_note_all': selection_note_all % {'total_count': cl.result_count},
             })
+        else:
+            context['opts'] = self.model._meta
+
         context.update(extra_context or {})
         return render_to_response(self.change_list_template or [
             'admin/%s/%s/change_list.html' % (app_label, opts.object_name.lower()),
