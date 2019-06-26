@@ -1,35 +1,11 @@
+sudo: false
+
 language: python
 
 python:
   - "2.7"
   - "3.6"
   - "3.7"
+install: pip install tox-travis
 
-branches:
-  only:
-    - master
-
-matrix:
-  include:
-    - python: 2.7
-      env: TOXENV=py27-lint
-    - python: 2.7
-      env: TOXENV=py27-django111
-    - python: 3.6
-      env: TOXENV=py36-django111
-    - python: 3.6
-      env: TOXENV=py36-django2
-    - python: 3.6
-      env: TOXENV=py36-django21
-    - python: 3.6
-      env: TOXENV=py36-django22
-
-install:
-  - pip install tox
-
-script:
-  - tox -e $TOXENV
-
-after_success:
-  - pip install codecov
-  - codecov -e TOXENV
+script: tox
