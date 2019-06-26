@@ -5,8 +5,8 @@ Django Categories
 |BUILD|_
 
 .. |BUILD| image::
-   https://secure.travis-ci.org/callowayproject/django-categories.svg?branch=master
-.. _BUILD: http://travis-ci.org/#!/callowayproject/django-categories
+   https://travis-ci.org/callowayproject/django-categories.svg?branch=master
+.. _BUILD: https://travis-ci.org/callowayproject/django-categories
 
 
 Django Categories grew out of our need to provide a basic hierarchical taxonomy management system that multiple applications could use independently or in concert.
