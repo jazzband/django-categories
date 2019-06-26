@@ -9,17 +9,28 @@ branches:
   only:
     - master
 
-env:
-  - TOXENV=py27-lint
-  - TOXENV=py27-django111
-  - TOXENV=py36-django111
-  - TOXENV=py36-django2
-  - TOXENV=py36-django21
-  - TOXENV=py36-django22
-  - TOXENV=py37-django111
-  - TOXENV=py37-django2
-  - TOXENV=py37-django21
-  - TOXENV=py37-django22
+matrix:
+  include:
+    - python: 2.7
+      env: TOXENV=py27-lint
+    - python: 2.7
+      env: TOXENV=py27-django111
+    - python: 3.6
+      env: TOXENV=py36-django111
+    - python: 3.6
+      env: TOXENV=py36-django2
+    - python: 3.6
+      env: TOXENV=py36-django21
+    - python: 3.6
+      env: TOXENV=py36-django22
+    - python: 3.7
+      env: TOXENV=py37-django111
+    - python: 3.7
+      env: TOXENV=py37-django2
+    - python: 3.7
+      env: TOXENV=py37-django21
+    - python: 3.7
+      env: TOXENV=py37-django22
 
 install:
   - pip install tox
