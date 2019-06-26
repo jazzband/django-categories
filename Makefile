@@ -9,13 +9,12 @@ help:
 
 deps:
 	pip install -r requirements.txt
-	pip install tox sphinx sphinx-autobuild
+	pip install tox sphinx sphinx-autobuild twine
 
 test:
 	tox
 
 publish:
-	python setup.py register
-	python setup.py sdist upload
-	python setup.py bdist_wheel --universal upload
-	rm -fr build dist .egg requests.egg-info
+	python setup.py sdist bdist_wheel
+	twine upload dist/*
+	rm -fr build dist
