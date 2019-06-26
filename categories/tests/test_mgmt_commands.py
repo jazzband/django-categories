@@ -1,12 +1,21 @@
 # -*- coding: utf-8 -*-
-from unittest import skip
-
 from django.core import management
 from django.core.management.base import CommandError
+from django.db import connection
 from django.test import TestCase
 
 
 class TestMgmtCommands(TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        connection.disable_constraint_checking()
+        super(TestMgmtCommands, cls).setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        super(TestMgmtCommands, cls).tearDownClass()
+        connection.enable_constraint_checking()
 
     def test_add_category_fields(self):
         management.call_command('add_category_fields', verbosity=0)
@@ -14,7 +23,6 @@ class TestMgmtCommands(TestCase):
     def test_add_category_fields_app(self):
         management.call_command('add_category_fields', 'flatpages', verbosity=0)
 
-    @skip("Breaks with Django > 2. Skipping until it can be fixed.")
     def test_drop_category_field(self):
         management.call_command('drop_category_field', 'flatpages', 'flatpage', 'category', verbosity=0)
 

@@ -21,16 +21,3 @@ __version__ = get_version()
 
 
 default_app_config = 'categories.apps.CategoriesConfig'
-
-
-def register():
-    from categories import settings
-    from categories.registration import (_process_registry, registry)
-    _process_registry(settings.FK_REGISTRY, registry.register_fk)
-    _process_registry(settings.M2M_REGISTRY, registry.register_m2m)
-
-
-try:
-    register()
-except Exception as e:
-    print(e)
