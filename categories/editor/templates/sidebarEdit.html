@@ -1,0 +1,33 @@
+{% load i18n sekizai_tags static %}
+{% load category_tags %}
+
+
+{# if this is a landing category, render the following and allow the user to edit the category's parent #}
+
+{# easy hack to check if the article is a landing category, compare the slug of the article's first category with the urlpath slug #}
+
+{# if form.validCategory and article.category.slug == urlpath.slug #}
+
+{% if article.category %}
+  <h4>{% trans "Edit Category" %}</h4>
+    <div class="form-horizontal sidebar-form" style="margin-bottom:5px, overflow:">
+
+      {{ form }}
+
+      <p>
+        <button type="submit" name="{{ plugin.slug }}_save" value="1" class="btn btn-default btn-md">
+          <span class="fa fa-database"></span>
+          {% trans "Save changes" %}
+        </button>
+      </p>
+    </div>
+
+{% else %}
+{# if this is not a category landing article then display the following instead #}
+  <p>
+    This is article is not a category. You cannot edit this.
+  </p>
+{% endif %}
+
+
+<hr />

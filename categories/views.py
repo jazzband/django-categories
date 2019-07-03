@@ -4,7 +4,9 @@ from django.template.loader import select_template
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, ListView
 
-from .models import Category
+from wiki.models import URLPath, Article
+from .models import ArticleCategory as Category
+from . import forms
 
 
 def category_detail(request, path, template_name='categories/category_detail.html', extra_context={}):
@@ -143,3 +145,79 @@ class CategoryRelatedList(ListView):
             )
         names.extend(super(CategoryRelatedList, self).get_template_names())
         return names
+
+
+class CategoryView( ArticleMixin, FormView ):
+
+    ''' This view manages the creation of new categories '''
+
+    form_class = forms.ArticleCategoryForm
+    template_name = "category_detail.html"
+
+    @method_decorator(get_article(can_read=True, can_create=True),)
+    def dispatch(self, request, article, *args, **kwargs):
+        categories = Category.objects.filter(slug="maincat")
+
+
+        return super(
+            CategoryView,
+            self).dispatch(
+            request,
+            article,
+            *args,
+            **kwargs)
+
+    def get_form_kwargs(self, **kwargs):
+        kwargs = super(CategoryView, self).get_form_kwargs(**kwargs)
+        #kwargs['article'] = self.article
+        #kwargs['request'] = self.request
+        return kwargs
+
+
+
+    # Processing of category creation form goes here, modify the category creation process below
+    def form_valid(self, form):
+        clean_data = form.cleaned_data
+        print(clean_data)
+        slug = clean_data['slug']
+        title = clean_data['name']
+        content = clean_data['description']
+
+        # creates an article for the category and then associates them by having equaling titles and slugs
+
+        self.landing_article_urlpath = URLPath.create_article(
+            URLPath.root(),
+            slug,
+            title = title,
+            content = content,
+            user_message = " ",
+            user = self.request.user,
+            article_kwargs = {'owner': self.request.user,
+                              'group': self.article.group,
+                              'group_read': self.article.group_read,
+                              'group_write': self.article.group_write,
+                              'other_read': self.article.other_read,
+                              'other_write': self.article.other_write,
+                              })
+        landing_article = Article.objects.get(urlpath = self.landing_article_urlpath)
+        form.instance.article = landing_article
+        form.save()
+        category = Category.objects.get(slug = slug)
+        return redirect(
+            "wiki:get",
+            path=self.landing_article_urlpath.path,
+            article_id=self.article.id)
+
+    def get_form(self):
+        form = super(CategoryView, self).get_form(form_class=forms.ArticleCategoryForm)
+        return form
+
+
+    # Insert form and category list into context for retrieval in template
+
+    def get_context_data(self, **kwargs):
+        kwargs['categories'] = Category.objects.all()
+        kwargs['form'] = self.get_form()
+        kwargs = super(CategoryView, self).get_context_data(**kwargs)
+        kwargs['article'] = self.article
+        return kwargs

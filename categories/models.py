@@ -1,4 +1,5 @@
 from django.core.files.images import get_image_dimensions
+from wiki.models import Article
 from django.urls import reverse
 from django.db import models
 from django.utils.encoding import force_text
@@ -17,7 +18,6 @@ from .settings import (RELATION_MODELS, RELATIONS, THUMBNAIL_UPLOAD_PATH, THUMBN
 from .base import CategoryBase
 
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
-
 
 class Category(CategoryBase):
     thumbnail = models.FileField(
@@ -82,7 +82,7 @@ class Category(CategoryBase):
 
     def save(self, *args, **kwargs):
         if self.thumbnail:
-            width, height = get_image_dimensions(self.thumbnail.file)
+            width, height = get_image_dimensions(self.thumbnail.file, close=True)
         else:
             width, height = None, None
 
@@ -98,6 +98,34 @@ class Category(CategoryBase):
     class MPTTMeta:
         order_insertion_by = ('order', 'name')
 
+class ArticleCategory(CategoryBase):
+    """
+    Category with an associated article landing page.
+    """
+    # the landing page article
+    article = models.OneToOneField(Article, on_delete=models.CASCADE, null=False, related_name='category')
+    # articles in the category
+    member_articles = models.ManyToManyField(Article, related_name="categories", blank=True)
+    # category description
+    description = models.TextField(blank=True, null=True)
+
+    @property
+    def short_title(self):
+        return self.name
+
+    def subtree_ids(self):
+        """Return a list containing the ID of this category and all its subcategories"""
+        queue = [self]
+        ids = [] # IDs of inheriting categories
+        while queue:
+            child = queue.pop()
+            ids.append(child.id)
+            queue.extend(child.children.all())
+        return ids
+
+    class Meta(CategoryBase.Meta):
+        verbose_name = _('article category')
+        verbose_name_plural = _('article categories')
 
 if RELATIONS:
     CATEGORY_RELATION_LIMITS = reduce(lambda x, y: x | y, RELATIONS)
@@ -125,7 +153,8 @@ class CategoryRelation(models.Model):
     """Related category item"""
     category = models.ForeignKey(Category, verbose_name=_('category'), on_delete=models.CASCADE)
     content_type = models.ForeignKey(
-        ContentType, on_delete=models.CASCADE, limit_choices_to=CATEGORY_RELATION_LIMITS, verbose_name=_('content type'))
+        ContentType, on_delete=models.CASCADE, limit_choices_to=CATEGORY_RELATION_LIMITS,
+        verbose_name=_('content type'), related_name='content_type')
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(
@@ -139,3 +168,11 @@ class CategoryRelation(models.Model):
 
     def __unicode__(self):
         return "CategoryRelation"
+
+try:
+    from south.db import db  # noqa, South is required for migrating. Need to check for it
+    from django.db.models.signals import post_syncdb
+    from categories.migration import migrate_app
+    post_syncdb.connect(migrate_app)
+except ImportError:
+    pass

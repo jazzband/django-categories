@@ -1,0 +1,51 @@
+{% load wiki_tags i18n sekizai_tags %}
+{# check if article is in tab like 'edit' or 'metadata' or 'categories' if so don't render the following #}
+    {% if not "_" in request.path %}
+
+       {# here check if this is a category landing article and if so then display the category entries #}
+      <div>
+          {% if article.category %}
+              <h4>{% trans "Category Members" %} ({{article.category.member_articles.all|length}})</h4>
+              <ul>
+                {% for category_article in article.category.member_articles.all %}
+                  <li><a href="{{ category_article.get_absolute_url }}">{{ category_article }}</a></li>
+                {% endfor %}
+              </ul>
+              {% if article.category.parent %}
+              <h4>{% trans "Supercategory" %}:
+                <a href="{{ article.category.parent.article.get_absolute_url }}">{{ article.category.parent.article }}</a>
+              </h4>
+              {% endif %}
+              {% if article.category.children %}
+              <h4>{% trans "Subcategories" %}</h4>
+                {% for subcategory in article.category.children.all %}
+                <ul>
+                  <li><a href="{{ subcategory.article.get_absolute_url }}">{{ subcategory.article }}</a></li>
+                </ul>
+                {% endfor %}
+              {% endif %}
+          {% endif %}
+      </div>
+
+
+       {# display which categories the article is in #}
+      <div>
+        {% with article.categories.all as categories %}
+          {% if categories.all %}
+          <h4>{% trans "Categories" %}</h4>
+            <ul>
+                {% for category in categories %}
+                  <li><a href="{{ category.article.get_absolute_url }}">{{category}}</a>
+{% comment %}
+                    {% if category.parent %}
+                      <a href="/{{category.parent.slug}}"> (Parent: {{category.parent}}) </a>
+                    {% endif %}
+{% endcomment %}
+                  </li>
+                {% endfor %}
+            </ul>
+         {% endif %}
+        {% endwith %}
+      </div>
+
+     {% endif %}
