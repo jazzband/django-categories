@@ -21,3 +21,10 @@ __version__ = get_version()
 
 
 default_app_config = 'categories.apps.CategoriesConfig'
+
+
+# categories was developed assuming it would be the top module, but now it's
+# under wiki.plugins. Fix it by adding plugins/ to the path
+from os.path import dirname, realpath
+import sys
+sys.path.append(dirname(dirname(dirname(realpath(__file__)))))
