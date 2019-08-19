@@ -2,9 +2,12 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, Http404
 from django.template.loader import select_template
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, FormView
+from django.utils.decorators import method_decorator
 
+from wiki.decorators import get_article
 from wiki.models import URLPath, Article
+from wiki.views.mixins import ArticleMixin
 from .models import ArticleCategory as Category
 from . import forms
 

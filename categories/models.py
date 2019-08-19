@@ -103,9 +103,9 @@ class ArticleCategory(CategoryBase):
     Category with an associated article landing page.
     """
     # the landing page article
-    article = models.OneToOneField(Article, on_delete=models.CASCADE, null=False, related_name='category')
+    article = models.OneToOneField(Article, on_delete=models.CASCADE, null=False, related_name='category+')
     # articles in the category
-    member_articles = models.ManyToManyField(Article, related_name="categories", blank=True)
+    member_articles = models.ManyToManyField(Article, related_name="categories+", blank=True, related_query_name="categories+")
     # category description
     description = models.TextField(blank=True, null=True)
 
@@ -154,7 +154,7 @@ class CategoryRelation(models.Model):
     category = models.ForeignKey(Category, verbose_name=_('category'), on_delete=models.CASCADE)
     content_type = models.ForeignKey(
         ContentType, on_delete=models.CASCADE, limit_choices_to=CATEGORY_RELATION_LIMITS,
-        verbose_name=_('content type'), related_name='content_type')
+        verbose_name=_('content type'), related_name='content_type+')
     object_id = models.PositiveIntegerField(verbose_name=_('object id'))
     content_object = GenericForeignKey('content_type', 'object_id')
     relation_type = models.CharField(
