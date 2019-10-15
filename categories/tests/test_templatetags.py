@@ -2,7 +2,7 @@ from django.test import TestCase
 from django import template
 import re
 
-from categories.models import Category
+from wiki.plugins.categories.models import Category
 
 
 class CategoryTagsTest(TestCase):

@@ -5,8 +5,8 @@ import os
 
 from django.conf import settings
 from django.test import TestCase, override_settings
-from categories.models import Category
-from categories.management.commands.import_categories import Command
+from wiki.plugins.categories.models import Category
+from wiki.plugins.categories.management.commands.import_categories import Command
 from django.core.management.base import CommandError
 
 

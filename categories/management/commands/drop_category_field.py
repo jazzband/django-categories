@@ -20,7 +20,7 @@ class Command(BaseCommand):
         """
         Alter the tables
         """
-        from categories.migration import drop_field
+        from wiki.plugins.categories.migration import drop_field
         if 'app_name' not in options or 'model_name' not in options or 'field_name' not in options:
             raise CommandError("You must specify an Application name, a Model name and a Field name")
 

@@ -18,8 +18,8 @@ class Command(BaseCommand):
         Alter the tables
         """
 
-        from categories.migration import migrate_app
-        from categories.settings import MODEL_REGISTRY
+        from wiki.plugins.categories.migration import migrate_app
+        from wiki.plugins.categories.settings import MODEL_REGISTRY
         if options['app_names']:
             for app in options['app_names']:
                 migrate_app(None, app)

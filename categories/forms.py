@@ -4,12 +4,10 @@ from __future__ import absolute_import, unicode_literals
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django import forms
-from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
 from wiki.core.plugins.base import PluginSidebarFormMixin
 from wiki.models import Article, ArticleRevision, URLPath
-from .models import ArticleCategory
-from wiki.plugins.metadata.models import deepest_instance
+from wiki.plugins.categories.models import ArticleCategory
 
 # It would be cleaner if we combined the SidebarForm and EditCategoryForm, however the logic of
 # the form might be too complex if we do
@@ -35,15 +33,24 @@ class SidebarForm(PluginSidebarFormMixin):
         self.article = article
         self.request = request
         super(SidebarForm, self).__init__(*args, **kwargs)
+
+        # get all the categories that this article is associated with
+        self.category_hits = []
+        for c in ArticleCategory.objects.all():
+            if c.member_articles.filter(id=article.id).exists():
+                self.category_hits.append(c)
         self.fields['categories'].required = False
         self.fields['categories'].label_from_instance = lambda obj: mark_safe("%s" % escape(obj.short_title) + (' <a href="/'+str(obj.article.urlpath_set.all()[0])+'" target="_blank">View</a>'))
-        self.fields['categories'].initial = article.categories.all()
+        self.fields['categories'].initial = self.category_hits
         self.fields['categories'].widget = forms.CheckboxSelectMultiple()
-        ids = self.article.category.subtree_ids() if hasattr(self.article, 'category') else []
-        self.fields['categories'].queryset = ArticleCategory.objects.exclude(id__in = ids)
-        if not self.article.categories.all():
-            self.validCategory = False
 
+        ids_to_hide = [subtree_id
+                       for subtree_ids in [c.subtree_ids() for c in self.category_hits]
+                       for subtree_id in subtree_ids]
+        ids_to_hide = [id for id in ids_to_hide if id not in [c.id for c in self.category_hits]]
+        self.fields['categories'].queryset = ArticleCategory.objects.all().exclude(id__in=ids_to_hide)
+        if not self.category_hits:
+            self.validCategory = False
 
     def get_usermessage(self):
         return ugettext(
@@ -52,13 +59,20 @@ class SidebarForm(PluginSidebarFormMixin):
     def save(self, *args, **kwargs):
         if self.is_valid():
             data = self.cleaned_data
-            field = data['categories']
-            self.article.categories = field
-            self.article.save()
+
+            for category in ArticleCategory.objects.all():
+                # remove article from category if it currently contains the article and is NOT in the posted form data
+                if category not in data['categories'] and category.member_articles.filter(id=self.article.id).exists():
+                    category.member_articles.remove(self.article)
+                # add article to category if the category is in the posted form data and the article is not in it
+                elif category in data['categories'] and not category.member_articles.filter(id=self.article.id).exists():
+                    category.member_articles.add(self.article)
+                category.save()
+
         return super(SidebarForm, self).save(*args, **kwargs)
 
     class Meta:
-        model = Article
+        model = ArticleCategory
         fields = ('categories',)
 
 class EditCategoryForm(PluginSidebarFormMixin):

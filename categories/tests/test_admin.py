@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.test import Client, TestCase
 from django.utils.encoding import smart_text
 
-from categories.models import Category
+from wiki.plugins.categories.models import Category
 
 
 class TestCategoryAdmin(TestCase):

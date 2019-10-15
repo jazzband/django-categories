@@ -3,7 +3,7 @@ import os
 from django.core.files import File
 from django.core.files.uploadedfile import UploadedFile
 
-from categories.models import Category
+from wiki.plugins.categories.models import Category
 from django.test import TestCase
 
 

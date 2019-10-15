@@ -1,8 +1,8 @@
 from django.http import Http404
 from django.contrib.auth.models import AnonymousUser
 from django.test import Client, TestCase, RequestFactory
-from categories.models import Category, CategoryRelation
-from categories import views
+from wiki.plugins.categories.models import Category, CategoryRelation
+from wiki.plugins.categories import views
 
 
 class MyCategoryRelationView(views.CategoryRelatedDetail):

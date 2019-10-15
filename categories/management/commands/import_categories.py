@@ -3,8 +3,8 @@ from django.db import transaction
 
 from slugify import slugify
 
-from categories.models import Category
-from categories.settings import SLUG_TRANSLITERATOR
+from wiki.plugins.categories.models import Category
+from wiki.plugins.categories.settings import SLUG_TRANSLITERATOR
 
 
 class Command(BaseCommand):
