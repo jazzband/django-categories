@@ -69,7 +69,8 @@ class SidebarForm(PluginSidebarFormMixin):
                     category.member_articles.add(self.article)
                 category.save()
 
-        return super(SidebarForm, self).save(*args, **kwargs)
+        # This doesn't seem to be necessary and was causing errors
+        #return super(SidebarForm, self).save(*args, **kwargs)
 
     class Meta:
         model = ArticleCategory
