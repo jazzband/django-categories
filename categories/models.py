@@ -19,6 +19,7 @@ from .base import CategoryBase
 
 STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
+
 class Category(CategoryBase):
     thumbnail = models.FileField(
         upload_to=THUMBNAIL_UPLOAD_PATH,
@@ -103,9 +104,9 @@ class ArticleCategory(CategoryBase):
     Category with an associated article landing page.
     """
     # the landing page article
-    article = models.OneToOneField(Article, on_delete=models.CASCADE, null=False, related_name='category+')
+    article = models.OneToOneField(Article, on_delete=models.CASCADE, null=False, related_name='category')
     # articles in the category
-    member_articles = models.ManyToManyField(Article, related_name="categories+", blank=True, related_query_name="categories+")
+    member_articles = models.ManyToManyField(Article, blank=True, related_name="categories")
     # category description
     description = models.TextField(blank=True, null=True)
 

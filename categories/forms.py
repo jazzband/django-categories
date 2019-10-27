@@ -35,21 +35,13 @@ class SidebarForm(PluginSidebarFormMixin):
         super(SidebarForm, self).__init__(*args, **kwargs)
 
         # get all the categories that this article is associated with
-        self.category_hits = []
-        for c in ArticleCategory.objects.all():
-            if c.member_articles.filter(id=article.id).exists():
-                self.category_hits.append(c)
         self.fields['categories'].required = False
         self.fields['categories'].label_from_instance = lambda obj: mark_safe("%s" % escape(obj.short_title) + (' <a href="/'+str(obj.article.urlpath_set.all()[0])+'" target="_blank">View</a>'))
-        self.fields['categories'].initial = self.category_hits
+        self.fields['categories'].initial = self.article.categories.all()
         self.fields['categories'].widget = forms.CheckboxSelectMultiple()
+        self.fields['categories'].queryset = ArticleCategory.objects.exclude(id__in=self.article.category.subtree_ids()).all()
 
-        ids_to_hide = [subtree_id
-                       for subtree_ids in [c.subtree_ids() for c in self.category_hits]
-                       for subtree_id in subtree_ids]
-        ids_to_hide = [id for id in ids_to_hide if id not in [c.id for c in self.category_hits]]
-        self.fields['categories'].queryset = ArticleCategory.objects.all().exclude(id__in=ids_to_hide)
-        if not self.category_hits:
+        if not self.article.categories:
             self.validCategory = False
 
     def get_usermessage(self):
@@ -59,18 +51,11 @@ class SidebarForm(PluginSidebarFormMixin):
     def save(self, *args, **kwargs):
         if self.is_valid():
             data = self.cleaned_data
+            field = data['categories']
+            self.article.categories = field
+            self.article.save()
 
-            for category in ArticleCategory.objects.all():
-                # remove article from category if it currently contains the article and is NOT in the posted form data
-                if category not in data['categories'] and category.member_articles.filter(id=self.article.id).exists():
-                    category.member_articles.remove(self.article)
-                # add article to category if the category is in the posted form data and the article is not in it
-                elif category in data['categories'] and not category.member_articles.filter(id=self.article.id).exists():
-                    category.member_articles.add(self.article)
-                category.save()
-
-        # This doesn't seem to be necessary and was causing errors
-        #return super(SidebarForm, self).save(*args, **kwargs)
+        return super(SidebarForm, self).save(*args, **kwargs)
 
     class Meta:
         model = ArticleCategory
@@ -83,7 +68,7 @@ class EditCategoryForm(PluginSidebarFormMixin):
     def __init__(self, article, request, *args, **kwargs):
         self.article = article
         self.request = request
-        self.validCategory = hasattr(self.article, 'category')
+        self.validCategory = self.article.category is not None
         super(EditCategoryForm, self).__init__(*args, **kwargs)
 
         if not self.validCategory:
@@ -110,7 +95,7 @@ class EditCategoryForm(PluginSidebarFormMixin):
             revision.categories = self.article.categories
             if oldparent:
                 oldparent = oldparent.name
-            revision.automatic_log = f'Parent Category: {oldparent} → {newparent.name} (not revertible)'
+            revision.automatic_log = f'Parent Category: {oldparent} → {newparent.name if newparent else "None"} (not revertible)'
             self.article.add_revision(revision)
             # reverting to a previous revision from the Changes page currently does not affect the category parent
         self.instance.parent = newparent
