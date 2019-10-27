@@ -39,7 +39,7 @@ class SidebarForm(PluginSidebarFormMixin):
         self.fields['categories'].label_from_instance = lambda obj: mark_safe("%s" % escape(obj.short_title) + (' <a href="/'+str(obj.article.urlpath_set.all()[0])+'" target="_blank">View</a>'))
         self.fields['categories'].initial = self.article.categories.all()
         self.fields['categories'].widget = forms.CheckboxSelectMultiple()
-        excluded_ids = self.article.category.subtree_ids() if self.article.category else []
+        excluded_ids = self.article.category.subtree_ids() if hasattr(self.article, 'category') else []
         self.fields['categories'].queryset = ArticleCategory.objects.exclude(id__in=excluded_ids).all()
 
         if not self.article.categories:
@@ -69,7 +69,7 @@ class EditCategoryForm(PluginSidebarFormMixin):
     def __init__(self, article, request, *args, **kwargs):
         self.article = article
         self.request = request
-        self.validCategory = self.article.category is not None
+        self.validCategory = hasattr(self.article, 'category')
         super(EditCategoryForm, self).__init__(*args, **kwargs)
 
         if not self.validCategory:
