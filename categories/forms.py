@@ -53,10 +53,11 @@ class SidebarForm(PluginSidebarFormMixin):
         if self.is_valid():
             data = self.cleaned_data
             field = data['categories']
-            self.article.categories = field
+            self.article.categories.set(field)
             self.article.save()
 
-        return super(SidebarForm, self).save(*args, **kwargs)
+        # Seems unnecessary, errors
+        # return super(SidebarForm, self).save(*args, **kwargs)
 
     class Meta:
         model = ArticleCategory
