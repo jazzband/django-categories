@@ -39,7 +39,8 @@ class SidebarForm(PluginSidebarFormMixin):
         self.fields['categories'].label_from_instance = lambda obj: mark_safe("%s" % escape(obj.short_title) + (' <a href="/'+str(obj.article.urlpath_set.all()[0])+'" target="_blank">View</a>'))
         self.fields['categories'].initial = self.article.categories.all()
         self.fields['categories'].widget = forms.CheckboxSelectMultiple()
-        self.fields['categories'].queryset = ArticleCategory.objects.exclude(id__in=self.article.category.subtree_ids()).all()
+        excluded_ids = self.article.category.subtree_ids() if self.article.category else []
+        self.fields['categories'].queryset = ArticleCategory.objects.exclude(id__in=excluded_ids).all()
 
         if not self.article.categories:
             self.validCategory = False
