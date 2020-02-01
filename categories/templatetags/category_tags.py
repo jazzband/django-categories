@@ -2,7 +2,7 @@ from django import template
 from django.apps import apps
 from django.template import (Node, TemplateSyntaxError, VariableDoesNotExist)
 from django.template.base import FilterExpression
-from django.utils.six import string_types
+from six import string_types
 from categories.base import CategoryBase
 from categories.models import Category
 from mptt.utils import drilldown_tree_for_node

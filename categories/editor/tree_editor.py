@@ -4,7 +4,7 @@ from django.contrib.admin.views.main import ChangeList
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.options import IncorrectLookupParameters
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 import django
 
@@ -170,7 +170,8 @@ class TreeEditor(admin.ModelAdmin):
             # the 'invalid=1' parameter was already in the query string, something
             # is screwed up with the database, so display an error page.
             if ERROR_FLAG in list(request.GET.keys()):
-                return render_to_response(
+                return render(
+                    request,
                     'admin/invalid_setup.html', {'title': _('Database error')})
             return HttpResponseRedirect(request.path + '?' + ERROR_FLAG + '=1')
 
@@ -262,7 +263,7 @@ class TreeEditor(admin.ModelAdmin):
             context['opts'] = self.model._meta
 
         context.update(extra_context or {})
-        return render_to_response(self.change_list_template or [
+        return render(request, self.change_list_template or [
             'admin/%s/%s/change_list.html' % (app_label, opts.object_name.lower()),
             'admin/%s/change_list.html' % app_label,
             'admin/change_list.html'
