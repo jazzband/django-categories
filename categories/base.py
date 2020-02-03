@@ -2,12 +2,12 @@
 This is the base class on which to build a hierarchical category-like model
 with customizable metadata and its own name space.
 """
+import sys
 
 from django.contrib import admin
 from django.db import models
 from django import forms
-from django.utils.encoding import force_text, python_2_unicode_compatible
-from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import force_text
 
 from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
@@ -16,6 +16,15 @@ from slugify import slugify
 
 from .editor.tree_editor import TreeEditor
 from .settings import ALLOW_SLUG_CHANGE, SLUG_TRANSLITERATOR
+
+from django.utils.translation import ugettext_lazy as _
+
+
+if sys.version_info[0] < 3:  # Remove this after dropping support of Python 2
+    from django.utils.encoding import python_2_unicode_compatible
+else:
+    def python_2_unicode_compatible(x):
+        return x
 
 
 class CategoryManager(models.Manager):
