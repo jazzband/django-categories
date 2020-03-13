@@ -3,6 +3,21 @@
 from django.db import migrations, models
 
 
+def make_slugs_unique(apps, schema_editor):
+    Category = apps.get_model('categories', 'Category')
+    duplicates = Category.tree.values('slug').annotate(slug_count=models.Count('slug')).filter(slug_count__gt=1)
+    for duplicate in duplicates:
+        slug = duplicate['slug']
+        categories = Category.tree.filter(slug=slug)
+        count = categories.count()
+        i = 0
+        for category in categories.all():
+            if i != 0:
+                category.slug = "%s_%s" % (slug, str(i).zfill(len(str(count))))
+                category.save()
+            i += 1
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -10,6 +25,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(make_slugs_unique, reverse_code=migrations.RunPython.noop),
         migrations.AlterField(
             model_name='category',
             name='slug',
