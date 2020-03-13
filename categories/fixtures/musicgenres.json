@@ -2292,7 +2292,7 @@
 	    "name": "Country pop",
 	    "parent": 142,
 	    "level": 1,
-	    "slug": "country-pop",
+	    "slug": "country-pop_1",
 	    "lft": 100,
 	    "tree_id": 10,
 	    "order": 1
