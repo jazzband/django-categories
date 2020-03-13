@@ -22,6 +22,15 @@ def field_exists(app_name, model_name, field_name):
     cursor = connection.cursor()
     field_info = connection.introspection.get_table_description(cursor, table_name)
     field_names = [f.name for f in field_info]
+
+    # Return True if the many to many table exists
+    field = model._meta.get_field(field_name)
+    if hasattr(field, 'm2m_db_table'):
+        m2m_table_name = field.m2m_db_table()
+        m2m_field_info = connection.introspection.get_table_description(cursor, m2m_table_name)
+        if m2m_field_info:
+            return True
+
     return field_name in field_names
 
 
