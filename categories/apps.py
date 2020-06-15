@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class CategoriesConfig(AppConfig):
-    name = 'wiki.plugins.categories'
+    name = 'categories'
     verbose_name = "Categories"
 
     def __init__(self, *args, **kwargs):
