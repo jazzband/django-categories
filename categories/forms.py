@@ -7,7 +7,7 @@ from django import forms
 from django.utils.translation import ugettext
 from wiki.core.plugins.base import PluginSidebarFormMixin
 from wiki.models import Article, ArticleRevision, URLPath
-from wiki.plugins.categories.models import ArticleCategory
+from categories.models import ArticleCategory
 
 # It would be cleaner if we combined the SidebarForm and EditCategoryForm, however the logic of
 # the form might be too complex if we do
