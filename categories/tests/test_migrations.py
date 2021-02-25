@@ -6,8 +6,8 @@ if (sys.version_info >= (3, 0)):
 
     class TestMigrations(MigratorTestCase):
 
-        migrate_from = ('categories', '0003_auto_20200306_1050')
-        migrate_to = ('categories', '0004_unique_category_slug')
+        migrate_from = ('categories', '0004_auto_20200517_1832')
+        migrate_to = ('categories', '0005_unique_category_slug')
 
         def prepare(self):
             Category = self.old_state.apps.get_model('categories', 'Category')

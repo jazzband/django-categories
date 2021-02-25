@@ -109,7 +109,7 @@ CATEGORIES_SETTINGS = {
         ),
     },
     "M2M_REGISTRY": {
-        # 'simpletext.simpletext': {'name': 'categories', 'related_name': 'm2mcats'},
+        "simpletext.simpletext": {"name": "categories", "related_name": "m2mcats"},
         "flatpages.flatpage": (
             {"name": "other_categories", "related_name": "other_cats"},
             {"name": "more_categories", "related_name": "more_cats"},
