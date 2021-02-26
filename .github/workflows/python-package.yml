@@ -31,7 +31,7 @@ jobs:
     - name: Sphinx Pages
       # You may pin to the exact commit or the version.
       # uses: seanzhengw/sphinx-pages@70dd0557fc226cfcd41c617aec5e9ee4fce4afe2
-      uses: seanzhengw/sphinx-pages@v1
+      uses: seanzhengw/sphinx-pages@d29427677b3b89c1b5311d9eb135fb4168f4ba4a
       with:
         # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
