@@ -15,6 +15,6 @@ test:
 	tox
 
 publish:
+	rm -fr build dist
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
-	rm -fr build dist

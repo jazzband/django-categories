@@ -1,2 +1,2 @@
-django-mptt>=0.9.0,<0.10
+django-mptt==0.11.0
 unicode-slugify==0.1.3
