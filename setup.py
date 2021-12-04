@@ -3,7 +3,7 @@ import categories
 import os
 
 try:
-    long_description = open('README.rst').read()
+    long_description = open('README.md').read()
 except IOError:
     long_description = ''
 
@@ -17,6 +17,7 @@ setup(
     version=categories.get_version(),
     description='A way to handle one or more hierarchical category trees in django.',
     long_description=long_description,
+    long_description_content_type="text/markdown",
     author='Corey Oordt',
     author_email='coreyoordt@gmail.com',
     include_package_data=True,
