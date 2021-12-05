@@ -14,9 +14,9 @@ class SimpleText(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = 'Simple Text'
-        ordering = ('-created',)
-        get_latest_by = 'updated'
+        verbose_name_plural = "Simple Text"
+        ordering = ("-created",)
+        get_latest_by = "updated"
 
     def __unicode__(self):
         return self.name
@@ -24,16 +24,19 @@ class SimpleText(models.Model):
     def get_absolute_url(self):
         try:
             from django.db.models import permalink
-            return permalink('simpletext_detail_view_name', [str(self.id)])
+
+            return permalink("simpletext_detail_view_name", [str(self.id)])
         except ImportError:
             from django.urls import reverse
-            return reverse('simpletext_detail_view_name', args=[str(self.id)])
+
+            return reverse("simpletext_detail_view_name", args=[str(self.id)])
 
 
 class SimpleCategory(CategoryBase):
     """A Test of catgorizing"""
+
     class Meta:
-        verbose_name_plural = 'simple categories'
+        verbose_name_plural = "simple categories"
 
 
 # mport categories

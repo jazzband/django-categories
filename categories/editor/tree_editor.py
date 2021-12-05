@@ -1,12 +1,11 @@
-from django.contrib import admin
-from django.db.models.query import QuerySet
-from django.contrib.admin.views.main import ChangeList
-from django.http import HttpResponseRedirect
-from django.utils.translation import ugettext_lazy as _
-from django.contrib.admin.options import IncorrectLookupParameters
-from django.shortcuts import render
-
 import django
+from django.contrib import admin
+from django.contrib.admin.options import IncorrectLookupParameters
+from django.contrib.admin.views.main import ChangeList
+from django.db.models.query import QuerySet
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.utils.translation import ugettext_lazy as _
 
 from . import settings
 
@@ -24,6 +23,7 @@ class TreeEditorQuerySet(QuerySet):
             in the result set, so the resulting tree display actually
             makes sense.
     """
+
     def iterator(self):
         qs = self
         # Reaching into the bowels of query sets to find out whether the qs is
@@ -36,9 +36,9 @@ class TreeEditorQuerySet(QuerySet):
             # this cuts down the number of queries considerably since all ancestors
             # will already be in include_pages when they are checked, thus not
             # trigger additional queries.
-            for p in super(TreeEditorQuerySet, self.order_by('rght')).iterator():
+            for p in super(TreeEditorQuerySet, self.order_by("rght")).iterator():
                 if p.parent_id and p.parent_id not in include_pages and p.id not in include_pages:
-                    ancestor_id_list = p.get_ancestors().values_list('id', flat=True)
+                    ancestor_id_list = p.get_ancestors().values_list("id", flat=True)
                     include_pages.update(ancestor_id_list)
 
             if include_pages:
@@ -68,18 +68,18 @@ class TreeEditorQuerySet(QuerySet):
 class TreeChangeList(ChangeList):
     def _get_default_ordering(self):
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-            return '', ''  # ('tree_id', 'lft')
+            return "", ""  # ('tree_id', 'lft')
         else:
             return []
 
     def get_ordering(self, request=None, queryset=None):
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-            return '', ''  # ('tree_id', 'lft')
+            return "", ""  # ('tree_id', 'lft')
         else:
             return []
 
     def get_queryset(self, *args, **kwargs):
-        qs = super(TreeChangeList, self).get_queryset(*args, **kwargs).order_by('tree_id', 'lft')
+        qs = super(TreeChangeList, self).get_queryset(*args, **kwargs).order_by("tree_id", "lft")
         return qs
 
 
@@ -88,18 +88,18 @@ class TreeEditor(admin.ModelAdmin):
     list_max_show_all = 200  # new in django 1.4
 
     class Media:
-        css = {'all': (settings.MEDIA_PATH + "jquery.treeTable.css", )}
+        css = {"all": (settings.MEDIA_PATH + "jquery.treeTable.css",)}
         js = []
 
-        js.extend((settings.MEDIA_PATH + "jquery.treeTable.js", ))
+        js.extend((settings.MEDIA_PATH + "jquery.treeTable.js",))
 
     def __init__(self, *args, **kwargs):
         super(TreeEditor, self).__init__(*args, **kwargs)
 
         self.list_display = list(self.list_display)
 
-        if 'action_checkbox' in self.list_display:
-            self.list_display.remove('action_checkbox')
+        if "action_checkbox" in self.list_display:
+            self.list_display.remove("action_checkbox")
 
         opts = self.model._meta
 
@@ -108,9 +108,9 @@ class TreeEditor(admin.ModelAdmin):
             grappelli_prefix = "grappelli_"
 
         self.change_list_template = [
-            'admin/%s/%s/editor/%stree_editor.html' % (opts.app_label, opts.object_name.lower(), grappelli_prefix),
-            'admin/%s/editor/%stree_editor.html' % (opts.app_label, grappelli_prefix),
-            'admin/editor/%stree_editor.html' % grappelli_prefix,
+            "admin/%s/%s/editor/%stree_editor.html" % (opts.app_label, opts.object_name.lower(), grappelli_prefix),
+            "admin/%s/editor/%stree_editor.html" % (opts.app_label, grappelli_prefix),
+            "admin/editor/%stree_editor.html" % grappelli_prefix,
         ]
 
     def get_changelist(self, request, **kwargs):
@@ -125,6 +125,7 @@ class TreeEditor(admin.ModelAdmin):
         from django.core.exceptions import PermissionDenied
         from django.utils.encoding import force_text
         from django.utils.translation import ungettext
+
         opts = self.model._meta
         app_label = opts.app_label
         if not self.has_change_permission(request, None):
@@ -137,31 +138,56 @@ class TreeEditor(admin.ModelAdmin):
         list_display = list(self.list_display)
         if not actions:
             try:
-                list_display.remove('action_checkbox')
+                list_display.remove("action_checkbox")
             except ValueError:
                 pass
 
         try:
             if django.VERSION[0] == 1 and django.VERSION[1] < 4:
                 params = (
-                    request, self.model, list_display,
-                    self.list_display_links, self.list_filter, self.date_hierarchy,
-                    self.search_fields, self.list_select_related,
-                    self.list_per_page, self.list_editable, self)
+                    request,
+                    self.model,
+                    list_display,
+                    self.list_display_links,
+                    self.list_filter,
+                    self.date_hierarchy,
+                    self.search_fields,
+                    self.list_select_related,
+                    self.list_per_page,
+                    self.list_editable,
+                    self,
+                )
             elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
                 params = (
-                    request, self.model, list_display,
-                    self.list_display_links, self.list_filter, self.date_hierarchy,
-                    self.search_fields, self.list_select_related,
-                    self.list_per_page, self.list_max_show_all,
-                    self.list_editable, self)
+                    request,
+                    self.model,
+                    list_display,
+                    self.list_display_links,
+                    self.list_filter,
+                    self.date_hierarchy,
+                    self.search_fields,
+                    self.list_select_related,
+                    self.list_per_page,
+                    self.list_max_show_all,
+                    self.list_editable,
+                    self,
+                )
             else:
                 params = (
-                    request, self.model, list_display,
-                    self.list_display_links, self.list_filter, self.date_hierarchy,
-                    self.search_fields, self.list_select_related,
-                    self.list_per_page, self.list_max_show_all,
-                    self.list_editable, self, self.sortable_by)
+                    request,
+                    self.model,
+                    list_display,
+                    self.list_display_links,
+                    self.list_filter,
+                    self.date_hierarchy,
+                    self.search_fields,
+                    self.list_select_related,
+                    self.list_per_page,
+                    self.list_max_show_all,
+                    self.list_editable,
+                    self,
+                    self.sortable_by,
+                )
             cl = TreeChangeList(*params)
         except IncorrectLookupParameters:
             # Wacky lookup parameters were given, so redirect to the main
@@ -170,15 +196,13 @@ class TreeEditor(admin.ModelAdmin):
             # the 'invalid=1' parameter was already in the query string, something
             # is screwed up with the database, so display an error page.
             if ERROR_FLAG in list(request.GET.keys()):
-                return render(
-                    request,
-                    'admin/invalid_setup.html', {'title': _('Database error')})
-            return HttpResponseRedirect(request.path + '?' + ERROR_FLAG + '=1')
+                return render(request, "admin/invalid_setup.html", {"title": _("Database error")})
+            return HttpResponseRedirect(request.path + "?" + ERROR_FLAG + "=1")
 
         # If the request was POSTed, this might be a bulk action or a bulk edit.
         # Try to look up an action first, but if this isn't an action the POST
         # will fall through to the bulk edit check, below.
-        if actions and request.method == 'POST':
+        if actions and request.method == "POST":
             response = self.response_action(request, queryset=cl.get_queryset())
             if response:
                 return response
@@ -191,9 +215,7 @@ class TreeEditor(admin.ModelAdmin):
         # Handle POSTed bulk-edit data.
         if request.method == "POST" and self.list_editable:
             FormSet = self.get_changelist_formset(request)
-            formset = cl.formset = FormSet(
-                request.POST, request.FILES, queryset=cl.result_list
-            )
+            formset = cl.formset = FormSet(request.POST, request.FILES, queryset=cl.result_list)
             if formset.is_valid():
                 changecount = 0
                 for form in formset.forms:
@@ -213,9 +235,8 @@ class TreeEditor(admin.ModelAdmin):
                     msg = ungettext(
                         "%(count)s %(name)s was changed successfully.",
                         "%(count)s %(name)s were changed successfully.",
-                        changecount) % {'count': changecount,
-                                        'name': name,
-                                        'obj': force_text(obj)}
+                        changecount,
+                    ) % {"count": changecount, "name": name, "obj": force_text(obj)}
                     self.message_user(request, msg)
 
                 return HttpResponseRedirect(request.get_full_path())
@@ -234,40 +255,47 @@ class TreeEditor(admin.ModelAdmin):
         # Build the action form and populate it with available actions.
         if actions:
             action_form = self.action_form(auto_id=None)
-            action_form.fields['action'].choices = self.get_action_choices(request)
+            action_form.fields["action"].choices = self.get_action_choices(request)
         else:
             action_form = None
 
         context = {
-            'title': cl.title,
-            'is_popup': cl.is_popup,
-            'cl': cl,
-            'media': media,
-            'has_add_permission': self.has_add_permission(request),
-            'app_label': app_label,
-            'action_form': action_form,
-            'actions_on_top': self.actions_on_top,
-            'actions_on_bottom': self.actions_on_bottom,
+            "title": cl.title,
+            "is_popup": cl.is_popup,
+            "cl": cl,
+            "media": media,
+            "has_add_permission": self.has_add_permission(request),
+            "app_label": app_label,
+            "action_form": action_form,
+            "actions_on_top": self.actions_on_top,
+            "actions_on_bottom": self.actions_on_bottom,
         }
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-            context['root_path'] = self.admin_site.root_path
+            context["root_path"] = self.admin_site.root_path
         elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
-            selection_note_all = ungettext('%(total_count)s selected', 'All %(total_count)s selected', cl.result_count)
+            selection_note_all = ungettext("%(total_count)s selected", "All %(total_count)s selected", cl.result_count)
 
-            context.update({
-                'module_name': force_text(opts.verbose_name_plural),
-                'selection_note': _('0 of %(cnt)s selected') % {'cnt': len(cl.result_list)},
-                'selection_note_all': selection_note_all % {'total_count': cl.result_count},
-            })
+            context.update(
+                {
+                    "module_name": force_text(opts.verbose_name_plural),
+                    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                    "selection_note_all": selection_note_all % {"total_count": cl.result_count},
+                }
+            )
         else:
-            context['opts'] = self.model._meta
+            context["opts"] = self.model._meta
 
         context.update(extra_context or {})
-        return render(request, self.change_list_template or [
-            'admin/%s/%s/change_list.html' % (app_label, opts.object_name.lower()),
-            'admin/%s/change_list.html' % app_label,
-            'admin/change_list.html'
-        ], context=context)
+        return render(
+            request,
+            self.change_list_template
+            or [
+                "admin/%s/%s/change_list.html" % (app_label, opts.object_name.lower()),
+                "admin/%s/change_list.html" % app_label,
+                "admin/change_list.html",
+            ],
+            context=context,
+        )
 
     def changelist_view(self, request, extra_context=None, *args, **kwargs):
         """
@@ -275,8 +303,8 @@ class TreeEditor(admin.ModelAdmin):
         change list/actions page.
         """
         extra_context = extra_context or {}
-        extra_context['EDITOR_MEDIA_PATH'] = settings.MEDIA_PATH
-        extra_context['EDITOR_TREE_INITIAL_STATE'] = settings.TREE_INITIAL_STATE
+        extra_context["EDITOR_MEDIA_PATH"] = settings.MEDIA_PATH
+        extra_context["EDITOR_TREE_INITIAL_STATE"] = settings.TREE_INITIAL_STATE
 
         # FIXME
         return self.old_changelist_view(request, extra_context)

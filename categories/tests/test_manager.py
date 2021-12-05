@@ -1,10 +1,11 @@
 # test active returns only active items
 from django.test import TestCase
+
 from categories.models import Category
 
 
 class CategoryManagerTest(TestCase):
-    fixtures = ['categories.json']
+    fixtures = ["categories.json"]
 
     def setUp(self):
         pass
@@ -16,7 +17,7 @@ class CategoryManagerTest(TestCase):
         all_count = Category.objects.all().count()
         self.assertEqual(Category.objects.active().count(), all_count)
 
-        cat1 = Category.objects.get(name='Category 1')
+        cat1 = Category.objects.get(name="Category 1")
         cat1.active = False
         cat1.save()
 

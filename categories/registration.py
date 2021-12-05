@@ -1,17 +1,17 @@
 """
 These functions handle the adding of fields to other models
 """
-from django.db.models import ForeignKey, ManyToManyField, CASCADE
-from django.core.exceptions import FieldDoesNotExist
-from . import fields
+from django.core.exceptions import FieldDoesNotExist, ImproperlyConfigured
+from django.db.models import CASCADE, ForeignKey, ManyToManyField
+
 # from settings import self._field_registry, self._model_registry
 from django.utils.translation import ugettext_lazy as _
-from django.core.exceptions import ImproperlyConfigured
 
+from . import fields
 
 FIELD_TYPES = {
-    'ForeignKey': ForeignKey,
-    'ManyToManyField': ManyToManyField,
+    "ForeignKey": ForeignKey,
+    "ManyToManyField": ManyToManyField,
 }
 
 
@@ -28,17 +28,20 @@ class Registry(object):
         field_definitions: a string, tuple or list of field configurations
         field_type: either 'ForeignKey' or 'ManyToManyField'
         """
-        from django.apps import apps
         import collections
+
+        from django.apps import apps
 
         app_label = app
 
         if isinstance(field_definitions, str):
             field_definitions = [field_definitions]
         elif not isinstance(field_definitions, collections.Iterable):
-            raise ImproperlyConfigured(_('Field configuration for %(app)s should be a string or iterable') % {'app': app})
+            raise ImproperlyConfigured(
+                _("Field configuration for %(app)s should be a string or iterable") % {"app": app}
+            )
 
-        if field_type not in ('ForeignKey', 'ManyToManyField'):
+        if field_type not in ("ForeignKey", "ManyToManyField"):
             raise ImproperlyConfigured(_('`field_type` must be either `"ForeignKey"` or `"ManyToManyField"`.'))
 
         try:
@@ -55,30 +58,31 @@ class Registry(object):
             if model not in self._model_registry[app_label]:
                 self._model_registry[app_label].append(model)
         except LookupError:
-            raise ImproperlyConfigured('Model "%(model)s" doesn\'t exist in app "%(app)s".' % {'model': model_name, 'app': app})
+            raise ImproperlyConfigured(
+                'Model "%(model)s" doesn\'t exist in app "%(app)s".' % {"model": model_name, "app": app}
+            )
 
         if not isinstance(field_definitions, (tuple, list)):
             field_definitions = [field_definitions]
 
         for fld in field_definitions:
-            extra_params = {'to': 'categories.Category', 'blank': True}
-            if field_type != 'ManyToManyField':
-                extra_params['on_delete'] = CASCADE
-                extra_params['null'] = True
+            extra_params = {"to": "categories.Category", "blank": True}
+            if field_type != "ManyToManyField":
+                extra_params["on_delete"] = CASCADE
+                extra_params["null"] = True
             if isinstance(fld, str):
                 field_name = fld
             elif isinstance(fld, dict):
-                if 'name' in fld:
-                    field_name = fld.pop('name')
+                if "name" in fld:
+                    field_name = fld.pop("name")
                 else:
                     continue
                 extra_params.update(fld)
             else:
                 raise ImproperlyConfigured(
-                    _("%(settings)s doesn't recognize the value of %(app)s.%(model)s") % {
-                        'settings': 'CATEGORY_SETTINGS',
-                        'app': app,
-                        'model': model_name})
+                    _("%(settings)s doesn't recognize the value of %(app)s.%(model)s")
+                    % {"settings": "CATEGORY_SETTINGS", "app": app, "model": model_name}
+                )
             registry_name = ".".join([app_label, model_name.lower(), field_name])
             if registry_name in self._field_registry:
                 continue
@@ -89,10 +93,10 @@ class Registry(object):
                 self._field_registry[registry_name] = FIELD_TYPES[field_type](**extra_params)
                 self._field_registry[registry_name].contribute_to_class(model, field_name)
 
-    def register_m2m(self, model, field_name='categories', extra_params={}):
+    def register_m2m(self, model, field_name="categories", extra_params={}):
         return self._register(model, field_name, extra_params, fields.CategoryM2MField)
 
-    def register_fk(self, model, field_name='category', extra_params={}):
+    def register_fk(self, model, field_name="category", extra_params={}):
         return self._register(model, field_name, extra_params, fields.CategoryFKField)
 
     def _register(self, model, field_name, extra_params={}, field=fields.CategoryFKField):
@@ -120,28 +124,32 @@ def _process_registry(registry, call_func):
     """
     Given a dictionary, and a registration function, process the registry
     """
-    from django.core.exceptions import ImproperlyConfigured
     from django.apps import apps
+    from django.core.exceptions import ImproperlyConfigured
 
     for key, value in list(registry.items()):
-        model = apps.get_model(*key.split('.'))
+        model = apps.get_model(*key.split("."))
         if model is None:
-            raise ImproperlyConfigured(_('%(key)s is not a model') % {'key': key})
+            raise ImproperlyConfigured(_("%(key)s is not a model") % {"key": key})
         if isinstance(value, (tuple, list)):
             for item in value:
                 if isinstance(item, str):
                     call_func(model, item)
                 elif isinstance(item, dict):
-                    field_name = item.pop('name')
+                    field_name = item.pop("name")
                     call_func(model, field_name, extra_params=item)
                 else:
-                    raise ImproperlyConfigured(_("%(settings)s doesn't recognize the value of %(key)s") %
-                                               {'settings': 'CATEGORY_SETTINGS', 'key': key})
+                    raise ImproperlyConfigured(
+                        _("%(settings)s doesn't recognize the value of %(key)s")
+                        % {"settings": "CATEGORY_SETTINGS", "key": key}
+                    )
         elif isinstance(value, str):
             call_func(model, value)
         elif isinstance(value, dict):
-            field_name = value.pop('name')
+            field_name = value.pop("name")
             call_func(model, field_name, extra_params=value)
         else:
-            raise ImproperlyConfigured(_("%(settings)s doesn't recognize the value of %(key)s") %
-                                       {'settings': 'CATEGORY_SETTINGS', 'key': key})
+            raise ImproperlyConfigured(
+                _("%(settings)s doesn't recognize the value of %(key)s")
+                % {"settings": "CATEGORY_SETTINGS", "key": key}
+            )

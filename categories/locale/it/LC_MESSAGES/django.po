@@ -181,4 +181,3 @@ msgstr "Cancella?"
 #: templates/admin/edit_inline/gen_coll_tabular.html:24
 msgid "View on site"
 msgstr "Vedi sul sito"
-

@@ -1,7 +1,8 @@
+import json
+
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
-from django.urls import reverse, NoReverseMatch
-import json
+from django.urls import NoReverseMatch, reverse
 
 
 class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
@@ -9,7 +10,7 @@ class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
     ct_fk_field = "object_id"
 
     def get_content_types(self):
-        ctypes = ContentType.objects.all().order_by('id').values_list('id', 'app_label', 'model')
+        ctypes = ContentType.objects.all().order_by("id").values_list("id", "app_label", "model")
         elements = {}
         for x, y, z in ctypes:
             try:
@@ -25,12 +26,12 @@ class GenericCollectionInlineModelAdmin(admin.options.InlineModelAdmin):
         return result
 
     class Media:
-        js = ('contentrelations/js/genericlookup.js', )
+        js = ("contentrelations/js/genericlookup.js",)
 
 
 class GenericCollectionTabularInline(GenericCollectionInlineModelAdmin):
-    template = 'admin/edit_inline/gen_coll_tabular.html'
+    template = "admin/edit_inline/gen_coll_tabular.html"
 
 
 class GenericCollectionStackedInline(GenericCollectionInlineModelAdmin):
-    template = 'admin/edit_inline/gen_coll_stacked.html'
+    template = "admin/edit_inline/gen_coll_stacked.html"

@@ -59,4 +59,3 @@ comma-separated list of feature names. The valid feature names are:
          Books                    ->  []
             Sci-fi                ->  [u'Books']
                Dystopian Futures  ->  [u'Books', u'Sci-fi']
-

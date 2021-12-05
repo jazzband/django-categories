@@ -7,4 +7,4 @@ class SimpleCategory(CategoryBase):
     """
 
     class Meta:
-        verbose_name_plural = 'simple categories'
+        verbose_name_plural = "simple categories"

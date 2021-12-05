@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Django Categories documentation build configuration file, created by
 # sphinx-quickstart on Tue Oct  6 07:53:33 2009.
@@ -11,14 +10,14 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
+import sys
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.append(os.path.abspath('..'))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'example.settings'
+sys.path.append(os.path.abspath(".."))
+os.environ["DJANGO_SETTINGS_MODULE"] = "example.settings"
 
 import categories  # noqa
 
@@ -32,17 +31,17 @@ extensions = []
 templates_path = ['_templates']
 
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = ".rst"
 
 # The encoding of source files.
 # ource_encoding = 'utf-8'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = 'Django Categories'
-copyright = '2010-2012, Corey Oordt'
+project = "Django Categories"
+copyright = "2010-2012, Corey Oordt"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -68,7 +67,7 @@ release = categories.get_version()
 
 # List of directories, relative to source directory, that shouldn't be searched
 # for source files.
-exclude_trees = ['_build']
+exclude_trees = ["_build"]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 # efault_role = None
@@ -85,7 +84,7 @@ exclude_trees = ['_build']
 # how_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # A list of ignored prefixes for module index sorting.
 # odindex_common_prefix = []
@@ -124,7 +123,7 @@ html_theme = 'default'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -162,7 +161,7 @@ html_static_path = ['_static']
 # tml_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DjangoCategoriesdoc'
+htmlhelp_basename = "DjangoCategoriesdoc"
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -176,7 +175,7 @@ htmlhelp_basename = 'DjangoCategoriesdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'DjangoCategories.tex', 'Django Categories Documentation', 'CoreyOordt', 'manual'),
+    ("index", "DjangoCategories.tex", "Django Categories Documentation", "CoreyOordt", "manual"),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
