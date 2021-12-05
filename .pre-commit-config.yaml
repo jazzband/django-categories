@@ -1,0 +1,51 @@
+repos:
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        additional_dependencies: [toml]
+  - repo: https://github.com/python/black
+    rev: 21.11b1
+    hooks:
+      - id: black
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+        exclude: "^tests/resources/"
+      - id: fix-byte-order-marker
+      - id: fix-encoding-pragma
+        args: ["--remove"]
+      - id: requirements-txt-fixer
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.1.1
+    hooks:
+      - id: pydocstyle
+        exclude: test.*
+        additional_dependencies: [toml]
+  - repo: https://github.com/terrencepreilly/darglint
+    rev: v1.8.1
+    hooks:
+      - id: darglint
+        args:
+          - -v 2
+          - "--message-template={path}:{line} in `{obj}`:\n        {msg_id}: {msg}"
+          - --strictness=short
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.5.0  # or master if you're bold
+    hooks:
+      - id: interrogate
