@@ -4,8 +4,6 @@ from pathlib import Path
 
 from setuptools import setup
 
-import categories
-
 
 def parse_reqs(filepath: str) -> list:
     """
@@ -48,6 +46,5 @@ def parse_reqs(filepath: str) -> list:
 requirements = parse_reqs("requirements.txt")
 
 setup(
-    version=categories.get_version(),
     install_requires=requirements,
 )
