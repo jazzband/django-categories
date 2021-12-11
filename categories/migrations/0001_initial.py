@@ -1,5 +1,3 @@
-
-
 import django.core.files.storage
 import mptt.fields
 from django.db import migrations, models

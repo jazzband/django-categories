@@ -1,5 +1,3 @@
-
-
 from django.apps import apps
 from django.db import connection, transaction
 from django.db.utils import ProgrammingError
