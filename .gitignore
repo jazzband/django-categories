@@ -168,6 +168,10 @@ output/*/index.html
 junit-*.xml
 flake8-errors.txt
 
+# Documentation building
+_build
+doc_src/api/categories*.rst
+
 RELEASE.txt
 site-packages
 reports

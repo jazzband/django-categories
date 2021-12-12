@@ -83,3 +83,10 @@ release-patch: set-release-patch-env-var release-helper  ## Release a new patch 
 release-minor: set-release-minor-env-var release-helper  ## Release a new minor version: 1.1.1 -> 1.2.0
 
 release-major: set-release-major-env-var release-helper  ## release a new major version: 1.1.1 -> 2.0.0
+
+documentation:
+	mkdir -p docs
+	rm -f doc_src/api/$(SOURCE_DIR)*.rst
+	ls -A1 docs | xargs -I {} rm -rf docs/{}
+	$(MAKE) -C doc_src clean html
+	cp -a doc_src/_build/html/. docs

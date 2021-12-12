@@ -1,1 +1,8 @@
 -r prod.txt
+linkify-it-py
+myst-parser
+
+pydata-sphinx-theme
+Sphinx>=4.3.0
+sphinx-autodoc-typehints
+sphinxcontrib-django2
