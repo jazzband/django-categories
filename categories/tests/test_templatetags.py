@@ -45,7 +45,7 @@ class CategoryTagsTest(TestCase):
         self.assertEqual(resp, expected_resp)
 
         # breadcrumbs
-        expected_resp = '<a href="/categories/world/">World</a> &gt; Worldbeat'
+        expected_resp = '<a href="/categories/world/">World</a> &gt; Worldbeat\n'
         resp = self.render_template(
             "{% load category_tags %}" '{% breadcrumbs "/World/Worldbeat" " &gt; " "categories.category" %}'
         )

@@ -167,7 +167,7 @@ output/*/index.html
 # Testing artifacts
 junit-*.xml
 flake8-errors.txt
-
+example/media/
 # Documentation building
 _build
 doc_src/api/categories*.rst

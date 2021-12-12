@@ -42,7 +42,7 @@ INSTALLED_APPS = (
 )
 
 TIME_ZONE = "America/Chicago"
-
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 LANGUAGE_CODE = "en-us"
 
 SITE_ID = 1
