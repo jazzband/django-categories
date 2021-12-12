@@ -9,10 +9,11 @@ recursive-include categories/static *.html *.gif *.png *.css *.txt *.js
 recursive-include categories/editor *.html *.gif *.png *.css *.js
 
 recursive-include doc_src *.rst *.txt *.png *.css *.html *.js
+recursive-exclude doc_src/_build *.*
 include doc_src/Makefile
 include doc_src/make.bat
 
 recursive-include categories/locale *.mo *.po
 recursive-include categories/editor/locale *.mo *.po
-recursive-include requirements/*.txt
+recursive-include requirements *.txt
 prune example
