@@ -14,5 +14,5 @@ include doc_src/make.bat
 
 recursive-include categories/locale *.mo *.po
 recursive-include categories/editor/locale *.mo *.po
-
+recursive-include requirements/*.txt
 prune example
