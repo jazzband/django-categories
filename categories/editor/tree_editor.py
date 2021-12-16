@@ -8,7 +8,7 @@ from django.contrib.admin.views.main import ChangeList
 from django.db.models.query import QuerySet
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from . import settings
 
@@ -150,8 +150,8 @@ class TreeEditor(admin.ModelAdmin):
         """The 'change list' admin view for this model."""
         from django.contrib.admin.views.main import ERROR_FLAG
         from django.core.exceptions import PermissionDenied
-        from django.utils.encoding import force_text
-        from django.utils.translation import ungettext
+        from django.utils.encoding import force_str
+        from django.utils.translation import ngettext
 
         opts = self.model._meta
         app_label = opts.app_label
@@ -199,6 +199,22 @@ class TreeEditor(admin.ModelAdmin):
                     self.list_editable,
                     self,
                 )
+            elif django.VERSION < (4, 0):
+                params = (
+                    request,
+                    self.model,
+                    list_display,
+                    self.list_display_links,
+                    self.list_filter,
+                    self.date_hierarchy,
+                    self.search_fields,
+                    self.list_select_related,
+                    self.list_per_page,
+                    self.list_max_show_all,
+                    self.list_editable,
+                    self,
+                    self.sortable_by,
+                )
             else:
                 params = (
                     request,
@@ -214,6 +230,7 @@ class TreeEditor(admin.ModelAdmin):
                     self.list_editable,
                     self,
                     self.sortable_by,
+                    self.search_help_text,
                 )
             cl = TreeChangeList(*params)
         except IncorrectLookupParameters:
@@ -256,16 +273,16 @@ class TreeEditor(admin.ModelAdmin):
 
                 if changecount:
                     if changecount == 1:
-                        name = force_text(opts.verbose_name)
+                        name = force_str(opts.verbose_name)
                     else:
-                        name = force_text(opts.verbose_name_plural)
+                        name = force_str(opts.verbose_name_plural)
                     msg = (
-                        ungettext(
+                        ngettext(
                             "%(count)s %(name)s was changed successfully.",
                             "%(count)s %(name)s were changed successfully.",
                             changecount,
                         )
-                        % {"count": changecount, "name": name, "obj": force_text(obj)}
+                        % {"count": changecount, "name": name, "obj": force_str(obj)}
                     )
                     self.message_user(request, msg)
 
@@ -303,11 +320,11 @@ class TreeEditor(admin.ModelAdmin):
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             context["root_path"] = self.admin_site.root_path
         elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
-            selection_note_all = ungettext("%(total_count)s selected", "All %(total_count)s selected", cl.result_count)
+            selection_note_all = ngettext("%(total_count)s selected", "All %(total_count)s selected", cl.result_count)
 
             context.update(
                 {
-                    "module_name": force_text(opts.verbose_name_plural),
+                    "module_name": force_str(opts.verbose_name_plural),
                     "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
                     "selection_note_all": selection_note_all % {"total_count": cl.result_count},
                 }

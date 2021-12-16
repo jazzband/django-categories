@@ -6,8 +6,8 @@ It provides customizable metadata and its own name space.
 from django import forms
 from django.contrib import admin
 from django.db import models
-from django.utils.encoding import force_text
-from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import force_str
+from django.utils.translation import gettext_lazy as _
 from mptt.fields import TreeForeignKey
 from mptt.managers import TreeManager
 from mptt.models import MPTTModel
@@ -77,7 +77,7 @@ class CategoryBase(MPTTModel):
     def __str__(self):
         ancestors = self.get_ancestors()
         return " > ".join(
-            [force_text(i.name) for i in ancestors]
+            [force_str(i.name) for i in ancestors]
             + [
                 self.name,
             ]

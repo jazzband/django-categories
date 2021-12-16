@@ -5,7 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.files.images import get_image_dimensions
 from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 try:
     from django.contrib.contenttypes.fields import GenericForeignKey
@@ -13,7 +13,7 @@ except ImportError:
     from django.contrib.contenttypes.generic import GenericForeignKey
 
 from django.core.files.storage import get_storage_class
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from .base import CategoryBase
 from .settings import (
@@ -72,7 +72,7 @@ class Category(CategoryBase):
         ancestors = list(self.get_ancestors()) + [
             self,
         ]
-        return prefix + "/".join([force_text(i.slug) for i in ancestors]) + "/"
+        return prefix + "/".join([force_str(i.slug) for i in ancestors]) + "/"
 
     if RELATION_MODELS:
 
