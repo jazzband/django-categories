@@ -26,8 +26,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install django
-        if [ -f requirements/test.txt ]; then pip install -r requirements/test.txt; fi
+        if [ -f requirements/test.txt ]; then pip install -r requirements/dev.txt; fi
     - name: Sphinx Pages
       # You may pin to the exact commit or the version.
       # uses: seanzhengw/sphinx-pages@70dd0557fc226cfcd41c617aec5e9ee4fce4afe2
