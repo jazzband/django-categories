@@ -2,7 +2,7 @@
 -r test.txt
 
 bump2version>=1.0.1
-django
+django<4.0.0
 git-fame>=1.12.2
 gitchangelog>=3.0.4
 pre-commit
