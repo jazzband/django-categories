@@ -32,7 +32,7 @@ ignore-module = false
 ignore-nested-functions = true
 ignore-nested-classes = true
 ignore-setters = false
-fail-under = 95
+fail-under = 60
 exclude = ["setup.py", "docs", "build", "test"]
 ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
 verbose = 0
@@ -55,7 +55,7 @@ color_output = true
 
 [tool.pydocstyle]
 convention = "google"
-add-ignore = ["D107", "D200", "D212"]
+add-ignore = ["D104", "D105", "D106", "D107", "D200", "D212"]
 match = "(?!test_).*\\.py"
 
 [tool.black]
