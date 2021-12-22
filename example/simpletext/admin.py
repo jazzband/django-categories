@@ -1,3 +1,4 @@
+"""Admin interface for simple text."""
 from django.contrib import admin
 
 from categories.admin import CategoryBaseAdmin, CategoryBaseAdminForm
@@ -6,6 +7,8 @@ from .models import SimpleCategory, SimpleText
 
 
 class SimpleTextAdmin(admin.ModelAdmin):
+    """Admin for simple text model."""
+
     fieldsets = (
         (
             None,
@@ -20,12 +23,16 @@ class SimpleTextAdmin(admin.ModelAdmin):
 
 
 class SimpleCategoryAdminForm(CategoryBaseAdminForm):
+    """Admin form for simple category."""
+
     class Meta:
         model = SimpleCategory
         fields = "__all__"
 
 
 class SimpleCategoryAdmin(CategoryBaseAdmin):
+    """Admin for simple category."""
+
     form = SimpleCategoryAdminForm
 
 

@@ -1,3 +1,6 @@
+"""Classes for representing tree structures in Django's admin."""
+from typing import Any
+
 import django
 from django.contrib import admin
 from django.contrib.admin.options import IncorrectLookupParameters
@@ -12,9 +15,9 @@ from . import settings
 
 class TreeEditorQuerySet(QuerySet):
     """
-    The TreeEditorQuerySet is a special query set used only in the TreeEditor
-    ChangeList page. The only difference to a regular QuerySet is that it
-    will enforce:
+    A special query set used only in the TreeEditor ChangeList page.
+
+    The only difference to a regular QuerySet is that it will enforce:
 
         (a) The result is ordered in correct tree order so that
             the TreeAdmin works all right.
@@ -25,6 +28,7 @@ class TreeEditorQuerySet(QuerySet):
     """
 
     def iterator(self):
+        """Iterates through the items in thee query set."""
         qs = self
         # Reaching into the bowels of query sets to find out whether the qs is
         # actually filtered and we need to do the INCLUDE_ANCESTORS dance at all.
@@ -54,18 +58,27 @@ class TreeEditorQuerySet(QuerySet):
     # def __getitem__(self, index):
     #     return self   # Don't even try to slice
 
-    def get(self, *args, **kwargs):
+    def get(self, *args, **kwargs) -> Any:
         """
-        Quick and dirty hack to fix change_view and delete_view; they use
-        self.queryset(request).get(...) to get the object they should work
-        with. Our modifications to the queryset when INCLUDE_ANCESTORS is
-        enabled make get() fail often with a MultipleObjectsReturned
-        exception.
+        Quick and dirty hack to fix change_view and delete_view.
+
+        They use ``self.queryset(request).get(...)`` to get the object they should work
+        with. Our modifications to the queryset when ``INCLUDE_ANCESTORS`` is enabled make ``get()``
+        fail often with a ``MultipleObjectsReturned`` exception.
+
+        Args:
+            args: generic arguments
+            kwargs: generic keyword arguments
+
+        Returns:
+            The object they should work with.
         """
         return self.model._default_manager.get(*args, **kwargs)
 
 
 class TreeChangeList(ChangeList):
+    """A change list for a tree."""
+
     def _get_default_ordering(self):
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             return "", ""  # ('tree_id', 'lft')
@@ -73,17 +86,31 @@ class TreeChangeList(ChangeList):
             return []
 
     def get_ordering(self, request=None, queryset=None):
+        """
+        Return ordering information for the change list.
+
+        Always returns empty/default ordering.
+
+        Args:
+            request: The incoming request.
+            queryset: The current queryset
+
+        Returns:
+            Either a tuple of empty strings or an empty list.
+        """
         if django.VERSION[0] == 1 and django.VERSION[1] < 4:
             return "", ""  # ('tree_id', 'lft')
         else:
             return []
 
     def get_queryset(self, *args, **kwargs):
-        qs = super(TreeChangeList, self).get_queryset(*args, **kwargs).order_by("tree_id", "lft")
-        return qs
+        """Return a queryset."""
+        return super(TreeChangeList, self).get_queryset(*args, **kwargs).order_by("tree_id", "lft")
 
 
 class TreeEditor(admin.ModelAdmin):
+    """A tree editor view for Django's admin."""
+
     list_per_page = 999999999  # We can't have pagination
     list_max_show_all = 200  # new in django 1.4
 
@@ -120,7 +147,7 @@ class TreeEditor(admin.ModelAdmin):
         return TreeChangeList
 
     def old_changelist_view(self, request, extra_context=None):
-        "The 'change list' admin view for this model."
+        """The 'change list' admin view for this model."""
         from django.contrib.admin.views.main import ERROR_FLAG
         from django.core.exceptions import PermissionDenied
         from django.utils.encoding import force_text
@@ -302,8 +329,7 @@ class TreeEditor(admin.ModelAdmin):
 
     def changelist_view(self, request, extra_context=None, *args, **kwargs):
         """
-        Handle the changelist view, the django view for the model instances
-        change list/actions page.
+        Handle the changelist view, the django view for the model instances change list/actions page.
         """
         extra_context = extra_context or {}
         extra_context["EDITOR_MEDIA_PATH"] = settings.MEDIA_PATH
@@ -312,10 +338,17 @@ class TreeEditor(admin.ModelAdmin):
         # FIXME
         return self.old_changelist_view(request, extra_context)
 
-    def get_queryset(self, request):
+    def get_queryset(self, request) -> TreeEditorQuerySet:
         """
-        Returns a QuerySet of all model instances that can be edited by the
-        admin site. This is used by changelist_view.
+        Returns a QuerySet of all model instances that can be edited by the admin site.
+
+        This is used by changelist_view.
+
+        Args:
+            request: the incoming request.
+
+        Returns:
+            A QuerySet of editable model instances
         """
         qs = self.model._default_manager.get_queryset()
         qs.__class__ = TreeEditorQuerySet

@@ -1,3 +1,4 @@
+"""Manages settings for the categories application."""
 import collections
 
 from django.conf import settings

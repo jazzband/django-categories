@@ -1,3 +1,4 @@
+"""Adds and removes category relations on the database."""
 from django.apps import apps
 from django.db import connection, transaction
 from django.db.utils import ProgrammingError
@@ -5,7 +6,7 @@ from django.db.utils import ProgrammingError
 
 def table_exists(table_name):
     """
-    Check if a table exists in the database
+    Check if a table exists in the database.
     """
     pass
 
@@ -33,7 +34,7 @@ def field_exists(app_name, model_name, field_name):
 
 def drop_field(app_name, model_name, field_name):
     """
-    Drop the given field from the app's model
+    Drop the given field from the app's model.
     """
     app_config = apps.get_app_config(app_name)
     model = app_config.get_model(model_name)
@@ -44,7 +45,7 @@ def drop_field(app_name, model_name, field_name):
 
 def migrate_app(sender, *args, **kwargs):
     """
-    Migrate all models of this app registered
+    Migrate all models of this app registered.
     """
     from .registration import registry
 

@@ -1,3 +1,4 @@
+"""Settings management for the editor."""
 import django
 from django.conf import settings
 

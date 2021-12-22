@@ -1,3 +1,4 @@
+"""Category models."""
 from functools import reduce
 
 from django.contrib.contenttypes.models import ContentType
@@ -26,6 +27,8 @@ STORAGE = get_storage_class(THUMBNAIL_STORAGE)
 
 
 class Category(CategoryBase):
+    """A basic category model."""
+
     thumbnail = models.FileField(
         upload_to=THUMBNAIL_UPLOAD_PATH,
         null=True,
@@ -53,10 +56,11 @@ class Category(CategoryBase):
 
     @property
     def short_title(self):
+        """Return the name."""
         return self.name
 
     def get_absolute_url(self):
-        """Return a path"""
+        """Return a path."""
         from django.urls import NoReverseMatch
 
         if self.alternate_url:
@@ -74,17 +78,18 @@ class Category(CategoryBase):
 
         def get_related_content_type(self, content_type):
             """
-            Get all related items of the specified content type
+            Get all related items of the specified content type.
             """
             return self.categoryrelation_set.filter(content_type__name=content_type)
 
         def get_relation_type(self, relation_type):
             """
-            Get all relations of the specified relation type
+            Get all relations of the specified relation type.
             """
             return self.categoryrelation_set.filter(relation_type=relation_type)
 
     def save(self, *args, **kwargs):
+        """Save the category."""
         if self.thumbnail:
             width, height = get_image_dimensions(self.thumbnail.file)
         else:
@@ -110,6 +115,8 @@ else:
 
 
 class CategoryRelationManager(models.Manager):
+    """Custom access functions for category relations."""
+
     def get_content_type(self, content_type):
         """
         Get all the items of the given content type related to this item.
@@ -126,7 +133,7 @@ class CategoryRelationManager(models.Manager):
 
 
 class CategoryRelation(models.Model):
-    """Related category item"""
+    """Related category item."""
 
     category = models.ForeignKey(Category, verbose_name=_("category"), on_delete=models.CASCADE)
     content_type = models.ForeignKey(

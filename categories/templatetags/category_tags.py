@@ -1,3 +1,6 @@
+"""Template tags for categories."""
+from typing import Any, Type, Union
+
 from django import template
 from django.apps import apps
 from django.template import Node, TemplateSyntaxError, VariableDoesNotExist
@@ -9,7 +12,6 @@ from mptt.templatetags.mptt_tags import (
     tree_path,
 )
 from mptt.utils import drilldown_tree_for_node
-from six import string_types
 
 from categories.base import CategoryBase
 from categories.models import Category
@@ -21,7 +23,8 @@ register.filter(tree_info)
 register.tag("full_tree_for_category", full_tree_for_model)
 
 
-def resolve(var, context):
+def resolve(var: Any, context: dict) -> Any:
+    """Aggressively resolve a variable."""
     try:
         return var.resolve(context)
     except VariableDoesNotExist:
@@ -33,10 +36,11 @@ def resolve(var, context):
 
 def get_cat_model(model):
     """
-    Return a class from a string or class
+    Return a class from a string or class.
     """
+    model_class = None
     try:
-        if isinstance(model, string_types):
+        if isinstance(model, str):
             model_class = apps.get_model(*model.split("."))
         elif issubclass(model, CategoryBase):
             model_class = model
@@ -47,9 +51,16 @@ def get_cat_model(model):
     return model_class
 
 
-def get_category(category_string, model=Category):
+def get_category(category_string, model: Union[str, Type] = Category) -> Any:
     """
-    Convert a string, including a path, and return the Category object
+    Convert a string, including a path, and return the Category object.
+
+    Args:
+        category_string: The name or path of the category
+        model: The name of or Category model to search in
+
+    Returns:
+        The found category object or None if no category was found
     """
     model_class = get_cat_model(model)
     category = str(category_string).strip("'\"")
@@ -66,31 +77,31 @@ def get_category(category_string, model=Category):
         # if the parent matches the parent passed in the string
         if len(categories) == 1:
             return categories[0]
-        else:
-            for item in categories:
-                if item.parent.name == cat_list[-2]:
-                    return item
+
+        for item in categories:
+            if item.parent.name == cat_list[-2]:
+                return item
     except model_class.DoesNotExist:
         return None
 
 
 class CategoryDrillDownNode(template.Node):
+    """A category drill down template node."""
+
     def __init__(self, category, varname, model):
         self.category = category
         self.varname = varname
         self.model = model
 
     def render(self, context):
+        """Render this node."""
         category = resolve(self.category, context)
         if isinstance(category, CategoryBase):
             cat = category
         else:
             cat = get_category(category, self.model)
         try:
-            if cat is not None:
-                context[self.varname] = drilldown_tree_for_node(cat)
-            else:
-                context[self.varname] = []
+            context[self.varname] = drilldown_tree_for_node(cat) if cat is not None else []
         except Exception:
             context[self.varname] = []
         return ""
@@ -99,8 +110,7 @@ class CategoryDrillDownNode(template.Node):
 @register.tag
 def get_category_drilldown(parser, token):
     """
-    Retrieves the specified category, its ancestors and its immediate children
-    as an iterable.
+    Retrieves the specified category, its ancestors and its immediate children as an Iterable.
 
     Syntax::
 
@@ -117,6 +127,16 @@ def get_category_drilldown(parser, token):
     Sets family to::
 
         Grandparent, Parent, Child 1, Child 2, Child n
+
+    Args:
+        parser: The Django template parser.
+        token: The tag contents
+
+    Returns:
+        The recursive tree node.
+
+    Raises:
+        TemplateSyntaxError: If the tag is malformed.
     """
     bits = token.split_contents()
     error_str = (
@@ -124,13 +144,14 @@ def get_category_drilldown(parser, token):
         '"category name" [using "app.Model"] as varname %%} or '
         "{%% %(tagname)s category_obj as varname %%}."
     )
+    varname = model = ""
     if len(bits) == 4:
         if bits[2] != "as":
             raise template.TemplateSyntaxError(error_str % {"tagname": bits[0]})
         if bits[2] == "as":
             varname = bits[3].strip("'\"")
             model = "categories.category"
-    if len(bits) == 6:
+    elif len(bits) == 6:
         if bits[2] not in ("using", "as") or bits[4] not in ("using", "as"):
             raise template.TemplateSyntaxError(error_str % {"tagname": bits[0]})
         if bits[2] == "as":
@@ -139,6 +160,8 @@ def get_category_drilldown(parser, token):
         if bits[2] == "using":
             varname = bits[5].strip("'\"")
             model = bits[3].strip("'\"")
+    else:
+        raise template.TemplateSyntaxError(error_str % {"tagname": bits[0]})
     category = FilterExpression(bits[1], parser)
     return CategoryDrillDownNode(category, varname, model)
 
@@ -146,10 +169,17 @@ def get_category_drilldown(parser, token):
 @register.inclusion_tag("categories/breadcrumbs.html")
 def breadcrumbs(category_string, separator=" > ", using="categories.category"):
     """
+    Render breadcrumbs, using the ``categories/breadcrumbs.html`` template.
+
     {% breadcrumbs category separator="::" using="categories.category" %}
 
-    Render breadcrumbs, using the ``categories/breadcrumbs.html`` template,
-    using the optional ``separator`` argument.
+    Args:
+        category_string: A variable reference to or the name of the category to display
+        separator: The string to separate the categories
+        using: A variable reference to or the name of the category model to search for.
+
+    Returns:
+        The inclusion template
     """
     cat = get_category(category_string, using)
 
@@ -159,8 +189,7 @@ def breadcrumbs(category_string, separator=" > ", using="categories.category"):
 @register.inclusion_tag("categories/ul_tree.html")
 def display_drilldown_as_ul(category, using="categories.Category"):
     """
-    Render the category with ancestors and children using the
-    ``categories/ul_tree.html`` template.
+    Render the category with ancestors and children using the ``categories/ul_tree.html`` template.
 
     Example::
 
@@ -189,6 +218,13 @@ def display_drilldown_as_ul(category, using="categories.Category"):
           </ul>
           </li>
         </ul>
+
+    Args:
+        category: A variable reference to or the name of the category to display
+        using: A variable reference to or the name of the category model to search for.
+
+    Returns:
+        The inclusion template
     """
     cat = get_category(category, using)
     if cat is None:
@@ -200,19 +236,18 @@ def display_drilldown_as_ul(category, using="categories.Category"):
 @register.inclusion_tag("categories/ul_tree.html")
 def display_path_as_ul(category, using="categories.Category"):
     """
-    Render the category with ancestors, but no children using the
-    ``categories/ul_tree.html`` template.
+    Render the category with ancestors, but no children using the ``categories/ul_tree.html`` template.
 
-    Example::
-
+    Examples:
+        ```
         {% display_path_as_ul "/Grandparent/Parent" %}
-
-    or ::
-
+        ```
+        ```
         {% display_path_as_ul category_obj %}
+        ```
 
-    Returns::
-
+    Output:
+        ```
         <ul>
             <li><a href="/categories/">Top</a>
             <ul>
@@ -220,21 +255,32 @@ def display_path_as_ul(category, using="categories.Category"):
             </ul>
             </li>
         </ul>
+        ```
+
+    Args:
+        category: A variable reference to or the name of the category to display
+        using: A variable reference to or the name of the category model to search for.
+
+    Returns:
+        The inclusion template
     """
     if isinstance(category, CategoryBase):
         cat = category
     else:
-        cat = get_category(category)
+        cat = get_category(category, using)
 
     return {"category": cat, "path": cat.get_ancestors() or []}
 
 
 class TopLevelCategoriesNode(template.Node):
+    """Template node for the top level categories."""
+
     def __init__(self, varname, model):
         self.varname = varname
         self.model = model
 
     def render(self, context):
+        """Render this node."""
         model = get_cat_model(self.model)
         context[self.varname] = model.objects.filter(parent=None).order_by("name")
         return ""
@@ -245,14 +291,25 @@ def get_top_level_categories(parser, token):
     """
     Retrieves an alphabetical list of all the categories that have no parents.
 
-    Syntax::
+    Usage:
 
+        ```
         {% get_top_level_categories [using "app.Model"] as categories %}
+        ```
 
-    Returns an list of categories [<category>, <category>, <category, ...]
+    Args:
+        parser: The Django template parser.
+        token: The tag contents
+
+    Returns:
+         Returns an list of categories [<category>, <category>, <category, ...]
+
+    Raises:
+        TemplateSyntaxError: If a queryset isn't provided
     """
     bits = token.split_contents()
     usage = 'Usage: {%% %s [using "app.Model"] as <variable> %%}' % bits[0]
+
     if len(bits) == 3:
         if bits[1] != "as":
             raise template.TemplateSyntaxError(usage)
@@ -267,11 +324,14 @@ def get_top_level_categories(parser, token):
         else:
             model = bits[4].strip("'\"")
             varname = bits[2].strip("'\"")
+    else:
+        raise template.TemplateSyntaxError(usage)
 
     return TopLevelCategoriesNode(varname, model)
 
 
 def get_latest_objects_by_category(category, app_label, model_name, set_name, date_field="pub_date", num=15):
+    """Return a queryset of the latest objects of ``app_label.model_name`` in given category."""
     m = apps.get_model(app_label, model_name)
     if not isinstance(category, CategoryBase):
         category = Category.objects.get(slug=str(category))
@@ -285,10 +345,11 @@ def get_latest_objects_by_category(category, app_label, model_name, set_name, da
 
 
 class LatestObjectsNode(Node):
+    """
+    Get latest objects of app_label.model_name.
+    """
+
     def __init__(self, var_name, category, app_label, model_name, set_name, date_field="pub_date", num=15):
-        """
-        Get latest objects of app_label.model_name
-        """
         self.category = category
         self.app_label = app_label
         self.model_name = model_name
@@ -299,7 +360,7 @@ class LatestObjectsNode(Node):
 
     def render(self, context):
         """
-        Render this sucker
+        Render this sucker.
         """
         category = resolve(self.category, context)
         app_label = resolve(self.app_label, context)
@@ -316,11 +377,27 @@ class LatestObjectsNode(Node):
 
 def do_get_latest_objects_by_category(parser, token):
     """
-    Get the latest objects by category
+    Get the latest objects by category.
 
-    {% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}
+    Usage:
+        ```
+        {% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}
+        ```
+
+    Args:
+        parser: The Django template parser.
+        token: The tag contents
+
+    Returns:
+        The latet objects node.
+
+    Raises:
+        TemplateSyntaxError: If the tag is malformed
     """
-    proper_form = "{% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}"
+    proper_form = (
+        "{% get_latest_objects_by_category category app_name model_name set_name "
+        "[date_field] [number] as [var_name] %}"
+    )
     bits = token.split_contents()
 
     if bits[-2] != "as":
@@ -351,8 +428,15 @@ register.tag("get_latest_objects_by_category", do_get_latest_objects_by_category
 @register.filter
 def tree_queryset(value):
     """
-    Converts a normal queryset from an MPTT model to include all the ancestors
-    so a filtered subset of items can be formatted correctly
+    Converts a normal queryset from an MPTT model to include all the ancestors.
+
+    Allows a filtered subset of items to be formatted correctly
+
+    Args:
+        value: The queryset to convert
+
+    Returns:
+        The converted queryset
     """
     from copy import deepcopy
 
@@ -389,22 +473,35 @@ def tree_queryset(value):
 def recursetree(parser, token):
     """
     Iterates over the nodes in the tree, and renders the contained block for each node.
+
     This tag will recursively render children into the template variable {{ children }}.
     Only one database query is required (children are cached for the whole tree)
 
     Usage:
-            <ul>
-                {% recursetree nodes %}
-                    <li>
-                        {{ node.name }}
-                        {% if not node.is_leaf_node %}
-                            <ul>
-                                {{ children }}
-                            </ul>
-                        {% endif %}
-                    </li>
-                {% endrecursetree %}
-            </ul>
+        ```
+        <ul>
+            {% recursetree nodes %}
+                <li>
+                    {{ node.name }}
+                    {% if not node.is_leaf_node %}
+                        <ul>
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+        ```
+
+    Args:
+        parser: The Django template parser.
+        token: The tag contents
+
+    Returns:
+        The recursive tree node.
+
+    Raises:
+        TemplateSyntaxError: If a queryset isn't provided.
     """
     bits = token.contents.split()
     if len(bits) != 2:

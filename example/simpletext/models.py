@@ -1,3 +1,4 @@
+"""Example model."""
 from django.db import models
 
 from categories.base import CategoryBase
@@ -5,7 +6,7 @@ from categories.base import CategoryBase
 
 class SimpleText(models.Model):
     """
-    (SimpleText description)
+    (SimpleText description).
     """
 
     name = models.CharField(max_length=255)
@@ -22,6 +23,7 @@ class SimpleText(models.Model):
         return self.name
 
     def get_absolute_url(self):
+        """Get the absolute URL for this object."""
         try:
             from django.db.models import permalink
 
@@ -33,7 +35,7 @@ class SimpleText(models.Model):
 
 
 class SimpleCategory(CategoryBase):
-    """A Test of catgorizing"""
+    """A Test of catgorizing."""
 
     class Meta:
         verbose_name_plural = "simple categories"

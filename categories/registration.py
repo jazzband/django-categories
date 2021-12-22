@@ -1,6 +1,10 @@
 """
-These functions handle the adding of fields to other models
+These functions handle the adding of fields to other models.
 """
+from typing import Optional, Type, Union
+
+import collections
+
 from django.core.exceptions import FieldDoesNotExist, ImproperlyConfigured
 from django.db.models import CASCADE, ForeignKey, ManyToManyField
 
@@ -16,17 +20,26 @@ FIELD_TYPES = {
 
 
 class Registry(object):
+    """Keeps track of fields and models registered."""
+
     def __init__(self):
         self._field_registry = {}
         self._model_registry = {}
 
-    def register_model(self, app, model_name, field_type, field_definitions):
+    def register_model(
+        self, app: str, model_name, field_type: str, field_definitions: Union[str, collections.Iterable]
+    ):
         """
-        Process for Django 1.7 +
-        app: app name/label
-        model_name: name of the model
-        field_definitions: a string, tuple or list of field configurations
-        field_type: either 'ForeignKey' or 'ManyToManyField'
+        Registration process for Django 1.7+.
+
+        Args:
+            app: app name/label
+            model_name: name of the model
+            field_definitions: a string, tuple or list of field configurations
+            field_type: either 'ForeignKey' or 'ManyToManyField'
+
+        Raises:
+            ImproperlyConfigured: For incorrect parameter types or missing model.
         """
         import collections
 
@@ -93,14 +106,26 @@ class Registry(object):
                 self._field_registry[registry_name] = FIELD_TYPES[field_type](**extra_params)
                 self._field_registry[registry_name].contribute_to_class(model, field_name)
 
-    def register_m2m(self, model, field_name="categories", extra_params={}):
+    def register_m2m(self, model, field_name: str = "categories", extra_params: Optional[dict] = None):
+        """Register a field name to the model as a many to many field."""
+        extra_params = extra_params or {}
         return self._register(model, field_name, extra_params, fields.CategoryM2MField)
 
-    def register_fk(self, model, field_name="category", extra_params={}):
+    def register_fk(self, model, field_name: str = "category", extra_params: Optional[dict] = None):
+        """Register a field name to the model as a foreign key."""
+        extra_params = extra_params or {}
         return self._register(model, field_name, extra_params, fields.CategoryFKField)
 
-    def _register(self, model, field_name, extra_params={}, field=fields.CategoryFKField):
+    def _register(
+        self,
+        model,
+        field_name: str,
+        extra_params: Optional[dict] = None,
+        field: Type = fields.CategoryFKField,
+    ):
+        """Does the heavy lifting for registering a field to a model."""
         app_label = model._meta.app_label
+        extra_params = extra_params or {}
         registry_name = ".".join((app_label, model.__name__, field_name)).lower()
 
         if registry_name in self._field_registry:
@@ -122,7 +147,7 @@ registry = Registry()
 
 def _process_registry(registry, call_func):
     """
-    Given a dictionary, and a registration function, process the registry
+    Given a dictionary, and a registration function, process the registry.
     """
     from django.apps import apps
     from django.core.exceptions import ImproperlyConfigured

@@ -1,3 +1,4 @@
+"""Admin interface classes."""
 from django import forms
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
@@ -15,10 +16,9 @@ class NullTreeNodeChoiceField(forms.ModelChoiceField):
         self.level_indicator = level_indicator
         super(NullTreeNodeChoiceField, self).__init__(*args, **kwargs)
 
-    def label_from_instance(self, obj):
+    def label_from_instance(self, obj) -> str:
         """
-        Creates labels which represent the tree level of each node when
-        generating option labels.
+        Creates labels which represent the tree level of each node when generating option labels.
         """
         return "%s %s" % (self.level_indicator * getattr(obj, obj._mptt_meta.level_attr), obj)
 
@@ -27,15 +27,20 @@ if RELATION_MODELS:
     from .models import CategoryRelation
 
     class InlineCategoryRelation(GenericCollectionTabularInline):
+        """The inline admin panel for category relations."""
+
         model = CategoryRelation
 
 
 class CategoryAdminForm(CategoryBaseAdminForm):
+    """The form for a category in the admin."""
+
     class Meta:
         model = Category
         fields = "__all__"
 
-    def clean_alternate_title(self):
+    def clean_alternate_title(self) -> str:
+        """Return either the name or alternate title for the category."""
         if self.instance is None or not self.cleaned_data["alternate_title"]:
             return self.cleaned_data["name"]
         else:
@@ -43,6 +48,8 @@ class CategoryAdminForm(CategoryBaseAdminForm):
 
 
 class CategoryAdmin(CategoryBaseAdmin):
+    """Admin for categories."""
+
     form = CategoryAdminForm
     list_display = ("name", "alternate_title", "active")
     fieldsets = (

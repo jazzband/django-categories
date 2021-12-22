@@ -1,4 +1,4 @@
-# Django settings for sample project.
+"""Django settings for sample project."""
 import os
 import sys
 

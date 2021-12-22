@@ -1,3 +1,4 @@
+"""URL patterns for the categories app."""
 from django.conf.urls import url
 from django.views.generic import ListView
 

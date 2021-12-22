@@ -1,1 +1,1 @@
-# Placeholder for Django
+"""Placeholder for Django."""

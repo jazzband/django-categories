@@ -1,9 +1,10 @@
+"""Alter one or more models' tables with the registered attributes."""
 from django.core.management.base import BaseCommand, CommandError
 
 
 class Command(BaseCommand):
     """
-    Alter one or more models' tables with the registered attributes
+    Alter one or more models' tables with the registered attributes.
     """
 
     help = "Drop the given field from the given model's table"
@@ -12,13 +13,14 @@ class Command(BaseCommand):
     requires_system_checks = False
 
     def add_arguments(self, parser):
+        """Add app_name, model_name, and field_name arguments to the command."""
         parser.add_argument("app_name")
         parser.add_argument("model_name")
         parser.add_argument("field_name")
 
     def handle(self, *args, **options):
         """
-        Alter the tables
+        Alter the tables.
         """
         from categories.migration import drop_field
 

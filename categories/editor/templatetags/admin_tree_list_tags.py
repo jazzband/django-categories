@@ -1,3 +1,4 @@
+"""Template tags used to render the tree editor."""
 import django
 from django.contrib.admin.templatetags.admin_list import _boolean_icon, result_headers
 from django.contrib.admin.utils import lookup_field
@@ -19,13 +20,14 @@ if settings.IS_GRAPPELLI_INSTALLED:
 
 
 def get_empty_value_display(cl):
+    """Get the value to display when empty."""
     if hasattr(cl.model_admin, "get_empty_value_display"):
         return cl.model_admin.get_empty_value_display()
-    else:
-        # Django < 1.9
-        from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
 
-        return EMPTY_CHANGELIST_VALUE
+    # Django < 1.9
+    from django.contrib.admin.views.main import EMPTY_CHANGELIST_VALUE
+
+    return EMPTY_CHANGELIST_VALUE
 
 
 def items_for_tree_result(cl, result, form):
@@ -130,10 +132,13 @@ def items_for_tree_result(cl, result, form):
 
 
 class TreeList(list):
+    """A list subclass for tree result."""
+
     pass
 
 
 def tree_results(cl):
+    """Generates a list of results for the tree."""
     if cl.formset:
         for res, form in zip(cl.result_list, cl.formset.forms):
             result = TreeList(items_for_tree_result(cl, res, form))
@@ -158,7 +163,7 @@ def tree_results(cl):
 
 def result_tree_list(cl):
     """
-    Displays the headers and data list together
+    Displays the headers and data list together.
     """
     import django
 

@@ -1,9 +1,8 @@
 """
-This is the base class on which to build a hierarchical category-like model
-with customizable metadata and its own name space.
-"""
-import sys
+This is the base class on which to build a hierarchical category-like model.
 
+It provides customizable metadata and its own name space.
+"""
 from django import forms
 from django.contrib import admin
 from django.db import models
@@ -17,31 +16,24 @@ from slugify import slugify
 from .editor.tree_editor import TreeEditor
 from .settings import ALLOW_SLUG_CHANGE, SLUG_TRANSLITERATOR
 
-if sys.version_info[0] < 3:  # Remove this after dropping support of Python 2
-    from django.utils.encoding import python_2_unicode_compatible
-else:
-
-    def python_2_unicode_compatible(x):
-        return x
-
 
 class CategoryManager(models.Manager):
     """
-    A manager that adds an "active()" method for all active categories
+    A manager that adds an "active()" method for all active categories.
     """
 
     def active(self):
         """
-        Only categories that are active
+        Only categories that are active.
         """
         return self.get_queryset().filter(active=True)
 
 
-@python_2_unicode_compatible
 class CategoryBase(MPTTModel):
     """
-    This base model includes the absolute bare bones fields and methods. One
-    could simply subclass this model and do nothing else and it should work.
+    This base model includes the absolute bare-bones fields and methods.
+
+    One could simply subclass this model, do nothing else, and it should work.
     """
 
     parent = TreeForeignKey(
@@ -61,9 +53,15 @@ class CategoryBase(MPTTModel):
 
     def save(self, *args, **kwargs):
         """
+        Save the category.
+
         While you can activate an item without activating its descendants,
         It doesn't make sense that you can deactivate an item and have its
         decendants remain active.
+
+        Args:
+            args: generic args
+            kwargs: generic keyword arguments
         """
         if not self.slug:
             self.slug = slugify(SLUG_TRANSLITERATOR(self.name))[:50]
@@ -95,14 +93,16 @@ class CategoryBase(MPTTModel):
 
 
 class CategoryBaseAdminForm(forms.ModelForm):
+    """Base admin form for categories."""
+
     def clean_slug(self):
-        if not self.cleaned_data.get("slug", None):
-            if self.instance is None or not ALLOW_SLUG_CHANGE:
-                self.cleaned_data["slug"] = slugify(SLUG_TRANSLITERATOR(self.cleaned_data["name"]))
+        """Prune and transliterate the slug."""
+        if not self.cleaned_data.get("slug", None) and (self.instance is None or not ALLOW_SLUG_CHANGE):
+            self.cleaned_data["slug"] = slugify(SLUG_TRANSLITERATOR(self.cleaned_data["name"]))
         return self.cleaned_data["slug"][:50]
 
     def clean(self):
-
+        """Clean the data passed from the admin interface."""
         super(CategoryBaseAdminForm, self).clean()
 
         if not self.is_valid():
@@ -141,6 +141,8 @@ class CategoryBaseAdminForm(forms.ModelForm):
 
 
 class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
+    """Base admin class for categories."""
+
     form = CategoryBaseAdminForm
     list_display = ("name", "active")
     search_fields = ("name",)
@@ -149,14 +151,15 @@ class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
     actions = ["activate", "deactivate"]
 
     def get_actions(self, request):
+        """Get available actions for the admin interface."""
         actions = super(CategoryBaseAdmin, self).get_actions(request)
         if "delete_selected" in actions:
             del actions["delete_selected"]
         return actions
 
-    def deactivate(self, request, queryset):
+    def deactivate(self, request, queryset):  # NOQA: queryset is not used.
         """
-        Set active to False for selected items
+        Set active to False for selected items.
         """
         selected_cats = self.model.objects.filter(pk__in=[int(x) for x in request.POST.getlist("_selected_action")])
 
@@ -168,9 +171,9 @@ class CategoryBaseAdmin(TreeEditor, admin.ModelAdmin):
 
     deactivate.short_description = _("Deactivate selected categories and their children")
 
-    def activate(self, request, queryset):
+    def activate(self, request, queryset):  # NOQA: queryset is not used.
         """
-        Set active to True for selected items
+        Set active to True for selected items.
         """
         selected_cats = self.model.objects.filter(pk__in=[int(x) for x in request.POST.getlist("_selected_action")])
 

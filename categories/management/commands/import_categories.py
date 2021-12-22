@@ -1,3 +1,5 @@
+"""Import category trees from a file."""
+
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from slugify import slugify
@@ -16,7 +18,7 @@ class Command(BaseCommand):
 
     def get_indent(self, string):
         """
-        Look through the string and count the spaces
+        Look through the string and count the spaces.
         """
         indent_amt = 0
 
@@ -31,7 +33,7 @@ class Command(BaseCommand):
     @transaction.atomic
     def make_category(self, string, parent=None, order=1):
         """
-        Make and save a category object from a string
+        Make and save a category object from a string.
         """
         cat = Category(
             name=string.strip(),
@@ -48,12 +50,12 @@ class Command(BaseCommand):
 
     def parse_lines(self, lines):
         """
-        Do the work of parsing each line
+        Do the work of parsing each line.
         """
         indent = ""
         level = 0
 
-        if lines[0][0] == " " or lines[0][0] == "\t":
+        if lines[0][0] in [" ", "\t"]:
             raise CommandError("The first line in the file cannot start with a space or tab.")
 
         # This keeps track of the current parents at a given level
@@ -62,10 +64,10 @@ class Command(BaseCommand):
         for line in lines:
             if len(line) == 0:
                 continue
-            if line[0] == " " or line[0] == "\t":
+            if line[0] in [" ", "\t"]:
                 if indent == "":
                     indent = self.get_indent(line)
-                elif not line[0] in indent:
+                elif line[0] not in indent:
                     raise CommandError("You can't mix spaces and tabs for indents")
                 level = line.count(indent)
                 current_parents[level] = self.make_category(line, parent=current_parents[level - 1])
@@ -76,7 +78,7 @@ class Command(BaseCommand):
 
     def handle(self, *file_paths, **options):
         """
-        Handle the basic import
+        Handle the basic import.
         """
         import os
 
@@ -84,8 +86,6 @@ class Command(BaseCommand):
             if not os.path.isfile(file_path):
                 print("File %s not found." % file_path)
                 continue
-            f = open(file_path, "r")
-            data = f.readlines()
-            f.close()
-
+            with open(file_path, "r") as f:
+                data = f.readlines()
             self.parse_lines(data)
