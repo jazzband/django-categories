@@ -93,4 +93,5 @@ docs:  ## generate Sphinx HTML documentation, including API docs
 	cp -a doc_src/_build/html/. docs
 
 pubdocs: docs  ## Publish the documentation to GitHub
-	ghp-import -op docs
+	ghp-import -o docs
+	git push origin gh-pages --force
