@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   build:
 
@@ -36,3 +40,4 @@ jobs:
         github_token: ${{ github.token }}
         publish_branch: gh-pages
         publish_dir: docs
+        force_orphan: true
