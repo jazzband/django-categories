@@ -67,6 +67,7 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+dev.db
 
 # Flask stuff:
 instance/
@@ -168,9 +169,11 @@ output/*/index.html
 junit-*.xml
 flake8-errors.txt
 example/media/
+
 # Documentation building
 _build
 doc_src/api/categories*.rst
+docs
 
 RELEASE.txt
 site-packages

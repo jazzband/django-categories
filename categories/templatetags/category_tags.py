@@ -112,21 +112,22 @@ def get_category_drilldown(parser, token):
     """
     Retrieves the specified category, its ancestors and its immediate children as an Iterable.
 
-    Syntax::
+    The basic syntax::
 
         {% get_category_drilldown "category name" [using "app.Model"] as varname %}
 
-    Example::
+    Example:
+        Using a string for the category name::
 
-        {% get_category_drilldown "/Grandparent/Parent" [using "app.Model"] as family %}
+            {% get_category_drilldown "/Grandparent/Parent" as family %}
 
-    or ::
+        or using a variable for the category::
 
-        {% get_category_drilldown category_obj as family %}
+            {% get_category_drilldown category_obj as family %}
 
-    Sets family to::
+        Sets family to::
 
-        Grandparent, Parent, Child 1, Child 2, Child n
+            Grandparent, Parent, Child 1, Child 2, Child n
 
     Args:
         parser: The Django template parser.
@@ -171,7 +172,9 @@ def breadcrumbs(category_string, separator=" > ", using="categories.category"):
     """
     Render breadcrumbs, using the ``categories/breadcrumbs.html`` template.
 
-    {% breadcrumbs category separator="::" using="categories.category" %}
+    The basic syntax::
+
+        {% breadcrumbs "category" [separator=" > "] [using="categories.category"] %}
 
     Args:
         category_string: A variable reference to or the name of the category to display
@@ -191,33 +194,34 @@ def display_drilldown_as_ul(category, using="categories.Category"):
     """
     Render the category with ancestors and children using the ``categories/ul_tree.html`` template.
 
-    Example::
+    Example:
+        The template code of::
 
-        {% display_drilldown_as_ul "/Grandparent/Parent" %}
+            {% display_drilldown_as_ul "/Grandparent/Parent" %}
 
-    or ::
+        or::
 
-        {% display_drilldown_as_ul category_obj %}
+            {% display_drilldown_as_ul category_obj %}
 
-    Returns::
+        might render as::
 
-        <ul>
-          <li><a href="/categories/">Top</a>
-          <ul>
-            <li><a href="/categories/grandparent/">Grandparent</a>
             <ul>
-              <li><a href="/categories/grandparent/parent/">Parent</a>
+              <li><a href="/categories/">Top</a>
               <ul>
-                <li><a href="/categories/grandparent/parent/child1">Child1</a></li>
-                <li><a href="/categories/grandparent/parent/child2">Child2</a></li>
-                <li><a href="/categories/grandparent/parent/child3">Child3</a></li>
+                <li><a href="/categories/grandparent/">Grandparent</a>
+                <ul>
+                  <li><a href="/categories/grandparent/parent/">Parent</a>
+                  <ul>
+                    <li><a href="/categories/grandparent/parent/child1">Child1</a></li>
+                    <li><a href="/categories/grandparent/parent/child2">Child2</a></li>
+                    <li><a href="/categories/grandparent/parent/child3">Child3</a></li>
+                  </ul>
+                  </li>
+                </ul>
+                </li>
               </ul>
               </li>
             </ul>
-            </li>
-          </ul>
-          </li>
-        </ul>
 
     Args:
         category: A variable reference to or the name of the category to display
@@ -239,23 +243,23 @@ def display_path_as_ul(category, using="categories.Category"):
     Render the category with ancestors, but no children using the ``categories/ul_tree.html`` template.
 
     Examples:
-        ```
-        {% display_path_as_ul "/Grandparent/Parent" %}
-        ```
-        ```
-        {% display_path_as_ul category_obj %}
-        ```
+        The template code of::
 
-    Output:
-        ```
-        <ul>
-            <li><a href="/categories/">Top</a>
+            {% display_path_as_ul "/Grandparent/Parent" %}
+
+        or::
+
+            {% display_path_as_ul category_obj %}
+
+        might render as::
+
             <ul>
-                <li><a href="/categories/grandparent/">Grandparent</a></li>
+                <li><a href="/categories/">Top</a>
+                <ul>
+                    <li><a href="/categories/grandparent/">Grandparent</a></li>
+                </ul>
+                </li>
             </ul>
-            </li>
-        </ul>
-        ```
 
     Args:
         category: A variable reference to or the name of the category to display
@@ -291,18 +295,16 @@ def get_top_level_categories(parser, token):
     """
     Retrieves an alphabetical list of all the categories that have no parents.
 
-    Usage:
+    The basic syntax is::
 
-        ```
         {% get_top_level_categories [using "app.Model"] as categories %}
-        ```
 
     Args:
         parser: The Django template parser.
         token: The tag contents
 
     Returns:
-         Returns an list of categories [<category>, <category>, <category, ...]
+         Returns a list of categories [<category>, <category>, <category, ...]
 
     Raises:
         TemplateSyntaxError: If a queryset isn't provided
@@ -379,10 +381,10 @@ def do_get_latest_objects_by_category(parser, token):
     """
     Get the latest objects by category.
 
-    Usage:
-        ```
+    The basic syntax is::
+
         {% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}
-        ```
+
 
     Args:
         parser: The Django template parser.
@@ -477,21 +479,21 @@ def recursetree(parser, token):
     This tag will recursively render children into the template variable {{ children }}.
     Only one database query is required (children are cached for the whole tree)
 
-    Usage:
-        ```
-        <ul>
-            {% recursetree nodes %}
-                <li>
-                    {{ node.name }}
-                    {% if not node.is_leaf_node %}
-                        <ul>
-                            {{ children }}
-                        </ul>
-                    {% endif %}
-                </li>
-            {% endrecursetree %}
-        </ul>
-        ```
+    Example:
+        Basic usage example::
+
+            <ul>
+                {% recursetree nodes %}
+                    <li>
+                        {{ node.name }}
+                        {% if not node.is_leaf_node %}
+                            <ul>
+                                {{ children }}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endrecursetree %}
+            </ul>
 
     Args:
         parser: The Django template parser.

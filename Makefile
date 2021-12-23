@@ -1,3 +1,4 @@
+.PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 
 RELEASE_KIND := patch
@@ -84,9 +85,12 @@ release-minor: set-release-minor-env-var release-helper  ## Release a new minor 
 
 release-major: set-release-major-env-var release-helper  ## release a new major version: 1.1.1 -> 2.0.0
 
-documentation:
+docs:  ## generate Sphinx HTML documentation, including API docs
 	mkdir -p docs
 	rm -f doc_src/api/$(SOURCE_DIR)*.rst
 	ls -A1 docs | xargs -I {} rm -rf docs/{}
 	$(MAKE) -C doc_src clean html
 	cp -a doc_src/_build/html/. docs
+
+pubdocs: docs  ## Publish the documentation to GitHub
+	ghp-import -op docs
