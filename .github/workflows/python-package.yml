@@ -38,8 +38,6 @@ jobs:
         git config user.name $author_name
         echo "git config user.email $author_email"
         git config user.email $author_email
-        echo "git remote add origin https://github.com/$GITHUB_REPOSITORY.git"
-        git remote add origin https://$GITHUB_ACTOR:$INPUT_GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
         echo "git fetch origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages"
         git fetch origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
         ghp-import -op docs
