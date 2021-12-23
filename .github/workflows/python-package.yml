@@ -27,28 +27,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements/dev.txt
-    - name: Prepare documentation build
+    - name: Build documentation
       run: |
-        rm -f doc_src/api/categories*.rst
-        rm -rf docs/
-        git fetch origin gh-pages
-        git update-ref -d refs/heads/gh-pages
-#    - name: Publish documentation
-#      run: |
-#        author_name="$(git show --format=%an -s)"
-#        author_email="$(git show --format=%ae -s)"
-#        echo "git config user.name $author_name"
-#        git config user.name $author_name
-#        echo "git config user.email $author_email"
-#        git config user.email $author_email
-#        echo "git fetch origin gh-pages"
-#        git fetch origin gh-pages
-#        git update-ref -d refs/heads/gh-pages
-    - name: Sphinx Pages
-      # You may pin to the exact commit or the version.
-      # uses: seanzhengw/sphinx-pages@70dd0557fc226cfcd41c617aec5e9ee4fce4afe2
-      uses: seanzhengw/sphinx-pages@d29427677b3b89c1b5311d9eb135fb4168f4ba4a
-      with:
-        # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+        make docs
+    - name: github pages deploy
+      uses: peaceiris/actions-gh-pages@v2.3.1
+      env:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        source_dir: "doc_src"
+        publish_branch: gh-pages
+        publish_dir: docs
