@@ -38,8 +38,8 @@ jobs:
         git config user.name $author_name
         echo "git config user.email $author_email"
         git config user.email $author_email
-        echo "git fetch origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages"
-        git fetch origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
+        echo "git fetch origin gh-pages"
+        git fetch origin gh-pages
         ghp-import -op docs
 #    - name: Sphinx Pages
 #      # You may pin to the exact commit or the version.
