@@ -29,9 +29,8 @@ jobs:
         pip install -r requirements/dev.txt
     - name: Prepare documentation build
       run: |
-        mkdir -p docs
         rm -f doc_src/api/categories*.rst
-        ls -A1 docs | xargs -I {} rm -rf docs/{}
+        rm -rf docs/
         git fetch origin gh-pages
         git update-ref -d refs/heads/gh-pages
 #    - name: Publish documentation
