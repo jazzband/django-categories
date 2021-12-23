@@ -27,9 +27,22 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements/dev.txt
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        make pubdocs
+    - name: Build documentation
+      run: |
+        make docs
+    - name: Publish documentation
+      run: |
+        author_name="$(git show --format=%an -s)"
+        author_email="$(git show --format=%ae -s)"
+        echo "git config user.name $author_name"
+        git config user.name $author_name
+        echo "git config user.email $author_email"
+        git config user.email $author_email
+        echo "git remote add origin https://github.com/$GITHUB_REPOSITORY.git"
+        git remote add origin https://$GITHUB_ACTOR:$INPUT_GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
+        echo "git fetch origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages"
+        git fetch origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
+        ghp-import -op docs
 #    - name: Sphinx Pages
 #      # You may pin to the exact commit or the version.
 #      # uses: seanzhengw/sphinx-pages@70dd0557fc226cfcd41c617aec5e9ee4fce4afe2
