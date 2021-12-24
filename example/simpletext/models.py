@@ -1,3 +1,4 @@
+"""Example model."""
 from django.db import models
 
 from categories.base import CategoryBase
@@ -5,7 +6,7 @@ from categories.base import CategoryBase
 
 class SimpleText(models.Model):
     """
-    (SimpleText description)
+    (SimpleText description).
     """
 
     name = models.CharField(max_length=255)
@@ -14,26 +15,30 @@ class SimpleText(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = 'Simple Text'
-        ordering = ('-created',)
-        get_latest_by = 'updated'
+        verbose_name_plural = "Simple Text"
+        ordering = ("-created",)
+        get_latest_by = "updated"
 
     def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
+        """Get the absolute URL for this object."""
         try:
             from django.db.models import permalink
-            return permalink('simpletext_detail_view_name', [str(self.id)])
+
+            return permalink("simpletext_detail_view_name", [str(self.id)])
         except ImportError:
             from django.urls import reverse
-            return reverse('simpletext_detail_view_name', args=[str(self.id)])
+
+            return reverse("simpletext_detail_view_name", args=[str(self.id)])
 
 
 class SimpleCategory(CategoryBase):
-    """A Test of catgorizing"""
+    """A Test of catgorizing."""
+
     class Meta:
-        verbose_name_plural = 'simple categories'
+        verbose_name_plural = "simple categories"
 
 
 # mport categories

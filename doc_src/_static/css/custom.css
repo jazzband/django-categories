@@ -1,0 +1,32 @@
+.sig-prename.descclassname {
+  display: none;
+}
+dl.attribute {
+  margin-bottom: 30px;
+}
+dl.field-list {
+  display: block;
+}
+dl.field-list > dt {
+  padding-left: 0;
+}
+dl.field-list > dd {
+  padding-left: 1em;
+  border-left: 0;
+}
+dl.field-list > dd > ul.simple {
+  list-style-type: none;
+  padding-left: 0;
+}
+dl.field-list > dd + dt {
+  margin-top: 0.5em;
+}
+dd {
+  margin-left: 0;
+  padding-left: 30px;
+  border-left: 1px solid #c9c9c9;
+}
+.table.autosummary td {
+  border-top: 0;
+  border-bottom: 1px solid #dee2e6;
+}

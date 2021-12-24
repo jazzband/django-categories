@@ -1,0 +1,9 @@
+-r prod.txt
+django<4.0.0
+ghp-import
+linkify-it-py
+myst-parser
+pydata-sphinx-theme
+Sphinx>=4.3.0
+sphinx-autodoc-typehints
+sphinxcontrib-django2

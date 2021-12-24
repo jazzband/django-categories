@@ -1,14 +1,12 @@
-# -*- coding: utf-8 -*-
-
-
-from django.db import connection, transaction
+"""Adds and removes category relations on the database."""
 from django.apps import apps
+from django.db import connection, transaction
 from django.db.utils import ProgrammingError
 
 
 def table_exists(table_name):
     """
-    Check if a table exists in the database
+    Check if a table exists in the database.
     """
     pass
 
@@ -25,7 +23,7 @@ def field_exists(app_name, model_name, field_name):
 
     # Return True if the many to many table exists
     field = model._meta.get_field(field_name)
-    if hasattr(field, 'm2m_db_table'):
+    if hasattr(field, "m2m_db_table"):
         m2m_table_name = field.m2m_db_table()
         m2m_field_info = connection.introspection.get_table_description(cursor, m2m_table_name)
         if m2m_field_info:
@@ -36,7 +34,7 @@ def field_exists(app_name, model_name, field_name):
 
 def drop_field(app_name, model_name, field_name):
     """
-    Drop the given field from the app's model
+    Drop the given field from the app's model.
     """
     app_config = apps.get_app_config(app_name)
     model = app_config.get_model(model_name)
@@ -47,12 +45,13 @@ def drop_field(app_name, model_name, field_name):
 
 def migrate_app(sender, *args, **kwargs):
     """
-    Migrate all models of this app registered
+    Migrate all models of this app registered.
     """
     from .registration import registry
-    if 'app_config' not in kwargs:
+
+    if "app_config" not in kwargs:
         return
-    app_config = kwargs['app_config']
+    app_config = kwargs["app_config"]
 
     app_name = app_config.label
 
@@ -60,7 +59,7 @@ def migrate_app(sender, *args, **kwargs):
 
     sid = transaction.savepoint()
     for fld in fields:
-        model_name, field_name = fld.split('.')[1:]
+        model_name, field_name = fld.split(".")[1:]
         if field_exists(app_name, model_name, field_name):
             continue
         model = app_config.get_model(model_name)

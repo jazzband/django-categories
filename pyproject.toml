@@ -1,0 +1,82 @@
+[build-system]
+requires = [
+  "setuptools >= 40.9.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.coverage.run]
+branch = true
+omit = ["**/test_*.py"]
+
+[tool.coverage.report]
+omit = [
+    "*site-packages*",
+    "*tests*",
+    "*.tox*",
+]
+show_missing = true
+exclude_lines = [
+    "raise NotImplementedError",
+    "pragma: no-coverage",
+]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = true
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+ignore-nested-functions = true
+ignore-nested-classes = true
+ignore-setters = false
+fail-under = 60
+exclude = ["setup.py", "docs", "build", "test"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+verbose = 0
+quiet = false
+whitelist-regex = []
+color = true
+
+[tool.isort]
+py_version = "38"
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
+sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+include_trailing_comma = true
+profile = "black"
+multi_line_output = 3
+indent = 4
+color_output = true
+
+[tool.pydocstyle]
+convention = "google"
+add-ignore = ["D104", "D105", "D106", "D107", "D200", "D212"]
+match = "(?!test_).*\\.py"
+
+[tool.black]
+line-length = 119
+target-version = ['py38', 'py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
