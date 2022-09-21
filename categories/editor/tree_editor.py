@@ -276,14 +276,11 @@ class TreeEditor(admin.ModelAdmin):
                         name = force_str(opts.verbose_name)
                     else:
                         name = force_str(opts.verbose_name_plural)
-                    msg = (
-                        ngettext(
-                            "%(count)s %(name)s was changed successfully.",
-                            "%(count)s %(name)s were changed successfully.",
-                            changecount,
-                        )
-                        % {"count": changecount, "name": name, "obj": force_str(obj)}
-                    )
+                    msg = ngettext(
+                        "%(count)s %(name)s was changed successfully.",
+                        "%(count)s %(name)s were changed successfully.",
+                        changecount,
+                    ) % {"count": changecount, "name": name, "obj": force_str(obj)}
                     self.message_user(request, msg)
 
                 return HttpResponseRedirect(request.get_full_path())
