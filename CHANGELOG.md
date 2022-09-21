@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.9.1 (2022-09-21)
+[Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.9.0...1.9.1)
+
+### Fixes
+
+- Fixed issues with workflows. [6d55e16](https://github.com/jazzband/django-categories/commit/6d55e16acea8629f1bcea8587f3892ea4bd47c9b)
+    
+- Fixed bug in the Makefile. [60374fa](https://github.com/jazzband/django-categories/commit/60374fa7f46ef583037bfaf354d7f3431bc30ef5)
+    
+
+
 ## 1.9.0 (2022-09-21)
 [Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.8.0...1.9.0)
 
