@@ -87,7 +87,6 @@ do-release:
 	fi; \
 	git fetch -p --all; \
 	generate-changelog; \
-	git add CODEOWNERS; \
 	export BRANCH_NAME=$(SHORT_BRANCH_NAME);bumpversion $(BUMPVERSION_OPTS) $(RELEASE_KIND) --allow-dirty; \
 	git push origin $(BRANCH_NAME); \
 	git push --tags;
