@@ -47,4 +47,5 @@ requirements = parse_reqs("requirements.txt")
 
 setup(
     install_requires=requirements,
+    py_modules=[],
 )
