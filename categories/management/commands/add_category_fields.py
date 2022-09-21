@@ -10,7 +10,7 @@ class Command(BaseCommand):
     help = "Alter the tables for all registered models, or just specified models"
     args = "[appname ...]"
     can_import_settings = True
-    requires_system_checks = False
+    requires_system_checks = []
 
     def add_arguments(self, parser):
         """Add app_names argument to the command."""

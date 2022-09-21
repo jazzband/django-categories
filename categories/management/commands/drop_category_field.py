@@ -10,7 +10,7 @@ class Command(BaseCommand):
     help = "Drop the given field from the given model's table"
     args = "appname modelname fieldname"
     can_import_settings = True
-    requires_system_checks = False
+    requires_system_checks = []
 
     def add_arguments(self, parser):
         """Add app_name, model_name, and field_name arguments to the command."""
