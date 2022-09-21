@@ -1,7 +1,7 @@
 # Changelog
 
-## Unreleased (2022-09-21)
-[Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.8.0...HEAD)
+## 1.9.0 (2022-09-21)
+[Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.8.0...1.9.0)
 
 ### Fixes
 
@@ -59,6 +59,13 @@
     
 - Test also in Dango 4.1. [9ffb60f](https://github.com/jazzband/django-categories/commit/9ffb60fa041ab64c37e30b2c54985b85683931e8)
     
+- [pre-commit.ci] auto fixes from pre-commit.com hooks. [ac3cd17](https://github.com/jazzband/django-categories/commit/ac3cd17f9e70de3b2ef56bd1dc54bf98c1200eb9)
+    
+  for more information, see https://pre-commit.ci
+- [pre-commit.ci] pre-commit autoupdate. [af2115d](https://github.com/jazzband/django-categories/commit/af2115d7a0fc3d8bfd2e6f264068ab220dbee77b)
+    
+  **updates:** - https://github.com/timothycrosley/isort → https://github.com/PyCQA/isort
+
 - Adjusted makefile for github action commit. [13b4cdc](https://github.com/jazzband/django-categories/commit/13b4cdc981fe762d4f44d924b089d18f169d6e61)
     
 - Debugging the doc generation process. [4d19a7a](https://github.com/jazzband/django-categories/commit/4d19a7a0678965702205f91768d32536b8fa47fe)
@@ -89,6 +96,10 @@
   for more information, see https://pre-commit.ci
 ### Updates
 
+- Updated version replacement. [18aa820](https://github.com/jazzband/django-categories/commit/18aa8201e7e61ffbadd2d0f2eb38b8bf5f1098b8)
+    
+- Changed changelog generation and version handling. [7b3f540](https://github.com/jazzband/django-categories/commit/7b3f5400a28392df662d690016cc90829da3b4e9)
+    
 - Update GitHub test config: don't fail fast, use Python 3.10. [653714c](https://github.com/jazzband/django-categories/commit/653714c5bb5d3d13e7c3cd0f95bc62bd9ab62d8b)
     
 - Updated the workflow. [82298af](https://github.com/jazzband/django-categories/commit/82298af6bc6683b8a6ae353d5a9e1ce9c626b874)
@@ -121,6 +132,8 @@
     
 - Updates URL of the project to Jazzband. #164. [75d2215](https://github.com/jazzband/django-categories/commit/75d221545585bdf0dfa9ae1387341130fc37c303)
     
+
+
 ## 1.8.0 (2020-08-31)
 [Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.7.2...1.8.0)
 
