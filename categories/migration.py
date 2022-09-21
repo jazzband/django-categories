@@ -1,6 +1,6 @@
 """Adds and removes category relations on the database."""
 from django.apps import apps
-from django.db import connection, transaction
+from django.db import DatabaseError, connection, transaction
 from django.db.utils import ProgrammingError
 
 
@@ -25,7 +25,10 @@ def field_exists(app_name, model_name, field_name):
     field = model._meta.get_field(field_name)
     if hasattr(field, "m2m_db_table"):
         m2m_table_name = field.m2m_db_table()
-        m2m_field_info = connection.introspection.get_table_description(cursor, m2m_table_name)
+        try:
+            m2m_field_info = connection.introspection.get_table_description(cursor, m2m_table_name)
+        except DatabaseError:  # Django >= 4.1 throws DatabaseError
+            m2m_field_info = []
         if m2m_field_info:
             return True
 
