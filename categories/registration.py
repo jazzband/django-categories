@@ -3,13 +3,13 @@ These functions handle the adding of fields to other models.
 """
 from typing import Optional, Type, Union
 
-import collections
+from collections.abc import Iterable
 
 from django.core.exceptions import FieldDoesNotExist, ImproperlyConfigured
 from django.db.models import CASCADE, ForeignKey, ManyToManyField
 
 # from settings import self._field_registry, self._model_registry
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from . import fields
 
@@ -26,9 +26,7 @@ class Registry(object):
         self._field_registry = {}
         self._model_registry = {}
 
-    def register_model(
-        self, app: str, model_name, field_type: str, field_definitions: Union[str, collections.Iterable]
-    ):
+    def register_model(self, app: str, model_name, field_type: str, field_definitions: Union[str, Iterable]):
         """
         Registration process for Django 1.7+.
 
@@ -41,15 +39,13 @@ class Registry(object):
         Raises:
             ImproperlyConfigured: For incorrect parameter types or missing model.
         """
-        import collections
-
         from django.apps import apps
 
         app_label = app
 
         if isinstance(field_definitions, str):
             field_definitions = [field_definitions]
-        elif not isinstance(field_definitions, collections.Iterable):
+        elif not isinstance(field_definitions, Iterable):
             raise ImproperlyConfigured(
                 _("Field configuration for %(app)s should be a string or iterable") % {"app": app}
             )
