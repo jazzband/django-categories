@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.9.2 (2022-09-22)
+[Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.9.1...1.9.2)
+
+### Fixes
+
+- Fix installation from source. [5e0bdeb](https://github.com/jazzband/django-categories/commit/5e0bdebb876ff3b955aae355569ddbde14971490)
+    
+- Fix installation from source. [5c62a4a](https://github.com/jazzband/django-categories/commit/5c62a4a470450980649928c6f9e5ee443a700760)
+    
+- Fixed a typo in the pypi publish workflow. [c345618](https://github.com/jazzband/django-categories/commit/c345618eef9b3fd362cc920eb290816300c3eeb7)
+    
+### New
+
+- Add tests for GenericCollectionInlineModelAdmin. [73142da](https://github.com/jazzband/django-categories/commit/73142dafae57c35ce8bc55db5fe69e3156c9c346)
+    
+### Other
+
+- [pre-commit.ci] auto fixes from pre-commit.com hooks. [b08da9a](https://github.com/jazzband/django-categories/commit/b08da9aa4777a112d6559619efdb3e8cc2df548d)
+    
+  for more information, see https://pre-commit.ci
+- [pre-commit.ci] auto fixes from pre-commit.com hooks. [4d67f33](https://github.com/jazzband/django-categories/commit/4d67f3372c022cfa6e992fb1b6de68fd94d39f1c)
+    
+  for more information, see https://pre-commit.ci
+### Updates
+
+- Update gen_coll_tabular.html to new Django versions. [d070089](https://github.com/jazzband/django-categories/commit/d0700892c069a6c58c44f61ff4aefada827b67d3)
+    
+
+
 ## 1.9.1 (2022-09-21)
 [Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.9.0...1.9.1)
 
