@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.test import Client, TestCase
+from django.test.utils import override_settings
 from django.urls import reverse
 from django.utils.encoding import smart_str
 
@@ -9,9 +10,9 @@ from categories.models import Category
 class TestCategoryAdmin(TestCase):
     def setUp(self):
         self.client = Client()
+        self.superuser = User.objects.create_superuser("testuser", "testuser@example.com", "password")
 
     def test_adding_parent_and_child(self):
-        User.objects.create_superuser("testuser", "testuser@example.com", "password")
         self.client.login(username="testuser", password="password")
         url = reverse("admin:categories_category_add")
         data = {
@@ -65,3 +66,17 @@ class TestCategoryAdmin(TestCase):
         url = reverse("admin:categories_category_changelist")
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 200)
+
+    @override_settings(RELATION_MODELS=True)
+    def test_addview_get(self):
+        self.client.force_login(self.superuser)
+        url = reverse("admin:categories_category_add")
+        resp = self.client.get(url)
+        self.assertEqual(resp.status_code, 200)
+        self.assertContains(resp, '<tr class="row1 ">')
+        self.assertContains(
+            resp,
+            '<input type="number" name="categoryrelation_set-0-object_id" class="vIntegerField" '
+            'min="0" id="id_categoryrelation_set-0-object_id">',
+            html=True,
+        )
