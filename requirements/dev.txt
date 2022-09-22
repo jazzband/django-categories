@@ -1,6 +1,6 @@
 -r test.txt
 
 bump2version>=1.0.1
-git-fame>=1.12.2
 generate-changelog
+git-fame>=1.12.2
 pre-commit
