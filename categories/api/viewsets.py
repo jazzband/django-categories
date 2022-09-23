@@ -1,7 +1,6 @@
-from rest_framework import mixins, serializers, viewsets
-from rest_framework import permissions
-from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from rest_framework import mixins, permissions, serializers, viewsets
 
 from ..models import Category
 
@@ -10,48 +9,50 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = [
-            'name',
-            'slug',
-            'active',
-
-            'thumbnail',
-            'thumbnail_width',
-            'thumbnail_height',
-            'order',
-            'alternate_title',
-            'alternate_url',
-            'description',
-            'meta_keywords',
-            'meta_extra',
-            'children',
+            "name",
+            "slug",
+            "active",
+            "thumbnail",
+            "thumbnail_width",
+            "thumbnail_height",
+            "order",
+            "alternate_title",
+            "alternate_url",
+            "description",
+            "meta_keywords",
+            "meta_extra",
+            "children",
         ]
 
 
 countable_fields = [
-    f for f in Category._meta.get_fields()
-    if f.is_relation and f.name not in ['parent', 'children', 'categoryrelation']
+    f
+    for f in Category._meta.get_fields()
+    if f.is_relation and f.name not in ["parent", "children", "categoryrelation"]
 ]
 
 
 for field in countable_fields:
-    CategorySerializer._declared_fields[f'{field.name}_count'] = serializers.SerializerMethodField()
+    CategorySerializer._declared_fields[f"{field.name}_count"] = serializers.SerializerMethodField()
 
     def field_count(self, obj, field=field):
-        return getattr(obj, f'{field.name}_count', "-")
-    setattr(CategorySerializer, f'get_{field.name}_count', field_count)
-    CategorySerializer.Meta.fields += [f'{field.name}_count']
+        return getattr(obj, f"{field.name}_count", "-")
 
-    CategorySerializer._declared_fields[f'{field.name}_count_cumulative'] = serializers.SerializerMethodField()
+    setattr(CategorySerializer, f"get_{field.name}_count", field_count)
+    CategorySerializer.Meta.fields += [f"{field.name}_count"]
+
+    CategorySerializer._declared_fields[f"{field.name}_count_cumulative"] = serializers.SerializerMethodField()
 
     def field_count_cumulative(self, obj, field=field):
-        return getattr(obj, f'{field.name}_count_cumulative', "-")
-    setattr(CategorySerializer, f'get_{field.name}_count_cumulative', field_count_cumulative)
-    CategorySerializer.Meta.fields += [f'{field.name}_count_cumulative']
+        return getattr(obj, f"{field.name}_count_cumulative", "-")
+
+    setattr(CategorySerializer, f"get_{field.name}_count_cumulative", field_count_cumulative)
+    CategorySerializer.Meta.fields += [f"{field.name}_count_cumulative"]
 
 
-CategorySerializer._declared_fields['children'] = CategorySerializer(
+CategorySerializer._declared_fields["children"] = CategorySerializer(
     many=True,
-    source='get_children',
+    source="get_children",
 )
 
 
@@ -81,9 +82,7 @@ def get_category_queryset(queryset, extra_filters=None, exclude_blank=False):
     return queryset
 
 
-class CategoryViewSet(
-        mixins.ListModelMixin,
-        viewsets.GenericViewSet):
+class CategoryViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Category.tree.all()
     serializer_class = CategorySerializer
     extra_count_filters = {}
