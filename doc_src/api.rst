@@ -12,6 +12,7 @@ If you have installed Django REST framework, all you have to do is add categorie
 
 .. code-block:: python
 
+   from rest_framework.routers import DefaultRouter
    from categories.api.urls import router as category_router
 
    router = DefaultRouter()
