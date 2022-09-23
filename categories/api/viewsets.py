@@ -60,7 +60,10 @@ class CategoryList(list):  # To overcome problem with filters that require model
     model = Category
 
 
-def get_category_queryset(queryset, extra_filters=None, exclude_blank=False):
+# TODO: this function can be universally shared, maybe it can be moved to Categories models
+def get_category_queryset(queryset=None, extra_filters=None, exclude_blank=False):
+    if not queryset:
+        queryset = Category.tree.filter(active=True)
     if not extra_filters:
         extra_filters = {}
 
@@ -83,7 +86,7 @@ def get_category_queryset(queryset, extra_filters=None, exclude_blank=False):
 
 
 class CategoryViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    queryset = Category.tree.all()
+    queryset = Category.tree.filter(active=True)
     serializer_class = CategorySerializer
     extra_count_filters = {}
 
