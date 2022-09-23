@@ -28,4 +28,5 @@ urlpatterns = (
     #     {'document_root': ROOT_PATH + '/editor/media/editor/',
     #      'show_indexes':True}),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": os.path.join(ROOT_PATH, "example", "static")}),
+    path("api/", include("example.rest_urls"), name="api"),
 )

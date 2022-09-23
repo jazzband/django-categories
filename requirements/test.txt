@@ -1,7 +1,9 @@
 -r prod.txt
-django<4.0.0
+django
+django-rest-framework
 ghp-import
 linkify-it-py
+model-bakery
 myst-parser
 pydata-sphinx-theme
 Sphinx>=4.3.0
