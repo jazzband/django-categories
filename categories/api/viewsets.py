@@ -33,12 +33,13 @@ countable_fields = [
 
 
 for field in countable_fields:
-    CategorySerializer._declared_fields[field.name + '_count'] = serializers.SerializerMethodField()
+    CategorySerializer._declared_fields[f'{field.name}_count'] = serializers.SerializerMethodField()
 
     def field_count(self, obj, field=field):
-        return getattr(obj, field.name + '_count', "-")
-    setattr(CategorySerializer, 'get_' + field.name + '_count', field_count)
-    CategorySerializer.Meta.fields += [field.name + '_count']
+        return getattr(obj, f'{field.name}_count', "-")
+    setattr(CategorySerializer, f'get_{field.name}_count', field_count)
+    CategorySerializer.Meta.fields += [f'{field.name}_count']
+
 
 CategorySerializer._declared_fields['children'] = CategorySerializer(
     many=True,
