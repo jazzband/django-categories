@@ -2,10 +2,12 @@
 
 from django.db import migrations, models
 
+from categories.models import Category
+
 
 def make_slugs_unique(apps, schema_editor):
-    Category = apps.get_model("categories", "Category")
     duplicates = Category.tree.values("slug").annotate(slug_count=models.Count("slug")).filter(slug_count__gt=1)
+    category_objs = []
     for duplicate in duplicates:
         slug = duplicate["slug"]
         categories = Category.tree.filter(slug=slug)
@@ -13,9 +15,10 @@ def make_slugs_unique(apps, schema_editor):
         i = 0
         for category in categories.all():
             if i != 0:
-                category.slug = "%s_%s" % (slug, str(i).zfill(len(str(count))))
-                category.save()
+                category.slug = "{}-{}".format(slug, str(i).zfill(len(str(count))))
+                category_objs.append(category)
             i += 1
+    Category.objects.bulk_update(category_objs, ["slug"])
 
 
 class Migration(migrations.Migration):
