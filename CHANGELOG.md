@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0 (2022-09-xx)
+
+### WARNING
+
+**Breaking change:** Starting with version the 2.0.0 the category slugs are unique.
+While this brings big advantage for simplified category addressing, it can break projects that are containing categories with duplicated slugs.
+If your database contains colliding slugs, they will be automatically renamed by the migration.
+Three categories with slugs ``foo`` will be renamed to ``foo``, ``foo-1``, ``foo-2``.
+If this causes problems in your project, you can rename the categories yourself before running the migration.
+
+
 ## 1.9.4 (2024-04-18)
 
 - Remove dependency on unicode-slugify, use Django builtin function
