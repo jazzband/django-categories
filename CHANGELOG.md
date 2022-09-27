@@ -10,6 +10,8 @@ If your database contains colliding slugs, they will be automatically renamed by
 Three categories with slugs ``foo`` will be renamed to ``foo``, ``foo-1``, ``foo-2``.
 If this causes problems in your project, you can rename the categories yourself before running the migration.
 
+- Django 2.1 is no longer supported
+
 
 ## 1.9.4 (2024-04-18)
 
