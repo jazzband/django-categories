@@ -58,7 +58,7 @@ class CategoryImportTest(TestCase):
         Should raise an exception.
         """
         string1 = ["cat1", "    cat1-1", "\tcat1-2-FAIL!", ""]
-        string2 = ["cat1", "\tcat1-1", "    cat1-2-FAIL!", ""]
+        string2 = ["cat1a", "\tcat1-1a", "    cat1-2-FAIL!", ""]
         cmd = Command()
 
         # raise Exception
