@@ -6,6 +6,8 @@ from ..models import Category
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    children = serializers.SerializerMethodField(method_name="_get_children")
+
     class Meta:
         model = Category
         fields = [
@@ -23,6 +25,10 @@ class CategorySerializer(serializers.ModelSerializer):
             "meta_extra",
             "children",
         ]
+
+    def _get_children(self, obj):
+        children = obj.get_children()
+        return CategorySerializer(children, many=True).data
 
 
 countable_fields = [
@@ -48,12 +54,6 @@ for field in countable_fields:
 
     setattr(CategorySerializer, f"get_{field.name}_count_cumulative", field_count_cumulative)
     CategorySerializer.Meta.fields += [f"{field.name}_count_cumulative"]
-
-
-CategorySerializer._declared_fields["children"] = CategorySerializer(
-    many=True,
-    source="get_children",
-)
 
 
 class CategoryList(list):  # To overcome problem with filters that require model in queryset
