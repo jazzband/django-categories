@@ -69,6 +69,7 @@ class CategoryAdmin(CategoryBaseAdmin):
             },
         ),
     )
+    autocomplete_fields = ("parent",)
 
     if RELATION_MODELS:
         inlines = [
