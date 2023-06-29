@@ -1,0 +1,128 @@
+# Indonesian translation of django-categories
+# Copyright (C) 2023 Kira
+# This file is distributed under the same license as the django-categories package.
+# Kira <kiraware@github.com>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-categories 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-29 11:17+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kira <kiraware@github.com>\n"
+"Language-Team: Kira <kiraware@github.com>\n"
+"Language: Indonesian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\admin.py:58
+msgid "Meta Data"
+msgstr "Meta Data"
+
+#: .\admin.py:65
+msgid "Advanced"
+msgstr "Lanjutan"
+
+#: .\base.py:45
+msgid "parent"
+msgstr "induk"
+
+#: .\base.py:47
+msgid "name"
+msgstr "nama"
+
+#: .\base.py:48
+msgid "slug"
+msgstr "slug"
+
+#: .\base.py:49
+msgid "active"
+msgstr "aktif"
+
+#: .\base.py:123
+msgid "The slug must be unique among the items at its level."
+msgstr "Slug harus unik di antara item-item yang ada di levelnya."
+
+#: .\base.py:137
+msgid "You can't set the parent of the item to itself."
+msgstr "Anda tidak dapat mengatur induk dari item ke dirinya sendiri."
+
+#: .\base.py:139
+msgid "You can't set the parent of the item to a descendant."
+msgstr "Anda tidak dapat mengatur induk item menjadi keturunan."
+
+#: .\base.py:172
+msgid "Deactivate selected categories and their children"
+msgstr "Menonaktifkan kategori yang dipilih dan anak-anaknya"
+
+#: .\base.py:185
+msgid "Activate selected categories and their children"
+msgstr "Mengaktifkan kategori yang dipilih dan anak-anaknya"
+
+#: .\models.py:104 .\models.py:138
+msgid "category"
+msgstr "kategori"
+
+#: .\models.py:105
+msgid "categories"
+msgstr "kategori"
+
+#: .\models.py:143
+msgid "content type"
+msgstr "jenis konten"
+
+#: .\models.py:145
+msgid "object id"
+msgstr "id objek"
+
+#: .\models.py:148
+msgid "relation type"
+msgstr "jenis hubungan"
+
+#: .\models.py:152
+msgid "A generic text field to tag a relation, like 'leadphoto'."
+msgstr "Bidang teks umum untuk menandai hubungan, seperti 'leadphoto'."
+
+#: .\registration.py:50
+#, python-format
+msgid "Field configuration for %(app)s should be a string or iterable"
+msgstr "Konfigurasi bidang untuk %(app)s harus berupa string atau iterable"
+
+#: .\registration.py:54
+msgid "`field_type` must be either `\"ForeignKey\"` or `\"ManyToManyField\"`."
+msgstr "`field_type` harus salah satu dari `\"ForeignKey\"` atau `\"ManyToManyField\"`."
+
+#: .\registration.py:92
+#, python-format
+msgid "%(settings)s doesn't recognize the value of %(app)s.%(model)s"
+msgstr "%(settings)s tidak mengenali nilai %(app)s.%(model)s"
+
+#: .\registration.py:154
+#, python-format
+msgid "%(key)s is not a model"
+msgstr "%(key)s bukan merupakan model"
+
+#: .\registration.py:164 .\registration.py:174
+#, python-format
+msgid "%(settings)s doesn't recognize the value of %(key)s"
+msgstr "%(settings)s tidak mengenali nilai %(key)s"
+
+#: .\settings.py:35
+msgid "%(transliterator) must be a callable or a string."
+msgstr "%(transliterator) harus berupa sebuah callable atau string."
+
+#: .\templates\admin\edit_inline\gen_coll_tabular.html:13
+msgid "Delete?"
+msgstr "Hapus?"
+
+#: .\templates\admin\edit_inline\gen_coll_tabular.html:24
+msgid "View on site"
+msgstr "Lihat di situs"
+
+#: .\views.py:68 .\views.py:99
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "Tidak ada %(verbose_name)s yang ditemukan cocok dengan kueri"
