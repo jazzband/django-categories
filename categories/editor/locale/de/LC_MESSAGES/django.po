@@ -4,7 +4,7 @@
 # winniehell <git@winniehell.de>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: django-categories 1.1.4\n"
+"Project-Id-Version: django-categories 1.9.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-29 11:49+0800\n"
 "PO-Revision-Date: 2012-09-01 02:38+0200\n"
