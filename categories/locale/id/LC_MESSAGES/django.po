@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-categories 1.9.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-29 11:17+0800\n"
+"POT-Creation-Date: 2023-06-29 11:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kira <kiraware@github.com>\n"
 "Language-Team: Kira <kiraware@github.com>\n"
@@ -93,7 +93,9 @@ msgstr "Konfigurasi bidang untuk %(app)s harus berupa string atau iterable"
 
 #: .\registration.py:54
 msgid "`field_type` must be either `\"ForeignKey\"` or `\"ManyToManyField\"`."
-msgstr "`field_type` harus salah satu dari `\"ForeignKey\"` atau `\"ManyToManyField\"`."
+msgstr ""
+"`field_type` harus salah satu dari `\"ForeignKey\"` atau `\"ManyToManyField"
+"\"`."
 
 #: .\registration.py:92
 #, python-format

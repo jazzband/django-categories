@@ -1,20 +1,22 @@
-# German translation of django-categories
-# Copyright (C) 2012 winniehell
-# This file is distributed under the same license as django-categories.
-# winniehell <git@winniehell.de>, 2012.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: django-categories 1.1.4\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-29 11:49+0800\n"
-"PO-Revision-Date: 2012-09-01 02:38+0200\n"
-"Last-Translator: winniehell <git@winniehell.de>\n"
-"Language-Team: winniehell <git@winniehell.de>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: .\editor\templates\admin\editor\tree_list_results.html:16
 msgid "Remove from sorting"
