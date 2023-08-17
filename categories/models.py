@@ -4,7 +4,6 @@ from functools import reduce
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.images import get_image_dimensions
-from django.core.files.storage import get_storage_class
 from django.db import models
 from django.urls import reverse
 from django.utils.encoding import force_str
@@ -15,10 +14,19 @@ from .settings import (
     RELATION_MODELS,
     RELATIONS,
     THUMBNAIL_STORAGE,
+    THUMBNAIL_STORAGE_ALIAS,
     THUMBNAIL_UPLOAD_PATH,
 )
 
-STORAGE = get_storage_class(THUMBNAIL_STORAGE)
+# Determine storage method based on Django version
+try:  # Django 4.2+
+    from django.core.files.storage import storages
+
+    STORAGE = storages[THUMBNAIL_STORAGE_ALIAS]
+except ImportError:
+    from django.core.files.storage import get_storage_class
+
+    STORAGE = get_storage_class(THUMBNAIL_STORAGE)()
 
 
 class Category(CategoryBase):
@@ -28,7 +36,7 @@ class Category(CategoryBase):
         upload_to=THUMBNAIL_UPLOAD_PATH,
         null=True,
         blank=True,
-        storage=STORAGE(),
+        storage=STORAGE,
     )
     thumbnail_width = models.IntegerField(blank=True, null=True)
     thumbnail_height = models.IntegerField(blank=True, null=True)
