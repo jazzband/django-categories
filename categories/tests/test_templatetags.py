@@ -7,7 +7,6 @@ from categories.models import Category
 
 
 class CategoryTagsTest(TestCase):
-
     fixtures = ["musicgenres.json"]
 
     def render_template(self, template_string, context={}):
