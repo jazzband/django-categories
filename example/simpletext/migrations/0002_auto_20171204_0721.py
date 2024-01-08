@@ -7,7 +7,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("categories", "0002_auto_20170217_1111"),
         ("simpletext", "0001_initial"),
