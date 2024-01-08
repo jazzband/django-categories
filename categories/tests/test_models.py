@@ -9,7 +9,6 @@ from categories.models import Category
 
 class TestCategoryThumbnail(TestCase):
     def test_thumbnail(self):
-
         file_name = "test_image.jpg"
 
         with open(os.path.join(os.path.dirname(__file__), file_name), "rb") as f:
