@@ -1,18 +1,13 @@
 """Category models."""
 from functools import reduce
 
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.images import get_image_dimensions
+from django.core.files.storage import get_storage_class
 from django.db import models
 from django.urls import reverse
 from django.utils.encoding import force_str
-
-try:
-    from django.contrib.contenttypes.fields import GenericForeignKey
-except ImportError:
-    from django.contrib.contenttypes.generic import GenericForeignKey
-
-from django.core.files.storage import get_storage_class
 from django.utils.translation import gettext_lazy as _
 
 from .base import CategoryBase
