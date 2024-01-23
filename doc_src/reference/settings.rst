@@ -22,6 +22,7 @@ The default settings are:
 	    'FK_REGISTRY': {},
 	    'THUMBNAIL_UPLOAD_PATH': 'uploads/categories/thumbnails',
 	    'THUMBNAIL_STORAGE': settings.DEFAULT_FILE_STORAGE,
+	    'THUMBNAIL_STORAGE_ALIAS': 'default',
 	    'SLUG_TRANSLITERATOR': lambda x: x,
 	    'ADMIN_FIELDSETS': {}
 	}
@@ -111,6 +112,15 @@ THUMBNAIL_STORAGE
 **Default:** ``settings.DEFAULT_FILE_STORAGE``
 
 **Description:** How to store the thumbnails. Allows for external storage engines like S3.
+
+.. _THUMBNAIL_STORAGE:
+
+THUMBNAIL_STORAGE_ALIAS
+=======================
+
+**Default:** ``default``
+
+**Description:** If new STORAGES settings from Django 4.2+ is used, use storage with this alias.
 
 .. _JAVASCRIPT_URL:
 
