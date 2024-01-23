@@ -98,6 +98,20 @@ TEMPLATES = [
     },
 ]
 
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "thumbnails": {
+        "BACKEND": "example.test_storages.MyTestStorageAlias",
+    },
+}
+
+
 CATEGORIES_SETTINGS = {
     "ALLOW_SLUG_CHANGE": True,
     "RELATION_MODELS": ["simpletext.simpletext", "flatpages.flatpage"],
@@ -115,6 +129,8 @@ CATEGORIES_SETTINGS = {
             {"name": "more_categories", "related_name": "more_cats"},
         ),
     },
+    "THUMBNAIL_STORAGE": "example.test_storages.MyTestStorage",
+    "THUMBNAIL_STORAGE_ALIAS": "thumbnails",
 }
 
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
