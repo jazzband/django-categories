@@ -1,5 +1,4 @@
 """Template tags used to render the tree editor."""
-import django
 from django.contrib.admin.templatetags.admin_list import _boolean_icon, result_headers
 from django.contrib.admin.utils import lookup_field
 from django.core.exceptions import ObjectDoesNotExist
@@ -44,9 +43,6 @@ def items_for_tree_result(cl, result, form):
             result_repr = get_empty_value_display(cl)
         else:
             if f is None:
-                if django.VERSION[0] == 1 and django.VERSION[1] == 4:
-                    if field_name == "action_checkbox":
-                        row_class = ' class="action-checkbox disclosure"'
                 allow_tags = getattr(attr, "allow_tags", False)
                 boolean = getattr(attr, "boolean", False)
                 if boolean:
@@ -69,25 +65,12 @@ def items_for_tree_result(cl, result, form):
                     result_repr = display_for_field(value, f, "")
                 if isinstance(f, models.DateField) or isinstance(f, models.TimeField):
                     row_class = ' class="nowrap"'
-            if first:
-                if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-                    try:
-                        f, attr, checkbox_value = lookup_field("action_checkbox", result, cl.model_admin)
-                        if row_class:
-                            row_class = "%s%s" % (row_class[:-1], ' disclosure"')
-                        else:
-                            row_class = ' class="disclosure"'
-                    except (AttributeError, ObjectDoesNotExist):
-                        pass
 
         if force_str(result_repr) == "":
             result_repr = mark_safe("&nbsp;")
         # If list_display_links not defined, add the link tag to the first field
         if (first and not cl.list_display_links) or field_name in cl.list_display_links:
-            if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-                table_tag = "td"  # {True:'th', False:'td'}[first]
-            else:
-                table_tag = {True: "th", False: "td"}[first]
+            table_tag = {True: "th", False: "td"}[first]
 
             url = cl.url_for_result(result)
             # Convert the pk to something that can be used in Javascript.
@@ -165,13 +148,7 @@ def result_tree_list(cl):
     """
     Displays the headers and data list together.
     """
-    import django
-
     result = {"cl": cl, "result_headers": list(result_headers(cl)), "results": list(tree_results(cl))}
-    if django.VERSION[0] == 1 and django.VERSION[1] > 2:
-        from django.contrib.admin.templatetags.admin_list import result_hidden_fields
-
-        result["result_hidden_fields"] = list(result_hidden_fields(cl))
     return result
 
 
