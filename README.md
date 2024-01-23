@@ -9,8 +9,6 @@ As a news site, our stories, photos, and other content get divided into "section
 
 ## Features of the project
 
-Currently incompatible with Python 3.10.
-
 **Multiple trees, or a single tree.**
 You can treat all the records as a single tree, shared by all the applications. You can also treat each of the top level records as individual trees, for different apps or uses.
 
