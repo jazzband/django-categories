@@ -80,10 +80,7 @@ class TreeChangeList(ChangeList):
     """A change list for a tree."""
 
     def _get_default_ordering(self):
-        if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-            return "", ""  # ('tree_id', 'lft')
-        else:
-            return []
+        return []
 
     def get_ordering(self, request=None, queryset=None):
         """
@@ -98,10 +95,7 @@ class TreeChangeList(ChangeList):
         Returns:
             Either a tuple of empty strings or an empty list.
         """
-        if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-            return "", ""  # ('tree_id', 'lft')
-        else:
-            return []
+        return []
 
     def get_queryset(self, *args, **kwargs):
         """Return a queryset."""
@@ -170,36 +164,7 @@ class TreeEditor(admin.ModelAdmin):
                 pass
 
         try:
-            if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-                params = (
-                    request,
-                    self.model,
-                    list_display,
-                    self.list_display_links,
-                    self.list_filter,
-                    self.date_hierarchy,
-                    self.search_fields,
-                    self.list_select_related,
-                    self.list_per_page,
-                    self.list_editable,
-                    self,
-                )
-            elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
-                params = (
-                    request,
-                    self.model,
-                    list_display,
-                    self.list_display_links,
-                    self.list_filter,
-                    self.date_hierarchy,
-                    self.search_fields,
-                    self.list_select_related,
-                    self.list_per_page,
-                    self.list_max_show_all,
-                    self.list_editable,
-                    self,
-                )
-            elif django.VERSION < (4, 0):
+            if django.VERSION < (4, 0):
                 params = (
                     request,
                     self.model,
@@ -314,20 +279,7 @@ class TreeEditor(admin.ModelAdmin):
             "actions_on_top": self.actions_on_top,
             "actions_on_bottom": self.actions_on_bottom,
         }
-        if django.VERSION[0] == 1 and django.VERSION[1] < 4:
-            context["root_path"] = self.admin_site.root_path
-        elif django.VERSION[0] == 1 or (django.VERSION[0] == 2 and django.VERSION[1] < 1):
-            selection_note_all = ngettext("%(total_count)s selected", "All %(total_count)s selected", cl.result_count)
-
-            context.update(
-                {
-                    "module_name": force_str(opts.verbose_name_plural),
-                    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
-                    "selection_note_all": selection_note_all % {"total_count": cl.result_count},
-                }
-            )
-        else:
-            context["opts"] = self.model._meta
+        context["opts"] = self.model._meta
 
         context.update(extra_context or {})
         return render(
