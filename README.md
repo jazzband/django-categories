@@ -36,6 +36,10 @@ Easy ways for displaying the tree data in templates:
 
 - **Show multiple levels.** Ancestors of category, category and all children of category or  a category and its children
 
+## Categories API
+
+Support for categories API can be added by third party application [django-categories-api](https://github.com/PetrDlouhy/django-categories-api).
+
 ## Changes
 
 ### New in 1.8
