@@ -1,4 +1,5 @@
 """Category models."""
+
 from functools import reduce
 
 from django.contrib.contenttypes.fields import GenericForeignKey

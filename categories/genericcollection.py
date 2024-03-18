@@ -1,4 +1,5 @@
 """Special helpers for generic collections."""
+
 import json
 
 from django.contrib import admin

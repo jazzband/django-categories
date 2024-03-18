@@ -1,4 +1,5 @@
 """Settings management for the editor."""
+
 from django.conf import settings
 
 STATIC_URL = getattr(settings, "STATIC_URL", settings.MEDIA_URL)

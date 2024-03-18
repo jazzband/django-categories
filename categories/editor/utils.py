@@ -1,6 +1,7 @@
 """
 Provides compatibility with Django 1.8.
 """
+
 from django.contrib.admin.utils import display_for_field as _display_for_field
 
 

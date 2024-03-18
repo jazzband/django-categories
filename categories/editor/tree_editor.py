@@ -1,4 +1,5 @@
 """Classes for representing tree structures in Django's admin."""
+
 from typing import Any
 
 import django
