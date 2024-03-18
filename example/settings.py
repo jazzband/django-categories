@@ -1,4 +1,5 @@
 """Django settings for sample project."""
+
 import os
 import sys
 
