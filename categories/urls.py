@@ -1,4 +1,5 @@
 """URL patterns for the categories app."""
+
 from django.urls import path, re_path
 from django.views.generic import ListView
 

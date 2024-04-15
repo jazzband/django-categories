@@ -1,4 +1,5 @@
 """View functions for categories."""
+
 from typing import Optional
 
 from django.http import Http404, HttpResponse

@@ -1,4 +1,5 @@
 """URL patterns for the example project."""
+
 import os
 
 from django.conf.urls import include

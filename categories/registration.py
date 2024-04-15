@@ -1,6 +1,7 @@
 """
 These functions handle the adding of fields to other models.
 """
+
 from typing import Optional, Type, Union
 
 from collections.abc import Iterable

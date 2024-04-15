@@ -1,4 +1,5 @@
 """Template tags for categories."""
+
 from typing import Any, Type, Union
 
 from django import template

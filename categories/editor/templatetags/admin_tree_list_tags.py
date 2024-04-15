@@ -1,4 +1,5 @@
 """Template tags used to render the tree editor."""
+
 from django.contrib.admin.templatetags.admin_list import _boolean_icon, result_headers
 from django.contrib.admin.utils import lookup_field
 from django.core.exceptions import ObjectDoesNotExist
@@ -89,12 +90,14 @@ def items_for_tree_result(cl, result, form):
                     table_tag,
                     row_class,
                     url,
-                    format_html(
-                        ' onclick="opener.dismissRelatedLookupPopup(window, ' '&#39;{}&#39;); return false;"',
-                        result_id,
-                    )
-                    if cl.is_popup
-                    else "",
+                    (
+                        format_html(
+                            ' onclick="opener.dismissRelatedLookupPopup(window, ' '&#39;{}&#39;); return false;"',
+                            result_id,
+                        )
+                        if cl.is_popup
+                        else ""
+                    ),
                     result_repr,
                     table_tag,
                 )

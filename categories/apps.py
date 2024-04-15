@@ -1,4 +1,5 @@
 """Django application setup."""
+
 from django.apps import AppConfig
 
 

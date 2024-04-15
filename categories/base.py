@@ -3,6 +3,7 @@ This is the base class on which to build a hierarchical category-like model.
 
 It provides customizable metadata and its own name space.
 """
+
 from django import forms
 from django.contrib import admin
 from django.db import models
