@@ -1,4 +1,5 @@
 """Custom category fields for other models."""
+
 from django.db.models import ForeignKey, ManyToManyField
 
 

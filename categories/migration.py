@@ -1,4 +1,5 @@
 """Adds and removes category relations on the database."""
+
 from django.apps import apps
 from django.db import DatabaseError, connection, transaction
 from django.db.utils import OperationalError, ProgrammingError

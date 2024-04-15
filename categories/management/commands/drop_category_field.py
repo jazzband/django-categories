@@ -1,4 +1,5 @@
 """Alter one or more models' tables with the registered attributes."""
+
 from django.core.management.base import BaseCommand, CommandError
 
 

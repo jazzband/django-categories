@@ -1,4 +1,5 @@
 """Example model."""
+
 from django.db import models
 
 from categories.base import CategoryBase

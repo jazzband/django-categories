@@ -1,4 +1,5 @@
 """The add_category_fields command."""
+
 from django.core.management.base import BaseCommand
 
 
