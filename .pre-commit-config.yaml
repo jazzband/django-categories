@@ -5,11 +5,11 @@ repos:
       - id: isort
         additional_dependencies: [toml]
   - repo: https://github.com/psf/black
-    rev: 23.12.1
+    rev: 24.4.0
     hooks:
       - id: black
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -48,6 +48,6 @@ repos:
         exclude: test.*|custom_.*|\d\d\d\d_.*
 
   - repo: https://github.com/econchick/interrogate
-    rev: 1.5.0  # or master if you're bold
+    rev: 1.7.0  # or master if you're bold
     hooks:
       - id: interrogate
