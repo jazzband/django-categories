@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.3 (unreleased)
+
+- Update of Django/Python versions.
+- Supported versions are now Django 2.1-5.0, Python 3.7-3.12
+- Removed code for obsolete versions
+- Add support for Django 4.12 new File storage API (STORAGES)
+
 ## 1.9.2 (2022-09-22)
 [Compare the full difference.](https://github.com/jazzband/django-categories/compare/1.9.1...1.9.2)
 
