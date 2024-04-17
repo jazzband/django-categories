@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (2022-09-xx)
+## 2.0.0-alpha.1 (unreleased)
 
 ### WARNING
 
