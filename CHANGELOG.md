@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.9.3 (unreleased)
+## 1.9.4 (2024-04-18)
+
+- Remove dependency on unicode-slugify, use Django builtin function
+
+## 1.9.3 (2024-04-17)
 
 - Update of Django/Python versions.
 - Supported versions are now Django 2.1-5.0, Python 3.7-3.12
