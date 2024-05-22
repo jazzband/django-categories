@@ -2,6 +2,8 @@
 
 [![Jazzband](https://jazzband.co/static/img/badge.svg)](https://jazzband.co/)
 [![codecov](https://codecov.io/gh/jazzband/django-categories/branch/master/graph/badge.svg?token=rW8mpdZqWQ)](https://codecov.io/gh/jazzband/django-categories)
+[![PyPI](https://img.shields.io/pypi/v/django-categories.svg)](https://pypi.org/project/django-categories/#history)
+
 
 Django Categories grew out of our need to provide a basic hierarchical taxonomy management system that multiple applications could use independently or in concert.
 
