@@ -14,7 +14,6 @@ from .base import CategoryBase
 from .settings import (
     RELATION_MODELS,
     RELATIONS,
-    THUMBNAIL_STORAGE,
     THUMBNAIL_STORAGE_ALIAS,
     THUMBNAIL_UPLOAD_PATH,
 )
@@ -26,6 +25,8 @@ try:  # Django 4.2+
     STORAGE = storages[THUMBNAIL_STORAGE_ALIAS]
 except ImportError:
     from django.core.files.storage import get_storage_class
+
+    from .settings import THUMBNAIL_STORAGE
 
     STORAGE = get_storage_class(THUMBNAIL_STORAGE)()
 

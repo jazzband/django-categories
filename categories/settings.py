@@ -11,13 +11,15 @@ DEFAULT_SETTINGS = {
     "M2M_REGISTRY": {},
     "FK_REGISTRY": {},
     "THUMBNAIL_UPLOAD_PATH": "uploads/categories/thumbnails",
-    "THUMBNAIL_STORAGE": settings.DEFAULT_FILE_STORAGE,
     "THUMBNAIL_STORAGE_ALIAS": "default",
     "JAVASCRIPT_URL": getattr(settings, "STATIC_URL", settings.MEDIA_URL) + "js/",
     "SLUG_TRANSLITERATOR": "",
     "REGISTER_ADMIN": True,
     "RELATION_MODELS": [],
 }
+
+if hasattr(settings, "DEFAULT_FILE_STORAGE"):
+    DEFAULT_SETTINGS["THUMBNAIL_STORAGE"] = settings.DEFAULT_FILE_STORAGE
 
 DEFAULT_SETTINGS.update(getattr(settings, "CATEGORIES_SETTINGS", {}))
 
