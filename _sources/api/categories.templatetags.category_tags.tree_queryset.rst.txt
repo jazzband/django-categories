@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.tree_queryset
+
+tree\_queryset
+==============
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: tree_queryset

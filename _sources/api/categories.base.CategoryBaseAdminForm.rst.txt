@@ -1,0 +1,81 @@
+.. rst-class:: h4 text-secondary
+
+categories.base.CategoryBaseAdminForm
+
+CategoryBaseAdminForm
+=====================
+
+.. currentmodule:: categories.base
+
+.. autoclass:: CategoryBaseAdminForm
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryBaseAdminForm.add_error
+      
+      ~CategoryBaseAdminForm.add_initial_prefix
+      
+      ~CategoryBaseAdminForm.add_prefix
+      
+      ~CategoryBaseAdminForm.as_p
+      
+      ~CategoryBaseAdminForm.as_table
+      
+      ~CategoryBaseAdminForm.as_ul
+      
+      ~CategoryBaseAdminForm.clean
+      
+      ~CategoryBaseAdminForm.clean_slug
+      
+      ~CategoryBaseAdminForm.full_clean
+      
+      ~CategoryBaseAdminForm.get_initial_for_field
+      
+      ~CategoryBaseAdminForm.has_changed
+      
+      ~CategoryBaseAdminForm.has_error
+      
+      ~CategoryBaseAdminForm.hidden_fields
+      
+      ~CategoryBaseAdminForm.is_multipart
+      
+      ~CategoryBaseAdminForm.is_valid
+      
+      ~CategoryBaseAdminForm.non_field_errors
+      
+      ~CategoryBaseAdminForm.order_fields
+      
+      ~CategoryBaseAdminForm.save
+      
+      ~CategoryBaseAdminForm.validate_unique
+      
+      ~CategoryBaseAdminForm.visible_fields
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryBaseAdminForm.changed_data
+      
+      ~CategoryBaseAdminForm.default_renderer
+      
+      ~CategoryBaseAdminForm.errors
+      
+      ~CategoryBaseAdminForm.field_order
+      
+      ~CategoryBaseAdminForm.media
+      
+      ~CategoryBaseAdminForm.prefix
+      
+      ~CategoryBaseAdminForm.use_required_attribute
+      
+   

@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.do_get_latest_objects_by_category
+
+do\_get\_latest\_objects\_by\_category
+======================================
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: do_get_latest_objects_by_category

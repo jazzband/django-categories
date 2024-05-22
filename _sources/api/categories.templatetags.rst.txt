@@ -1,0 +1,23 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags
+
+templatetags
+============
+.. currentmodule:: categories.templatetags
+
+
+.. automodule:: categories.templatetags
+
+   
+
+   .. rubric:: Submodules
+
+   .. autosummary::
+      :toctree:
+      :recursive:
+   
+      categories.templatetags.category_tags
+   
+   
+   

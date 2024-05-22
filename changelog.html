@@ -1,0 +1,2429 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Changelog &#8212; Django Categories 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ea07567a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=51b770b3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'changelog';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="CategoryRelatedList" href="api/categories.views.CategoryRelatedList.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Django Categories 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item current active">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item current active">
+                      <a class="nav-link dropdown-item nav-internal" href="#">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Changelog</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>2.0.0 (2024-05-22)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fixes for old style storages removed in Django 5.1</p></li>
+</ul>
+</section>
+<section id="alpha-2-2024-04-19">
+<h2>2.0.0-alpha.2 (2024-04-19)<a class="headerlink" href="#alpha-2-2024-04-19" title="Link to this heading">#</a></h2>
+</section>
+<section id="alpha-1-2024-04-17">
+<h2>2.0.0-alpha.1 (2024-04-17)<a class="headerlink" href="#alpha-1-2024-04-17" title="Link to this heading">#</a></h2>
+<section id="warning">
+<h3>WARNING<a class="headerlink" href="#warning" title="Link to this heading">#</a></h3>
+<p><strong>Breaking change:</strong> Starting with version the 2.0.0 the category slugs are unique.
+While this brings big advantage for simplified category addressing, it can break projects that are containing categories with duplicated slugs.
+If your database contains colliding slugs, they will be automatically renamed by the migration.
+Three categories with slugs <code class="docutils literal notranslate"><span class="pre">foo</span></code> will be renamed to <code class="docutils literal notranslate"><span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">foo-1</span></code>, <code class="docutils literal notranslate"><span class="pre">foo-2</span></code>.
+If this causes problems in your project, you can rename the categories yourself before running the migration.</p>
+<ul class="simple">
+<li><p>Django 2.1 is no longer supported</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>1.9.4 (2024-04-18)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Remove dependency on unicode-slugify, use Django builtin function</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>1.9.3 (2024-04-17)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Update of Django/Python versions.</p></li>
+<li><p>Supported versions are now Django 2.1-5.0, Python 3.7-3.12</p></li>
+<li><p>Removed code for obsolete versions</p></li>
+<li><p>Add support for Django 4.12 new File storage API (STORAGES)</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>1.9.2 (2022-09-22)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.9.1...1.9.2">Compare the full difference.</a></p>
+<section id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix installation from source. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5e0bdebb876ff3b955aae355569ddbde14971490">5e0bdeb</a></p></li>
+<li><p>Fix installation from source. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5c62a4a470450980649928c6f9e5ee443a700760">5c62a4a</a></p></li>
+<li><p>Fixed a typo in the pypi publish workflow. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c345618eef9b3fd362cc920eb290816300c3eeb7">c345618</a></p></li>
+</ul>
+</section>
+<section id="new">
+<h3>New<a class="headerlink" href="#new" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Add tests for GenericCollectionInlineModelAdmin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/73142dafae57c35ce8bc55db5fe69e3156c9c346">73142da</a></p></li>
+</ul>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] auto fixes from <a class="reference external" href="http://pre-commit.com">pre-commit.com</a> hooks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b08da9aa4777a112d6559619efdb3e8cc2df548d">b08da9a</a></p>
+<p>for more information, see <a class="reference external" href="https://pre-commit.ci">https://pre-commit.ci</a></p>
+</li>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] auto fixes from <a class="reference external" href="http://pre-commit.com">pre-commit.com</a> hooks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4d67f3372c022cfa6e992fb1b6de68fd94d39f1c">4d67f33</a></p>
+<p>for more information, see <a class="reference external" href="https://pre-commit.ci">https://pre-commit.ci</a></p>
+</li>
+</ul>
+</section>
+<section id="updates">
+<h3>Updates<a class="headerlink" href="#updates" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Update gen_coll_tabular.html to new Django versions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d0700892c069a6c58c44f61ff4aefada827b67d3">d070089</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h2>1.9.1 (2022-09-21)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.9.0...1.9.1">Compare the full difference.</a></p>
+<section id="id6">
+<h3>Fixes<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed issues with workflows. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6d55e16acea8629f1bcea8587f3892ea4bd47c9b">6d55e16</a></p></li>
+<li><p>Fixed bug in the Makefile. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/60374fa7f46ef583037bfaf354d7f3431bc30ef5">60374fa</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2>1.9.0 (2022-09-21)<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.8.0...1.9.0">Compare the full difference.</a></p>
+<section id="id8">
+<h3>Fixes<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix handling get_table_description in Django 4.1 as well as in DB engines other than sqlite3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b66777ef708f60f973d333d6e289ca8b101fd553">b66777e</a></p></li>
+<li><p>Fix “Multiple top-level packages discovered” error with new setuptools. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/41d00ff78a84488dba9f34958d2ffd088e9eb826">41d00ff</a></p></li>
+<li><p>Fixes for Django 4.0. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bd3e807ac60a9451ab0762ab274ca6534c3cbe16">bd3e807</a></p></li>
+<li><p>Fixed the tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/45d47ab6463b5a7deb9392d1cea6df91831c9fc4">45d47ab</a></p></li>
+<li><p>Fixed the <a class="reference external" href="http://MANIFEST.in">MANIFEST.in</a> file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f470e38cc218ac6eab56ede0de859f9b0ff35060">f470e38</a></p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>New<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Add Django 4.0, Python 3.10, drop Django 1.11 in tox.ini and GitHub actions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/358bbcf546989ddfec93a2fac283547e10f99cd0">358bbcf</a></p></li>
+<li><p>Added configuration for git user. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e3bed16a9f5527f2850f5f984d04e177faedb468">e3bed16</a></p></li>
+<li><p>Added ghp-import to requirements. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/adf7c78268520b691085b3b1bd7d6d56e4b04d91">adf7c78</a></p></li>
+<li><p>Added Django to the dev dependencies and docs build. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/56a9b4f756d948bd0cc40b333b7af13539ff8362">56a9b4f</a></p></li>
+<li><p>Adds doc strings for lots of functions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/076debb44d6426f05fa804746046b1b0678e7162">076debb</a></p></li>
+<li><p>Added TOML support for coverage. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/acdae7b1d4b78ff36bcd3ca07c6b8c251fb23488">acdae7b</a></p></li>
+<li><p>Added requirements to <a class="reference external" href="http://MANIFEST.in">MANIFEST.in</a>. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/510b21ee93946b05799766b30c75370e0c4ed1f2">510b21e</a></p></li>
+<li><p>Added ability to generate a Changelog. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ebefa59f6eb34776af69e7653cc319d0e4ca1ec6">ebefa59</a></p></li>
+<li><p>Added a .editorconfig file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/01250045241b3e4aac9be146c9df11f1a3acccbd">0125004</a></p></li>
+<li><p>Added pre-commit configuration and configuration for the tools. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3bfe1ad1313579117bb10921400da68a55a76e0d">3bfe1ad</a></p></li>
+<li><p>Added XML reporting for code coverage. #164. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/571623598fb12dbf9fe9f661e3659bf7bc12a037">5716235</a></p></li>
+<li><p>Added codecov uploading to Tox. #164. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/efd3b0e3038d03016ce04c323bef62675399c4ab">efd3b0e</a></p></li>
+<li><p>Adds GitHub Actions to run Tox. #164. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3854609626d6f280c8e2d6c0dc583cc399cb4a34">3854609</a></p></li>
+<li><p>Added contributing documentation. #164. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/60669d81b6d0072f567532c8d6cb00ea4856f5db">60669d8</a></p></li>
+<li><p>Added Jazzband badge to README. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f98f8a176111a6adfd621b47fa3fb2089bd7c83f">f98f8a1</a></p>
+<p>Also changed it to Markdown.</p>
+</li>
+</ul>
+</section>
+<section id="id10">
+<h3>Other<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>More Django 4.1 fixes. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d24aab4d423fa2721461136c07f0d705799e8fe2">d24aab4</a></p></li>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] auto fixes from <a class="reference external" href="http://pre-commit.com">pre-commit.com</a> hooks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4f1b9eb0e0c916c250269b575c5cab717174013a">4f1b9eb</a></p>
+<p>for more information, see <a class="reference external" href="https://pre-commit.ci">https://pre-commit.ci</a></p>
+</li>
+<li><p>Upgrade Black in pre-commit hook (old version stopped working with click). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/192e529b5eff9e2df4a04a9e3d33b4deff825789">192e529</a></p></li>
+<li><p>Test also in Dango 4.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9ffb60fa041ab64c37e30b2c54985b85683931e8">9ffb60f</a></p></li>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] auto fixes from <a class="reference external" href="http://pre-commit.com">pre-commit.com</a> hooks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ac3cd17f9e70de3b2ef56bd1dc54bf98c1200eb9">ac3cd17</a></p>
+<p>for more information, see <a class="reference external" href="https://pre-commit.ci">https://pre-commit.ci</a></p>
+</li>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] pre-commit autoupdate. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/af2115d7a0fc3d8bfd2e6f264068ab220dbee77b">af2115d</a></p>
+<p><strong>updates:</strong> - <a class="github reference external" href="https://github.com/timothycrosley/isort">timothycrosley/isort</a> → <a class="github reference external" href="https://github.com/PyCQA/isort">PyCQA/isort</a></p>
+</li>
+<li><p>Adjusted makefile for github action commit. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/13b4cdc981fe762d4f44d924b089d18f169d6e61">13b4cdc</a></p></li>
+<li><p>Debugging the doc generation process. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4d19a7a0678965702205f91768d32536b8fa47fe">4d19a7a</a></p></li>
+<li><p>Set the django requirement to less than 4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/cd43f6e4396ed9604236c7078fa27063425e0fe7">cd43f6e</a></p></li>
+<li><p>Installing the dev requirements for doc building. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/55be640d7aa429e93685548ebf84f39a54893b15">55be640</a></p></li>
+<li><p>Marked several files as not executable. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/30258ac456baf1d245dbb483ceca1c633893eaa5">30258ac</a></p></li>
+<li><p>Create requirements.txt for Sphinx. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/09d9b59386f195847db58b7b9e3541abfddc2464">09d9b59</a></p></li>
+<li><p>Use latest version of Sphinx builder image. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/57b4d520a016ab39d043b37487a2fbc679f614d0">57b4d52</a></p></li>
+<li><p>Only build docs using Python 3.9. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/482c25f663be48876c4dd0491ba305506ab39b67">482c25f</a></p></li>
+<li><p>Create python-package.yml. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/782431f97916b3093884043dabbd199a510a44b9">782431f</a></p></li>
+<li><p>Moved some documentation to new places. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8a7f22618de6822863c6a95e5f055f10e6cd9acd">8a7f226</a></p></li>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] auto fixes from <a class="reference external" href="http://pre-commit.com">pre-commit.com</a> hooks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1d7654e5e138815beb39c62ad14257a57f61b23c">1d7654e</a></p>
+<p>for more information, see <a class="reference external" href="https://pre-commit.ci">https://pre-commit.ci</a></p>
+</li>
+<li><p>Uodated Makefile to automate the versioning process. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/90d154b7435daa3a3946ceb57eeb1bf11e254239">90d154b</a></p></li>
+<li><p>[<a class="reference external" href="http://pre-commit.ci">pre-commit.ci</a>] auto fixes from <a class="reference external" href="http://pre-commit.com">pre-commit.com</a> hooks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5961d6b80ffcd85e791f7f7c073ae820a1ef985e">5961d6b</a></p>
+<p>for more information, see <a class="reference external" href="https://pre-commit.ci">https://pre-commit.ci</a></p>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>Updates<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated version replacement. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/18aa8201e7e61ffbadd2d0f2eb38b8bf5f1098b8">18aa820</a></p></li>
+<li><p>Changed changelog generation and version handling. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7b3f5400a28392df662d690016cc90829da3b4e9">7b3f540</a></p></li>
+<li><p>Update GitHub test config: don’t fail fast, use Python 3.10. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/653714c5bb5d3d13e7c3cd0f95bc62bd9ab62d8b">653714c</a></p></li>
+<li><p>Updated the workflow. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/82298af6bc6683b8a6ae353d5a9e1ce9c626b874">82298af</a></p></li>
+<li><p>Remove generated docs and use Sphinx defaults. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ec3e6bab9350e8a6b1248e19f89121dbd4e9a165">ec3e6ba</a></p></li>
+<li><p>Updated project configurations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f9a46848b23b571826f3592ad94031ca60e9e837">f9a4684</a></p>
+<ul>
+<li><p>pre-commit to ignore certain files</p></li>
+<li><p>ignore some documentation errors</p></li>
+</ul>
+</li>
+<li><p>Changed flake8 to use config files. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2d6905486d0c39e27c270df19e540399d1de6781">2d69054</a></p></li>
+<li><p>Refactored documentation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8c0c4ebf6ae22c2467dfbc8c1dcdf3f3537a27a3">8c0c4eb</a></p></li>
+<li><p>Removed the unused get_version call. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4e8002ecf543cefe37f380768b2d6bd53e317435">4e8002e</a></p></li>
+<li><p>Changed version management to bump2version. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/035fdf693e2304cc48fc2d96170f60706041f400">035fdf6</a></p></li>
+<li><p>Changed the requirements to use chained files. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e377eccb8cbe3a60a74b2d304514d380d7fcfac6">e377ecc</a></p></li>
+<li><p>Changed codecov uploading pattern. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/cacf71737ae2022db013dfebd17c773b16cce81a">cacf717</a></p></li>
+<li><p>Updated tox to run coverage commands together. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bf8229b2f2c9fa93d6a7a88f9168a02b0ccc8d66">bf8229b</a></p></li>
+<li><p>Removed Python 3.10 testing until compatibility established. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a1ebb970736ad2e91512191fddd84323ae893345">a1ebb97</a></p></li>
+<li><p>Updated references to Python 3.10. #164. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d2beca9c091e7a95a1674da79f84b259c73b4d6a">d2beca9</a></p></li>
+<li><p>Updated gitignore to be more ignorative. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/277b49134e7a488a21d7431b8fcce682d0e7895e">277b491</a></p></li>
+<li><p>Updates URL of the project to Jazzband. #164. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/75d221545585bdf0dfa9ae1387341130fc37c303">75d2215</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id12">
+<h2>1.8.0 (2020-08-31)<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.7.2...1.8.0">Compare the full difference.</a></p>
+<section id="id13">
+<h3>New<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Add support for Django 3.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/833789891b811fc66ce5ad3fbbbfe07d41417320">8337898</a></p>
+<p>In Django 3.1 the compatibility import of django.core.exceptions.FieldDoesNotExist in django.db.models.fields is removed.</p>
+<p>So we’d have to update the package by replacing:
+from django.db.models.fields import FieldDoesNotExist
+with
+from django.core.exceptions import FieldDoesNotExist</p>
+</li>
+</ul>
+</section>
+<section id="id14">
+<h3>Other<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Django-mptt 0.11 needed for Django 3.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ec89796299dc2f875f415864c98bdfcc6d0d76df">ec89796</a></p>
+<p>In Django 3.1 the compatibility import of django.core.exceptions.FieldDoesNotExist in django.db.models.fields is removed.
+django-mptt should be the latest version (0.11 as of now)</p>
+</li>
+</ul>
+</section>
+<section id="id15">
+<h3>Updates<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Update the version to 1.8. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3f9109ffe040ca062930388e86b2c5c8c0ba2d45">3f9109f</a></p></li>
+<li><p>Remove Python 2.7 from the Travis config. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6de15e36b9593c212f48bffc9a0c7b024c3ff35c">6de15e3</a></p></li>
+<li><p>Update tox tests to run Django 3.1 and removed support for Python 2.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7bc44c74ff2beb735837217b0b8accb534b91488">7bc44c7</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id16">
+<h2>1.7.2 (2020-05-18)<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.7.1...1.7.2">Compare the full difference.</a></p>
+<section id="id17">
+<h3>Fixes<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix #152. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a3a3f8106e4c566fd70a913128e202c64df5667e">a3a3f81</a></p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Other<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Include missing migration. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3dbc96bf3615b085d4bf17e7bc011438a40a4f5d">3dbc96b</a></p></li>
+<li><p>Ignore .python-version. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/28d118579328df26868ec1595c7676a4bba56555">28d1185</a></p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>Updates<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Update the version to 1.7.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2dfbc8ef64ee594b4ee8393e9f294ddc9752a921">2dfbc8e</a></p></li>
+<li><p>Update publish make task. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/40abc68fd708005924b6457c9170ab99ec14fa5d">40abc68</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id20">
+<h2>1.7.1 (2020-03-06)<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.7.0...1.7.1">Compare the full difference.</a></p>
+<section id="id21">
+<h3>New<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Add missing migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/dd201de641db268d70ca0c04014c0e1fd14bae7d">dd201de</a></p></li>
+</ul>
+</section>
+<section id="id22">
+<h3>Updates<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Update the version to 1.7.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ac0f3c39c471efc9981382acbdb0bb8f9d1cf52e">ac0f3c3</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id23">
+<h2>1.7.0 (2020-02-04)<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.6.1...1.7.0">Compare the full difference.</a></p>
+<section id="id24">
+<h3>Fixes<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes to Django 3.0. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/654dddce81f3957a4c6116740d80c3b9d261d425">654dddc</a></p></li>
+</ul>
+</section>
+<section id="id25">
+<h3>New<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Add newer Django versions to tox.ini. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a88a5f78254fef4dfeedca90406208cefeb450c5">a88a5f7</a></p></li>
+</ul>
+</section>
+<section id="id26">
+<h3>Updates<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Update the version to 1.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/cd405f4ba18dcacd08bd6cf0da3a36530907978c">cd405f4</a></p></li>
+<li><p>Update django-mptt. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d7dd98593a5fec437a64e54395d95b97eb8f45fd">d7dd985</a></p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">publish</span></code>. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ddf13300e9ed122bda7f0f60ee195d1fd4147e2d">ddf1330</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id27">
+<h2>1.6.1 (2019-06-26)<a class="headerlink" href="#id27" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.6.0...1.6.1">Compare the full difference.</a></p>
+<section id="id28">
+<h3>Fixes<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Fix Travis so it uses the correct python versions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7580e6ff6e447175a37b4b1126df1b5e50665011">7580e6f</a></p></li>
+<li><p>Fix Travis so it works with Python 3.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b9dd8fa80a574f337b1f96f10059f91d4ccd7c89">b9dd8fa</a></p></li>
+<li><p>Fix ‘Models aren’t loaded yet’ warning on import. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/61e156b3857c3877b1860b05e212409b94f4ace3">61e156b</a></p>
+<p>categories.registration._process_registry was being called in
+categories/<strong>init</strong>.py, but since Django 1.9 it hasn’t been possible to
+perform operations with models until the app registry is fully
+loaded. Currently the <code class="docutils literal notranslate"><span class="pre">AppRegistryNotReady</span></code> exception is being caught
+and printed, which means it is never actually executed on load.</p>
+<p>Since this code isn’t currently doing anything (other than emitting a
+print() of a warning), I’ve removed it.</p>
+</li>
+<li><p>Fix tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/abec2164f2de3759a1898a61b1d10d080201a573">abec216</a></p>
+<p>Also dropped testing Django 1.10 since django-mptt requires Django&gt;=1.11.</p>
+</li>
+<li><p>Fix for TOXENV=py27-lint. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d542684e3685f86c02937a0df05449eda18ae041">d542684</a></p></li>
+<li><p>Fix for TOXENV=py27-lint. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6aacff3f4c27ac68ebda14a803bee9f3d70fd5d9">6aacff3</a></p></li>
+<li><p>Fixing model for TOXENV=py36-django110. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/579aa2a8bf3c8ce3bbb3fd0b2a6db66d90fe3ad7">579aa2a</a></p></li>
+</ul>
+</section>
+<section id="id29">
+<h3>New<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Adding opts to context for Django version 2 and above. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c53bc77b8294312f1c571fd1f63a8623581a3027">c53bc77</a></p></li>
+</ul>
+</section>
+<section id="id30">
+<h3>Other<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Upgrade build environment to Xenial. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/72971541f38aa0ea841e4c19e05c16e8073f7e63">7297154</a></p>
+<p>This makes it so Django 2.2 tests should pass</p>
+</li>
+<li><p>Switch to tox-travis. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/353a6d7a2279fd8230c3077c29f5fffe3a394274">353a6d7</a></p></li>
+<li><p>Py27-lint test fix. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3993038f951f784a527f0174f4ce01fccb92b876">3993038</a></p></li>
+<li><p>Test Cases fix. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1dc6d473ff9f6a57edde3281e670b5259312ee6d">1dc6d47</a></p></li>
+<li><p>Bug Fix : sortable was last argument. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6019c0dd4f53cdb4bc4a58fa17e7993d8057fbf3">6019c0d</a></p></li>
+<li><p>Django 2.0 support in Admin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a84bb00210243ee64fa4523c96af8b71f1fe6467">a84bb00</a></p>
+<p>TypeError at /admin/categories/category/
+<strong>init</strong>() missing 1 required positional argument: ‘sortable_by’</p>
+</li>
+</ul>
+</section>
+<section id="id31">
+<h3>Updates<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Update the version to 1.6.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f9c351bbddb9f0e212b92bdada4825d79bad2812">f9c351b</a></p></li>
+<li><p>Update Travis build badge. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/170498d80a68c91f63a0f17ba39250ded2a8691f">170498d</a></p></li>
+<li><p>Remove 3.7 from Travis config. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5a4b0a51cc17bec5b69b7052473c4f96b2e9078d">5a4b0a5</a></p></li>
+<li><p>Remove Python 3.7 for Travis. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ddd7f50503ae5936f622568d36276488eb02d67a">ddd7f50</a></p>
+<p>Removing since it doesn’t look like it’s supported.</p>
+</li>
+<li><p>Update travis.yml. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c1a0e3a2884336c344a2b7b8f78efd259984d35c">c1a0e3a</a></p></li>
+<li><p>Remove skip. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/79fec52e9050bbd40831707b574ab3e0342f1a67">79fec52</a></p></li>
+<li><p>Updated tree editor for typo. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e39b5d24a864efcd2f6024263f02cdacf586c075">e39b5d2</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id32">
+<h2>1.6.0 (2018-02-27)<a class="headerlink" href="#id32" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.5.4...1.6.0">Compare the full difference.</a></p>
+<section id="id33">
+<h3>Other<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Proposes changes based on 366ff74619811505ac73ac5ea2c0096ddab0ac51 and pull request #140 for Django 2.0 to pass CI tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a8dc71bcb1500ec6e9f8d3c7db304d13fea0b5f7">a8dc71b</a></p></li>
+<li><p>Made updates to get everything working with Django 2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/366ff74619811505ac73ac5ea2c0096ddab0ac51">366ff74</a></p></li>
+</ul>
+</section>
+<section id="id34">
+<h3>Updates<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the version. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/58ec14f99bea32e0b279500f0528aa84f370678c">58ec14f</a></p></li>
+<li><p>Updated the Travis CI config. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0e75ba5d953d15f796d32eddf1c8a84d03c92801">0e75ba5</a></p></li>
+<li><p>Changed from using a string to importing the actual CASCADE function. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f6cd053f74605937535f06b2fd3a7ad80cc13777">f6cd053</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id35">
+<h2>1.5.4 (2017-10-12)<a class="headerlink" href="#id35" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.5.3...1.5.4">Compare the full difference.</a></p>
+<section id="id36">
+<h3>Fixes<a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix changlist TypeError. Return RequestContext as dict on changelist_view. Based on changes in Django 1.11 (<a class="reference external" href="https://docs.djangoproject.com/en/1.11/releases/1.11/#django-template-backends-django-template-render-prohibits-non-dict-context">https://docs.djangoproject.com/en/1.11/releases/1.11/#django-template-backends-django-template-render-prohibits-non-dict-context</a>). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/926d85a04e4ff0e937e380f591b2ae3b2dd0303e">926d85a</a></p></li>
+</ul>
+</section>
+<section id="id37">
+<h3>Other<a class="headerlink" href="#id37" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[1.5.4] Made sure example was excluded from packaging. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e770596430375fa1dc7732e9cc6cf15568048760">e770596</a></p></li>
+<li><p>[1.5.4] Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0e338c78d59e9671bd1002204b5ceaf8dcbc68fd">0e338c7</a></p></li>
+<li><p>[-] Updated test settings to test generic relations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/dd23a2dba73b25933e1facb2480d54c56f2c2bc9">dd23a2d</a></p></li>
+<li><p>[-] Get management commands compatible with Django 1.10+. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9c5ccb8c54208ae101fda7591fd34859a92a3b9e">9c5ccb8</a></p></li>
+<li><p>[-] Add migrations for simpletext example app. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/408e69d010a6b7f55510d8ce0c2929dc1bf9be2b">408e69d</a></p></li>
+<li><p>[-] Remove old django-cbv reference and adds better error checking in views. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9a71474b152bf0350236665e7bb2d1de750128c9">9a71474</a></p></li>
+<li><p>[-] Retrieve content types lazily in Generic Relations admin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5dda5348c004b8d1e2b7416769d2aebd9bd3176a">5dda534</a></p></li>
+<li><p>[-] Check for a valid session id before trying to save or rollback a transaction. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7fa98fd58f59d1fc72cd49499c07070f0ec24bb1">7fa98fd</a></p></li>
+<li><p>[-] Added additional test coverage for management commands and views. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/63bb31df408602a4627089ad4233af5a898317a7">63bb31d</a></p></li>
+<li><p>[-] Updated tox and travis configurations to check py2.7 and 3.6 and django 1.8-1.11. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ec4664c2a3de9e3f075b3a7ea78194e98f691487">ec4664c</a></p></li>
+<li><p>[-] Remove south migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1df724f48d7c4687b87813049cf33f1fc54e64db">1df724f</a></p></li>
+<li><p>[-] Set decendent_ids to empty list if not saved. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/22c5630af244cd4133d7b59d120de7cba2362ebc">22c5630</a></p></li>
+<li><p>This should have stayed. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/254a05d2d41ffbbbe301c770e369559e14fbef2b">254a05d</a></p></li>
+<li><p>Removing every occurrence of Requestcontext and Context. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/829d1cc522151a9ccc9cbd04e9622ee397be688d">829d1cc</a></p></li>
+<li><p>Django 1.11 compatibility. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/af26da610608dc1aedbec93820e7f7b1dd9e72c2">af26da6</a></p></li>
+<li><p>Support Django 1.11 testing environment. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3c9cb2dec9742230ca480edf3e0c60ae725d0d4a">3c9cb2d</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id38">
+<h2>1.5.3 (2017-03-31)<a class="headerlink" href="#id38" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.5.2...1.5.3">Compare the full difference.</a></p>
+<section id="id39">
+<h3>Fixes<a class="headerlink" href="#id39" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a ValueError that happened when trying to save a Category that has a thumbnail. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/53b92f3f0f9198336b0bf3182ecb2f34e46a588f">53b92f3</a></p></li>
+</ul>
+</section>
+<section id="id40">
+<h3>Other<a class="headerlink" href="#id40" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e21c304de1001092d64dec934e371b7caf0e442a">e21c304</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id41">
+<h2>1.5.2 (2017-03-29)<a class="headerlink" href="#id41" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.5.1...1.5.2">Compare the full difference.</a></p>
+<section id="id42">
+<h3>Fixes<a class="headerlink" href="#id42" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a unicode error that happens with Python 2.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fb0174c0a81c828d43a564a5747d3c2125e50483">fb0174c</a></p></li>
+</ul>
+</section>
+<section id="id43">
+<h3>Other<a class="headerlink" href="#id43" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5b230ef4f53d1efb0ff45f76bdfffb4af609dff4">5b230ef</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id44">
+<h2>1.5.1 (2017-02-17)<a class="headerlink" href="#id44" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.5...1.5.1">Compare the full difference.</a></p>
+<section id="id45">
+<h3>New<a class="headerlink" href="#id45" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a missing migration. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d5bec42a092d3dbe79f04d65059b7b31009ea342">d5bec42</a></p></li>
+</ul>
+</section>
+<section id="id46">
+<h3>Other<a class="headerlink" href="#id46" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d71d057a188edd0407fba6f5a01628bb4739d4ca">d71d057</a></p></li>
+<li><p>Just to be safe - pin it down. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/121326d3b807b16a13a1ec4f8a2fb5aa663a5418">121326d</a></p></li>
+<li><p>Close table tag in templatetag result. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e1d5ed006fbdb34082c749adef2c05741dae2392">e1d5ed0</a></p>
+<p>In items_for_tree_result, there’s a format_html call which builds HTML via string interpolation. It missed back slash in the closing tag. This commit adds that.</p>
+</li>
+</ul>
+</section>
+<section id="id47">
+<h3>Updates<a class="headerlink" href="#id47" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated README.rst with svg badge. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9d219eb7c7ca7decac351f8c916b8b9e9bba5985">9d219eb</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id48">
+<h2>1.5 (2016-11-14)<a class="headerlink" href="#id48" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.4.3...1.5">Compare the full difference.</a></p>
+<section id="id49">
+<h3>Other<a class="headerlink" href="#id49" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/47554bec2b32bd4229c4328c21bcfb54e131b27c">47554be</a></p></li>
+<li><p>PEP8 fixes. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c4f7978eef0cdf4545f9812cfae3e7b61325bd50">c4f7978</a></p></li>
+</ul>
+</section>
+<section id="id50">
+<h3>Updates<a class="headerlink" href="#id50" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the Travis config to test for Django 1.10. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/04739dfda987717bf47288d86517bc207246b099">04739df</a></p></li>
+<li><p>Updated django-categories to work with Django 1.10. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b2497df2b09cf725ddc57fef0ec5aeca1a1bcfe7">b2497df</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id51">
+<h2>1.4.3 (2016-10-21)<a class="headerlink" href="#id51" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.4.2...1.4.3">Compare the full difference.</a></p>
+<section id="id52">
+<h3>Fixes<a class="headerlink" href="#id52" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes popup raw_id fields for django versions 8 or greater. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5ad9a2a5cda7afa94a14199c8f78906efbc36751">5ad9a2a</a></p></li>
+</ul>
+</section>
+<section id="id53">
+<h3>Other<a class="headerlink" href="#id53" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/96a0fa037fc1999c829f75425ed1e106bd2c9804">96a0fa0</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id54">
+<h2>1.4.2 (2016-04-19)<a class="headerlink" href="#id54" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.4.1...1.4.2">Compare the full difference.</a></p>
+<section id="id55">
+<h3>Fixes<a class="headerlink" href="#id55" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed it so display_for_field works with Django 1.8 and 1.9. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/30d1eb5604c4360dd84b526a3a29a6e024666366">30d1eb5</a></p></li>
+</ul>
+</section>
+<section id="id56">
+<h3>Other<a class="headerlink" href="#id56" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ef58cae61ee8d0c0920302305f019d76896e72fb">ef58cae</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id57">
+<h2>1.4.1 (2016-03-31)<a class="headerlink" href="#id57" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.4...1.4.1">Compare the full difference.</a></p>
+<section id="id58">
+<h3>Fixes<a class="headerlink" href="#id58" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed an exception error that happens when saving a category in the admin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/840ea77f14268d9d8d1558c680533a48148be063">840ea77</a></p></li>
+</ul>
+</section>
+<section id="id59">
+<h3>New<a class="headerlink" href="#id59" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added setup.cfg file for creating universal wheel distribution. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f3514b6e22f9302fad5e68af1ae358fd7d00b3b4">f3514b6</a></p></li>
+<li><p>Added coverage to tox. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1124ec2a32f1a643b47a2a0926a17b2c10ee129c">1124ec2</a></p></li>
+<li><p>Added some tests to test the admin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0a1e7db9a67a4457efc830ea0cfb60afba1a3b2a">0a1e7db</a></p></li>
+<li><p>Added a makefile for common tasks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6715302528b10072a7861f80e7efca1cc3c5830d">6715302</a></p></li>
+</ul>
+</section>
+<section id="id60">
+<h3>Other<a class="headerlink" href="#id60" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4c7768fab2a13e1aabc94a455bb1d99d13982645">4c7768f</a></p></li>
+<li><p>Moved all template settings for the example app into the TEMPLATES Django setting. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f6e7b3f2ff8bb47d5f5f297a203917a8791c2b2d">f6e7b3f</a></p></li>
+<li><p>Avoid the “Cannot call get_descendants on unsaved Category instances”. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/410caf8e79b8e03be959fd3aae86a3f30b9801f9">410caf8</a>
+ValueError when adding categories in admin interface.</p></li>
+</ul>
+</section>
+<section id="id61">
+<h3>Updates<a class="headerlink" href="#id61" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Removed some RemovedInDjango110Warning warnings. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bdb6278559faccb22ab11471b4634bd3a69de8f2">bdb6278</a></p></li>
+<li><p>Removed contributors from the README since that information is in <a class="reference external" href="http://CREDITS.md">CREDITS.md</a>. No sense maintaining it two places. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/485ff6e6ddbf3fb2f13b60c72e784834355ca968">485ff6e</a></p></li>
+<li><p>Updated the new in 1.4 information. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/06e858bb01d02aa7674f60fd14a65bd8f7b5c0f7">06e858b</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id62">
+<h2>1.4 (2016-02-15)<a class="headerlink" href="#id62" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.3...1.4">Compare the full difference.</a></p>
+<section id="id63">
+<h3>Fixes<a class="headerlink" href="#id63" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed the max_length setting to use a int instead of a string. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f61e6f6f3605326b983110184877e62478844c64">f61e6f6</a></p></li>
+<li><p>Fixed a test: file() doesn’t work in Python 3, used open() instead. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/32144dd77941a9bf892beefc04e89f403c218354">32144dd</a></p></li>
+</ul>
+</section>
+<section id="id64">
+<h3>New<a class="headerlink" href="#id64" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a tox.ini and updated the travis config to work with tox. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/78c73d5b0168e4176c76540f385a77a8d1adfd3c">78c73d5</a></p></li>
+</ul>
+</section>
+<section id="id65">
+<h3>Other<a class="headerlink" href="#id65" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Release 1.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1cbc7cf37065b7b2816300b79c4e49120e6c65e5">1cbc7cf</a></p></li>
+<li><p>Made a bunch of flake8 fixes and also added flake8 testing to Travis and Tox. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/64686cdaa836dc4c1eff7ceffe590873c0cc625f">64686cd</a></p></li>
+<li><p>Switched to using _meta.get_fields() instead of ._meta.get_all_field_names() for compatibility with Django 1.9. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/635d0550d9c944219c714e23654b866898734937">635d055</a></p></li>
+<li><p>Made a fix for backwards compatibility with Python 2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6f813fd7a798f20b16cc347e84506a2fbbd5f4e8">6f813fd</a></p></li>
+<li><p>Replaced django.db.models.get_model with django.apps.apps.get_model for future compatibility with Django. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6acea02977d0a0905d5af409829b458100bff76a">6acea02</a></p></li>
+<li><p>B’’ doesn’t work under Python 3 in a migration file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6e54f1635de30cdd7549445d8c5bbe648d3b5d74">6e54f16</a></p></li>
+<li><p>Switched to importing the correct templatetags that got renamed. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1deb79f75ba97fd2621132b0ff87feac66d23bce">1deb79f</a></p></li>
+<li><p>Switched form using smart_unicode to smart_text and force_unicode to force_text. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/93d97d805be5ac3e92747cc38c1ddb7c01794bdb">93d97d8</a></p></li>
+<li><p>Switched from using django.db.models.loading.get_model to using django.apps.apps.get_model. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/337cca5813fe62a3cfee5c0a426a51777b925ca9">337cca5</a></p></li>
+<li><p>Upgraded to django-mptt 0.8. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/02d6b984ca1a753d57f5dbd8180d9ded2c3cbbaa">02d6b98</a></p></li>
+<li><p>Switched form using force_unicode to force_text. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/87a22098be541fe695149a706804e246394eae0e">87a2209</a></p></li>
+<li><p>Ran the 2to3 script <code class="docutils literal notranslate"><span class="pre">2to3</span> <span class="pre">-w</span> <span class="pre">.</span></code>. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c5c459fe42a33062961dce041b12e8c29c7b18e3">c5c459f</a></p></li>
+<li><p>Ugettext may cause circular import. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/188021e568201819b32f211a8ff22de3ea011d76">188021e</a></p></li>
+<li><p>Run the test with a different configuration. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8cb979c0969cc625c6bf9e43fc2144ad4a66127d">8cb979c</a></p></li>
+<li><p>Run the test with a different configuration. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3a238b17b5d56acf531e9de9c4f05360d7a6c8af">3a238b1</a></p></li>
+<li><p>Use singleton <code class="docutils literal notranslate"><span class="pre">registry</span></code> to import <code class="docutils literal notranslate"><span class="pre">register_fk</span></code> and <code class="docutils literal notranslate"><span class="pre">register_m2m</span></code> since they are members on <code class="docutils literal notranslate"><span class="pre">Registry</span></code> class. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c7344f6b60a6670e93614b9a8541a67b5ef1a759">c7344f6</a></p></li>
+</ul>
+</section>
+<section id="id66">
+<h3>Updates<a class="headerlink" href="#id66" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated admin_tree_list_tags so that EMPTY_CHANGELIST_VALUE has a compatible way of working with Django 1.9 and older versions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e66df48aab0ad343ffda78492c3984d95f3b29cf">e66df48</a></p></li>
+<li><p>Updated urls to work without patterns since patterns is being deprecated. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0a5a3efac5613e209573ca9cc0ea74bb8f0e0a90">0a5a3ef</a></p></li>
+<li><p>Updated settings to remove all the TEMPLATE_* settings and put them into the TEMPLATES dict for Django 1.9 compatibility. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/dfc277f08a2664dd6c9d568f42feaa9042a5679e">dfc277f</a></p></li>
+<li><p>Changed <strong>unicode</strong> to <strong>str</strong> on the CategoryBase class for Python 3 compatibility. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/600aaef926052e85b49cda38d498c0e11a2826d1">600aaef</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id67">
+<h2>1.3 (2015-06-09)<a class="headerlink" href="#id67" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.2.3...1.3">Compare the full difference.</a></p>
+<section id="id68">
+<h3>Fixes<a class="headerlink" href="#id68" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes potential double imports in dev and test servers. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/dc99eac19cd20304894259ecdae218953d177b9e">dc99eac</a></p></li>
+<li><p>Fixed a potential issue with double-loading of the dev server. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8dda6ec87b911dbdab74eacc1a52aa34decdaf40">8dda6ec</a></p></li>
+<li><p>Fixes a conflict with treebeard. They stole the name admin_tree_list. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/dd60aebf283118762bca17e9aa57b3aef8746855">dd60aeb</a></p></li>
+<li><p>Fixed the RemovedInDjango19Warning deprecation warning. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/74cc9f8346a894b4d50adbf6d9877bde18616f56">74cc9f8</a></p></li>
+<li><p>Fixed tests so they run under Django 1.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/70abc1c80797faa5df8aa8163c90e671bdd1d897">70abc1c</a></p></li>
+</ul>
+</section>
+<section id="id69">
+<h3>New<a class="headerlink" href="#id69" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added the fields property with it set to ‘<strong>all</strong>’ in order to not get the RemovedInDjango18Warning. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9822ba8cbb4de18543ebdacc3338593963bd17a1">9822ba8</a></p></li>
+</ul>
+</section>
+<section id="id70">
+<h3>Other<a class="headerlink" href="#id70" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump to 1.3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/cf79d1ba7a1f50894e50cb3c6d7640a6e95f5157">cf79d1b</a></p></li>
+<li><p>Defaulting the url prefix to / if it can’t find the category tree. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/addb0e410fb23cb2dd712bfd1fde2b0b5fbafcea">addb0e4</a></p></li>
+<li><p>Version 1.3b8: Fixes some migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7f8e303a956d462cecb048f5d033e0f721c5484f">7f8e303</a></p></li>
+<li><p>Version 1.3b7 - fixes registration when there is no app config. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/02780ba2a11272abc01166a4bb0a3c94f92fad79">02780ba</a></p></li>
+<li><p>Version bump to 1.3b6. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e841de7acad1e49d521850a3d6643892d9c9c850">e841de7</a></p></li>
+<li><p>Version bump to 1.3b5. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7cc0c9987e80679adb5a9dc012c1b9af8276463a">7cc0c99</a></p></li>
+<li><p>Dramatically refactored how migrations are performed to work with Django 1.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/acff7f02a344a63cc5b5d32adc70fd4f470787f4">acff7f0</a></p></li>
+<li><p>Removing outdated settings and updating outdated files. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7c73bd51c42f7b4aed982659118270b104dad827">7c73bd5</a></p></li>
+<li><p>Version bump to 1.3b4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6eb306d715c9ea34ae2c95368195b52ecd2d2d52">6eb306d</a></p></li>
+<li><p>Changing migration dependency of contenttypes to 0001_initial for support for Django 1.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c6b7cdd52087936eb80f89a62d86e4c09101e095">c6b7cdd</a></p></li>
+<li><p>Version bump to 1.3b1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/87f985992bef328ca7fc35740044d4cc1281e638">87f9859</a></p></li>
+<li><p>Small fixes in some fields. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/69bf632a034067b8e109670739a6f41ab9d437b4">69bf632</a></p></li>
+<li><p>[-] Missed some migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/678e84504d1d5c121b987eff6e246ac5b6a0082d">678e845</a></p></li>
+<li><p>[-] Fixed some tree editor and generic collection issues. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4f51f96d5c4c3f16cf4984b477c393e3df301849">4f51f96</a></p></li>
+<li><p>[-] Migrations updates. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e0676d4f25ceaf0b612a788a0715abf65bcbb4c2">e0676d4</a></p></li>
+<li><p>[-] 1.6/1.7/1.8 compatiable changes (WIP). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a6443ada8555621c5088332c2a3f114da12e95f5">a6443ad</a></p></li>
+<li><p>I18n: add french translation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ab31c293508d56c127a072078bd3358d6bfee0cd">ab31c29</a></p></li>
+</ul>
+</section>
+<section id="id71">
+<h3>Updates<a class="headerlink" href="#id71" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updates the existing migration to south_migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/28ef4d5565cd0cf1527d7b8a537e9f217c3a70ba">28ef4d5</a></p></li>
+<li><p>Renamed get_query_set to get_queryset to get Django categories to work in Django 1.7. I’m not sure of a good way to make this work in Django 1.6. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/58abcc7401d8d0b9e57644443790c138d5f18e22">58abcc7</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id72">
+<h2>1.2.3 (2015-05-05)<a class="headerlink" href="#id72" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.2.2...1.2.3">Compare the full difference.</a></p>
+<section id="id73">
+<h3>Fixes<a class="headerlink" href="#id73" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix unicode slug issue. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/703a036bf58bc51f1f7d69c2400f3205eb1a222c">703a036</a></p></li>
+</ul>
+</section>
+<section id="id74">
+<h3>Other<a class="headerlink" href="#id74" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version 1.2.3: Added a new way to register models manually. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b75f11213cd19598dd40b5f16a000c2a0a0be4b5">b75f112</a></p></li>
+<li><p>Bootstrap class on table (important for django-suit). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f02e06ea99df6cd007d9819b1995d643444d7d8d">f02e06e</a></p></li>
+<li><p>Using custom model in CategoryDetailView. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/451af0e05457b92d685cfcb9e12e3f33a979f1da">451af0e</a></p></li>
+</ul>
+</section>
+<section id="id75">
+<h3>Updates<a class="headerlink" href="#id75" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Update requirements. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/588815acc3dadaec6dd34d3918ae5a5e0df20d50">588815a</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id76">
+<h2>1.2.2 (2013-07-07)<a class="headerlink" href="#id76" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.2.1...1.2.2">Compare the full difference.</a></p>
+<section id="id77">
+<h3>Fixes<a class="headerlink" href="#id77" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixing migration script for adding fields. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7096d8a3ebb2456f233c40fb564c5fd351624a8a">7096d8a</a></p></li>
+</ul>
+</section>
+<section id="id78">
+<h3>Other<a class="headerlink" href="#id78" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version 1.2.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a254fe9087d50f08c421dd040c40b0c528481d7d">a254fe9</a></p></li>
+<li><p>Italian localization. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6c3d305c11a89e55b177f3fddd8ee8f8d22bd049">6c3d305</a></p></li>
+<li><p>Version 1.2.1: Fixed i18n and failing test in Django 1.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a232b8e6e3a4c6379187da0816f300947c199a0a">a232b8e</a></p></li>
+<li><p>Load I18N templatetags. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1d01494ff58213eaa782c3a1e65ad641c9276c50">1d01494</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id79">
+<h2>1.2.1 (2013-03-22)<a class="headerlink" href="#id79" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.2...1.2.1">Compare the full difference.</a></p>
+<section id="id80">
+<h3>Other<a class="headerlink" href="#id80" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version 1.2.1: Fixed i18n and failing test in Django 1.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a5181a44fa5a39648a1ea2a4309f780af8f86c34">a5181a4</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id81">
+<h2>1.2 (2013-03-20)<a class="headerlink" href="#id81" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.1.3...1.2">Compare the full difference.</a></p>
+<section id="id82">
+<h3>Fixes<a class="headerlink" href="#id82" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Fixing a few minor Django 1.5 incompatibilities. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c6f122d72433596b13bb027d86340b41cf0cc574">c6f122d</a></p></li>
+<li><p>Fix for Django 1.5: {% url %} parameter needs to be quoted. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8ce56e8190b5a47019ed2436a7b2f88cf6de3ab7">8ce56e8</a></p></li>
+<li><p>Fixing a merge conflict. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0be7d5e41f375cee7cc4e23ffcbc380745bcb1b2">0be7d5e</a></p></li>
+<li><p>Fixed an exception error. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f55f131655a63f85ecf7b62dc51dc5dbb62fcef0">f55f131</a></p>
+<p>Fixed an exception error that occurs when an empty form is submitted for apps that are created using categories.base.CategoryBase.</p>
+</li>
+</ul>
+</section>
+<section id="id83">
+<h3>New<a class="headerlink" href="#id83" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added admin settings documentation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/073b09a7b338fa19048509cdcdf6e4792cc18a92">073b09a</a></p></li>
+<li><p>Added customization of admin fieldsets. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0f2f24d2ce17017d8077bc5fc32081e7f54821a6">0f2f24d</a></p></li>
+</ul>
+</section>
+<section id="id84">
+<h3>Other<a class="headerlink" href="#id84" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Version bump 1.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/63eefeeaf1bfc4dfe90903e03348ee78c617c247">63eefee</a></p></li>
+<li><p>Updating the admin template to support the latest django admin code. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7232937014bce06434ee17c393e82a1639be2c8d">7232937</a></p></li>
+<li><p>I18n. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/89c733330617c9964ac8e25469274a4dbcb3eda2">89c7333</a></p></li>
+<li><p>German translation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/591680a24e8d9de657b6df83bcaf55b865f95edb">591680a</a></p></li>
+<li><p>1.5 compat: remove adminmedia templatetag calls. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1d7463db2a1b7e4922a05a8c1278edbce9cc690d">1d7463d</a></p>
+<p>See <a class="reference external" href="https://docs.djangoproject.com/en/1.5/releases/1.5/#miscellaneous">https://docs.djangoproject.com/en/1.5/releases/1.5/#miscellaneous</a></p>
+</li>
+<li><p>Made it so django-categories works with Django 1.5 and Grappelli 2.4.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/69565161ff304d7039544fe8a52c0660d818ecb3">6956516</a></p></li>
+<li><p>Version bump to 1.1.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/96748afeb4b83df49b45f5f470e5ef517cc8ef8d">96748af</a></p></li>
+<li><p>Simplified the assignment of the IS_GRAPPELLI_INSTALLED variable. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8a621e9d145be2b187ccd09bd6a96e421cc5ea4e">8a621e9</a></p></li>
+<li><p>Made updates so django-categories works with django-grappelli. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/85fb2083bbfd9ce4251d89dbe23471d7bc39c936">85fb208</a></p></li>
+</ul>
+</section>
+<section id="id85">
+<h3>Updates<a class="headerlink" href="#id85" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Update categories/templatetags/category_tags.py. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fb6fb4e6f513d0452622863b058e34c717157f5a">fb6fb4e</a></p>
+<p>Added NoneType check to display_drilldown_as_ul on line 188 to fix NoneType error.</p>
+</li>
+<li><p>Update categories/templatetags/category_tags.py. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/59c3e27134e05e876b1b72ab544b3535b07b483f">59c3e27</a></p>
+<p>Added str() to line 49 to fix an error where .strip(“’””) in get_category is getting called on a non-string category_string.</p>
+</li>
+<li><p>Update categories/templatetags/category_tags.py. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bdb1d68beac20f02eab986a50b6cfe0fc1026b01">bdb1d68</a></p>
+<p>Added str() to line 49 to fix an error where .strip(“’””) in get_category is getting called on a non-string category_string.</p>
+</li>
+<li><p>Updated the code so it will work with or without Grappelli installed. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ff6043d2b3f6c90db7c01178aac57f9175698f3d">ff6043d</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id86">
+<h2>1.1.3 (2012-08-29)<a class="headerlink" href="#id86" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.1.2...1.1.3">Compare the full difference.</a></p>
+<section id="id87">
+<h3>Other<a class="headerlink" href="#id87" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>To satisfy a very demanding and owly jsoa, I removed an unused variable. :P. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/123459eec1b9fcea8cdf0d84b05d935b86db5848">123459e</a></p></li>
+<li><p>Updating the signal registration to check for south first and fail silently. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0d167164a1b3ca2ac25be2ded4b5187428e66289">0d16716</a></p></li>
+<li><p>Version bump to 1.1.3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2b4512beaef0968f741547d7aff635294eb94bbd">2b4512b</a></p></li>
+<li><p>Moved the registration of the signal to <a class="reference external" href="http://models.py">models.py</a> where it will get executed. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c522ae6d9642a7c3e64444e0dc9c577ac9155faa">c522ae6</a></p></li>
+</ul>
+</section>
+<section id="id88">
+<h3>Updates<a class="headerlink" href="#id88" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Refactored the migration script to use the syncdb signal. The post_migrate signal only fires for south-managed apps, so it isn’t as useful. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e41623b4ade8236971c93e5f5bd4489df49d64b1">e41623b</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id89">
+<h2>1.1.2 (2012-08-18)<a class="headerlink" href="#id89" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.1...1.1.2">Compare the full difference.</a></p>
+<section id="id90">
+<h3>Fixes<a class="headerlink" href="#id90" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a bug in the compatibility layer. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d33d9f9c552a54b3e81c2700d64edaad2bb748de">d33d9f9</a></p></li>
+</ul>
+</section>
+<section id="id91">
+<h3>New<a class="headerlink" href="#id91" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added travisci. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5f1b280fa46513e20ef9347368f5b25919fac296">5f1b280</a></p></li>
+</ul>
+</section>
+<section id="id92">
+<h3>Other<a class="headerlink" href="#id92" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump to 1.1.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/18ab6a49a15f63ac23c6cb2963a3096d880aa2f3">18ab6a4</a></p></li>
+<li><p>Can’t use the m2m tests because it conflicts with the fk tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0467d3043428e025138e634a03d74be0a52add74">0467d30</a></p></li>
+<li><p>Placing some south imports into try blocks. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8be19c893a9bd1f43f751e5681acf953aa1fe14e">8be19c8</a></p></li>
+<li><p>Capitalizing the various REGISTRY settings. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7fa53a7003d6442a1d5caba8d735e7bb277ca56d">7fa53a7</a></p></li>
+<li><p>Version bump to 1.1.1 final!. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e0212bb0304c3142e89eca3dd2d7f509b22535e6">e0212bb</a></p></li>
+<li><p>Version bump to 1.1.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7d3485309db916973cf997b892ebce7c0cf7607c">7d34853</a></p></li>
+<li><p>Minor tweak to tempatetag tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8f202fa9e34b8cc8a9f109e94503f2583a098bbd">8f202fa</a></p></li>
+<li><p>TravisCI stuff. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/64936c81ce82236bf9a8fae5a4634d11be7e7475">64936c8</a></p></li>
+</ul>
+</section>
+<section id="id93">
+<h3>Updates<a class="headerlink" href="#id93" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Refactored the registration of fields from <strong>init</strong> to a new module. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d63828ebf6799de0e453337950c38193a5e0730a">d63828e</a></p>
+<p>It also makes it easier to test.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id94">
+<h2>1.1 (2012-07-13)<a class="headerlink" href="#id94" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.0.3...1.1">Compare the full difference.</a></p>
+<section id="id95">
+<h3>Fixes<a class="headerlink" href="#id95" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Fixed an incorrect include in the example. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/53a203aad20826ec96ba28ea5ed06869ac3437ec">53a203a</a></p></li>
+<li><p>Fixed some Django 1.4 cosmetic issues. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/86d9b376e1167f5605706108b13651abfc8818df">86d9b37</a></p></li>
+<li><p>Fixes Pull Request #37 Adds notification in the readme regarding issue with South version 0.7.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2a501a39a2fed168efd07c714867ea6d464e11d0">2a501a3</a></p></li>
+<li><p>Fixed format error. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0fa751b7871a41d783dd34723944c9387f25dcf7">0fa751b</a></p></li>
+<li><p>Fixes issue #40 Checks for instance of CategoryBase instead of Category. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d1edc78d74621c23a388778d49c14ba572cf046f">d1edc78</a></p>
+<p>There are still some template tags that won’t work with subclasses. Need a better solution for those tags.</p>
+</li>
+</ul>
+</section>
+<section id="id96">
+<h3>New<a class="headerlink" href="#id96" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added Brad Jasper to the credits and updated Jonathan’s github account. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b4a2dbef75ab85578adf99491b928db410510d98">b4a2dbe</a></p></li>
+<li><p>Added queryset parameter to ChangeList.get_ordering(). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/60907deaf7ed6484555acfe8d54210da6932d7c3">60907de</a></p></li>
+</ul>
+</section>
+<section id="id97">
+<h3>Other<a class="headerlink" href="#id97" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Template tags now work with any derivative of CategoryBase. Recognizes the “using” param to specify the model to use. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3a71754a6ae615aa1e987756dd6b110c0dc4da1c">3a71754</a></p></li>
+<li><p>Pep8 cleanup. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0d254eca63f59a7610e7d52cf5cae1b5aac00dff">0d254ec</a></p></li>
+<li><p>Sorry, typo in documentation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9aa6ce705832ddc4c8f5c937052a1e7ad3da8b87">9aa6ce7</a></p></li>
+<li><p>Documented the upgrade path from 1.0.2 and 1.0.3 plus a small migration to keep things in sync. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8e1ee5972200a3e90b664b86514221ba17e85efc">8e1ee59</a></p></li>
+<li><p>Stylistic fixes and docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bb544e303464eaa270cc90a21f26f1ccaedcde05">bb544e3</a></p></li>
+<li><p>Make it optional to register in admin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/12859ad902bbbcfe51f2271660283e1c5c597a24">12859ad</a></p></li>
+<li><p>Use ugettext_lazy. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/97df7427a94ef194a16f44f056f9996382043142">97df742</a></p></li>
+<li><p>Bunped version to 1.0.4 final. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b49c8d1814f5887c4fe71fd5262be53aeec0316d">b49c8d1</a></p></li>
+<li><p>Minor fix to example app. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0e7e7bbbf45ee520318cec03cef2b1565a410c77">0e7e7bb</a></p></li>
+<li><p>Version bump to 1.0.4b2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3074728ac324a6060a63237254b71823101a6c29">3074728</a></p></li>
+</ul>
+</section>
+<section id="id98">
+<h3>Updates<a class="headerlink" href="#id98" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated read me and version bump to 1.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e588f33c990ba1e42e3e1d6ab62a3d272ae1dabc">e588f33</a></p></li>
+<li><p>Updated and rendered docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/234bc9f96369e633999c3a07e87fafcae3ebfdb3">234bc9f</a></p></li>
+<li><p>Update to template tags to include ways to retrieve an object from a model other than Category. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fa470df0a7435b27de4f680423b498afe03f2fd7">fa470df</a></p></li>
+<li><p>Updated the credits to add Iacopo Spalletti. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b4d07bfb9ee49c6d39d1c802d1a3d53a180105d9">b4d07bf</a></p></li>
+<li><p>Updated CREDITS, docs and bumped version to 1.0.5. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/895a503eda147061e7c22303ccd717464e2c4872">895a503</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id99">
+<h2>1.0.3 (2012-03-28)<a class="headerlink" href="#id99" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.0.1...1.0.3">Compare the full difference.</a></p>
+<section id="id100">
+<h3>Fixes<a class="headerlink" href="#id100" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed another migration	. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5a878c06b6c94ffff35adeccb47fc44bc4a20a3f">5a878c0</a></p></li>
+</ul>
+</section>
+<section id="id101">
+<h3>New<a class="headerlink" href="#id101" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Adding additional migrations to fix potential data corruption when renaming the foreign key	. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3ee569a0606efa4840e4328c1711faf9cdd48c55">3ee569a</a></p></li>
+</ul>
+</section>
+<section id="id102">
+<h3>Other<a class="headerlink" href="#id102" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump to 1.0.3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ce13a1878f462bbb11141e4de33b17a5fb7249ab">ce13a18</a></p></li>
+<li><p>Altering the #10 migration as it caused strange behavior with data. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/43f7ff768dbd30fa21365ffd59b7bb8a65267373">43f7ff7</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id103">
+<h2>1.0.1 (2012-03-09)<a class="headerlink" href="#id103" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.0.2...1.0.1">Compare the full difference.</a></p>
+<section id="id104">
+<h3>Other<a class="headerlink" href="#id104" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Importing get_model directly from the loading module appears to fix certain edge cases. Version bump to 1.0.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d2f5d4da3f9dbdf16a317d4462226de3d7f60205">d2f5d4d</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id105">
+<h2>1.0.2 (2012-03-06)<a class="headerlink" href="#id105" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/1.0...1.0.2">Compare the full difference.</a></p>
+<section id="id106">
+<h3>Fixes<a class="headerlink" href="#id106" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed how the activate/deactivate methods in the admin fetched their models. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6ce2a49d2ed4074b24d4be56a578f7169354ed00">6ce2a49</a></p></li>
+<li><p>Fix for django 1.4 compatibility. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f3cc72a76b1fe6a44eadaede03365808d98abe2c">f3cc72a</a></p></li>
+</ul>
+</section>
+<section id="id107">
+<h3>Other<a class="headerlink" href="#id107" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updating doc rendering to 1.0.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fe20c70eb2ee08a2b536428b08a6c529054d2a5c">fe20c70</a></p></li>
+<li><p>Version bump to 1.0.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/79afb07ced024852f8e28310cadf8af04b6c4ca4">79afb07</a></p></li>
+</ul>
+</section>
+<section id="id108">
+<h3>Updates<a class="headerlink" href="#id108" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Removed an errant print statement. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d1949746350d9b02013de668ad299d6d49a889e6">d194974</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id109">
+<h2>1.0 (2012-02-15)<a class="headerlink" href="#id109" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.9...1.0">Compare the full difference.</a></p>
+<section id="id110">
+<h3>New<a class="headerlink" href="#id110" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added compatibility with Django 1.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7f48b70478fd75e22b376f04c730794f48bd091b">7f48b70</a></p></li>
+<li><p>Addresses issue #27; updated musicgenres.json. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f6c06a2bf6e8748bd55c72020f9a21fa785e5a53">f6c06a2</a></p></li>
+</ul>
+</section>
+<section id="id111">
+<h3>Other<a class="headerlink" href="#id111" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updating docs to correct and simplify the simple custom categories instructions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3965ee2fa9e098ff0e7ddbe9c8efe5916ae5955f">3965ee2</a></p></li>
+<li><p>Version bump to 1.0b2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8abf9840c15fa6d372630d2b5b1f822d0dec44d7">8abf984</a></p></li>
+<li><p>The admin prior to 1.4 requires a different result from get_ordering. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6d44ee2d62c202534e0cbad6d643785929b6517d">6d44ee2</a></p></li>
+<li><p>Formally fixes #1 by adding the ability to specify a transliteration function. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/97c14b19ea941b57929a74bee39e97b456c48d41">97c14b1</a></p></li>
+<li><p>Allow the setting of a SLUG_TRANSLITERATOR to convert non-ASCII characters to ASCII characters. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/96a3f61928003866d30788a37c9a50c5f8e5458b">96a3f61</a></p></li>
+<li><p>Version bump to 1.0b1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/65ef584cf475c8c83c3381a410a78f1a971e247b">65ef584</a></p></li>
+<li><p>Also fixes #30 by including the editor’s media. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/88e1a4990e3ed3184ff18e614e12b42c82ca27d1">88e1a49</a></p></li>
+<li><p>Test of the CategoryBase class subclassed without extras. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7120668df6252dc725de04f0e184ac6a182f85d8">7120668</a></p></li>
+<li><p>Moved the base models to <a class="reference external" href="http://base.py">base.py</a> and did a few PEP8 cleanups. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/768291d72024a40c04919064172a8ac07bf2a8a0">768291d</a></p></li>
+<li><p>This fixes #31. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7428f873949be650d53a53dd0a568f721df4405a">7428f87</a></p>
+<ul>
+<li><p>Uses the incorrect version segment. Although it works in 1.4a1, it is not perfect.</p></li>
+</ul>
+</li>
+<li><p>Moved the base classes to a new file to isolate them. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3b0cf8da4c2c37787b86bd5c7c04c0f33aafe9ae">3b0cf8d</a></p></li>
+<li><p>Extracted a base class for categories to allow other apps to make their own independent category-style models. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fdf968fb6e0aead56b877f483bfd9d110798e2f4">fdf968f</a></p>
+<ul>
+<li><p>Updated for django-mptt 0.5.2</p></li>
+<li><p>Fixed typo in the CategoryRelation field in that the foreign key is called ‘story’</p></li>
+<li><p>Made the order field non-null and default to 0</p></li>
+<li><p>Changed the parent foreign key a TreeForeignKey (for 0.5.2)</p></li>
+<li><p>Changed requirements to mptt&gt;=0.5.2</p></li>
+<li><p>Added a migration for model changes.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id112">
+<h3>Updates<a class="headerlink" href="#id112" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Removed the <strong>init</strong> method for the treechange list. Don’t need it and it varies too much by django version. Version bump to 1.0final. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5487447260b39fc420613f27f23bef88a96220de">5487447</a></p></li>
+<li><p>Updated documentation for 1.0b1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/09175c7ef45f3eaa351a44834a36bcb852bab742">09175c7</a></p></li>
+<li><p>Refactored the admin into a base class for subclasses. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c69047d2596f90111dafcca197b280f83571ca49">c69047d</a></p></li>
+<li><p>Updated migrations to include a data migration. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3cfc8124104a5a075902c843782a7f960b8c9f85">3cfc812</a></p></li>
+<li><p>Updated the default view caching to 600, which is the django default instead of forcing the views to NEVER cache at all. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/84f84e10c83023a7015ac1368b0141b4e8dfbf3d">84f84e1</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id113">
+<h2>0.8.9 (2012-02-06)<a class="headerlink" href="#id113" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.7...0.8.9">Compare the full difference.</a></p>
+<section id="id114">
+<h3>Fixes<a class="headerlink" href="#id114" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes issue #30; includes static directory when packaged. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2ea3d2337e4726ef6ce106cbf2371aedf3adc156">2ea3d23</a></p></li>
+</ul>
+</section>
+<section id="id115">
+<h3>Other<a class="headerlink" href="#id115" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Moved the editor app so its inside the categories app. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/07f698c63803a724f5c9f75a80943198ff682f23">07f698c</a></p></li>
+</ul>
+</section>
+<section id="id116">
+<h3>Updates<a class="headerlink" href="#id116" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9cc23f59b43118bb372bb544e7527bad8fdc1864">9cc23f5</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id117">
+<h2>0.8.7 (2012-01-05)<a class="headerlink" href="#id117" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.6...0.8.7">Compare the full difference.</a></p>
+<section id="id118">
+<h3>Other<a class="headerlink" href="#id118" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump to 0.8.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f6502f45a3a3a1b14a151d198be3d4e85c1d342c">f6502f4</a></p></li>
+</ul>
+</section>
+<section id="id119">
+<h3>Updates<a class="headerlink" href="#id119" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Changed behavior of (de)activating an item within the change form:. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/416898d2a5f1663706f9d764f8d5278b4b4e35a9">416898d</a></p>
+<p>Instead of changing all descendants’ active status to the current item’s, it will only change the descendants’ active status if the item is False.</p>
+<p>As it makes sense to have an item active, but its children inactive, it doesn’t make sense that an item is inactive, but its descendants are active.</p>
+<p>This doesn’t change the activate/deactivate admin actions. They will always  affect an item and its descendants.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id120">
+<h2>0.8.6 (2012-01-03)<a class="headerlink" href="#id120" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.5...0.8.6">Compare the full difference.</a></p>
+<section id="id121">
+<h3>Fixes<a class="headerlink" href="#id121" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes #13 : Documented installation and re-rendered the docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7a9ee6785b71aa4672ccb9ee825f0234a44bb2e1">7a9ee67</a></p></li>
+<li><p>Fix missing imports. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/798d20da3d4fa922358b1dfd632a63f5a95aa213">798d20d</a></p></li>
+</ul>
+</section>
+<section id="id122">
+<h3>New<a class="headerlink" href="#id122" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a django/jQuery stub for previous versions of Django. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/690111e1baeb0fc4f61edbf2034d89c39da337d4">690111e</a></p></li>
+<li><p>Added David Charbonnier to the credits. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/38255bafbde7ba3551041714f057c18f8718d618">38255ba</a></p></li>
+</ul>
+</section>
+<section id="id123">
+<h3>Other<a class="headerlink" href="#id123" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Bumped the version number to 0.8.6 and altered the get_version a bit. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/06713d780375c4891c5a116f81f8c1be86e98511">06713d7</a></p></li>
+<li><p>Altered the field type of the alternate url field from URL to Char. This allows relative urls, instead of full urls. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6f6241c2642766754520e7a6797140efe9da64f6">6f6241c</a></p>
+<p>Added a migration in case the database complains. Really doesn’t do anything on that level</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="id124">
+<h2>0.8.5 (2011-11-03)<a class="headerlink" href="#id124" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.4...0.8.5">Compare the full difference.</a></p>
+<section id="id125">
+<h3>Fixes<a class="headerlink" href="#id125" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes issue #26 by limiting the slug to the first 50 characters. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e0365e838260a1387517e218cab7df9c57cc06df">e0365e8</a></p></li>
+</ul>
+</section>
+<section id="id126">
+<h3>Other<a class="headerlink" href="#id126" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version Bump to 0.8.5. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/40f4d19b82c2ec75ca8e5395b8c5df02bba38374">40f4d19</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id127">
+<h2>0.8.4 (2011-10-14)<a class="headerlink" href="#id127" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.3...0.8.4">Compare the full difference.</a></p>
+<section id="id128">
+<h3>New<a class="headerlink" href="#id128" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a version check to support Django 1.1 in a core Django function. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/586fefed7918b7edea955801e8460fff6990f3ae">586fefe</a></p></li>
+</ul>
+</section>
+<section id="id129">
+<h3>Other<a class="headerlink" href="#id129" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bumped version to 0.8.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c0359454ec51f7fbe08eb4caa6d76d444ef24f82">c035945</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id130">
+<h2>0.8.3 (2011-10-13)<a class="headerlink" href="#id130" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.2...0.8.3">Compare the full difference.</a></p>
+<section id="id131">
+<h3>Other<a class="headerlink" href="#id131" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Version bump to 0.8.3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/432fccae1201856a9dead7856690258b46dd8375">432fcca</a></p></li>
+<li><p>Activate and Deactivate of a child no longer (de)activates their parent. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ac117419bac47808b93b8c49980388ab33cad95a">ac11741</a></p>
+<p>The query set includes the entire hierarchy. So manually get the categories based on the selected items. Then do them and their children</p>
+</li>
+</ul>
+</section>
+<section id="id132">
+<h3>Updates<a class="headerlink" href="#id132" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Remove the delete action from the available actions. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a883e69451d057fe19f8f3990618fcd9f6a6800b">a883e69</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id133">
+<h2>0.8.2 (2011-09-05)<a class="headerlink" href="#id133" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8.1...0.8.2">Compare the full difference.</a></p>
+<section id="id134">
+<h3>Fixes<a class="headerlink" href="#id134" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix Issue #25 : The override of <strong>getitem</strong> was causing issues with analysis of query sets,. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e4f3e9384882fcacf083e4f0231450d8fb1fb313">e4f3e93</a></p></li>
+</ul>
+</section>
+<section id="id135">
+<h3>Other<a class="headerlink" href="#id135" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump to 0.8.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fdbb08431e4b3d8bc1c45ea2c5972da0d881becb">fdbb084</a></p></li>
+</ul>
+</section>
+<section id="id136">
+<h3>Updates<a class="headerlink" href="#id136" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated docs adding usage in templates and rendered. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c676fc1c8dbc92afaef9760f022b7bde5e9db076">c676fc1</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id137">
+<h2>0.8.1 (2011-08-29)<a class="headerlink" href="#id137" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.8...0.8.1">Compare the full difference.</a></p>
+<section id="id138">
+<h3>Fixes<a class="headerlink" href="#id138" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixes a bug trying to set active on decendants before object is saved. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2a0b4768a319c19a8c05b32868e4c3198a26d8ee">2a0b476</a></p></li>
+</ul>
+</section>
+<section id="id139">
+<h3>Other<a class="headerlink" href="#id139" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bumped version to 0.8.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/801d269c4167b0a3ac45e27bcfa11b46a14872bf">801d269</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id140">
+<h2>0.8 (2011-08-22)<a class="headerlink" href="#id140" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.7.2...0.8">Compare the full difference.</a></p>
+<section id="id141">
+<h3>New<a class="headerlink" href="#id141" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added to the README. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4450a91477a49a00a0ab5a1e9fad3b65186508f1">4450a91</a></p></li>
+<li><p>Added an active flag for models. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3e8a10ad4ea535c00289e8d808cbc41ad2481985">3e8a10a</a></p></li>
+</ul>
+</section>
+<section id="id142">
+<h3>Other<a class="headerlink" href="#id142" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Re-rendered the docs to reflect 0.8. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a937dfdcf11136b0847db3ea6ce878e8701cd2b0">a937dfd</a></p></li>
+<li><p>Version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bcd38da7663ebf8be9ada6f5cf751536a7d6645c">bcd38da</a></p></li>
+</ul>
+</section>
+<section id="id143">
+<h3>Updates<a class="headerlink" href="#id143" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Improved Category import. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3fe50040c381b79c11a887bbb97b8b1a5f70ac2e">3fe5004</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id144">
+<h2>0.7.2 (2011-08-19)<a class="headerlink" href="#id144" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.7.1...0.7.2">Compare the full difference.</a></p>
+<section id="id145">
+<h3>New<a class="headerlink" href="#id145" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a check in migrate_app to see if the app is a string or not. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7cb74829ea296a23386eff50496c4d5223c79906">7cb7482</a></p></li>
+</ul>
+</section>
+<section id="id146">
+<h3>Other<a class="headerlink" href="#id146" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Pruning the example project. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6f3a925ed50a4de8a7c643a840ad853b2f74fedd">6f3a925</a></p></li>
+<li><p>Version bump to 0.7.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8d0b5f942b1e02ff7d808960c84718981557c379">8d0b5f9</a></p></li>
+<li><p>PEP 8 formatting. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4d4793db36fcb3f38e407341f01214b58af5add8">4d4793d</a></p></li>
+<li><p>Ensure that the slug is always within the 50 characters it needs to be. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5a745254466024d3d6a932e74d152a4ed069beb9">5a74525</a></p></li>
+</ul>
+</section>
+<section id="id147">
+<h3>Updates<a class="headerlink" href="#id147" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the get_version function to be PEP 386 compliant and version bump to 0.7.2b1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/309accf3e0ca8affa346ff0d1bec193fb6f99780">309accf</a></p></li>
+<li><p>Refactored the editor to become Django 1.1.1 compatible and some PEP8 formatting. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e7fad278d12048dc743ee4ca2034f5d43b687d5d">e7fad27</a></p></li>
+<li><p>Changed the DatabaseError import to be more compatible. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4107cdd125c6f4e9840dbc48a63c03d65e4da8e0">4107cdd</a></p></li>
+<li><p>Updated the readme. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1cb208c9ac48cd983be252dee3d1eb5ebf80a54b">1cb208c</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id148">
+<h2>0.7.1 (2011-08-03)<a class="headerlink" href="#id148" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.7...0.7.1">Compare the full difference.</a></p>
+<section id="id149">
+<h3>Other<a class="headerlink" href="#id149" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Version bump to 0.7.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4d3fdb0ba98105c52e8ebb318720ee5324afbe47">4d3fdb0</a></p></li>
+<li><p>Due to settings, the migration for the category relations table never would be created. This fixes it. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3b6d469b89971d1ca35027a84a0cdbde4ad171fb">3b6d469</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id150">
+<h2>0.7 (2011-08-02)<a class="headerlink" href="#id150" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.6...0.7">Compare the full difference.</a></p>
+<section id="id151">
+<h3>Fixes<a class="headerlink" href="#id151" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a typo in the docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/66b0f5bda10352e017747443aaa7ff5fdb1e9bfa">66b0f5b</a></p></li>
+</ul>
+</section>
+<section id="id152">
+<h3>New<a class="headerlink" href="#id152" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a setting for the JAVASCRIPT_URL to make placement of the genericcollections.js file easier. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7bdfb32474ca01c17738a53ac47f32fa52131480">7bdfb32</a></p></li>
+<li><p>Added compatibility with Django 1.1 by adding missing methods for editor and bumped version to 0.7beta2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e922506fd969c8029fcd0e1262fd02652d599df9">e922506</a></p></li>
+<li><p>Added a get_latest_objects_by_category template tag. Might be useful. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d3cbb62b5d5342a9db77389498e0d7bf9ad509d0">d3cbb62</a></p></li>
+<li><p>Added the ability to add the appropriate fields to a table if configured after an initial syncdb. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fdc025d812a8559e9426758d30b322aa3e6bfcfd">fdc025d</a></p></li>
+<li><p>Added an alternate url field to the model. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/cedd54e85d92c7a9bca0846cf7b2a0e10f5a3a0a">cedd54e</a></p></li>
+</ul>
+</section>
+<section id="id153">
+<h3>Other<a class="headerlink" href="#id153" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Final version: 0.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fa6e2f1153ce351b4a1fcda4d50bc4fd71a2b29c">fa6e2f1</a></p></li>
+<li><p>Forgot to add the alternate_url to the admin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b1ad0547594baf37e8539aeaf09baf340e1e86dd">b1ad054</a></p></li>
+<li><p>Altered the inline template to display the content_object instead of the <strong>unicode</strong> of the middle table. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6aae69b0150c9ce805a910c60242a74c2eaa61d8">6aae69b</a></p></li>
+<li><p>Ooops, found a bug in the javascript. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e8154f0abd508967c40dab1dba47a194b613f32d">e8154f0</a></p></li>
+<li><p>Updating the documentation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ed4db03c7ddeb20fde5f7951ea9895f2aadca42f">ed4db03</a></p></li>
+<li><p>[Fixes issue #23] Changes the way the tree shows items when searched. Doesn’t hide them in the template. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d48be41dd3227628a1f30ca09bfc791cc9ec8bf6">d48be41</a></p></li>
+<li><p>Ignoring the example/media/ directory. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e257bd6db8ad2492dcca5bd4067e8a5d42a4f291">e257bd6</a></p></li>
+<li><p>Bumping the version to 0.7beta1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/28bb8e53fdedfa217e404b975017abccfa8b6be0">28bb8e5</a></p></li>
+</ul>
+</section>
+<section id="id154">
+<h3>Updates<a class="headerlink" href="#id154" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated and rendered docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/66e67a07f490f4afb8ea35fc0d8db9a0f2cc3547">66e67a0</a></p></li>
+<li><p>Refactored the registry into a registry of models and fields. This will make it easier for migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7e83b12a41e12c4c5ac9824d557eb8d7acdf96ff">7e83b12</a></p></li>
+<li><p>Updated the gitignore for venv file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7beb29af805b3c336dd29dac8f1e1634255ac3fe">7beb29a</a></p></li>
+<li><p>Deleted old migration scripts since they were migrated to south. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/89e3307117c09ad06925251e4b054aaddc2e67b2">89e3307</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id155">
+<h2>0.6 (2011-05-18)<a class="headerlink" href="#id155" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.5.2...0.6">Compare the full difference.</a></p>
+<section id="id156">
+<h3>Fixes<a class="headerlink" href="#id156" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a problem in the new admin creation where it wouldn’t properly filter out the category fields by model. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d90dccda01ce23f03ab6488166abccb407943adb">d90dccd</a></p></li>
+<li><p>Fixed the deprecated settings int he example app. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7d295843aa71165b5fd61c536e16a76f2d0d5309">7d29584</a></p></li>
+<li><p>Fixing stashing conflict. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9528f971c97e9f560457dafb84fadb6c2cb8bc81">9528f97</a></p></li>
+<li><p>Fixed small errors in templatetags documentation and docstrings. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1100ad3c507fab8a22442938561f0a0670dccb35">1100ad3</a></p></li>
+<li><p>Fixed wrong var name in import_categories command. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/cda1d0fd5e3044fc58813d510563e086b126736d">cda1d0f</a></p></li>
+<li><p>Fixed the homepage in the <a class="reference external" href="http://setup.py">setup.py</a>. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8e0e49a28109ac63841da04c7ed80a6dc516ce8a">8e0e49a</a></p></li>
+</ul>
+</section>
+<section id="id157">
+<h3>New<a class="headerlink" href="#id157" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a Deprecation warning for CATEGORIES_RELATION_MODELS. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/05a55fea7d3b21e5e875aad8b90213f0af0e21ec">05a55fe</a></p></li>
+<li><p>Adding South migrations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8e843fbcd1afea4a47d67e71a63b7c0c4b1c421b">8e843fb</a></p></li>
+<li><p>Added some specialized functions for relations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0fa7402f1d4a89476390ddc2934c57a467fff00e">0fa7402</a></p></li>
+<li><p>Added a class based view for the detail page of a model related to a category. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/76d7461e434cfd13f4a73f37fdd511ed8c97feae">76d7461</a></p></li>
+<li><p>Added a view that list items of specific model that are related to the current category. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c89c954001df23654129b19d1554a1a6a780fc00">c89c954</a></p></li>
+<li><p>Added a class based CategoryDetailView that should be functionally identical to the original function based view. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1070cb7daeefe0bd367588003758d03fc0b5da17">1070cb7</a></p></li>
+<li><p>Add optional thumbnail model field. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1ac5ae0a095fea5761a3eeca1251b2bdd7d06429">1ac5ae0</a></p></li>
+</ul>
+</section>
+<section id="id158">
+<h3>Other<a class="headerlink" href="#id158" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Final doc rendering. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/768191968ae4f16f190bc5a1a2ed6b1271895435">7681919</a></p></li>
+<li><p>Version bump to 0.6. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6f26261c50d0b60ba8833d7186156d268f989fd7">6f26261</a></p></li>
+<li><p>Enabled new registry in the example app for testing. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fa2b680c148589a9be7ac3195b4ea08f0ddd08f3">fa2b680</a></p></li>
+<li><p>The registry default settings needs to be an empty dict, not list. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/97c45e702f38c225132717abcedf19d4763ba579">97c45e7</a></p></li>
+<li><p>Enable registering of models in settings. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4e8f490714b78e82436073e724960b56b441bdfa">4e8f490</a></p></li>
+<li><p>[FIXED Issue #17] Refactored how the HTML is rendered, removing the checkbox from the <a> tag and pulling the parent checkbox from the row class. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/70e758ea2e90d00fdbacb1a3bf10da8e629fe06b">70e758e</a></p></li>
+<li><p>Putting registry outside of the try block. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/141f753a951fc29a108f608e2aa055e1c7e79ab7">141f753</a></p></li>
+<li><p>Version bump to 0.6beta4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7639d95721751b2bbb67b27150b62a3b51451fd8">7639d95</a></p></li>
+<li><p>Updating settings for Django 1.3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/93cd476c57600d5a84468b8109d6eeaeff6b786e">93cd476</a></p></li>
+<li><p>Version bump to 0.6beta3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3d91ff1fafee0c371bd56370ecafc15fa9777e32">3d91ff1</a></p></li>
+<li><p>Ah, the wonders of copying and pasting. Fixed some errors resulting from it. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/64dd94aa43d37f501b128811962226bb8af4fbe6">64dd94a</a></p></li>
+<li><p>Version bump to 0.6beta2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d64ad65a7c4318d9d85f9ae77a4bcc166a6b70ba">d64ad65</a></p></li>
+<li><p>Clean up per pylint. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/32b5451c1593639cd31471a3bd2af67aae3391a9">32b5451</a></p></li>
+<li><p>Some Docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/081d2ab0b8161c953cc283553fe74b5b5201e4b0">081d2ab</a></p></li>
+<li><p>Allow for using django-cbv in Django 1.2.x. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4081fe820430c4c310bb967f7c0b1b837abc7933">4081fe8</a></p></li>
+<li><p>Slight refactor of the default settings to clean it up. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4ce5a9e297c5655e022472cbb32f93a28c347d2e">4ce5a9e</a></p></li>
+<li><p>Filled out all contributors. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8d466591d550d78b7592912c082f2bf25f73897b">8d46659</a></p></li>
+<li><p>Moved path to category code into its own function to make reuse easier. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0b201156e016e490c9403d32c2559604cc4b5bdc">0b20115</a></p></li>
+<li><p>Make admin js relative to MEDIA_URL. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7119ca87e6b57a3d179c23f3577aaacd42bf7427">7119ca8</a></p></li>
+<li><p>Bumped the version for this branch. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3542b019c528d975cd106ba0ef727f946d0e49f8">3542b01</a></p></li>
+<li><p>Make the initial state of the editor tree an app setting with collapsed as the default. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/858a356e42744dfd55625b1cd5aeb0bcc4074191">858a356</a></p></li>
+<li><p>Real change I needed to make: return, not pass!. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e8b7aeca8facbbcbcfab201e77781f88c58d6f53">e8b7aec</a></p></li>
+</ul>
+</section>
+<section id="id159">
+<h3>Updates<a class="headerlink" href="#id159" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Updated docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/441dbcde744b34ed08ae671d9da7d3f99ae573d2">441dbcd</a></p></li>
+<li><p>Updated README. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7474cb0e516ecdabc4ffe369fe38cc3327e6f46f">7474cb0</a></p></li>
+<li><p>Updated some of the setup info. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1ad18ecb5c178598879756628b10288e7baede26">1ad18ec</a></p></li>
+<li><p>Refactored the thumbnail from imagefield to filefield. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/efe3cdd06b24f433352f393afc3effa99b4090a4">efe3cdd</a></p>
+<p>Why? ImageField causes hits to storage to fill out certain fields. Added a storage class and width/height fields so it is possible to scale the thumbnails and store them somewhere besides the filesystem.</p>
+</li>
+<li><p>Remove ‘to’ from kwargs in CategoryM2MField and CategoryFKField. ‘to’ is already specified, and causes errors when running unit tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/29ab0943c5b67240d0ed0271b4efd2d947ad497b">29ab094</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id160">
+<h2>0.5.2 (2011-02-14)<a class="headerlink" href="#id160" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.5.1...0.5.2">Compare the full difference.</a></p>
+<section id="id161">
+<h3>Updates<a class="headerlink" href="#id161" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Removed the raising of an exception when it finds a model that is already registered. and bumped the version to 0.5.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/47ddf73b717c3b68f89d70c1bfc10232e42ada7a">47ddf73</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id162">
+<h2>0.5.1 (2011-02-14)<a class="headerlink" href="#id162" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.5...0.5.1">Compare the full difference.</a></p>
+<section id="id163">
+<h3>Other<a class="headerlink" href="#id163" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bumped version number to 0.5.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f142f1a77c375a51778db90fdeb3b6e98ae48c07">f142f1a</a></p></li>
+<li><p>The test for importing checks the first child. With two children either could be 1st, so remove one. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/89646a6ceee4361966c9a61c632affe8ee7d14a2">89646a6</a></p></li>
+<li><p>Need to delete all the objects before each test because the import checks its work. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2bfe7534280ef3b4c47f13f4f82410867e5bd726">2bfe753</a></p></li>
+<li><p>Checking for raising the correct exception and moved the strings used in the test to a list of strings. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/31f1bfef8dce51065dcc07d9894964a972de743e">31f1bfe</a></p></li>
+<li><p>Got rid of the debugging print statements. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/74d9910a4c3ea506dd199d049276d187dcf39ab8">74d9910</a></p></li>
+</ul>
+</section>
+<section id="id164">
+<h3>Updates<a class="headerlink" href="#id164" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the test to test a new template tag, not the old one. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/efc4b9339a4c2f2b8f59ffb20e2d01b69304be0f">efc4b93</a></p></li>
+<li><p>Changed the import to import from category_import. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6aad1c44cc45519e107e57c6465144d0c3f3878f">6aad1c4</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id165">
+<h2>0.5 (2011-01-20)<a class="headerlink" href="#id165" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.4.8...0.5">Compare the full difference.</a></p>
+<section id="id166">
+<h3>New<a class="headerlink" href="#id166" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added contributors to the readme for proper recognition. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/93086cf1ec6e9261b63f49eb848398dc812af98c">93086cf</a></p></li>
+<li><p>Added logic to skip adding categories that are already defined for a modeladmin. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/246c18d4e65a1dc841be2f6bd100625505f2f7cf">246c18d</a></p></li>
+<li><p>Added additional fields to the display_list. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/781f9d02d50fee13c10aa3a959ba15f364105f52">781f9d0</a></p></li>
+<li><p>Adding a new import and alphabetizing them (OCD, I know). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/df83dd2ee5c59aa9873bb75e760e892bf914383e">df83dd2</a></p></li>
+<li><p>Added a new template tag to override the painting of the admin rows. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d093d06b400185402b84e48d0661dca6c95902ef">d093d06</a></p></li>
+<li><p>New template and media. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/bb4a7b0f2bf8a0514a356f5214b3a34544f4d967">bb4a7b0</a></p></li>
+<li><p>Added a placeholder for Django. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a841d7f063db89bc615a920b624aa901f9bf1b43">a841d7f</a></p></li>
+<li><p>Adding a new version of TreeTable with a few minor changes to support row repainting. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ae49c9d066b4541509f979328ad8eb105d6c0620">ae49c9d</a></p></li>
+</ul>
+</section>
+<section id="id167">
+<h3>Other<a class="headerlink" href="#id167" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Bumped the version to 0.5. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/57081cdd6f4b919d5c4dcbd6bd94fabf1809424c">57081cd</a></p></li>
+<li><p>STATIC_URL seems to be returning as None even when not defined. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4632d436fd799c35a58d421345207832cf322093">4632d43</a></p></li>
+<li><p>ModelAdmin re-register now skips modeladmins without fieldsets already defined. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/44508e060616025d145637deb0b1bbc652a919fe">44508e0</a></p>
+<p>Was causing a “TypeError at /current/url/: unsupported operand type(s) for +: ‘NoneType’ and ‘tuple’”</p>
+</li>
+<li><p>Got rid of the with_stories keyword for the category detail view. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7058ccd35a7ed18ad61cddc023b51b6b00d275e6">7058ccd</a></p></li>
+<li><p>Revised the README to get it up-to-date. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/732c5f8163b49301b73b4399693d0573c85abf34">732c5f8</a></p></li>
+<li><p>Long trees cause a performance hit if the initial state is expanded. Changing to “collapsed”. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/381d438635e6a23ddf72a9309cfca5282d56902d">381d438</a></p></li>
+<li><p>Getting rid of unused code in the treeeditor. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9d92b0d3a7578a989b969daa1592cb8eeabda547">9d92b0d</a></p></li>
+<li><p>Ignoring a few more things. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5dfc71035758b3ba73b598071f6b2617079086d3">5dfc710</a></p></li>
+<li><p>Made the media delivery work. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c55e56e48f2fa78ab86853e44c1b0c11f7602ed5">c55e56e</a></p></li>
+<li><p>What’s that doing there?. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6a112a4a84406434151db3452f20e219f3db2987">6a112a4</a></p></li>
+<li><p>Now that Django has a getchangelist function, we don’t need to hack anymore. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/039ba1f72eb100a31d6fe3d1ee74f477169ee1a8">039ba1f</a></p></li>
+<li><p>Don’t need to set that EDITOR_MEDIA_PATH any more. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d1bf06b39f54fab1be466d45460c9f3fd15ee7d8">d1bf06b</a></p></li>
+<li><p>Reworked the template to initialize the correct javascript and use the result_tree_list. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7f0e93f7d367749a33d4e74133c3381e198b9e43">7f0e93f</a></p></li>
+<li><p>Got rid of hotlinking settings and changed the EDITOR_MEDIA_PATH. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f7faa54620492b1fe4c34269c4bbd6bde42a0424">f7faa54</a></p></li>
+<li><p>Unstashing the previous changes. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4fbed625c42627c4b066ccf59a161ed5012e16a2">4fbed62</a></p></li>
+</ul>
+</section>
+<section id="id168">
+<h3>Updates<a class="headerlink" href="#id168" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Renamed ‘media’ directories to ‘static’ to work with the django 1.3 staticfiles app. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e5deb3f41f36d08a2e180f2d5baa82c181ded47a">e5deb3f</a></p></li>
+<li><p>Removed duplicate slash from EDITOR_MEDIA_PATH setting. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8f8bc6eb96f50c24ccffa3aea9e9cdc3e508cfa3">8f8bc6e</a></p></li>
+<li><p>Updated the documentation!. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b2dec5416fe1b74bd612058664cebd3e43e0ea7f">b2dec54</a></p></li>
+<li><p>Updated the docstrings of the template tags and added breadcrumbs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/afe9d204c84bfdba660e30a021ec3022826893e9">afe9d20</a></p></li>
+<li><p>Refactored the templates to extend a categories/base.html. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/91227edccf31d20291d2b65d2e700b3da481f4ce">91227ed</a></p></li>
+<li><p>Renamed the README to indicate it is a reST file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b5edbdcccbea0eb6032ad5c90c8a28639ccf1754">b5edbdc</a></p></li>
+<li><p>Removed some unused cruft from the TreeEditor class. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b5c6482ffa6d01dbd1d380407ae0375b1fe38c01">b5c6482</a></p></li>
+<li><p>Deleted an unused template. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d027b752f2a3346877b9ceb4c98c15172823663f">d027b75</a></p></li>
+<li><p>Removed unused code files. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6693d8dad3089881d2f8fddd1893461bf291bbfd">6693d8d</a></p></li>
+<li><p>Removed all the old, unused templates. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1e546b6309642a1d2ed9ab65bb68cc4f1dceb82b">1e546b6</a></p></li>
+<li><p>Removed all the old media. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/80755c79e3a584f8b89f9a26fb5c4d2a46c5e662">80755c7</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id169">
+<h2>0.4.8 (2010-12-10)<a class="headerlink" href="#id169" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.4.5...0.4.8">Compare the full difference.</a></p>
+<section id="id170">
+<h3>Fixes<a class="headerlink" href="#id170" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixing bug #6 per primski. Adds the correct fields into the admin instead of both. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e1b53aefcb167a649c93da94cd5c7fc97d559867">e1b53ae</a></p></li>
+</ul>
+</section>
+<section id="id171">
+<h3>New<a class="headerlink" href="#id171" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added a Meta class for proper plural naming. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a240fef9502d305f8364811e5205f9dd6ae19d25">a240fef</a></p></li>
+</ul>
+</section>
+<section id="id172">
+<h3>Other<a class="headerlink" href="#id172" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bumped the version. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3abddf2db23c2e769fc36c6c523f63df84b050a7">3abddf2</a></p></li>
+<li><p>PyPI didn’t like the license metadata. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/11768c29877cdfd6234b779da282ef67eaa29188">11768c2</a></p></li>
+<li><p>Upped version to 0.4.7. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1b8511a244db6f7fc4adb0f286ffea49e8a7c5fe">1b8511a</a></p></li>
+<li><p>Upped requirements to django-mptt 0.4.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/66b634505b7db4bcb6408684139cc2c8a5b40eca">66b6345</a></p></li>
+<li><p>Bumped versino to 0.4.6. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/754abe98cbddee75749790b042cafdfa737f6637">754abe9</a></p></li>
+</ul>
+</section>
+<section id="id173">
+<h3>Updates<a class="headerlink" href="#id173" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the requirements to django-mptt 0.4.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/70365f636bb65ffc6541bb5e6042a61757115fd3">70365f6</a></p></li>
+<li><p>Modified Category model to work with django-mptt 0.4. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/04da4c0bdddadc28a9536fdfc443d21bed75173d">04da4c0</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id174">
+<h2>0.4.5 (2010-10-07)<a class="headerlink" href="#id174" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.4.6...0.4.5">Compare the full difference.</a></p>
+</section>
+<section id="id175">
+<h2>0.4.6 (2010-10-07)<a class="headerlink" href="#id175" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.4.4...0.4.6">Compare the full difference.</a></p>
+<section id="id176">
+<h3>Fixes<a class="headerlink" href="#id176" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fix fieldsets assignment, issue 3. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/502c50d9c827e68fd21a19ec9a14dcc45cff6832">502c50d</a></p></li>
+</ul>
+</section>
+<section id="id177">
+<h3>Other<a class="headerlink" href="#id177" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bumped versino to 0.4.6. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/754abe98cbddee75749790b042cafdfa737f6637">754abe9</a></p></li>
+<li><p>Category string, fixes issue 2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/027569f691d7164a08aabbfd5d8f2adcd46f34ef">027569f</a></p></li>
+<li><p>Checks for parent if given enough path bits, version bump. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/09b1cda4b5aab49f8dfae9f9e11a5dd3bb175a18">09b1cda</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id178">
+<h2>0.4.4 (2010-05-28)<a class="headerlink" href="#id178" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.4.2...0.4.4">Compare the full difference.</a></p>
+<section id="id179">
+<h3>New<a class="headerlink" href="#id179" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added the extra templates. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/507700b69dc153b67b0fee0f42d5b270f448427c">507700b</a></p></li>
+<li><p>Added extra context to view func. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/10177e3d2e083dad76036744f505c4141496aeb6">10177e3</a></p></li>
+</ul>
+</section>
+<section id="id180">
+<h3>Other<a class="headerlink" href="#id180" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Redid docs with new template. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e5f8bafd0b6fac624f148600ac717edb4276f9f6">e5f8baf</a></p></li>
+<li><p>Tweaked the <a class="reference external" href="http://setup.py">setup.py</a> and manifest for a better result. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/042790279deeb03a716a19849ad6b2e67960a9cf">0427902</a></p></li>
+<li><p>Finished the doc refactoring and generated the docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/908db01e46c93ec205db136b2003e65a69b92923">908db01</a></p></li>
+<li><p>Bumped version. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/dfc30820fef4ea6d611ee527871a06eb7b1b0131">dfc3082</a></p></li>
+<li><p>Require a trailing slash at the end of urls. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/67a272b09bce97ffa3bf69f1d98230c7cd00c3e3">67a272b</a></p></li>
+<li><p>Safe mptt registration. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ab6b48c9d94ff9ecd0b96fbe2f126f1732d299d0">ab6b48c</a></p></li>
+</ul>
+</section>
+<section id="id181">
+<h3>Updates<a class="headerlink" href="#id181" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Refactoring docs into doc_src and docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/3e6944de65bcb6d81febd0ebf58a8b9d2c5a8a70">3e6944d</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id182">
+<h2>0.4.2 (2010-04-28)<a class="headerlink" href="#id182" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.4...0.4.2">Compare the full difference.</a></p>
+<section id="id183">
+<h3>Fixes<a class="headerlink" href="#id183" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixing jquery issues. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/605cbece20911879322becf7664c8e45712147b3">605cbec</a></p></li>
+</ul>
+</section>
+<section id="id184">
+<h3>Other<a class="headerlink" href="#id184" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fied my typo for settings url. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d453d4a410ac0b34e08d1d44dba9d6b9bd45fe88">d453d4a</a></p></li>
+</ul>
+</section>
+<section id="id185">
+<h3>Updates<a class="headerlink" href="#id185" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Updated the version number. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/920c0e2e989ffbeb7481f0eb52adf8ea289763c2">920c0e2</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id186">
+<h2>0.4 (2010-04-23)<a class="headerlink" href="#id186" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.3...0.4">Compare the full difference.</a></p>
+<section id="id187">
+<h3>New<a class="headerlink" href="#id187" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added the necessary files to test the generic relations. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c5759a17c64aef0765297a324be89cfa851d023e">c5759a1</a></p></li>
+<li><p>Added generic relation stuff into categories. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9e1717f3f792204af3d09d30799168d2f30aa961">9e1717f</a></p></li>
+</ul>
+</section>
+<section id="id188">
+<h3>Updates<a class="headerlink" href="#id188" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Renamed sample to example because that is what every other one is called, damnit. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2faa6c81801ac507256d387062d0d71da756fa07">2faa6c8</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id189">
+<h2>0.3 (2010-04-23)<a class="headerlink" href="#id189" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.2.2...0.3">Compare the full difference.</a></p>
+<section id="id190">
+<h3>New<a class="headerlink" href="#id190" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added metadata to the model for seo stuff. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/031c32854caf4c8776543e70030fec714eb5340a">031c328</a></p></li>
+</ul>
+</section>
+<section id="id191">
+<h3>Updates<a class="headerlink" href="#id191" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Changed the requirements from mptt in our repository to mptt-2 in pypi. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0b27adc2a5ef8104b65088ec959fcbfb1c742a48">0b27adc</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id192">
+<h2>0.2.2 (2010-04-08)<a class="headerlink" href="#id192" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/jazzband/django-categories/compare/0.2.1...0.2.2">Compare the full difference.</a></p>
+<section id="id193">
+<h3>New<a class="headerlink" href="#id193" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added better <a class="reference external" href="http://setup.py">setup.py</a> pieces. Getting ready to push to our PyPi. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c1c2a72115f48a77ac0b480c8c7c2f799f25d4dc">c1c2a72</a></p></li>
+</ul>
+</section>
+<section id="id194">
+<h3>Other<a class="headerlink" href="#id194" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Switched to setuptools/distribute. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c479cc6ad95fcb41ce37edf69bb1acc8b08ad572">c479cc6</a></p></li>
+<li><p>Removing docs for piece I deleted previously. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/53372a60a94eddc12d74bd48ef44953920ce02c3">53372a6</a></p></li>
+</ul>
+</section>
+<section id="id195">
+<h3>Updates<a class="headerlink" href="#id195" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Changed the requirements to have mptt just greater than 0.2. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/50bf7e189616938a8220e310378c9398531be6fa">50bf7e1</a></p></li>
+<li><p>Deleted code referencing something I deleted earlier. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fdeb2fc14e854394fb1e88ad73df09e902f0942a">fdeb2fc</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id196">
+<h2>0.2.1 (2010-04-06)<a class="headerlink" href="#id196" title="Link to this heading">#</a></h2>
+<section id="id197">
+<h3>Fixes<a class="headerlink" href="#id197" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed a typo in the <a class="reference external" href="http://setup.py">setup.py</a> and wrapped the other django import in <strong>init</strong>.py so you could call get_version without having django installed. Also increased the version number to 0.2.1. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8a5c137eb62c036138eb6f7a62b977176e7f0ea1">8a5c137</a></p></li>
+<li><p>Fixed the get_absolute_url for the Categories model and fixed up the view as well. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e1da454beea4b051211d346c8bbf1aabfae476d7">e1da454</a></p></li>
+<li><p>Fixing up and updating the usage. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/76d60d286db74e61d43b8f45632298ee997d15cb">76d60d2</a></p></li>
+<li><p>Fixed up the readme to include some goals. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1a38fa27fe70f67be4a7eaf858c05daf7c9b5ca4">1a38fa2</a></p></li>
+<li><p>Fixed most of the tests. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/13154fd3cadc38c9d45d15130e70e5de32d7c175">13154fd</a></p></li>
+<li><p>Fixed a wrong relative path with the jsi18n admin script. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0aedad941f4a0bf4b3ac8d63d091f739546b10c3">0aedad9</a></p></li>
+<li><p>Fixed a bad merge. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/409b7b86f5ec5ab9baf32956556c44e6fc9f7ee2">409b7b8</a></p></li>
+</ul>
+</section>
+<section id="id198">
+<h3>New<a class="headerlink" href="#id198" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added some docs and testing apps. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/81d07c859d7291ea167b8c1d1f92d65a37c33e75">81d07c8</a></p></li>
+<li><p>Added a caching setting to vary the amount of time the view is cached. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b0468cc8e4088405df3af6f52123ba5226d1ce45">b0468cc</a></p></li>
+<li><p>Added missing templates for category traversal. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/06d335238a870b1416846f5cbc829918e1389a18">06d3352</a></p></li>
+<li><p>Added an app to test categories against. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/486ffec34f89824f75080cc54a437cc65442396d">486ffec</a></p></li>
+<li><p>Added some registration notes to start the docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0ec1fa7332297789845465ca45395dd1d15c56d9">0ec1fa7</a></p></li>
+<li><p>Added registry, hacked admin w/ new templates for category editor. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c6f269985ee97a690fa73130f12fb13d935706c3">c6f2699</a></p></li>
+<li><p>Added ability to register fields to models. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ff92ac9771bdb591d55145e56ffe71e3891ff403">ff92ac9</a></p></li>
+<li><p>Added registry, hacked admin w/ new templates for category editor. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c4c1b30aeece9e67acfbc85468b995972b4cefc6">c4c1b30</a></p></li>
+<li><p>Added an optional setting to allow the slug to be changed. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/58a2280c2b6cbe533be420f69257fe7cfab716a8">58a2280</a></p></li>
+<li><p>Added a new templatetag to retrieve the top level categories. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e69cfe96277a3d160679202d9e25a05fd815b34f">e69cfe9</a></p></li>
+<li><p>Added views. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/c3b26df0da254d301318d32e75011ad0c77eecd7">c3b26df</a></p></li>
+<li><p>Added new documentation. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a7fa144a8c6dd223980880a6b977c135ffcb7386">a7fa144</a></p></li>
+<li><p>Added a description field. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/598a418a0f5d6126dc1dc8122e9be2ab6b7f025b">598a418</a></p></li>
+<li><p>Added some sample config to see it work. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2e9cba224cfe46a72c3ec078a4d559679abd6e52">2e9cba2</a></p></li>
+<li><p>Added a template for the template tags. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8830d92f8e735e9442317cb7e340a367e6467bf1">8830d92</a></p></li>
+<li><p>Added a demo file of music genres. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/084e4089e000301471597e68618c9820e6df6f5e">084e408</a></p></li>
+<li><p>Added tests for templatetags. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/f30b8362c628c0f2f33b031f656741f009a0734a">f30b836</a></p></li>
+<li><p>Added some testing fixtures. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6557c644cd0b49712402a70c6e3149f6b8d9df6d">6557c64</a></p></li>
+<li><p>Added some tests for category importing. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/5d9ceb480b8e74e881437080d4510904bbc15ddf">5d9ceb4</a></p></li>
+<li><p>Added a command to import categories from a file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/413e756a0a9b73406851aae78cdfbb542d6f823d">413e756</a></p></li>
+<li><p>Added the editor templates. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/38979d463c36d07ea1b808d892baf1c3158a7e30">38979d4</a></p></li>
+<li><p>Added to the gitignore. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/b48f5d2c0f3eb6c31c9077913e21335a789db7ec">b48f5d2</a></p></li>
+<li><p>Added template for category detail. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8bebe9bfc8b26f3677bff399af4d2d4487dd331b">8bebe9b</a></p></li>
+<li><p>Added urls and views for category detail. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9a9f39db184fc0f7479d0ad7096376ecfc7b9666">9a9f39d</a></p></li>
+<li><p>Added in support materials. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/ece93fd92d75a3cc0bd82e786cf777b8871c55f9">ece93fd</a></p></li>
+</ul>
+</section>
+<section id="id199">
+<h3>Other<a class="headerlink" href="#id199" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Tiered template heirarchy. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/30ad968c3926488de6db15de2c99220c9baa0853">30ad968</a></p></li>
+<li><p>Attempt at hacking a through table (field errors). <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0ca025d76374816feba61351e4b9f20276414563">0ca025d</a></p></li>
+<li><p>Altered the registration naming so more than one field could be registered for a model. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/487a0a4f2388611b053749ed7e45283eb5f30fd7">487a0a4</a></p></li>
+<li><p>Finished the debugging and changed the logic. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9c057997141df7aef07c7a2e76005cc932b1f261">9c05799</a></p></li>
+<li><p>Cats. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/16ad8057e3d7f414931acaca5abc9dde50a0d63a">16ad805</a></p></li>
+<li><p>Ignoring the docs/_build directory. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4573a37b14f4d449e0272e36e8b95d67cb2b8648">4573a37</a></p></li>
+<li><p>Upped the version and separated the editor. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/6c24d2ff6580d2dbc78dcbee3e26d7301b61d7d5">6c24d2f</a></p></li>
+<li><p>Tweaked the description and example of the template tag. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/a8a91de6fac7097398c7ab0778d97a15a9b59748">a8a91de</a></p></li>
+<li><p>Getting the admin interface working. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/01c6cf38c57c40a3487f0d3e92b14030a3900b07">01c6cf3</a></p></li>
+<li><p>Removing unneeded files. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/603352c84f7d6f7e13d570e538644d10c249ab20">603352c</a></p></li>
+<li><p>Started the docs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/1f9cc91cabb48fb595ffbb10bd2af4c2cf41084f">1f9cc91</a></p></li>
+<li><p>Moving media files around. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8deaaa2002781e5c5f0d7a507840e4d3c0632910">8deaaa2</a></p></li>
+<li><p>Removing mentions of FEINCMS to make it more generic. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/9d4d59cb2a85aa9b0a5586ba404bb818c67ebe73">9d4d59c</a></p></li>
+<li><p>Split the editor into a separate app. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/40f5471abd512ee4db7eddce780b4b49bcc7cd68">40f5471</a></p></li>
+<li><p>Moved media around, modified the editor template and removed .egg-info. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/0d32deffb0373160b0a938a0dfc9f6c73c71644c">0d32def</a></p></li>
+<li><p>Made sure the models and admin looked right and worked with Stories. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/fc2ae672e68e5503bd8f50b81262e0b8297a3dec">fc2ae67</a></p></li>
+<li><p>Making sure everything is in the repo. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/8d48c8c04235d3273dcf32f74f05dcb24ed63cb7">8d48c8c</a></p></li>
+<li><p>Getting ready to move to a remote repository. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/94a0a41443bae0b1fe87e1d8139d8987a0cbf792">94a0a41</a></p></li>
+<li><p>Initial import. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/e39e575ce0c92a3700a9552726800eb0aab93641">e39e575</a></p></li>
+</ul>
+</section>
+<section id="id200">
+<h3>Updates<a class="headerlink" href="#id200" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Modified the <a class="reference external" href="http://setup.py">setup.py</a> to get the latest version from the code and the long_description fro the README.txt file. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/4700b268eb65bad6b21e07414d01a058ec825189">4700b26</a></p></li>
+<li><p>Removed the special many2many models. The user interface was just too odd to implement. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7dfb2da26777fdf53907d8ce0c7a5520ac84cc0a">7dfb2da</a></p></li>
+<li><p>Removed some tabs. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/69ef59d178778f839b4a470f5cdba2506376dd8c">69ef59d</a></p></li>
+<li><p>Changed the disclosure triangle to be a unicode character instead of the images. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/59cf711b66576b753c9c23f40705c301b155001c">59cf711</a></p></li>
+<li><p>Removed the permalink decorator to make the absoluteurl work. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/2f3b1dacbfd5b04a57f7c0f6d1ec4041ba99bbee">2f3b1da</a></p></li>
+<li><p>Removed a strange typo. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/176edd7736f84513d4cc201265c2425d10741c1e">176edd7</a></p></li>
+<li><p>Removed some unneeded media files. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/7ca8f904ab9f9affd541a5077d0aa96ebed16d59">7ca8f90</a></p></li>
+<li><p>Updated tree editor view. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/facd3bf294b9181e3ae8e0e5193d48bc0fe2fdee">facd3bf</a></p></li>
+<li><p>Changed the packages part to be just ‘categories’ instead of ‘django-categories’. <a class="reference external" href="https://github.com/jazzband/django-categories/commit/d03c2f29bdae7b94aa0936a816f498d2b51db167">d03c2f2</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="api/categories.views.CategoryRelatedList.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CategoryRelatedList</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.0.0 (2024-05-22)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha-2-2024-04-19">2.0.0-alpha.2 (2024-04-19)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha-1-2024-04-17">2.0.0-alpha.1 (2024-04-17)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warning">WARNING</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.9.4 (2024-04-18)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.9.3 (2024-04-17)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.9.2 (2022-09-22)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updates">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.9.1 (2022-09-21)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Fixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.9.0 (2022-09-21)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">1.8.0 (2020-08-31)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">1.7.2 (2020-05-18)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">1.7.1 (2020-03-06)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">1.7.0 (2020-02-04)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">1.6.1 (2019-06-26)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">1.6.0 (2018-02-27)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">1.5.4 (2017-10-12)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">1.5.3 (2017-03-31)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">1.5.2 (2017-03-29)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">1.5.1 (2017-02-17)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">1.5 (2016-11-14)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">1.4.3 (2016-10-21)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">1.4.2 (2016-04-19)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">1.4.1 (2016-03-31)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">1.4 (2016-02-15)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">1.3 (2015-06-09)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id70">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">1.2.3 (2015-05-05)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">1.2.2 (2013-07-07)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">1.2.1 (2013-03-22)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id81">1.2 (2013-03-20)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id82">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id83">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id84">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id85">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id86">1.1.3 (2012-08-29)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id87">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id88">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id89">1.1.2 (2012-08-18)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id90">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id91">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id92">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id93">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id94">1.1 (2012-07-13)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id95">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id96">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id97">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id98">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id99">1.0.3 (2012-03-28)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id100">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id101">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id102">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id103">1.0.1 (2012-03-09)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id104">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id105">1.0.2 (2012-03-06)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id106">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id107">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id108">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id109">1.0 (2012-02-15)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id110">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id111">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id112">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id113">0.8.9 (2012-02-06)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id114">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id115">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id116">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id117">0.8.7 (2012-01-05)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id118">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id119">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id120">0.8.6 (2012-01-03)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id121">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id122">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id123">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id124">0.8.5 (2011-11-03)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id125">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id126">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id127">0.8.4 (2011-10-14)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id128">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id129">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id130">0.8.3 (2011-10-13)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id131">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id132">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id133">0.8.2 (2011-09-05)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id134">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id135">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id136">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id137">0.8.1 (2011-08-29)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id138">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id139">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id140">0.8 (2011-08-22)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id141">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id142">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id143">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id144">0.7.2 (2011-08-19)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id145">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id146">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id147">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id148">0.7.1 (2011-08-03)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id149">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id150">0.7 (2011-08-02)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id151">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id152">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id153">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id154">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id155">0.6 (2011-05-18)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id156">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id157">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id158">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id159">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id160">0.5.2 (2011-02-14)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id161">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id162">0.5.1 (2011-02-14)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id163">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id164">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id165">0.5 (2011-01-20)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id166">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id167">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id168">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id169">0.4.8 (2010-12-10)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id170">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id171">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id172">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id173">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id174">0.4.5 (2010-10-07)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id175">0.4.6 (2010-10-07)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id176">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id177">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id178">0.4.4 (2010-05-28)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id179">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id180">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id181">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id182">0.4.2 (2010-04-28)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id183">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id184">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id185">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id186">0.4 (2010-04-23)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id187">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id188">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id189">0.3 (2010-04-23)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id190">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id191">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id192">0.2.2 (2010-04-08)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id193">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id194">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id195">Updates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id196">0.2.1 (2010-04-06)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id197">Fixes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id198">New</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id199">Other</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id200">Updates</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/changelog.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2010-2024, Corey Oordt.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

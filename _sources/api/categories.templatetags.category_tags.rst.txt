@@ -1,0 +1,41 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags
+
+category\_tags
+==============
+.. currentmodule:: categories.templatetags.category_tags
+
+
+.. automodule:: categories.templatetags.category_tags
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      breadcrumbs
+      display_drilldown_as_ul
+      display_path_as_ul
+      do_get_latest_objects_by_category
+      get_cat_model
+      get_category
+      get_category_drilldown
+      get_latest_objects_by_category
+      get_top_level_categories
+      recursetree
+      resolve
+      tree_queryset
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      CategoryDrillDownNode
+      LatestObjectsNode
+      TopLevelCategoriesNode

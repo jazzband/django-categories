@@ -1,0 +1,91 @@
+.. rst-class:: h4 text-secondary
+
+categories.views.CategoryRelatedList
+
+CategoryRelatedList
+===================
+
+.. currentmodule:: categories.views
+
+.. autoclass:: CategoryRelatedList
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryRelatedList.as_view
+      
+      ~CategoryRelatedList.dispatch
+      
+      ~CategoryRelatedList.get
+      
+      ~CategoryRelatedList.get_allow_empty
+      
+      ~CategoryRelatedList.get_context_data
+      
+      ~CategoryRelatedList.get_context_object_name
+      
+      ~CategoryRelatedList.get_ordering
+      
+      ~CategoryRelatedList.get_paginate_by
+      
+      ~CategoryRelatedList.get_paginate_orphans
+      
+      ~CategoryRelatedList.get_paginator
+      
+      ~CategoryRelatedList.get_queryset
+      
+      ~CategoryRelatedList.get_template_names
+      
+      ~CategoryRelatedList.http_method_not_allowed
+      
+      ~CategoryRelatedList.options
+      
+      ~CategoryRelatedList.paginate_queryset
+      
+      ~CategoryRelatedList.render_to_response
+      
+      ~CategoryRelatedList.setup
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryRelatedList.allow_empty
+      
+      ~CategoryRelatedList.content_type
+      
+      ~CategoryRelatedList.context_object_name
+      
+      ~CategoryRelatedList.extra_context
+      
+      ~CategoryRelatedList.http_method_names
+      
+      ~CategoryRelatedList.model
+      
+      ~CategoryRelatedList.ordering
+      
+      ~CategoryRelatedList.page_kwarg
+      
+      ~CategoryRelatedList.paginate_by
+      
+      ~CategoryRelatedList.paginate_orphans
+      
+      ~CategoryRelatedList.path_field
+      
+      ~CategoryRelatedList.queryset
+      
+      ~CategoryRelatedList.template_engine
+      
+      ~CategoryRelatedList.template_name
+      
+      ~CategoryRelatedList.template_name_suffix
+      
+   

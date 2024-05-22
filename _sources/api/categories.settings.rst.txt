@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.settings
+
+settings
+========
+.. currentmodule:: categories.settings
+
+
+.. automodule:: categories.settings
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      SLUG_TRANSLITERATOR

@@ -1,0 +1,28 @@
+.. rst-class:: h4 text-secondary
+
+categories.apps
+
+apps
+====
+.. currentmodule:: categories.apps
+
+
+.. automodule:: categories.apps
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      handle_class_prepared
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      CategoriesConfig

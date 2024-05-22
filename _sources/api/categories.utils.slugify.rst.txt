@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.utils.slugify
+
+slugify
+=======
+
+.. currentmodule:: categories.utils
+.. autofunction:: slugify

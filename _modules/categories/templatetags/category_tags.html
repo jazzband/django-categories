@@ -1,0 +1,1022 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>categories.templatetags.category_tags &#8212; Django Categories 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ea07567a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/categories/templatetags/category_tags';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Django Categories 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">categories.t...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for categories.templatetags.category_tags</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Template tags for categories.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">template</span>
+<span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">apps</span>
+<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">TemplateSyntaxError</span><span class="p">,</span> <span class="n">VariableDoesNotExist</span>
+<span class="kn">from</span> <span class="nn">django.template.base</span> <span class="kn">import</span> <span class="n">FilterExpression</span>
+<span class="kn">from</span> <span class="nn">mptt.templatetags.mptt_tags</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RecurseTreeNode</span><span class="p">,</span>
+    <span class="n">full_tree_for_model</span><span class="p">,</span>
+    <span class="n">tree_info</span><span class="p">,</span>
+    <span class="n">tree_path</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">mptt.utils</span> <span class="kn">import</span> <span class="n">drilldown_tree_for_node</span>
+
+<span class="kn">from</span> <span class="nn">categories.base</span> <span class="kn">import</span> <span class="n">CategoryBase</span>
+<span class="kn">from</span> <span class="nn">categories.models</span> <span class="kn">import</span> <span class="n">Category</span>
+
+<span class="n">register</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">Library</span><span class="p">()</span>
+
+<span class="n">register</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;category_path&quot;</span><span class="p">,</span> <span class="n">tree_path</span><span class="p">)</span>
+<span class="n">register</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tree_info</span><span class="p">)</span>
+<span class="n">register</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;full_tree_for_category&quot;</span><span class="p">,</span> <span class="n">full_tree_for_model</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="resolve">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.resolve.html#categories.templatetags.category_tags.resolve">[docs]</a>
+<span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="n">var</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Aggressively resolve a variable.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">var</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">VariableDoesNotExist</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">var</span><span class="o">.</span><span class="n">var</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">var</span></div>
+
+
+
+<div class="viewcode-block" id="get_cat_model">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.get_cat_model.html#categories.templatetags.category_tags.get_cat_model">[docs]</a>
+<span class="k">def</span> <span class="nf">get_cat_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a class from a string or class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model_class</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">model_class</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">CategoryBase</span><span class="p">):</span>
+            <span class="n">model_class</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="k">if</span> <span class="n">model_class</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="s2">&quot;Unknown model submitted: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">model</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model_class</span></div>
+
+
+
+<div class="viewcode-block" id="get_category">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.get_category.html#categories.templatetags.category_tags.get_category">[docs]</a>
+<span class="k">def</span> <span class="nf">get_category</span><span class="p">(</span><span class="n">category_string</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">]</span> <span class="o">=</span> <span class="n">Category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a string, including a path, and return the Category object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        category_string: The name or path of the category</span>
+<span class="sd">        model: The name of or Category model to search in</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The found category object or None if no category was found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model_class</span> <span class="o">=</span> <span class="n">get_cat_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">category_string</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+    <span class="n">cat_list</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cat_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">categories</span> <span class="o">=</span> <span class="n">model_class</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cat_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">level</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">cat_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cat_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="c1"># If there is only one, use it. If there is more than one, check</span>
+        <span class="c1"># if the parent matches the parent passed in the string</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">categories</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">cat_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">item</span>
+    <span class="k">except</span> <span class="n">model_class</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="CategoryDrillDownNode">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.CategoryDrillDownNode.html#categories.templatetags.category_tags.CategoryDrillDownNode">[docs]</a>
+<span class="k">class</span> <span class="nc">CategoryDrillDownNode</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A category drill down template node.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">category</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varname</span> <span class="o">=</span> <span class="n">varname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Render this node.&quot;&quot;&quot;</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">CategoryBase</span><span class="p">):</span>
+            <span class="n">cat</span> <span class="o">=</span> <span class="n">category</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cat</span> <span class="o">=</span> <span class="n">get_category</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">context</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">varname</span><span class="p">]</span> <span class="o">=</span> <span class="n">drilldown_tree_for_node</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span> <span class="k">if</span> <span class="n">cat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">context</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">varname</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="get_category_drilldown">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.get_category_drilldown.html#categories.templatetags.category_tags.get_category_drilldown">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">tag</span>
+<span class="k">def</span> <span class="nf">get_category_drilldown</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves the specified category, its ancestors and its immediate children as an Iterable.</span>
+
+<span class="sd">    The basic syntax::</span>
+
+<span class="sd">        {% get_category_drilldown &quot;category name&quot; [using &quot;app.Model&quot;] as varname %}</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        Using a string for the category name::</span>
+
+<span class="sd">            {% get_category_drilldown &quot;/Grandparent/Parent&quot; as family %}</span>
+
+<span class="sd">        or using a variable for the category::</span>
+
+<span class="sd">            {% get_category_drilldown category_obj as family %}</span>
+
+<span class="sd">        Sets family to::</span>
+
+<span class="sd">            Grandparent, Parent, Child 1, Child 2, Child n</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parser: The Django template parser.</span>
+<span class="sd">        token: The tag contents</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The recursive tree node.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TemplateSyntaxError: If the tag is malformed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">split_contents</span><span class="p">()</span>
+    <span class="n">error_str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;</span><span class="si">%(tagname)s</span><span class="s2"> tag should be in the format {</span><span class="si">%%</span><span class="s2"> </span><span class="si">%(tagname)s</span><span class="s2"> &quot;</span>
+        <span class="s1">&#39;&quot;category name&quot; [using &quot;app.Model&quot;] as varname </span><span class="si">%%</span><span class="s1">} or &#39;</span>
+        <span class="s2">&quot;{</span><span class="si">%%</span><span class="s2"> </span><span class="si">%(tagname)s</span><span class="s2"> category_obj as varname </span><span class="si">%%</span><span class="s2">}.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">varname</span> <span class="o">=</span> <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="n">error_str</span> <span class="o">%</span> <span class="p">{</span><span class="s2">&quot;tagname&quot;</span><span class="p">:</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+            <span class="n">varname</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;categories.category&quot;</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="s2">&quot;as&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">bits</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="s2">&quot;as&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="n">error_str</span> <span class="o">%</span> <span class="p">{</span><span class="s2">&quot;tagname&quot;</span><span class="p">:</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+            <span class="n">varname</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;using&quot;</span><span class="p">:</span>
+            <span class="n">varname</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="n">error_str</span> <span class="o">%</span> <span class="p">{</span><span class="s2">&quot;tagname&quot;</span><span class="p">:</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CategoryDrillDownNode</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="breadcrumbs">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.breadcrumbs.html#categories.templatetags.category_tags.breadcrumbs">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">inclusion_tag</span><span class="p">(</span><span class="s2">&quot;categories/breadcrumbs.html&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">breadcrumbs</span><span class="p">(</span><span class="n">category_string</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot; &gt; &quot;</span><span class="p">,</span> <span class="n">using</span><span class="o">=</span><span class="s2">&quot;categories.category&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render breadcrumbs, using the ``categories/breadcrumbs.html`` template.</span>
+
+<span class="sd">    The basic syntax::</span>
+
+<span class="sd">        {% breadcrumbs &quot;category&quot; [separator=&quot; &gt; &quot;] [using=&quot;categories.category&quot;] %}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        category_string: A variable reference to or the name of the category to display</span>
+<span class="sd">        separator: The string to separate the categories</span>
+<span class="sd">        using: A variable reference to or the name of the category model to search for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The inclusion template</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">get_category</span><span class="p">(</span><span class="n">category_string</span><span class="p">,</span> <span class="n">using</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">cat</span><span class="p">,</span> <span class="s2">&quot;separator&quot;</span><span class="p">:</span> <span class="n">separator</span><span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="display_drilldown_as_ul">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.display_drilldown_as_ul.html#categories.templatetags.category_tags.display_drilldown_as_ul">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">inclusion_tag</span><span class="p">(</span><span class="s2">&quot;categories/ul_tree.html&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">display_drilldown_as_ul</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">using</span><span class="o">=</span><span class="s2">&quot;categories.Category&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render the category with ancestors and children using the ``categories/ul_tree.html`` template.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        The template code of::</span>
+
+<span class="sd">            {% display_drilldown_as_ul &quot;/Grandparent/Parent&quot; %}</span>
+
+<span class="sd">        or::</span>
+
+<span class="sd">            {% display_drilldown_as_ul category_obj %}</span>
+
+<span class="sd">        might render as::</span>
+
+<span class="sd">            &lt;ul&gt;</span>
+<span class="sd">              &lt;li&gt;&lt;a href=&quot;/categories/&quot;&gt;Top&lt;/a&gt;</span>
+<span class="sd">              &lt;ul&gt;</span>
+<span class="sd">                &lt;li&gt;&lt;a href=&quot;/categories/grandparent/&quot;&gt;Grandparent&lt;/a&gt;</span>
+<span class="sd">                &lt;ul&gt;</span>
+<span class="sd">                  &lt;li&gt;&lt;a href=&quot;/categories/grandparent/parent/&quot;&gt;Parent&lt;/a&gt;</span>
+<span class="sd">                  &lt;ul&gt;</span>
+<span class="sd">                    &lt;li&gt;&lt;a href=&quot;/categories/grandparent/parent/child1&quot;&gt;Child1&lt;/a&gt;&lt;/li&gt;</span>
+<span class="sd">                    &lt;li&gt;&lt;a href=&quot;/categories/grandparent/parent/child2&quot;&gt;Child2&lt;/a&gt;&lt;/li&gt;</span>
+<span class="sd">                    &lt;li&gt;&lt;a href=&quot;/categories/grandparent/parent/child3&quot;&gt;Child3&lt;/a&gt;&lt;/li&gt;</span>
+<span class="sd">                  &lt;/ul&gt;</span>
+<span class="sd">                  &lt;/li&gt;</span>
+<span class="sd">                &lt;/ul&gt;</span>
+<span class="sd">                &lt;/li&gt;</span>
+<span class="sd">              &lt;/ul&gt;</span>
+<span class="sd">              &lt;/li&gt;</span>
+<span class="sd">            &lt;/ul&gt;</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        category: A variable reference to or the name of the category to display</span>
+<span class="sd">        using: A variable reference to or the name of the category model to search for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The inclusion template</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">get_category</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">using</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">cat</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">cat</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="n">drilldown_tree_for_node</span><span class="p">(</span><span class="n">cat</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="display_path_as_ul">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.display_path_as_ul.html#categories.templatetags.category_tags.display_path_as_ul">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">inclusion_tag</span><span class="p">(</span><span class="s2">&quot;categories/ul_tree.html&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">display_path_as_ul</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">using</span><span class="o">=</span><span class="s2">&quot;categories.Category&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render the category with ancestors, but no children using the ``categories/ul_tree.html`` template.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        The template code of::</span>
+
+<span class="sd">            {% display_path_as_ul &quot;/Grandparent/Parent&quot; %}</span>
+
+<span class="sd">        or::</span>
+
+<span class="sd">            {% display_path_as_ul category_obj %}</span>
+
+<span class="sd">        might render as::</span>
+
+<span class="sd">            &lt;ul&gt;</span>
+<span class="sd">                &lt;li&gt;&lt;a href=&quot;/categories/&quot;&gt;Top&lt;/a&gt;</span>
+<span class="sd">                &lt;ul&gt;</span>
+<span class="sd">                    &lt;li&gt;&lt;a href=&quot;/categories/grandparent/&quot;&gt;Grandparent&lt;/a&gt;&lt;/li&gt;</span>
+<span class="sd">                &lt;/ul&gt;</span>
+<span class="sd">                &lt;/li&gt;</span>
+<span class="sd">            &lt;/ul&gt;</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        category: A variable reference to or the name of the category to display</span>
+<span class="sd">        using: A variable reference to or the name of the category model to search for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The inclusion template</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">CategoryBase</span><span class="p">):</span>
+        <span class="n">cat</span> <span class="o">=</span> <span class="n">category</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cat</span> <span class="o">=</span> <span class="n">get_category</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">using</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">cat</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="n">cat</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">()</span> <span class="ow">or</span> <span class="p">[]}</span></div>
+
+
+
+<div class="viewcode-block" id="TopLevelCategoriesNode">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.TopLevelCategoriesNode.html#categories.templatetags.category_tags.TopLevelCategoriesNode">[docs]</a>
+<span class="k">class</span> <span class="nc">TopLevelCategoriesNode</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Template node for the top level categories.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varname</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">varname</span> <span class="o">=</span> <span class="n">varname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Render this node.&quot;&quot;&quot;</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">get_cat_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">context</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">varname</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="get_top_level_categories">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.get_top_level_categories.html#categories.templatetags.category_tags.get_top_level_categories">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">tag</span>
+<span class="k">def</span> <span class="nf">get_top_level_categories</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieves an alphabetical list of all the categories that have no parents.</span>
+
+<span class="sd">    The basic syntax is::</span>
+
+<span class="sd">        {% get_top_level_categories [using &quot;app.Model&quot;] as categories %}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parser: The Django template parser.</span>
+<span class="sd">        token: The tag contents</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">         Returns a list of categories [&lt;category&gt;, &lt;category&gt;, &lt;category, ...]</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TemplateSyntaxError: If a queryset isn&#39;t provided</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">split_contents</span><span class="p">()</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s1">&#39;Usage: {</span><span class="si">%%</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> [using &quot;app.Model&quot;] as &lt;variable&gt; </span><span class="si">%%</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
+        <span class="n">varname</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;categories.category&quot;</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;as&quot;</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">bits</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;as&quot;</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;using&quot;</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">varname</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">varname</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">TopLevelCategoriesNode</span><span class="p">(</span><span class="n">varname</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_latest_objects_by_category">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.get_latest_objects_by_category.html#categories.templatetags.category_tags.get_latest_objects_by_category">[docs]</a>
+<span class="k">def</span> <span class="nf">get_latest_objects_by_category</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">app_label</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">set_name</span><span class="p">,</span> <span class="n">date_field</span><span class="o">=</span><span class="s2">&quot;pub_date&quot;</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a queryset of the latest objects of ``app_label.model_name`` in given category.&quot;&quot;&quot;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">app_label</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">CategoryBase</span><span class="p">):</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">category</span><span class="p">))</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">category</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_set&quot;</span> <span class="o">%</span> <span class="n">set_name</span><span class="p">):</span>
+            <span class="n">ids</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">pk</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_set&quot;</span> <span class="o">%</span> <span class="n">set_name</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="n">num</span><span class="p">]])</span>
+
+    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pk__in</span><span class="o">=</span><span class="n">ids</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">date_field</span><span class="p">)[:</span><span class="n">num</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="LatestObjectsNode">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.LatestObjectsNode.html#categories.templatetags.category_tags.LatestObjectsNode">[docs]</a>
+<span class="k">class</span> <span class="nc">LatestObjectsNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get latest objects of app_label.model_name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">app_label</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">set_name</span><span class="p">,</span> <span class="n">date_field</span><span class="o">=</span><span class="s2">&quot;pub_date&quot;</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">category</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app_label</span> <span class="o">=</span> <span class="n">app_label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="n">model_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_name</span> <span class="o">=</span> <span class="n">set_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_field</span> <span class="o">=</span> <span class="n">date_field</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="o">=</span> <span class="n">var_name</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Render this sucker.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">set_name</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set_name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">date_field</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">date_field</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_latest_objects_by_category</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">app_label</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">set_name</span><span class="p">,</span> <span class="n">date_field</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+        <span class="n">context</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="do_get_latest_objects_by_category">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.do_get_latest_objects_by_category.html#categories.templatetags.category_tags.do_get_latest_objects_by_category">[docs]</a>
+<span class="k">def</span> <span class="nf">do_get_latest_objects_by_category</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the latest objects by category.</span>
+
+<span class="sd">    The basic syntax is::</span>
+
+<span class="sd">        {% get_latest_objects_by_category category app_name model_name set_name [date_field] [number] as [var_name] %}</span>
+
+
+<span class="sd">    Args:</span>
+<span class="sd">        parser: The Django template parser.</span>
+<span class="sd">        token: The tag contents</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The latet objects node.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TemplateSyntaxError: If the tag is malformed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">proper_form</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;{</span><span class="si">% g</span><span class="s2">et_latest_objects_by_category category app_name model_name set_name &quot;</span>
+        <span class="s2">&quot;[date_field] [number] as [var_name] %}&quot;</span>
+    <span class="p">)</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">split_contents</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> tag shoud be in the form: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proper_form</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> tag shoud be in the form: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proper_form</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> tag shoud be in the form: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proper_form</span><span class="p">))</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="n">app_label</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="n">set_name</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="n">var_name</span> <span class="o">=</span> <span class="n">bits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+        <span class="n">date_field</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">date_field</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;as&quot;</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">parser</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">LatestObjectsNode</span><span class="p">(</span><span class="n">var_name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">app_label</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">set_name</span><span class="p">,</span> <span class="n">date_field</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span></div>
+
+
+
+<span class="n">register</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;get_latest_objects_by_category&quot;</span><span class="p">,</span> <span class="n">do_get_latest_objects_by_category</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="tree_queryset">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.tree_queryset.html#categories.templatetags.category_tags.tree_queryset">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">filter</span>
+<span class="k">def</span> <span class="nf">tree_queryset</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a normal queryset from an MPTT model to include all the ancestors.</span>
+
+<span class="sd">    Allows a filtered subset of items to be formatted correctly</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: The queryset to convert</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The converted queryset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+    <span class="kn">from</span> <span class="nn">django.db.models.query</span> <span class="kn">import</span> <span class="n">QuerySet</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">QuerySet</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">qs2</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
+    <span class="c1"># Reaching into the bowels of query sets to find out whether the qs is</span>
+    <span class="c1"># actually filtered and we need to do the INCLUDE_ANCESTORS dance at all.</span>
+    <span class="c1"># INCLUDE_ANCESTORS is quite expensive, so don&#39;t do it if not needed.</span>
+    <span class="n">is_filtered</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">qs</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_filtered</span><span class="p">:</span>
+        <span class="n">include_pages</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="c1"># Order by &#39;rght&#39; will return the tree deepest nodes first;</span>
+        <span class="c1"># this cuts down the number of queries considerably since all ancestors</span>
+        <span class="c1"># will already be in include_pages when they are checked, thus not</span>
+        <span class="c1"># trigger additional queries.</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">qs2</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;rght&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iterator</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">parent_id</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">parent_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">include_pages</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">include_pages</span><span class="p">:</span>
+                <span class="n">ancestor_id_list</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">()</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">include_pages</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ancestor_id_list</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">include_pages</span><span class="p">:</span>
+            <span class="n">qs</span> <span class="o">=</span> <span class="n">qs</span> <span class="o">|</span> <span class="n">qs</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__in</span><span class="o">=</span><span class="n">include_pages</span><span class="p">)</span>
+
+        <span class="n">qs</span> <span class="o">=</span> <span class="n">qs</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">qs</span></div>
+
+
+
+<div class="viewcode-block" id="recursetree">
+<a class="viewcode-back" href="../../../api/categories.templatetags.category_tags.recursetree.html#categories.templatetags.category_tags.recursetree">[docs]</a>
+<span class="nd">@register</span><span class="o">.</span><span class="n">tag</span>
+<span class="k">def</span> <span class="nf">recursetree</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Iterates over the nodes in the tree, and renders the contained block for each node.</span>
+
+<span class="sd">    This tag will recursively render children into the template variable {{ children }}.</span>
+<span class="sd">    Only one database query is required (children are cached for the whole tree)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        Basic usage example::</span>
+
+<span class="sd">            &lt;ul&gt;</span>
+<span class="sd">                {% recursetree nodes %}</span>
+<span class="sd">                    &lt;li&gt;</span>
+<span class="sd">                        {{ node.name }}</span>
+<span class="sd">                        {% if not node.is_leaf_node %}</span>
+<span class="sd">                            &lt;ul&gt;</span>
+<span class="sd">                                {{ children }}</span>
+<span class="sd">                            &lt;/ul&gt;</span>
+<span class="sd">                        {% endif %}</span>
+<span class="sd">                    &lt;/li&gt;</span>
+<span class="sd">                {% endrecursetree %}</span>
+<span class="sd">            &lt;/ul&gt;</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parser: The Django template parser.</span>
+<span class="sd">        token: The tag contents</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The recursive tree node.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TemplateSyntaxError: If a queryset isn&#39;t provided.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">template</span><span class="o">.</span><span class="n">TemplateSyntaxError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> tag requires a queryset&quot;</span> <span class="o">%</span> <span class="n">bits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">queryset_var</span> <span class="o">=</span> <span class="n">FilterExpression</span><span class="p">(</span><span class="n">bits</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">parser</span><span class="p">)</span>
+
+    <span class="n">template_nodes</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">((</span><span class="s2">&quot;endrecursetree&quot;</span><span class="p">,))</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">delete_first_token</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">RecurseTreeNode</span><span class="p">(</span><span class="n">template_nodes</span><span class="p">,</span> <span class="n">queryset_var</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2010-2024, Corey Oordt.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.tree_editor
+
+tree\_editor
+============
+.. currentmodule:: categories.editor.tree_editor
+
+
+.. automodule:: categories.editor.tree_editor
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      TreeChangeList
+      TreeEditor
+      TreeEditorQuerySet

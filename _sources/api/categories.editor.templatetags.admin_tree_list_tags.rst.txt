@@ -1,0 +1,31 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.templatetags.admin_tree_list_tags
+
+admin\_tree\_list\_tags
+=======================
+.. currentmodule:: categories.editor.templatetags.admin_tree_list_tags
+
+
+.. automodule:: categories.editor.templatetags.admin_tree_list_tags
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      get_empty_value_display
+      items_for_tree_result
+      result_tree_list
+      tree_results
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      TreeList

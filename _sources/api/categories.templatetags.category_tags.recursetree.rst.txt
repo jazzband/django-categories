@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.recursetree
+
+recursetree
+===========
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: recursetree

@@ -1,0 +1,29 @@
+.. rst-class:: h4 text-secondary
+
+categories.registration.Registry
+
+Registry
+========
+
+.. currentmodule:: categories.registration
+
+.. autoclass:: Registry
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Registry.register_fk
+      
+      ~Registry.register_m2m
+      
+      ~Registry.register_model
+      
+   
+   
+
+   
+   
+   

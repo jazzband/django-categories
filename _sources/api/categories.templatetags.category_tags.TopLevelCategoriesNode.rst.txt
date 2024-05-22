@@ -1,0 +1,39 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.TopLevelCategoriesNode
+
+TopLevelCategoriesNode
+======================
+
+.. currentmodule:: categories.templatetags.category_tags
+
+.. autoclass:: TopLevelCategoriesNode
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TopLevelCategoriesNode.get_nodes_by_type
+      
+      ~TopLevelCategoriesNode.render
+      
+      ~TopLevelCategoriesNode.render_annotated
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TopLevelCategoriesNode.child_nodelists
+      
+      ~TopLevelCategoriesNode.must_be_first
+      
+      ~TopLevelCategoriesNode.token
+      
+   

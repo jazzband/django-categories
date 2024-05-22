@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.utils.display_for_field
+
+display\_for\_field
+===================
+
+.. currentmodule:: categories.editor.utils
+.. autofunction:: display_for_field

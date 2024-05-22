@@ -1,0 +1,39 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.CategoryDrillDownNode
+
+CategoryDrillDownNode
+=====================
+
+.. currentmodule:: categories.templatetags.category_tags
+
+.. autoclass:: CategoryDrillDownNode
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryDrillDownNode.get_nodes_by_type
+      
+      ~CategoryDrillDownNode.render
+      
+      ~CategoryDrillDownNode.render_annotated
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryDrillDownNode.child_nodelists
+      
+      ~CategoryDrillDownNode.must_be_first
+      
+      ~CategoryDrillDownNode.token
+      
+   

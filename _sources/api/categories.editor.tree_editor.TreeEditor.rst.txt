@@ -1,0 +1,263 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.tree_editor.TreeEditor
+
+TreeEditor
+==========
+
+.. currentmodule:: categories.editor.tree_editor
+
+.. autoclass:: TreeEditor
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TreeEditor.action_checkbox
+      
+      ~TreeEditor.add_view
+      
+      ~TreeEditor.change_view
+      
+      ~TreeEditor.changeform_view
+      
+      ~TreeEditor.changelist_view
+      
+      ~TreeEditor.check
+      
+      ~TreeEditor.construct_change_message
+      
+      ~TreeEditor.delete_model
+      
+      ~TreeEditor.delete_queryset
+      
+      ~TreeEditor.delete_view
+      
+      ~TreeEditor.formfield_for_choice_field
+      
+      ~TreeEditor.formfield_for_dbfield
+      
+      ~TreeEditor.formfield_for_foreignkey
+      
+      ~TreeEditor.formfield_for_manytomany
+      
+      ~TreeEditor.get_action
+      
+      ~TreeEditor.get_action_choices
+      
+      ~TreeEditor.get_actions
+      
+      ~TreeEditor.get_autocomplete_fields
+      
+      ~TreeEditor.get_changeform_initial_data
+      
+      ~TreeEditor.get_changelist
+      
+      ~TreeEditor.get_changelist_form
+      
+      ~TreeEditor.get_changelist_formset
+      
+      ~TreeEditor.get_changelist_instance
+      
+      ~TreeEditor.get_deleted_objects
+      
+      ~TreeEditor.get_empty_value_display
+      
+      ~TreeEditor.get_exclude
+      
+      ~TreeEditor.get_field_queryset
+      
+      ~TreeEditor.get_fields
+      
+      ~TreeEditor.get_fieldsets
+      
+      ~TreeEditor.get_form
+      
+      ~TreeEditor.get_formsets_with_inlines
+      
+      ~TreeEditor.get_inline_formsets
+      
+      ~TreeEditor.get_inline_instances
+      
+      ~TreeEditor.get_inlines
+      
+      ~TreeEditor.get_list_display
+      
+      ~TreeEditor.get_list_display_links
+      
+      ~TreeEditor.get_list_filter
+      
+      ~TreeEditor.get_list_select_related
+      
+      ~TreeEditor.get_model_perms
+      
+      ~TreeEditor.get_object
+      
+      ~TreeEditor.get_ordering
+      
+      ~TreeEditor.get_paginator
+      
+      ~TreeEditor.get_prepopulated_fields
+      
+      ~TreeEditor.get_preserved_filters
+      
+      ~TreeEditor.get_queryset
+      
+      ~TreeEditor.get_readonly_fields
+      
+      ~TreeEditor.get_search_fields
+      
+      ~TreeEditor.get_search_results
+      
+      ~TreeEditor.get_sortable_by
+      
+      ~TreeEditor.get_urls
+      
+      ~TreeEditor.get_view_on_site_url
+      
+      ~TreeEditor.has_add_permission
+      
+      ~TreeEditor.has_change_permission
+      
+      ~TreeEditor.has_delete_permission
+      
+      ~TreeEditor.has_module_permission
+      
+      ~TreeEditor.has_view_or_change_permission
+      
+      ~TreeEditor.has_view_permission
+      
+      ~TreeEditor.history_view
+      
+      ~TreeEditor.log_addition
+      
+      ~TreeEditor.log_change
+      
+      ~TreeEditor.log_deletion
+      
+      ~TreeEditor.lookup_allowed
+      
+      ~TreeEditor.message_user
+      
+      ~TreeEditor.old_changelist_view
+      
+      ~TreeEditor.render_change_form
+      
+      ~TreeEditor.render_delete_form
+      
+      ~TreeEditor.response_action
+      
+      ~TreeEditor.response_add
+      
+      ~TreeEditor.response_change
+      
+      ~TreeEditor.response_delete
+      
+      ~TreeEditor.response_post_save_add
+      
+      ~TreeEditor.response_post_save_change
+      
+      ~TreeEditor.save_form
+      
+      ~TreeEditor.save_formset
+      
+      ~TreeEditor.save_model
+      
+      ~TreeEditor.save_related
+      
+      ~TreeEditor.to_field_allowed
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TreeEditor.actions
+      
+      ~TreeEditor.actions_on_bottom
+      
+      ~TreeEditor.actions_on_top
+      
+      ~TreeEditor.actions_selection_counter
+      
+      ~TreeEditor.add_form_template
+      
+      ~TreeEditor.autocomplete_fields
+      
+      ~TreeEditor.change_form_template
+      
+      ~TreeEditor.change_list_template
+      
+      ~TreeEditor.date_hierarchy
+      
+      ~TreeEditor.delete_confirmation_template
+      
+      ~TreeEditor.delete_selected_confirmation_template
+      
+      ~TreeEditor.exclude
+      
+      ~TreeEditor.fields
+      
+      ~TreeEditor.filter_horizontal
+      
+      ~TreeEditor.filter_vertical
+      
+      ~TreeEditor.formfield_overrides
+      
+      ~TreeEditor.inlines
+      
+      ~TreeEditor.list_display
+      
+      ~TreeEditor.list_display_links
+      
+      ~TreeEditor.list_editable
+      
+      ~TreeEditor.list_filter
+      
+      ~TreeEditor.list_max_show_all
+      
+      ~TreeEditor.list_per_page
+      
+      ~TreeEditor.list_select_related
+      
+      ~TreeEditor.media
+      
+      ~TreeEditor.object_history_template
+      
+      ~TreeEditor.ordering
+      
+      ~TreeEditor.popup_response_template
+      
+      ~TreeEditor.prepopulated_fields
+      
+      ~TreeEditor.preserve_filters
+      
+      ~TreeEditor.radio_fields
+      
+      ~TreeEditor.raw_id_fields
+      
+      ~TreeEditor.readonly_fields
+      
+      ~TreeEditor.save_as
+      
+      ~TreeEditor.save_as_continue
+      
+      ~TreeEditor.save_on_top
+      
+      ~TreeEditor.search_fields
+      
+      ~TreeEditor.show_full_result_count
+      
+      ~TreeEditor.sortable_by
+      
+      ~TreeEditor.urls
+      
+      ~TreeEditor.view_on_site
+      
+   

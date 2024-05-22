@@ -1,0 +1,135 @@
+.. rst-class:: h4 text-secondary
+
+categories.models.CategoryRelationManager
+
+CategoryRelationManager
+=======================
+
+.. currentmodule:: categories.models
+
+.. autoclass:: CategoryRelationManager
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryRelationManager.aggregate
+      
+      ~CategoryRelationManager.alias
+      
+      ~CategoryRelationManager.all
+      
+      ~CategoryRelationManager.annotate
+      
+      ~CategoryRelationManager.bulk_create
+      
+      ~CategoryRelationManager.bulk_update
+      
+      ~CategoryRelationManager.check
+      
+      ~CategoryRelationManager.complex_filter
+      
+      ~CategoryRelationManager.contribute_to_class
+      
+      ~CategoryRelationManager.count
+      
+      ~CategoryRelationManager.create
+      
+      ~CategoryRelationManager.dates
+      
+      ~CategoryRelationManager.datetimes
+      
+      ~CategoryRelationManager.db_manager
+      
+      ~CategoryRelationManager.deconstruct
+      
+      ~CategoryRelationManager.defer
+      
+      ~CategoryRelationManager.difference
+      
+      ~CategoryRelationManager.distinct
+      
+      ~CategoryRelationManager.earliest
+      
+      ~CategoryRelationManager.exclude
+      
+      ~CategoryRelationManager.exists
+      
+      ~CategoryRelationManager.explain
+      
+      ~CategoryRelationManager.extra
+      
+      ~CategoryRelationManager.filter
+      
+      ~CategoryRelationManager.first
+      
+      ~CategoryRelationManager.from_queryset
+      
+      ~CategoryRelationManager.get
+      
+      ~CategoryRelationManager.get_content_type
+      
+      ~CategoryRelationManager.get_or_create
+      
+      ~CategoryRelationManager.get_queryset
+      
+      ~CategoryRelationManager.get_relation_type
+      
+      ~CategoryRelationManager.in_bulk
+      
+      ~CategoryRelationManager.intersection
+      
+      ~CategoryRelationManager.iterator
+      
+      ~CategoryRelationManager.last
+      
+      ~CategoryRelationManager.latest
+      
+      ~CategoryRelationManager.none
+      
+      ~CategoryRelationManager.only
+      
+      ~CategoryRelationManager.order_by
+      
+      ~CategoryRelationManager.prefetch_related
+      
+      ~CategoryRelationManager.raw
+      
+      ~CategoryRelationManager.reverse
+      
+      ~CategoryRelationManager.select_for_update
+      
+      ~CategoryRelationManager.select_related
+      
+      ~CategoryRelationManager.union
+      
+      ~CategoryRelationManager.update
+      
+      ~CategoryRelationManager.update_or_create
+      
+      ~CategoryRelationManager.using
+      
+      ~CategoryRelationManager.values
+      
+      ~CategoryRelationManager.values_list
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryRelationManager.auto_created
+      
+      ~CategoryRelationManager.creation_counter
+      
+      ~CategoryRelationManager.db
+      
+      ~CategoryRelationManager.use_in_migrations
+      
+   

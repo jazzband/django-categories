@@ -1,0 +1,23 @@
+.. rst-class:: h4 text-secondary
+
+categories.models
+
+models
+======
+.. currentmodule:: categories.models
+
+
+.. automodule:: categories.models
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Category
+      CategoryRelation
+      CategoryRelationManager

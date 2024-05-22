@@ -1,0 +1,23 @@
+.. rst-class:: h4 text-secondary
+
+categories.management
+
+management
+==========
+.. currentmodule:: categories.management
+
+
+.. automodule:: categories.management
+
+   
+
+   .. rubric:: Submodules
+
+   .. autosummary::
+      :toctree:
+      :recursive:
+   
+      categories.management.commands
+   
+   
+   

@@ -1,0 +1,24 @@
+.. rst-class:: h4 text-secondary
+
+categories.base
+
+base
+====
+.. currentmodule:: categories.base
+
+
+.. automodule:: categories.base
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      CategoryBase
+      CategoryBaseAdmin
+      CategoryBaseAdminForm
+      CategoryManager

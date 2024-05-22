@@ -1,0 +1,45 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.templatetags.admin_tree_list_tags.TreeList
+
+TreeList
+========
+
+.. currentmodule:: categories.editor.templatetags.admin_tree_list_tags
+
+.. autoclass:: TreeList
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TreeList.append
+      
+      ~TreeList.clear
+      
+      ~TreeList.copy
+      
+      ~TreeList.count
+      
+      ~TreeList.extend
+      
+      ~TreeList.index
+      
+      ~TreeList.insert
+      
+      ~TreeList.pop
+      
+      ~TreeList.remove
+      
+      ~TreeList.reverse
+      
+      ~TreeList.sort
+      
+   
+   
+
+   
+   
+   

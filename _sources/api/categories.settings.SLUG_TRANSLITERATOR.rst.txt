@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.settings.SLUG_TRANSLITERATOR
+
+SLUG\_TRANSLITERATOR
+====================
+
+.. currentmodule:: categories.settings
+.. autofunction:: SLUG_TRANSLITERATOR

@@ -1,0 +1,133 @@
+.. rst-class:: h4 text-secondary
+
+categories.base.CategoryManager
+
+CategoryManager
+===============
+
+.. currentmodule:: categories.base
+
+.. autoclass:: CategoryManager
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryManager.active
+      
+      ~CategoryManager.aggregate
+      
+      ~CategoryManager.alias
+      
+      ~CategoryManager.all
+      
+      ~CategoryManager.annotate
+      
+      ~CategoryManager.bulk_create
+      
+      ~CategoryManager.bulk_update
+      
+      ~CategoryManager.check
+      
+      ~CategoryManager.complex_filter
+      
+      ~CategoryManager.contribute_to_class
+      
+      ~CategoryManager.count
+      
+      ~CategoryManager.create
+      
+      ~CategoryManager.dates
+      
+      ~CategoryManager.datetimes
+      
+      ~CategoryManager.db_manager
+      
+      ~CategoryManager.deconstruct
+      
+      ~CategoryManager.defer
+      
+      ~CategoryManager.difference
+      
+      ~CategoryManager.distinct
+      
+      ~CategoryManager.earliest
+      
+      ~CategoryManager.exclude
+      
+      ~CategoryManager.exists
+      
+      ~CategoryManager.explain
+      
+      ~CategoryManager.extra
+      
+      ~CategoryManager.filter
+      
+      ~CategoryManager.first
+      
+      ~CategoryManager.from_queryset
+      
+      ~CategoryManager.get
+      
+      ~CategoryManager.get_or_create
+      
+      ~CategoryManager.get_queryset
+      
+      ~CategoryManager.in_bulk
+      
+      ~CategoryManager.intersection
+      
+      ~CategoryManager.iterator
+      
+      ~CategoryManager.last
+      
+      ~CategoryManager.latest
+      
+      ~CategoryManager.none
+      
+      ~CategoryManager.only
+      
+      ~CategoryManager.order_by
+      
+      ~CategoryManager.prefetch_related
+      
+      ~CategoryManager.raw
+      
+      ~CategoryManager.reverse
+      
+      ~CategoryManager.select_for_update
+      
+      ~CategoryManager.select_related
+      
+      ~CategoryManager.union
+      
+      ~CategoryManager.update
+      
+      ~CategoryManager.update_or_create
+      
+      ~CategoryManager.using
+      
+      ~CategoryManager.values
+      
+      ~CategoryManager.values_list
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryManager.auto_created
+      
+      ~CategoryManager.creation_counter
+      
+      ~CategoryManager.db
+      
+      ~CategoryManager.use_in_migrations
+      
+   

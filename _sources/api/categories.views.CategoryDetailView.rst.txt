@@ -1,0 +1,81 @@
+.. rst-class:: h4 text-secondary
+
+categories.views.CategoryDetailView
+
+CategoryDetailView
+==================
+
+.. currentmodule:: categories.views
+
+.. autoclass:: CategoryDetailView
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryDetailView.as_view
+      
+      ~CategoryDetailView.dispatch
+      
+      ~CategoryDetailView.get
+      
+      ~CategoryDetailView.get_context_data
+      
+      ~CategoryDetailView.get_context_object_name
+      
+      ~CategoryDetailView.get_object
+      
+      ~CategoryDetailView.get_queryset
+      
+      ~CategoryDetailView.get_slug_field
+      
+      ~CategoryDetailView.get_template_names
+      
+      ~CategoryDetailView.http_method_not_allowed
+      
+      ~CategoryDetailView.options
+      
+      ~CategoryDetailView.render_to_response
+      
+      ~CategoryDetailView.setup
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryDetailView.content_type
+      
+      ~CategoryDetailView.context_object_name
+      
+      ~CategoryDetailView.extra_context
+      
+      ~CategoryDetailView.http_method_names
+      
+      ~CategoryDetailView.path_field
+      
+      ~CategoryDetailView.pk_url_kwarg
+      
+      ~CategoryDetailView.query_pk_and_slug
+      
+      ~CategoryDetailView.queryset
+      
+      ~CategoryDetailView.slug_field
+      
+      ~CategoryDetailView.slug_url_kwarg
+      
+      ~CategoryDetailView.template_engine
+      
+      ~CategoryDetailView.template_name
+      
+      ~CategoryDetailView.template_name_field
+      
+      ~CategoryDetailView.template_name_suffix
+      
+   

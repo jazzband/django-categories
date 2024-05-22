@@ -1,0 +1,145 @@
+.. rst-class:: h4 text-secondary
+
+categories.genericcollection.GenericCollectionTabularInline
+
+GenericCollectionTabularInline
+==============================
+
+.. currentmodule:: categories.genericcollection
+
+.. autoclass:: GenericCollectionTabularInline
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~GenericCollectionTabularInline.check
+      
+      ~GenericCollectionTabularInline.formfield_for_choice_field
+      
+      ~GenericCollectionTabularInline.formfield_for_dbfield
+      
+      ~GenericCollectionTabularInline.formfield_for_foreignkey
+      
+      ~GenericCollectionTabularInline.formfield_for_manytomany
+      
+      ~GenericCollectionTabularInline.get_autocomplete_fields
+      
+      ~GenericCollectionTabularInline.get_content_types
+      
+      ~GenericCollectionTabularInline.get_empty_value_display
+      
+      ~GenericCollectionTabularInline.get_exclude
+      
+      ~GenericCollectionTabularInline.get_extra
+      
+      ~GenericCollectionTabularInline.get_field_queryset
+      
+      ~GenericCollectionTabularInline.get_fields
+      
+      ~GenericCollectionTabularInline.get_fieldsets
+      
+      ~GenericCollectionTabularInline.get_formset
+      
+      ~GenericCollectionTabularInline.get_inlines
+      
+      ~GenericCollectionTabularInline.get_max_num
+      
+      ~GenericCollectionTabularInline.get_min_num
+      
+      ~GenericCollectionTabularInline.get_ordering
+      
+      ~GenericCollectionTabularInline.get_prepopulated_fields
+      
+      ~GenericCollectionTabularInline.get_queryset
+      
+      ~GenericCollectionTabularInline.get_readonly_fields
+      
+      ~GenericCollectionTabularInline.get_sortable_by
+      
+      ~GenericCollectionTabularInline.get_view_on_site_url
+      
+      ~GenericCollectionTabularInline.has_add_permission
+      
+      ~GenericCollectionTabularInline.has_change_permission
+      
+      ~GenericCollectionTabularInline.has_delete_permission
+      
+      ~GenericCollectionTabularInline.has_module_permission
+      
+      ~GenericCollectionTabularInline.has_view_or_change_permission
+      
+      ~GenericCollectionTabularInline.has_view_permission
+      
+      ~GenericCollectionTabularInline.lookup_allowed
+      
+      ~GenericCollectionTabularInline.to_field_allowed
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~GenericCollectionTabularInline.autocomplete_fields
+      
+      ~GenericCollectionTabularInline.can_delete
+      
+      ~GenericCollectionTabularInline.classes
+      
+      ~GenericCollectionTabularInline.ct_field
+      
+      ~GenericCollectionTabularInline.ct_fk_field
+      
+      ~GenericCollectionTabularInline.exclude
+      
+      ~GenericCollectionTabularInline.extra
+      
+      ~GenericCollectionTabularInline.fields
+      
+      ~GenericCollectionTabularInline.filter_horizontal
+      
+      ~GenericCollectionTabularInline.filter_vertical
+      
+      ~GenericCollectionTabularInline.fk_name
+      
+      ~GenericCollectionTabularInline.formfield_overrides
+      
+      ~GenericCollectionTabularInline.max_num
+      
+      ~GenericCollectionTabularInline.media
+      
+      ~GenericCollectionTabularInline.min_num
+      
+      ~GenericCollectionTabularInline.model
+      
+      ~GenericCollectionTabularInline.ordering
+      
+      ~GenericCollectionTabularInline.prepopulated_fields
+      
+      ~GenericCollectionTabularInline.radio_fields
+      
+      ~GenericCollectionTabularInline.raw_id_fields
+      
+      ~GenericCollectionTabularInline.readonly_fields
+      
+      ~GenericCollectionTabularInline.show_change_link
+      
+      ~GenericCollectionTabularInline.show_full_result_count
+      
+      ~GenericCollectionTabularInline.sortable_by
+      
+      ~GenericCollectionTabularInline.template
+      
+      ~GenericCollectionTabularInline.verbose_name
+      
+      ~GenericCollectionTabularInline.verbose_name_plural
+      
+      ~GenericCollectionTabularInline.view_on_site
+      
+   

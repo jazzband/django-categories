@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.views.category_detail
+
+category\_detail
+================
+
+.. currentmodule:: categories.views
+.. autofunction:: category_detail

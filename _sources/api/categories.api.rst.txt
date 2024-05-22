@@ -1,0 +1,14 @@
+.. rst-class:: h4 text-secondary
+
+categories.api
+
+api
+===
+.. currentmodule:: categories.api
+
+
+.. automodule:: categories.api
+
+   
+   
+   

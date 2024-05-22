@@ -1,0 +1,22 @@
+.. rst-class:: h4 text-secondary
+
+categories.fields
+
+fields
+======
+.. currentmodule:: categories.fields
+
+
+.. automodule:: categories.fields
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      CategoryFKField
+      CategoryM2MField

@@ -1,0 +1,109 @@
+.. rst-class:: h4 text-secondary
+
+categories.base.CategoryBase
+
+CategoryBase
+============
+
+.. currentmodule:: categories.base
+
+.. autoclass:: CategoryBase
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryBase.check
+      
+      ~CategoryBase.clean
+      
+      ~CategoryBase.clean_fields
+      
+      ~CategoryBase.date_error_message
+      
+      ~CategoryBase.delete
+      
+      ~CategoryBase.from_db
+      
+      ~CategoryBase.full_clean
+      
+      ~CategoryBase.get_ancestors
+      
+      ~CategoryBase.get_children
+      
+      ~CategoryBase.get_deferred_fields
+      
+      ~CategoryBase.get_descendant_count
+      
+      ~CategoryBase.get_descendants
+      
+      ~CategoryBase.get_family
+      
+      ~CategoryBase.get_leafnodes
+      
+      ~CategoryBase.get_level
+      
+      ~CategoryBase.get_next_sibling
+      
+      ~CategoryBase.get_previous_sibling
+      
+      ~CategoryBase.get_root
+      
+      ~CategoryBase.get_siblings
+      
+      ~CategoryBase.insert_at
+      
+      ~CategoryBase.is_ancestor_of
+      
+      ~CategoryBase.is_child_node
+      
+      ~CategoryBase.is_descendant_of
+      
+      ~CategoryBase.is_leaf_node
+      
+      ~CategoryBase.is_root_node
+      
+      ~CategoryBase.move_to
+      
+      ~CategoryBase.prepare_database_save
+      
+      ~CategoryBase.refresh_from_db
+      
+      ~CategoryBase.save
+      
+      ~CategoryBase.save_base
+      
+      ~CategoryBase.serializable_value
+      
+      ~CategoryBase.unique_error_message
+      
+      ~CategoryBase.validate_unique
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryBase.active
+      
+      ~CategoryBase.name
+      
+      ~CategoryBase.objects
+      
+      ~CategoryBase.parent
+      
+      ~CategoryBase.parent_id
+      
+      ~CategoryBase.pk
+      
+      ~CategoryBase.slug
+      
+      ~CategoryBase.tree
+      
+   

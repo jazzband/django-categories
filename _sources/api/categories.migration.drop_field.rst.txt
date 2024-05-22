@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.migration.drop_field
+
+drop\_field
+===========
+
+.. currentmodule:: categories.migration
+.. autofunction:: drop_field

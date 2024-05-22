@@ -1,0 +1,61 @@
+.. rst-class:: h4 text-secondary
+
+categories.admin.NullTreeNodeChoiceField
+
+NullTreeNodeChoiceField
+=======================
+
+.. currentmodule:: categories.admin
+
+.. autoclass:: NullTreeNodeChoiceField
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~NullTreeNodeChoiceField.bound_data
+      
+      ~NullTreeNodeChoiceField.clean
+      
+      ~NullTreeNodeChoiceField.get_bound_field
+      
+      ~NullTreeNodeChoiceField.get_limit_choices_to
+      
+      ~NullTreeNodeChoiceField.has_changed
+      
+      ~NullTreeNodeChoiceField.label_from_instance
+      
+      ~NullTreeNodeChoiceField.prepare_value
+      
+      ~NullTreeNodeChoiceField.run_validators
+      
+      ~NullTreeNodeChoiceField.to_python
+      
+      ~NullTreeNodeChoiceField.valid_value
+      
+      ~NullTreeNodeChoiceField.validate
+      
+      ~NullTreeNodeChoiceField.widget_attrs
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~NullTreeNodeChoiceField.choices
+      
+      ~NullTreeNodeChoiceField.default_error_messages
+      
+      ~NullTreeNodeChoiceField.default_validators
+      
+      ~NullTreeNodeChoiceField.empty_values
+      
+      ~NullTreeNodeChoiceField.queryset
+      
+   

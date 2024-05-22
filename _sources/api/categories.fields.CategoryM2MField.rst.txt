@@ -1,0 +1,183 @@
+.. rst-class:: h4 text-secondary
+
+categories.fields.CategoryM2MField
+
+CategoryM2MField
+================
+
+.. currentmodule:: categories.fields
+
+.. autoclass:: CategoryM2MField
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryM2MField.cast_db_type
+      
+      ~CategoryM2MField.check
+      
+      ~CategoryM2MField.clean
+      
+      ~CategoryM2MField.clone
+      
+      ~CategoryM2MField.contribute_to_class
+      
+      ~CategoryM2MField.contribute_to_related_class
+      
+      ~CategoryM2MField.db_check
+      
+      ~CategoryM2MField.db_parameters
+      
+      ~CategoryM2MField.db_type
+      
+      ~CategoryM2MField.db_type_parameters
+      
+      ~CategoryM2MField.db_type_suffix
+      
+      ~CategoryM2MField.deconstruct
+      
+      ~CategoryM2MField.delete_cached_value
+      
+      ~CategoryM2MField.do_related_class
+      
+      ~CategoryM2MField.formfield
+      
+      ~CategoryM2MField.get_attname
+      
+      ~CategoryM2MField.get_attname_column
+      
+      ~CategoryM2MField.get_cache_name
+      
+      ~CategoryM2MField.get_cached_value
+      
+      ~CategoryM2MField.get_choices
+      
+      ~CategoryM2MField.get_col
+      
+      ~CategoryM2MField.get_db_converters
+      
+      ~CategoryM2MField.get_db_prep_save
+      
+      ~CategoryM2MField.get_db_prep_value
+      
+      ~CategoryM2MField.get_default
+      
+      ~CategoryM2MField.get_filter_kwargs_for_object
+      
+      ~CategoryM2MField.get_forward_related_filter
+      
+      ~CategoryM2MField.get_internal_type
+      
+      ~CategoryM2MField.get_limit_choices_to
+      
+      ~CategoryM2MField.get_lookup
+      
+      ~CategoryM2MField.get_lookups
+      
+      ~CategoryM2MField.get_path_info
+      
+      ~CategoryM2MField.get_pk_value_on_save
+      
+      ~CategoryM2MField.get_prep_value
+      
+      ~CategoryM2MField.get_reverse_path_info
+      
+      ~CategoryM2MField.get_reverse_related_filter
+      
+      ~CategoryM2MField.get_transform
+      
+      ~CategoryM2MField.has_default
+      
+      ~CategoryM2MField.is_cached
+      
+      ~CategoryM2MField.merge_dicts
+      
+      ~CategoryM2MField.pre_save
+      
+      ~CategoryM2MField.register_lookup
+      
+      ~CategoryM2MField.rel_db_type
+      
+      ~CategoryM2MField.related_query_name
+      
+      ~CategoryM2MField.run_validators
+      
+      ~CategoryM2MField.save_form_data
+      
+      ~CategoryM2MField.select_format
+      
+      ~CategoryM2MField.set_attributes_from_name
+      
+      ~CategoryM2MField.set_attributes_from_rel
+      
+      ~CategoryM2MField.set_cached_value
+      
+      ~CategoryM2MField.to_python
+      
+      ~CategoryM2MField.validate
+      
+      ~CategoryM2MField.value_from_object
+      
+      ~CategoryM2MField.value_to_string
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryM2MField.auto_creation_counter
+      
+      ~CategoryM2MField.cached_col
+      
+      ~CategoryM2MField.class_lookups
+      
+      ~CategoryM2MField.creation_counter
+      
+      ~CategoryM2MField.db_returning
+      
+      ~CategoryM2MField.db_tablespace
+      
+      ~CategoryM2MField.default_error_messages
+      
+      ~CategoryM2MField.default_validators
+      
+      ~CategoryM2MField.description
+      
+      ~CategoryM2MField.empty_strings_allowed
+      
+      ~CategoryM2MField.empty_values
+      
+      ~CategoryM2MField.flatchoices
+      
+      ~CategoryM2MField.hidden
+      
+      ~CategoryM2MField.many_to_many
+      
+      ~CategoryM2MField.many_to_one
+      
+      ~CategoryM2MField.one_to_many
+      
+      ~CategoryM2MField.one_to_one
+      
+      ~CategoryM2MField.related_model
+      
+      ~CategoryM2MField.swappable_setting
+      
+      ~CategoryM2MField.system_check_deprecated_details
+      
+      ~CategoryM2MField.system_check_removed_details
+      
+      ~CategoryM2MField.target_field
+      
+      ~CategoryM2MField.unique
+      
+      ~CategoryM2MField.validators
+      
+   

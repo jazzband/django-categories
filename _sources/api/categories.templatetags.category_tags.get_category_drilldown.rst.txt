@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.get_category_drilldown
+
+get\_category\_drilldown
+========================
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: get_category_drilldown

@@ -1,0 +1,43 @@
+.. rst-class:: h4 text-secondary
+
+categories.apps.CategoriesConfig
+
+CategoriesConfig
+================
+
+.. currentmodule:: categories.apps
+
+.. autoclass:: CategoriesConfig
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoriesConfig.create
+      
+      ~CategoriesConfig.get_model
+      
+      ~CategoriesConfig.get_models
+      
+      ~CategoriesConfig.import_models
+      
+      ~CategoriesConfig.ready
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoriesConfig.default_auto_field
+      
+      ~CategoriesConfig.name
+      
+      ~CategoriesConfig.verbose_name
+      
+   

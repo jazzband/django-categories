@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CategoryBase &#8212; Django Categories 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ea07567a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/categories.base.CategoryBase';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CategoryBaseAdmin" href="categories.base.CategoryBaseAdmin.html" />
+    <link rel="prev" title="base" href="categories.base.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Django Categories 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="categories.html">categories</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.admin.html">admin</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.admin.CategoryAdmin.html">CategoryAdmin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.admin.CategoryAdminForm.html">CategoryAdminForm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.admin.InlineCategoryRelation.html">InlineCategoryRelation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.admin.NullTreeNodeChoiceField.html">NullTreeNodeChoiceField</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="categories.api.html">api</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.apps.html">apps</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.apps.handle_class_prepared.html">handle_class_prepared</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.apps.CategoriesConfig.html">CategoriesConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="categories.base.html">base</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">CategoryBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.base.CategoryBaseAdmin.html">CategoryBaseAdmin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.base.CategoryBaseAdminForm.html">CategoryBaseAdminForm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.base.CategoryManager.html">CategoryManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.editor.html">editor</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.editor.models.html">models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.editor.settings.html">settings</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="categories.editor.templatetags.html">templatetags</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="categories.editor.templatetags.admin_tree_list_tags.html">admin_tree_list_tags</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="categories.editor.tree_editor.html">tree_editor</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="categories.editor.tree_editor.TreeChangeList.html">TreeChangeList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.editor.tree_editor.TreeEditor.html">TreeEditor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.editor.tree_editor.TreeEditorQuerySet.html">TreeEditorQuerySet</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="categories.editor.utils.html">utils</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="categories.editor.utils.display_for_field.html">display_for_field</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.fields.html">fields</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.fields.CategoryFKField.html">CategoryFKField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.fields.CategoryM2MField.html">CategoryM2MField</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.genericcollection.html">genericcollection</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.genericcollection.GenericCollectionInlineModelAdmin.html">GenericCollectionInlineModelAdmin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.genericcollection.GenericCollectionStackedInline.html">GenericCollectionStackedInline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.genericcollection.GenericCollectionTabularInline.html">GenericCollectionTabularInline</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.management.html">management</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="categories.management.commands.html">commands</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="categories.management.commands.add_category_fields.html">add_category_fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.management.commands.drop_category_field.html">drop_category_field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.management.commands.import_categories.html">import_categories</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.migration.html">migration</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.migration.drop_field.html">drop_field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.migration.field_exists.html">field_exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.migration.migrate_app.html">migrate_app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.migration.table_exists.html">table_exists</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.models.html">models</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.models.Category.html">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.models.CategoryRelation.html">CategoryRelation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.models.CategoryRelationManager.html">CategoryRelationManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.registration.html">registration</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.registration.Registry.html">Registry</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.settings.html">settings</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.settings.SLUG_TRANSLITERATOR.html">SLUG_TRANSLITERATOR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.templatetags.html">templatetags</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="categories.templatetags.category_tags.html">category_tags</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.breadcrumbs.html">breadcrumbs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.display_drilldown_as_ul.html">display_drilldown_as_ul</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.display_path_as_ul.html">display_path_as_ul</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.do_get_latest_objects_by_category.html">do_get_latest_objects_by_category</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.get_cat_model.html">get_cat_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.get_category.html">get_category</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.get_category_drilldown.html">get_category_drilldown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.get_latest_objects_by_category.html">get_latest_objects_by_category</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.get_top_level_categories.html">get_top_level_categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.recursetree.html">recursetree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.resolve.html">resolve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.tree_queryset.html">tree_queryset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.CategoryDrillDownNode.html">CategoryDrillDownNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.LatestObjectsNode.html">LatestObjectsNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="categories.templatetags.category_tags.TopLevelCategoriesNode.html">TopLevelCategoriesNode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="categories.urls.html">urls</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.utils.html">utils</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.utils.slugify.html">slugify</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="categories.views.html">views</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="categories.views.category_detail.html">category_detail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.views.get_category_for_path.html">get_category_for_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.views.CategoryDetailView.html">CategoryDetailView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.views.CategoryRelatedDetail.html">CategoryRelatedDetail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="categories.views.CategoryRelatedList.html">CategoryRelatedList</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="categories.base.html" class="nav-link">base</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">CategoryBase</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p class="h4 text-secondary">categories.base.CategoryBase</p>
+<section id="categorybase">
+<h1>CategoryBase<a class="headerlink" href="#categorybase" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="categories.base.CategoryBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">categories.base.</span></span><span class="sig-name descname"><span class="pre">CategoryBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/categories/base.html#CategoryBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#categories.base.CategoryBase" title="Link to this definition">#</a></dt>
+<dd><p>This base model includes the absolute bare-bones fields and methods.</p>
+<p>One could simply subclass this model, do nothing else, and it should work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/5.0/_objects/ref/models/fields/#django.db.models.CharField" title="(in Django v5.0)"><em>CharField</em></a>) – Name</p></li>
+<li><p><strong>slug</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/5.0/_objects/ref/models/fields/#django.db.models.SlugField" title="(in Django v5.0)"><em>SlugField</em></a>) – Slug</p></li>
+<li><p><strong>active</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/5.0/_objects/ref/models/fields/#django.db.models.BooleanField" title="(in Django v5.0)"><em>BooleanField</em></a>) – Active</p></li>
+</ul>
+</dd>
+</dl>
+<p>Relationship fields:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TreeForeignKey</span></code> to <a class="reference internal" href="#categories.base.CategoryBase" title="categories.base.CategoryBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryBase</span></code></a>) – Parent</p>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean</span></code>()</p></td>
+<td><p>Hook for doing any extra model-wide validation after clean() has been called on every field by self.clean_fields.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean_fields</span></code>([exclude])</p></td>
+<td><p>Clean all fields and raise a ValidationError containing a dict of all validation errors if any occur.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">date_error_message</span></code>(lookup_type, field_name, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete</span></code>(*args, **kwargs)</p></td>
+<td><p>Calling <code class="docutils literal notranslate"><span class="pre">delete</span></code> on a node will delete it as well as its full subtree, as opposed to reattaching all the subnodes to its parent node.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_db</span></code>(db, field_names, values)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_clean</span></code>([exclude, validate_unique])</p></td>
+<td><p>Call clean_fields(), clean(), and validate_unique() on the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ancestors</span></code>([ascending, include_self])</p></td>
+<td><p>Creates a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> containing the ancestors of this model instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_children</span></code>()</p></td>
+<td><p>Returns a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> containing the immediate children of this model instance, in tree order.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deferred_fields</span></code>()</p></td>
+<td><p>Return a set containing names of deferred fields for this instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_descendant_count</span></code>()</p></td>
+<td><p>Returns the number of descendants this model instance has.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_descendants</span></code>([include_self])</p></td>
+<td><p>Creates a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> containing descendants of this model instance, in tree order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_family</span></code>()</p></td>
+<td><p>Returns a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> containing the ancestors, the model itself and the descendants, in tree order.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leafnodes</span></code>([include_self])</p></td>
+<td><p>Creates a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> containing leafnodes of this model instance, in tree order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_level</span></code>()</p></td>
+<td><p>Returns the level of this node (distance from root)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_next_sibling</span></code>(*filter_args, **filter_kwargs)</p></td>
+<td><p>Returns this model instance's next sibling in the tree, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it doesn't have a next sibling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_previous_sibling</span></code>(*filter_args, ...)</p></td>
+<td><p>Returns this model instance's previous sibling in the tree, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it doesn't have a previous sibling.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_root</span></code>()</p></td>
+<td><p>Returns the root node of this model instance's tree.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_siblings</span></code>([include_self])</p></td>
+<td><p>Creates a <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> containing siblings of this model instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_at</span></code>(target[, position, save, ...])</p></td>
+<td><p>Convenience method for calling <code class="docutils literal notranslate"><span class="pre">TreeManager.insert_node</span></code> with this model instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ancestor_of</span></code>(other[, include_self])</p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if this model is an ancestor of the given node, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_child_node</span></code>()</p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if this model instance is a child node, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_descendant_of</span></code>(other[, include_self])</p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if this model is a descendant of the given node, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_leaf_node</span></code>()</p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if this model instance is a leaf node (it has no children), <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_root_node</span></code>()</p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if this model instance is a root node, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_to</span></code>(target[, position])</p></td>
+<td><p>Convenience method for calling <code class="docutils literal notranslate"><span class="pre">TreeManager.move_node</span></code> with this model instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_database_save</span></code>(field)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">refresh_from_db</span></code>([using, fields])</p></td>
+<td><p>Reload field values from the database.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code>(*args, **kwargs)</p></td>
+<td><p>Save the category.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_base</span></code>([raw, force_insert, force_update, ...])</p></td>
+<td><p>Handle the parts of saving which should be done only once per save, yet need to be done in raw saves, too.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">serializable_value</span></code>(field_name)</p></td>
+<td><p>Return the value of the field name for this instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique_error_message</span></code>(model_class, unique_check)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_unique</span></code>([exclude])</p></td>
+<td><p>Check unique constraints on the model and raise ValidationError if any failed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">active</span></code></p></td>
+<td><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/5.0/_objects/ref/models/fields/#django.db.models.BooleanField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/5.0/_objects/ref/models/fields/#django.db.models.CharField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">objects</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parent</span></code></p></td>
+<td><p>Type: <code class="xref py py-class docutils literal notranslate"><span class="pre">TreeForeignKey</span></code> to <a class="reference internal" href="#categories.base.CategoryBase" title="categories.base.CategoryBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryBase</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parent_id</span></code></p></td>
+<td><p>Internal field, use <code class="xref py py-class docutils literal notranslate"><span class="pre">parent</span></code> instead.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pk</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">slug</span></code></p></td>
+<td><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/5.0/_objects/ref/models/fields/#django.db.models.SlugField" title="(in Django v5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlugField</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="categories.base.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">base</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="categories.base.CategoryBaseAdmin.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CategoryBaseAdmin</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories.base.CategoryBase"><code class="docutils literal notranslate"><span class="pre">CategoryBase</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/categories.base.CategoryBase.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2010-2024, Corey Oordt.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

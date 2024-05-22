@@ -1,0 +1,31 @@
+.. rst-class:: h4 text-secondary
+
+categories.views
+
+views
+=====
+.. currentmodule:: categories.views
+
+
+.. automodule:: categories.views
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      category_detail
+      get_category_for_path
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      CategoryDetailView
+      CategoryRelatedDetail
+      CategoryRelatedList

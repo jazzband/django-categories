@@ -1,0 +1,23 @@
+.. rst-class:: h4 text-secondary
+
+categories.genericcollection
+
+genericcollection
+=================
+.. currentmodule:: categories.genericcollection
+
+
+.. automodule:: categories.genericcollection
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      GenericCollectionInlineModelAdmin
+      GenericCollectionStackedInline
+      GenericCollectionTabularInline

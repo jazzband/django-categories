@@ -1,0 +1,143 @@
+.. rst-class:: h4 text-secondary
+
+categories.admin.InlineCategoryRelation
+
+InlineCategoryRelation
+======================
+
+.. currentmodule:: categories.admin
+
+.. autoclass:: InlineCategoryRelation
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~InlineCategoryRelation.check
+      
+      ~InlineCategoryRelation.formfield_for_choice_field
+      
+      ~InlineCategoryRelation.formfield_for_dbfield
+      
+      ~InlineCategoryRelation.formfield_for_foreignkey
+      
+      ~InlineCategoryRelation.formfield_for_manytomany
+      
+      ~InlineCategoryRelation.get_autocomplete_fields
+      
+      ~InlineCategoryRelation.get_content_types
+      
+      ~InlineCategoryRelation.get_empty_value_display
+      
+      ~InlineCategoryRelation.get_exclude
+      
+      ~InlineCategoryRelation.get_extra
+      
+      ~InlineCategoryRelation.get_field_queryset
+      
+      ~InlineCategoryRelation.get_fields
+      
+      ~InlineCategoryRelation.get_fieldsets
+      
+      ~InlineCategoryRelation.get_formset
+      
+      ~InlineCategoryRelation.get_inlines
+      
+      ~InlineCategoryRelation.get_max_num
+      
+      ~InlineCategoryRelation.get_min_num
+      
+      ~InlineCategoryRelation.get_ordering
+      
+      ~InlineCategoryRelation.get_prepopulated_fields
+      
+      ~InlineCategoryRelation.get_queryset
+      
+      ~InlineCategoryRelation.get_readonly_fields
+      
+      ~InlineCategoryRelation.get_sortable_by
+      
+      ~InlineCategoryRelation.get_view_on_site_url
+      
+      ~InlineCategoryRelation.has_add_permission
+      
+      ~InlineCategoryRelation.has_change_permission
+      
+      ~InlineCategoryRelation.has_delete_permission
+      
+      ~InlineCategoryRelation.has_module_permission
+      
+      ~InlineCategoryRelation.has_view_or_change_permission
+      
+      ~InlineCategoryRelation.has_view_permission
+      
+      ~InlineCategoryRelation.lookup_allowed
+      
+      ~InlineCategoryRelation.to_field_allowed
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~InlineCategoryRelation.autocomplete_fields
+      
+      ~InlineCategoryRelation.can_delete
+      
+      ~InlineCategoryRelation.classes
+      
+      ~InlineCategoryRelation.ct_field
+      
+      ~InlineCategoryRelation.ct_fk_field
+      
+      ~InlineCategoryRelation.exclude
+      
+      ~InlineCategoryRelation.extra
+      
+      ~InlineCategoryRelation.fields
+      
+      ~InlineCategoryRelation.filter_horizontal
+      
+      ~InlineCategoryRelation.filter_vertical
+      
+      ~InlineCategoryRelation.fk_name
+      
+      ~InlineCategoryRelation.formfield_overrides
+      
+      ~InlineCategoryRelation.max_num
+      
+      ~InlineCategoryRelation.media
+      
+      ~InlineCategoryRelation.min_num
+      
+      ~InlineCategoryRelation.ordering
+      
+      ~InlineCategoryRelation.prepopulated_fields
+      
+      ~InlineCategoryRelation.radio_fields
+      
+      ~InlineCategoryRelation.raw_id_fields
+      
+      ~InlineCategoryRelation.readonly_fields
+      
+      ~InlineCategoryRelation.show_change_link
+      
+      ~InlineCategoryRelation.show_full_result_count
+      
+      ~InlineCategoryRelation.sortable_by
+      
+      ~InlineCategoryRelation.template
+      
+      ~InlineCategoryRelation.verbose_name
+      
+      ~InlineCategoryRelation.verbose_name_plural
+      
+      ~InlineCategoryRelation.view_on_site
+      
+   

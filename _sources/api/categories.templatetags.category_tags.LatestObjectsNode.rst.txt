@@ -1,0 +1,39 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.LatestObjectsNode
+
+LatestObjectsNode
+=================
+
+.. currentmodule:: categories.templatetags.category_tags
+
+.. autoclass:: LatestObjectsNode
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~LatestObjectsNode.get_nodes_by_type
+      
+      ~LatestObjectsNode.render
+      
+      ~LatestObjectsNode.render_annotated
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LatestObjectsNode.child_nodelists
+      
+      ~LatestObjectsNode.must_be_first
+      
+      ~LatestObjectsNode.token
+      
+   

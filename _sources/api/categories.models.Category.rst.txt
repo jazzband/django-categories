@@ -1,0 +1,161 @@
+.. rst-class:: h4 text-secondary
+
+categories.models.Category
+
+Category
+========
+
+.. currentmodule:: categories.models
+
+.. autoclass:: Category
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Category.check
+      
+      ~Category.clean
+      
+      ~Category.clean_fields
+      
+      ~Category.date_error_message
+      
+      ~Category.delete
+      
+      ~Category.from_db
+      
+      ~Category.full_clean
+      
+      ~Category.get_absolute_url
+      
+      ~Category.get_ancestors
+      
+      ~Category.get_children
+      
+      ~Category.get_deferred_fields
+      
+      ~Category.get_descendant_count
+      
+      ~Category.get_descendants
+      
+      ~Category.get_family
+      
+      ~Category.get_leafnodes
+      
+      ~Category.get_level
+      
+      ~Category.get_next_sibling
+      
+      ~Category.get_previous_sibling
+      
+      ~Category.get_related_content_type
+      
+      ~Category.get_relation_type
+      
+      ~Category.get_root
+      
+      ~Category.get_siblings
+      
+      ~Category.insert_at
+      
+      ~Category.is_ancestor_of
+      
+      ~Category.is_child_node
+      
+      ~Category.is_descendant_of
+      
+      ~Category.is_leaf_node
+      
+      ~Category.is_root_node
+      
+      ~Category.move_to
+      
+      ~Category.prepare_database_save
+      
+      ~Category.refresh_from_db
+      
+      ~Category.save
+      
+      ~Category.save_base
+      
+      ~Category.serializable_value
+      
+      ~Category.unique_error_message
+      
+      ~Category.validate_unique
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Category.active
+      
+      ~Category.alternate_title
+      
+      ~Category.alternate_url
+      
+      ~Category.categoryrelation_set
+      
+      ~Category.children
+      
+      ~Category.description
+      
+      ~Category.flatpage_set
+      
+      ~Category.id
+      
+      ~Category.level
+      
+      ~Category.lft
+      
+      ~Category.m2mcats
+      
+      ~Category.meta_extra
+      
+      ~Category.meta_keywords
+      
+      ~Category.more_cats
+      
+      ~Category.name
+      
+      ~Category.objects
+      
+      ~Category.order
+      
+      ~Category.other_cats
+      
+      ~Category.parent
+      
+      ~Category.parent_id
+      
+      ~Category.pk
+      
+      ~Category.rght
+      
+      ~Category.short_title
+      
+      ~Category.simpletext_sec_cat
+      
+      ~Category.simpletext_set
+      
+      ~Category.slug
+      
+      ~Category.thumbnail
+      
+      ~Category.thumbnail_height
+      
+      ~Category.thumbnail_width
+      
+      ~Category.tree
+      
+      ~Category.tree_id
+      
+   

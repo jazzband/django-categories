@@ -1,0 +1,145 @@
+.. rst-class:: h4 text-secondary
+
+categories.genericcollection.GenericCollectionInlineModelAdmin
+
+GenericCollectionInlineModelAdmin
+=================================
+
+.. currentmodule:: categories.genericcollection
+
+.. autoclass:: GenericCollectionInlineModelAdmin
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~GenericCollectionInlineModelAdmin.check
+      
+      ~GenericCollectionInlineModelAdmin.formfield_for_choice_field
+      
+      ~GenericCollectionInlineModelAdmin.formfield_for_dbfield
+      
+      ~GenericCollectionInlineModelAdmin.formfield_for_foreignkey
+      
+      ~GenericCollectionInlineModelAdmin.formfield_for_manytomany
+      
+      ~GenericCollectionInlineModelAdmin.get_autocomplete_fields
+      
+      ~GenericCollectionInlineModelAdmin.get_content_types
+      
+      ~GenericCollectionInlineModelAdmin.get_empty_value_display
+      
+      ~GenericCollectionInlineModelAdmin.get_exclude
+      
+      ~GenericCollectionInlineModelAdmin.get_extra
+      
+      ~GenericCollectionInlineModelAdmin.get_field_queryset
+      
+      ~GenericCollectionInlineModelAdmin.get_fields
+      
+      ~GenericCollectionInlineModelAdmin.get_fieldsets
+      
+      ~GenericCollectionInlineModelAdmin.get_formset
+      
+      ~GenericCollectionInlineModelAdmin.get_inlines
+      
+      ~GenericCollectionInlineModelAdmin.get_max_num
+      
+      ~GenericCollectionInlineModelAdmin.get_min_num
+      
+      ~GenericCollectionInlineModelAdmin.get_ordering
+      
+      ~GenericCollectionInlineModelAdmin.get_prepopulated_fields
+      
+      ~GenericCollectionInlineModelAdmin.get_queryset
+      
+      ~GenericCollectionInlineModelAdmin.get_readonly_fields
+      
+      ~GenericCollectionInlineModelAdmin.get_sortable_by
+      
+      ~GenericCollectionInlineModelAdmin.get_view_on_site_url
+      
+      ~GenericCollectionInlineModelAdmin.has_add_permission
+      
+      ~GenericCollectionInlineModelAdmin.has_change_permission
+      
+      ~GenericCollectionInlineModelAdmin.has_delete_permission
+      
+      ~GenericCollectionInlineModelAdmin.has_module_permission
+      
+      ~GenericCollectionInlineModelAdmin.has_view_or_change_permission
+      
+      ~GenericCollectionInlineModelAdmin.has_view_permission
+      
+      ~GenericCollectionInlineModelAdmin.lookup_allowed
+      
+      ~GenericCollectionInlineModelAdmin.to_field_allowed
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~GenericCollectionInlineModelAdmin.autocomplete_fields
+      
+      ~GenericCollectionInlineModelAdmin.can_delete
+      
+      ~GenericCollectionInlineModelAdmin.classes
+      
+      ~GenericCollectionInlineModelAdmin.ct_field
+      
+      ~GenericCollectionInlineModelAdmin.ct_fk_field
+      
+      ~GenericCollectionInlineModelAdmin.exclude
+      
+      ~GenericCollectionInlineModelAdmin.extra
+      
+      ~GenericCollectionInlineModelAdmin.fields
+      
+      ~GenericCollectionInlineModelAdmin.filter_horizontal
+      
+      ~GenericCollectionInlineModelAdmin.filter_vertical
+      
+      ~GenericCollectionInlineModelAdmin.fk_name
+      
+      ~GenericCollectionInlineModelAdmin.formfield_overrides
+      
+      ~GenericCollectionInlineModelAdmin.max_num
+      
+      ~GenericCollectionInlineModelAdmin.media
+      
+      ~GenericCollectionInlineModelAdmin.min_num
+      
+      ~GenericCollectionInlineModelAdmin.model
+      
+      ~GenericCollectionInlineModelAdmin.ordering
+      
+      ~GenericCollectionInlineModelAdmin.prepopulated_fields
+      
+      ~GenericCollectionInlineModelAdmin.radio_fields
+      
+      ~GenericCollectionInlineModelAdmin.raw_id_fields
+      
+      ~GenericCollectionInlineModelAdmin.readonly_fields
+      
+      ~GenericCollectionInlineModelAdmin.show_change_link
+      
+      ~GenericCollectionInlineModelAdmin.show_full_result_count
+      
+      ~GenericCollectionInlineModelAdmin.sortable_by
+      
+      ~GenericCollectionInlineModelAdmin.template
+      
+      ~GenericCollectionInlineModelAdmin.verbose_name
+      
+      ~GenericCollectionInlineModelAdmin.verbose_name_plural
+      
+      ~GenericCollectionInlineModelAdmin.view_on_site
+      
+   

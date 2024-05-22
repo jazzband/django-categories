@@ -1,0 +1,45 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.tree_editor.TreeChangeList
+
+TreeChangeList
+==============
+
+.. currentmodule:: categories.editor.tree_editor
+
+.. autoclass:: TreeChangeList
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TreeChangeList.apply_select_related
+      
+      ~TreeChangeList.get_filters
+      
+      ~TreeChangeList.get_filters_params
+      
+      ~TreeChangeList.get_ordering
+      
+      ~TreeChangeList.get_ordering_field
+      
+      ~TreeChangeList.get_ordering_field_columns
+      
+      ~TreeChangeList.get_query_string
+      
+      ~TreeChangeList.get_queryset
+      
+      ~TreeChangeList.get_results
+      
+      ~TreeChangeList.has_related_field_in_list_display
+      
+      ~TreeChangeList.url_for_result
+      
+   
+   
+
+   
+   
+   

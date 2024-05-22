@@ -1,0 +1,211 @@
+.. rst-class:: h4 text-secondary
+
+categories.fields.CategoryFKField
+
+CategoryFKField
+===============
+
+.. currentmodule:: categories.fields
+
+.. autoclass:: CategoryFKField
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryFKField.cast_db_type
+      
+      ~CategoryFKField.check
+      
+      ~CategoryFKField.clean
+      
+      ~CategoryFKField.clone
+      
+      ~CategoryFKField.contribute_to_class
+      
+      ~CategoryFKField.contribute_to_related_class
+      
+      ~CategoryFKField.convert_empty_strings
+      
+      ~CategoryFKField.db_check
+      
+      ~CategoryFKField.db_parameters
+      
+      ~CategoryFKField.db_type
+      
+      ~CategoryFKField.db_type_parameters
+      
+      ~CategoryFKField.db_type_suffix
+      
+      ~CategoryFKField.deconstruct
+      
+      ~CategoryFKField.delete_cached_value
+      
+      ~CategoryFKField.do_related_class
+      
+      ~CategoryFKField.formfield
+      
+      ~CategoryFKField.get_attname
+      
+      ~CategoryFKField.get_attname_column
+      
+      ~CategoryFKField.get_cache_name
+      
+      ~CategoryFKField.get_cached_value
+      
+      ~CategoryFKField.get_choices
+      
+      ~CategoryFKField.get_col
+      
+      ~CategoryFKField.get_db_converters
+      
+      ~CategoryFKField.get_db_prep_save
+      
+      ~CategoryFKField.get_db_prep_value
+      
+      ~CategoryFKField.get_default
+      
+      ~CategoryFKField.get_extra_descriptor_filter
+      
+      ~CategoryFKField.get_extra_restriction
+      
+      ~CategoryFKField.get_filter_kwargs_for_object
+      
+      ~CategoryFKField.get_foreign_related_value
+      
+      ~CategoryFKField.get_forward_related_filter
+      
+      ~CategoryFKField.get_instance_value_for_fields
+      
+      ~CategoryFKField.get_internal_type
+      
+      ~CategoryFKField.get_joining_columns
+      
+      ~CategoryFKField.get_limit_choices_to
+      
+      ~CategoryFKField.get_local_related_value
+      
+      ~CategoryFKField.get_lookup
+      
+      ~CategoryFKField.get_lookups
+      
+      ~CategoryFKField.get_path_info
+      
+      ~CategoryFKField.get_pk_value_on_save
+      
+      ~CategoryFKField.get_prep_value
+      
+      ~CategoryFKField.get_reverse_joining_columns
+      
+      ~CategoryFKField.get_reverse_path_info
+      
+      ~CategoryFKField.get_reverse_related_filter
+      
+      ~CategoryFKField.get_transform
+      
+      ~CategoryFKField.has_default
+      
+      ~CategoryFKField.is_cached
+      
+      ~CategoryFKField.merge_dicts
+      
+      ~CategoryFKField.pre_save
+      
+      ~CategoryFKField.register_lookup
+      
+      ~CategoryFKField.rel_db_type
+      
+      ~CategoryFKField.related_query_name
+      
+      ~CategoryFKField.resolve_related_fields
+      
+      ~CategoryFKField.run_validators
+      
+      ~CategoryFKField.save_form_data
+      
+      ~CategoryFKField.select_format
+      
+      ~CategoryFKField.set_attributes_from_name
+      
+      ~CategoryFKField.set_attributes_from_rel
+      
+      ~CategoryFKField.set_cached_value
+      
+      ~CategoryFKField.to_python
+      
+      ~CategoryFKField.validate
+      
+      ~CategoryFKField.value_from_object
+      
+      ~CategoryFKField.value_to_string
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryFKField.auto_creation_counter
+      
+      ~CategoryFKField.cached_col
+      
+      ~CategoryFKField.class_lookups
+      
+      ~CategoryFKField.creation_counter
+      
+      ~CategoryFKField.db_returning
+      
+      ~CategoryFKField.db_tablespace
+      
+      ~CategoryFKField.default_error_messages
+      
+      ~CategoryFKField.default_validators
+      
+      ~CategoryFKField.description
+      
+      ~CategoryFKField.empty_strings_allowed
+      
+      ~CategoryFKField.empty_values
+      
+      ~CategoryFKField.flatchoices
+      
+      ~CategoryFKField.foreign_related_fields
+      
+      ~CategoryFKField.hidden
+      
+      ~CategoryFKField.local_related_fields
+      
+      ~CategoryFKField.many_to_many
+      
+      ~CategoryFKField.many_to_one
+      
+      ~CategoryFKField.one_to_many
+      
+      ~CategoryFKField.one_to_one
+      
+      ~CategoryFKField.related_fields
+      
+      ~CategoryFKField.related_model
+      
+      ~CategoryFKField.requires_unique_target
+      
+      ~CategoryFKField.reverse_related_fields
+      
+      ~CategoryFKField.swappable_setting
+      
+      ~CategoryFKField.system_check_deprecated_details
+      
+      ~CategoryFKField.system_check_removed_details
+      
+      ~CategoryFKField.target_field
+      
+      ~CategoryFKField.unique
+      
+      ~CategoryFKField.validators
+      
+   

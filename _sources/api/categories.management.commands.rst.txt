@@ -1,0 +1,25 @@
+.. rst-class:: h4 text-secondary
+
+categories.management.commands
+
+commands
+========
+.. currentmodule:: categories.management.commands
+
+
+.. automodule:: categories.management.commands
+
+   
+
+   .. rubric:: Submodules
+
+   .. autosummary::
+      :toctree:
+      :recursive:
+   
+      categories.management.commands.add_category_fields
+      categories.management.commands.drop_category_field
+      categories.management.commands.import_categories
+   
+   
+   

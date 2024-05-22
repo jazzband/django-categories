@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.management.commands.drop_category_field
+
+drop\_category\_field
+=====================
+.. currentmodule:: categories.management.commands.drop_category_field
+
+
+.. automodule:: categories.management.commands.drop_category_field
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Command

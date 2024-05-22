@@ -1,0 +1,14 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.settings
+
+settings
+========
+.. currentmodule:: categories.editor.settings
+
+
+.. automodule:: categories.editor.settings
+
+   
+   
+   

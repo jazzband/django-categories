@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.get_cat_model
+
+get\_cat\_model
+===============
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: get_cat_model

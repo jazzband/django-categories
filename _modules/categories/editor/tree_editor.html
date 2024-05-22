@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>categories.editor.tree_editor &#8212; Django Categories 2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ea07567a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/categories/editor/tree_editor';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Django Categories 2.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../api/index.html">
+                        API
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">categories.e...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for categories.editor.tree_editor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Classes for representing tree structures in Django&#39;s admin.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span> <span class="nn">django</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.contrib.admin.options</span> <span class="kn">import</span> <span class="n">IncorrectLookupParameters</span>
+<span class="kn">from</span> <span class="nn">django.contrib.admin.views.main</span> <span class="kn">import</span> <span class="n">ChangeList</span>
+<span class="kn">from</span> <span class="nn">django.db.models.query</span> <span class="kn">import</span> <span class="n">QuerySet</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">gettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">settings</span>
+
+
+<div class="viewcode-block" id="TreeEditorQuerySet">
+<a class="viewcode-back" href="../../../api/categories.editor.tree_editor.TreeEditorQuerySet.html#categories.editor.tree_editor.TreeEditorQuerySet">[docs]</a>
+<span class="k">class</span> <span class="nc">TreeEditorQuerySet</span><span class="p">(</span><span class="n">QuerySet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A special query set used only in the TreeEditor ChangeList page.</span>
+
+<span class="sd">    The only difference to a regular QuerySet is that it will enforce:</span>
+
+<span class="sd">        (a) The result is ordered in correct tree order so that</span>
+<span class="sd">            the TreeAdmin works all right.</span>
+
+<span class="sd">        (b) It ensures that all ancestors of selected items are included</span>
+<span class="sd">            in the result set, so the resulting tree display actually</span>
+<span class="sd">            makes sense.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">iterator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterates through the items in thee query set.&quot;&quot;&quot;</span>
+        <span class="n">qs</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="c1"># Reaching into the bowels of query sets to find out whether the qs is</span>
+        <span class="c1"># actually filtered and we need to do the INCLUDE_ANCESTORS dance at all.</span>
+        <span class="c1"># INCLUDE_ANCESTORS is quite expensive, so don&#39;t do it if not needed.</span>
+        <span class="n">is_filtered</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">qs</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_filtered</span><span class="p">:</span>
+            <span class="n">include_pages</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="c1"># Order by &#39;rght&#39; will return the tree deepest nodes first;</span>
+            <span class="c1"># this cuts down the number of queries considerably since all ancestors</span>
+            <span class="c1"># will already be in include_pages when they are checked, thus not</span>
+            <span class="c1"># trigger additional queries.</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">super</span><span class="p">(</span><span class="n">TreeEditorQuerySet</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;rght&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">iterator</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">parent_id</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">parent_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">include_pages</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">include_pages</span><span class="p">:</span>
+                    <span class="n">ancestor_id_list</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_ancestors</span><span class="p">()</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">include_pages</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ancestor_id_list</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">include_pages</span><span class="p">:</span>
+                <span class="n">qs</span> <span class="o">=</span> <span class="n">qs</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__in</span><span class="o">=</span><span class="n">include_pages</span><span class="p">)</span>
+
+            <span class="n">qs</span> <span class="o">=</span> <span class="n">qs</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">super</span><span class="p">(</span><span class="n">TreeEditorQuerySet</span><span class="p">,</span> <span class="n">qs</span><span class="p">)</span><span class="o">.</span><span class="n">iterator</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="n">obj</span>
+
+    <span class="c1"># Although slicing isn&#39;t nice in a tree, it is used in the deletion action</span>
+    <span class="c1">#  in the admin changelist. This causes github issue #25</span>
+    <span class="c1"># def __getitem__(self, index):</span>
+    <span class="c1">#     return self   # Don&#39;t even try to slice</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Quick and dirty hack to fix change_view and delete_view.</span>
+
+<span class="sd">        They use ``self.queryset(request).get(...)`` to get the object they should work</span>
+<span class="sd">        with. Our modifications to the queryset when ``INCLUDE_ANCESTORS`` is enabled make ``get()``</span>
+<span class="sd">        fail often with a ``MultipleObjectsReturned`` exception.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            args: generic arguments</span>
+<span class="sd">            kwargs: generic keyword arguments</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The object they should work with.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="TreeChangeList">
+<a class="viewcode-back" href="../../../api/categories.editor.tree_editor.TreeChangeList.html#categories.editor.tree_editor.TreeChangeList">[docs]</a>
+<span class="k">class</span> <span class="nc">TreeChangeList</span><span class="p">(</span><span class="n">ChangeList</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A change list for a tree.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_ordering</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">get_ordering</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return ordering information for the change list.</span>
+
+<span class="sd">        Always returns empty/default ordering.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The incoming request.</span>
+<span class="sd">            queryset: The current queryset</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Either a tuple of empty strings or an empty list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a queryset.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TreeChangeList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;tree_id&quot;</span><span class="p">,</span> <span class="s2">&quot;lft&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="TreeEditor">
+<a class="viewcode-back" href="../../../api/categories.editor.tree_editor.TreeEditor.html#categories.editor.tree_editor.TreeEditor">[docs]</a>
+<span class="k">class</span> <span class="nc">TreeEditor</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A tree editor view for Django&#39;s admin.&quot;&quot;&quot;</span>
+
+    <span class="n">list_per_page</span> <span class="o">=</span> <span class="mi">999999999</span>  <span class="c1"># We can&#39;t have pagination</span>
+    <span class="n">list_max_show_all</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># new in django 1.4</span>
+
+    <span class="k">class</span> <span class="nc">Media</span><span class="p">:</span>
+        <span class="n">css</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;all&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_PATH</span> <span class="o">+</span> <span class="s2">&quot;jquery.treeTable.css&quot;</span><span class="p">,)}</span>
+        <span class="n">js</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">js</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_PATH</span> <span class="o">+</span> <span class="s2">&quot;jquery.treeTable.js&quot;</span><span class="p">,))</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TreeEditor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">list_display</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_display</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;action_checkbox&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_display</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">list_display</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;action_checkbox&quot;</span><span class="p">)</span>
+
+        <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+
+        <span class="n">grappelli_prefix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">IS_GRAPPELLI_INSTALLED</span><span class="p">:</span>
+            <span class="n">grappelli_prefix</span> <span class="o">=</span> <span class="s2">&quot;grappelli_&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_list_template</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;admin/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">/editor/</span><span class="si">%s</span><span class="s2">tree_editor.html&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">opts</span><span class="o">.</span><span class="n">object_name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">grappelli_prefix</span><span class="p">),</span>
+            <span class="s2">&quot;admin/</span><span class="si">%s</span><span class="s2">/editor/</span><span class="si">%s</span><span class="s2">tree_editor.html&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">grappelli_prefix</span><span class="p">),</span>
+            <span class="s2">&quot;admin/editor/</span><span class="si">%s</span><span class="s2">tree_editor.html&quot;</span> <span class="o">%</span> <span class="n">grappelli_prefix</span><span class="p">,</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_changelist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the ChangeList class for use on the changelist page.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TreeChangeList</span>
+
+    <span class="k">def</span> <span class="nf">old_changelist_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">extra_context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The &#39;change list&#39; admin view for this model.&quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">django.contrib.admin.views.main</span> <span class="kn">import</span> <span class="n">ERROR_FLAG</span>
+        <span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">PermissionDenied</span>
+        <span class="kn">from</span> <span class="nn">django.utils.encoding</span> <span class="kn">import</span> <span class="n">force_str</span>
+        <span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ngettext</span>
+
+        <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_change_permission</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">PermissionDenied</span>
+
+        <span class="c1"># Check actions to see if any are available on this changelist</span>
+        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="c1"># Remove action checkboxes if there aren&#39;t any actions available.</span>
+        <span class="n">list_display</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_display</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">actions</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">list_display</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;action_checkbox&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">django</span><span class="o">.</span><span class="n">VERSION</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">request</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">list_display</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_display_links</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_filter</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">date_hierarchy</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">search_fields</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_select_related</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_per_page</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_max_show_all</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_editable</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sortable_by</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">request</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">list_display</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_display_links</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_filter</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">date_hierarchy</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">search_fields</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_select_related</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_per_page</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_max_show_all</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list_editable</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sortable_by</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">search_help_text</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="n">cl</span> <span class="o">=</span> <span class="n">TreeChangeList</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">IncorrectLookupParameters</span><span class="p">:</span>
+            <span class="c1"># Wacky lookup parameters were given, so redirect to the main</span>
+            <span class="c1"># changelist page, without parameters, and pass an &#39;invalid=1&#39;</span>
+            <span class="c1"># parameter via the query string. If wacky parameters were given and</span>
+            <span class="c1"># the &#39;invalid=1&#39; parameter was already in the query string, something</span>
+            <span class="c1"># is screwed up with the database, so display an error page.</span>
+            <span class="k">if</span> <span class="n">ERROR_FLAG</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;admin/invalid_setup.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Database error&quot;</span><span class="p">)})</span>
+            <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span> <span class="o">+</span> <span class="n">ERROR_FLAG</span> <span class="o">+</span> <span class="s2">&quot;=1&quot;</span><span class="p">)</span>
+
+        <span class="c1"># If the request was POSTed, this might be a bulk action or a bulk edit.</span>
+        <span class="c1"># Try to look up an action first, but if this isn&#39;t an action the POST</span>
+        <span class="c1"># will fall through to the bulk edit check, below.</span>
+        <span class="k">if</span> <span class="n">actions</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_action</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="n">cl</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">response</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span>
+
+        <span class="c1"># If we&#39;re allowing changelist editing, we need to construct a formset</span>
+        <span class="c1"># for the changelist given all the fields to be edited. Then we&#39;ll</span>
+        <span class="c1"># use the formset to validate/process POSTed data.</span>
+        <span class="n">formset</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">formset</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Handle POSTed bulk-edit data.</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_editable</span><span class="p">:</span>
+            <span class="n">FormSet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_changelist_formset</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+            <span class="n">formset</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">formset</span> <span class="o">=</span> <span class="n">FormSet</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="n">cl</span><span class="o">.</span><span class="n">result_list</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">formset</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                <span class="n">changecount</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">formset</span><span class="o">.</span><span class="n">forms</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">has_changed</span><span class="p">():</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_form</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">change</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">change</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                        <span class="n">form</span><span class="o">.</span><span class="n">save_m2m</span><span class="p">()</span>
+                        <span class="n">change_msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">construct_change_message</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">log_change</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">change_msg</span><span class="p">)</span>
+                        <span class="n">changecount</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="k">if</span> <span class="n">changecount</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">changecount</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">force_str</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">verbose_name</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">force_str</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">verbose_name_plural</span><span class="p">)</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="n">ngettext</span><span class="p">(</span>
+                        <span class="s2">&quot;</span><span class="si">%(count)s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2"> was changed successfully.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;</span><span class="si">%(count)s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2"> were changed successfully.&quot;</span><span class="p">,</span>
+                        <span class="n">changecount</span><span class="p">,</span>
+                    <span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="n">changecount</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;obj&quot;</span><span class="p">:</span> <span class="n">force_str</span><span class="p">(</span><span class="n">obj</span><span class="p">)}</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_user</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">())</span>
+
+        <span class="c1"># Handle GET -- construct a formset for display.</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_editable</span><span class="p">:</span>
+            <span class="n">FormSet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_changelist_formset</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+            <span class="n">formset</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">formset</span> <span class="o">=</span> <span class="n">FormSet</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">cl</span><span class="o">.</span><span class="n">result_list</span><span class="p">)</span>
+
+        <span class="c1"># Build the list of media to be used by the formset.</span>
+        <span class="k">if</span> <span class="n">formset</span><span class="p">:</span>
+            <span class="n">media</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">media</span> <span class="o">+</span> <span class="n">formset</span><span class="o">.</span><span class="n">media</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">media</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">media</span>
+
+        <span class="c1"># Build the action form and populate it with available actions.</span>
+        <span class="k">if</span> <span class="n">actions</span><span class="p">:</span>
+            <span class="n">action_form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_form</span><span class="p">(</span><span class="n">auto_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+            <span class="n">action_form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_action_choices</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">action_form</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">cl</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+            <span class="s2">&quot;is_popup&quot;</span><span class="p">:</span> <span class="n">cl</span><span class="o">.</span><span class="n">is_popup</span><span class="p">,</span>
+            <span class="s2">&quot;cl&quot;</span><span class="p">:</span> <span class="n">cl</span><span class="p">,</span>
+            <span class="s2">&quot;media&quot;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span>
+            <span class="s2">&quot;has_add_permission&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_add_permission</span><span class="p">(</span><span class="n">request</span><span class="p">),</span>
+            <span class="s2">&quot;app_label&quot;</span><span class="p">:</span> <span class="n">app_label</span><span class="p">,</span>
+            <span class="s2">&quot;action_form&quot;</span><span class="p">:</span> <span class="n">action_form</span><span class="p">,</span>
+            <span class="s2">&quot;actions_on_top&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions_on_top</span><span class="p">,</span>
+            <span class="s2">&quot;actions_on_bottom&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions_on_bottom</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">context</span><span class="p">[</span><span class="s2">&quot;opts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+
+        <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">extra_context</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+            <span class="n">request</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_list_template</span>
+            <span class="ow">or</span> <span class="p">[</span>
+                <span class="s2">&quot;admin/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">/change_list.html&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">app_label</span><span class="p">,</span> <span class="n">opts</span><span class="o">.</span><span class="n">object_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span>
+                <span class="s2">&quot;admin/</span><span class="si">%s</span><span class="s2">/change_list.html&quot;</span> <span class="o">%</span> <span class="n">app_label</span><span class="p">,</span>
+                <span class="s2">&quot;admin/change_list.html&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">changelist_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">extra_context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle the changelist view, the django view for the model instances change list/actions page.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">extra_context</span> <span class="o">=</span> <span class="n">extra_context</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">extra_context</span><span class="p">[</span><span class="s2">&quot;EDITOR_MEDIA_PATH&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_PATH</span>
+        <span class="n">extra_context</span><span class="p">[</span><span class="s2">&quot;EDITOR_TREE_INITIAL_STATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">TREE_INITIAL_STATE</span>
+
+        <span class="c1"># FIXME</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">old_changelist_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">extra_context</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeEditorQuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a QuerySet of all model instances that can be edited by the admin site.</span>
+
+<span class="sd">        This is used by changelist_view.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: the incoming request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet of editable model instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">qs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span>
+        <span class="n">qs</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">=</span> <span class="n">TreeEditorQuerySet</span>
+        <span class="k">return</span> <span class="n">qs</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2010-2024, Corey Oordt.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

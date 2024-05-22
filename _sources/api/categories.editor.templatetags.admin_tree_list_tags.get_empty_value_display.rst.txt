@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.templatetags.admin_tree_list_tags.get_empty_value_display
+
+get\_empty\_value\_display
+==========================
+
+.. currentmodule:: categories.editor.templatetags.admin_tree_list_tags
+.. autofunction:: get_empty_value_display

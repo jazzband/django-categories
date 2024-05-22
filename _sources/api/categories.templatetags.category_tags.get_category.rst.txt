@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.get_category
+
+get\_category
+=============
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: get_category

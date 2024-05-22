@@ -1,0 +1,85 @@
+.. rst-class:: h4 text-secondary
+
+categories.views.CategoryRelatedDetail
+
+CategoryRelatedDetail
+=====================
+
+.. currentmodule:: categories.views
+
+.. autoclass:: CategoryRelatedDetail
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryRelatedDetail.as_view
+      
+      ~CategoryRelatedDetail.dispatch
+      
+      ~CategoryRelatedDetail.get
+      
+      ~CategoryRelatedDetail.get_context_data
+      
+      ~CategoryRelatedDetail.get_context_object_name
+      
+      ~CategoryRelatedDetail.get_object
+      
+      ~CategoryRelatedDetail.get_queryset
+      
+      ~CategoryRelatedDetail.get_slug_field
+      
+      ~CategoryRelatedDetail.get_template_names
+      
+      ~CategoryRelatedDetail.http_method_not_allowed
+      
+      ~CategoryRelatedDetail.options
+      
+      ~CategoryRelatedDetail.render_to_response
+      
+      ~CategoryRelatedDetail.setup
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryRelatedDetail.content_type
+      
+      ~CategoryRelatedDetail.context_object_name
+      
+      ~CategoryRelatedDetail.extra_context
+      
+      ~CategoryRelatedDetail.http_method_names
+      
+      ~CategoryRelatedDetail.model
+      
+      ~CategoryRelatedDetail.object_name_field
+      
+      ~CategoryRelatedDetail.path_field
+      
+      ~CategoryRelatedDetail.pk_url_kwarg
+      
+      ~CategoryRelatedDetail.query_pk_and_slug
+      
+      ~CategoryRelatedDetail.queryset
+      
+      ~CategoryRelatedDetail.slug_field
+      
+      ~CategoryRelatedDetail.slug_url_kwarg
+      
+      ~CategoryRelatedDetail.template_engine
+      
+      ~CategoryRelatedDetail.template_name
+      
+      ~CategoryRelatedDetail.template_name_field
+      
+      ~CategoryRelatedDetail.template_name_suffix
+      
+   

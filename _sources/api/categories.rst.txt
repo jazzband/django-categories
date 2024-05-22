@@ -1,0 +1,40 @@
+﻿.. rst-class:: h4 text-secondary
+
+categories
+
+categories
+==========
+.. currentmodule:: categories
+
+
+.. automodule:: categories
+
+   
+
+   .. rubric:: Submodules
+
+   .. autosummary::
+      :toctree:
+      :recursive:
+   
+      categories.admin
+      categories.api
+      categories.apps
+      categories.base
+      categories.editor
+      categories.fields
+      categories.genericcollection
+      categories.management
+      categories.migration
+      
+      categories.models
+      categories.registration
+      categories.settings
+      categories.templatetags
+      
+      categories.urls
+      categories.utils
+      categories.views
+   
+   
+   

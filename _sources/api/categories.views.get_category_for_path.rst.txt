@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.views.get_category_for_path
+
+get\_category\_for\_path
+========================
+
+.. currentmodule:: categories.views
+.. autofunction:: get_category_for_path

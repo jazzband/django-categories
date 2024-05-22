@@ -1,0 +1,24 @@
+.. rst-class:: h4 text-secondary
+
+categories.migration
+
+migration
+=========
+.. currentmodule:: categories.migration
+
+
+.. automodule:: categories.migration
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      drop_field
+      field_exists
+      migrate_app
+      table_exists

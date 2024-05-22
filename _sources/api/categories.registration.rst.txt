@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.registration
+
+registration
+============
+.. currentmodule:: categories.registration
+
+
+.. automodule:: categories.registration
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Registry

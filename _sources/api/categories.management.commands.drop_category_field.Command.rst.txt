@@ -1,0 +1,61 @@
+.. rst-class:: h4 text-secondary
+
+categories.management.commands.drop_category_field.Command
+
+Command
+=======
+
+.. currentmodule:: categories.management.commands.drop_category_field
+
+.. autoclass:: Command
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Command.add_arguments
+      
+      ~Command.check
+      
+      ~Command.check_migrations
+      
+      ~Command.create_parser
+      
+      ~Command.execute
+      
+      ~Command.get_version
+      
+      ~Command.handle
+      
+      ~Command.print_help
+      
+      ~Command.run_from_argv
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Command.args
+      
+      ~Command.base_stealth_options
+      
+      ~Command.can_import_settings
+      
+      ~Command.help
+      
+      ~Command.output_transaction
+      
+      ~Command.requires_migrations_checks
+      
+      ~Command.requires_system_checks
+      
+      ~Command.stealth_options
+      
+   

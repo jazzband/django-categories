@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.management.commands.import_categories
+
+import\_categories
+==================
+.. currentmodule:: categories.management.commands.import_categories
+
+
+.. automodule:: categories.management.commands.import_categories
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Command

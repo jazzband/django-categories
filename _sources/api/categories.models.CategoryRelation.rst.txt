@@ -1,0 +1,77 @@
+.. rst-class:: h4 text-secondary
+
+categories.models.CategoryRelation
+
+CategoryRelation
+================
+
+.. currentmodule:: categories.models
+
+.. autoclass:: CategoryRelation
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryRelation.check
+      
+      ~CategoryRelation.clean
+      
+      ~CategoryRelation.clean_fields
+      
+      ~CategoryRelation.date_error_message
+      
+      ~CategoryRelation.delete
+      
+      ~CategoryRelation.from_db
+      
+      ~CategoryRelation.full_clean
+      
+      ~CategoryRelation.get_deferred_fields
+      
+      ~CategoryRelation.prepare_database_save
+      
+      ~CategoryRelation.refresh_from_db
+      
+      ~CategoryRelation.save
+      
+      ~CategoryRelation.save_base
+      
+      ~CategoryRelation.serializable_value
+      
+      ~CategoryRelation.unique_error_message
+      
+      ~CategoryRelation.validate_unique
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryRelation.category
+      
+      ~CategoryRelation.category_id
+      
+      ~CategoryRelation.content_object
+      
+      ~CategoryRelation.content_type
+      
+      ~CategoryRelation.content_type_id
+      
+      ~CategoryRelation.id
+      
+      ~CategoryRelation.object_id
+      
+      ~CategoryRelation.objects
+      
+      ~CategoryRelation.pk
+      
+      ~CategoryRelation.relation_type
+      
+   

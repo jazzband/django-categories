@@ -1,0 +1,83 @@
+.. rst-class:: h4 text-secondary
+
+categories.admin.CategoryAdminForm
+
+CategoryAdminForm
+=================
+
+.. currentmodule:: categories.admin
+
+.. autoclass:: CategoryAdminForm
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryAdminForm.add_error
+      
+      ~CategoryAdminForm.add_initial_prefix
+      
+      ~CategoryAdminForm.add_prefix
+      
+      ~CategoryAdminForm.as_p
+      
+      ~CategoryAdminForm.as_table
+      
+      ~CategoryAdminForm.as_ul
+      
+      ~CategoryAdminForm.clean
+      
+      ~CategoryAdminForm.clean_alternate_title
+      
+      ~CategoryAdminForm.clean_slug
+      
+      ~CategoryAdminForm.full_clean
+      
+      ~CategoryAdminForm.get_initial_for_field
+      
+      ~CategoryAdminForm.has_changed
+      
+      ~CategoryAdminForm.has_error
+      
+      ~CategoryAdminForm.hidden_fields
+      
+      ~CategoryAdminForm.is_multipart
+      
+      ~CategoryAdminForm.is_valid
+      
+      ~CategoryAdminForm.non_field_errors
+      
+      ~CategoryAdminForm.order_fields
+      
+      ~CategoryAdminForm.save
+      
+      ~CategoryAdminForm.validate_unique
+      
+      ~CategoryAdminForm.visible_fields
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryAdminForm.changed_data
+      
+      ~CategoryAdminForm.default_renderer
+      
+      ~CategoryAdminForm.errors
+      
+      ~CategoryAdminForm.field_order
+      
+      ~CategoryAdminForm.media
+      
+      ~CategoryAdminForm.prefix
+      
+      ~CategoryAdminForm.use_required_attribute
+      
+   

@@ -1,0 +1,123 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.tree_editor.TreeEditorQuerySet
+
+TreeEditorQuerySet
+==================
+
+.. currentmodule:: categories.editor.tree_editor
+
+.. autoclass:: TreeEditorQuerySet
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TreeEditorQuerySet.aggregate
+      
+      ~TreeEditorQuerySet.alias
+      
+      ~TreeEditorQuerySet.all
+      
+      ~TreeEditorQuerySet.annotate
+      
+      ~TreeEditorQuerySet.as_manager
+      
+      ~TreeEditorQuerySet.bulk_create
+      
+      ~TreeEditorQuerySet.bulk_update
+      
+      ~TreeEditorQuerySet.complex_filter
+      
+      ~TreeEditorQuerySet.count
+      
+      ~TreeEditorQuerySet.create
+      
+      ~TreeEditorQuerySet.dates
+      
+      ~TreeEditorQuerySet.datetimes
+      
+      ~TreeEditorQuerySet.defer
+      
+      ~TreeEditorQuerySet.delete
+      
+      ~TreeEditorQuerySet.difference
+      
+      ~TreeEditorQuerySet.distinct
+      
+      ~TreeEditorQuerySet.earliest
+      
+      ~TreeEditorQuerySet.exclude
+      
+      ~TreeEditorQuerySet.exists
+      
+      ~TreeEditorQuerySet.explain
+      
+      ~TreeEditorQuerySet.extra
+      
+      ~TreeEditorQuerySet.filter
+      
+      ~TreeEditorQuerySet.first
+      
+      ~TreeEditorQuerySet.get
+      
+      ~TreeEditorQuerySet.get_or_create
+      
+      ~TreeEditorQuerySet.in_bulk
+      
+      ~TreeEditorQuerySet.intersection
+      
+      ~TreeEditorQuerySet.iterator
+      
+      ~TreeEditorQuerySet.last
+      
+      ~TreeEditorQuerySet.latest
+      
+      ~TreeEditorQuerySet.none
+      
+      ~TreeEditorQuerySet.only
+      
+      ~TreeEditorQuerySet.order_by
+      
+      ~TreeEditorQuerySet.prefetch_related
+      
+      ~TreeEditorQuerySet.raw
+      
+      ~TreeEditorQuerySet.resolve_expression
+      
+      ~TreeEditorQuerySet.reverse
+      
+      ~TreeEditorQuerySet.select_for_update
+      
+      ~TreeEditorQuerySet.select_related
+      
+      ~TreeEditorQuerySet.union
+      
+      ~TreeEditorQuerySet.update
+      
+      ~TreeEditorQuerySet.update_or_create
+      
+      ~TreeEditorQuerySet.using
+      
+      ~TreeEditorQuerySet.values
+      
+      ~TreeEditorQuerySet.values_list
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TreeEditorQuerySet.db
+      
+      ~TreeEditorQuerySet.ordered
+      
+      ~TreeEditorQuerySet.query
+      
+   

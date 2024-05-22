@@ -1,0 +1,14 @@
+.. rst-class:: h4 text-secondary
+
+categories.urls
+
+urls
+====
+.. currentmodule:: categories.urls
+
+
+.. automodule:: categories.urls
+
+   
+   
+   

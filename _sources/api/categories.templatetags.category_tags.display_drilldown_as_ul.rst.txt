@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.templatetags.category_tags.display_drilldown_as_ul
+
+display\_drilldown\_as\_ul
+==========================
+
+.. currentmodule:: categories.templatetags.category_tags
+.. autofunction:: display_drilldown_as_ul

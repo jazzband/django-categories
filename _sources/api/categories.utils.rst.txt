@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.utils
+
+utils
+=====
+.. currentmodule:: categories.utils
+
+
+.. automodule:: categories.utils
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      slugify

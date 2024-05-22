@@ -1,0 +1,267 @@
+.. rst-class:: h4 text-secondary
+
+categories.base.CategoryBaseAdmin
+
+CategoryBaseAdmin
+=================
+
+.. currentmodule:: categories.base
+
+.. autoclass:: CategoryBaseAdmin
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CategoryBaseAdmin.action_checkbox
+      
+      ~CategoryBaseAdmin.activate
+      
+      ~CategoryBaseAdmin.add_view
+      
+      ~CategoryBaseAdmin.change_view
+      
+      ~CategoryBaseAdmin.changeform_view
+      
+      ~CategoryBaseAdmin.changelist_view
+      
+      ~CategoryBaseAdmin.check
+      
+      ~CategoryBaseAdmin.construct_change_message
+      
+      ~CategoryBaseAdmin.deactivate
+      
+      ~CategoryBaseAdmin.delete_model
+      
+      ~CategoryBaseAdmin.delete_queryset
+      
+      ~CategoryBaseAdmin.delete_view
+      
+      ~CategoryBaseAdmin.formfield_for_choice_field
+      
+      ~CategoryBaseAdmin.formfield_for_dbfield
+      
+      ~CategoryBaseAdmin.formfield_for_foreignkey
+      
+      ~CategoryBaseAdmin.formfield_for_manytomany
+      
+      ~CategoryBaseAdmin.get_action
+      
+      ~CategoryBaseAdmin.get_action_choices
+      
+      ~CategoryBaseAdmin.get_actions
+      
+      ~CategoryBaseAdmin.get_autocomplete_fields
+      
+      ~CategoryBaseAdmin.get_changeform_initial_data
+      
+      ~CategoryBaseAdmin.get_changelist
+      
+      ~CategoryBaseAdmin.get_changelist_form
+      
+      ~CategoryBaseAdmin.get_changelist_formset
+      
+      ~CategoryBaseAdmin.get_changelist_instance
+      
+      ~CategoryBaseAdmin.get_deleted_objects
+      
+      ~CategoryBaseAdmin.get_empty_value_display
+      
+      ~CategoryBaseAdmin.get_exclude
+      
+      ~CategoryBaseAdmin.get_field_queryset
+      
+      ~CategoryBaseAdmin.get_fields
+      
+      ~CategoryBaseAdmin.get_fieldsets
+      
+      ~CategoryBaseAdmin.get_form
+      
+      ~CategoryBaseAdmin.get_formsets_with_inlines
+      
+      ~CategoryBaseAdmin.get_inline_formsets
+      
+      ~CategoryBaseAdmin.get_inline_instances
+      
+      ~CategoryBaseAdmin.get_inlines
+      
+      ~CategoryBaseAdmin.get_list_display
+      
+      ~CategoryBaseAdmin.get_list_display_links
+      
+      ~CategoryBaseAdmin.get_list_filter
+      
+      ~CategoryBaseAdmin.get_list_select_related
+      
+      ~CategoryBaseAdmin.get_model_perms
+      
+      ~CategoryBaseAdmin.get_object
+      
+      ~CategoryBaseAdmin.get_ordering
+      
+      ~CategoryBaseAdmin.get_paginator
+      
+      ~CategoryBaseAdmin.get_prepopulated_fields
+      
+      ~CategoryBaseAdmin.get_preserved_filters
+      
+      ~CategoryBaseAdmin.get_queryset
+      
+      ~CategoryBaseAdmin.get_readonly_fields
+      
+      ~CategoryBaseAdmin.get_search_fields
+      
+      ~CategoryBaseAdmin.get_search_results
+      
+      ~CategoryBaseAdmin.get_sortable_by
+      
+      ~CategoryBaseAdmin.get_urls
+      
+      ~CategoryBaseAdmin.get_view_on_site_url
+      
+      ~CategoryBaseAdmin.has_add_permission
+      
+      ~CategoryBaseAdmin.has_change_permission
+      
+      ~CategoryBaseAdmin.has_delete_permission
+      
+      ~CategoryBaseAdmin.has_module_permission
+      
+      ~CategoryBaseAdmin.has_view_or_change_permission
+      
+      ~CategoryBaseAdmin.has_view_permission
+      
+      ~CategoryBaseAdmin.history_view
+      
+      ~CategoryBaseAdmin.log_addition
+      
+      ~CategoryBaseAdmin.log_change
+      
+      ~CategoryBaseAdmin.log_deletion
+      
+      ~CategoryBaseAdmin.lookup_allowed
+      
+      ~CategoryBaseAdmin.message_user
+      
+      ~CategoryBaseAdmin.old_changelist_view
+      
+      ~CategoryBaseAdmin.render_change_form
+      
+      ~CategoryBaseAdmin.render_delete_form
+      
+      ~CategoryBaseAdmin.response_action
+      
+      ~CategoryBaseAdmin.response_add
+      
+      ~CategoryBaseAdmin.response_change
+      
+      ~CategoryBaseAdmin.response_delete
+      
+      ~CategoryBaseAdmin.response_post_save_add
+      
+      ~CategoryBaseAdmin.response_post_save_change
+      
+      ~CategoryBaseAdmin.save_form
+      
+      ~CategoryBaseAdmin.save_formset
+      
+      ~CategoryBaseAdmin.save_model
+      
+      ~CategoryBaseAdmin.save_related
+      
+      ~CategoryBaseAdmin.to_field_allowed
+      
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CategoryBaseAdmin.actions
+      
+      ~CategoryBaseAdmin.actions_on_bottom
+      
+      ~CategoryBaseAdmin.actions_on_top
+      
+      ~CategoryBaseAdmin.actions_selection_counter
+      
+      ~CategoryBaseAdmin.add_form_template
+      
+      ~CategoryBaseAdmin.autocomplete_fields
+      
+      ~CategoryBaseAdmin.change_form_template
+      
+      ~CategoryBaseAdmin.change_list_template
+      
+      ~CategoryBaseAdmin.date_hierarchy
+      
+      ~CategoryBaseAdmin.delete_confirmation_template
+      
+      ~CategoryBaseAdmin.delete_selected_confirmation_template
+      
+      ~CategoryBaseAdmin.exclude
+      
+      ~CategoryBaseAdmin.fields
+      
+      ~CategoryBaseAdmin.filter_horizontal
+      
+      ~CategoryBaseAdmin.filter_vertical
+      
+      ~CategoryBaseAdmin.formfield_overrides
+      
+      ~CategoryBaseAdmin.inlines
+      
+      ~CategoryBaseAdmin.list_display
+      
+      ~CategoryBaseAdmin.list_display_links
+      
+      ~CategoryBaseAdmin.list_editable
+      
+      ~CategoryBaseAdmin.list_filter
+      
+      ~CategoryBaseAdmin.list_max_show_all
+      
+      ~CategoryBaseAdmin.list_per_page
+      
+      ~CategoryBaseAdmin.list_select_related
+      
+      ~CategoryBaseAdmin.media
+      
+      ~CategoryBaseAdmin.object_history_template
+      
+      ~CategoryBaseAdmin.ordering
+      
+      ~CategoryBaseAdmin.popup_response_template
+      
+      ~CategoryBaseAdmin.prepopulated_fields
+      
+      ~CategoryBaseAdmin.preserve_filters
+      
+      ~CategoryBaseAdmin.radio_fields
+      
+      ~CategoryBaseAdmin.raw_id_fields
+      
+      ~CategoryBaseAdmin.readonly_fields
+      
+      ~CategoryBaseAdmin.save_as
+      
+      ~CategoryBaseAdmin.save_as_continue
+      
+      ~CategoryBaseAdmin.save_on_top
+      
+      ~CategoryBaseAdmin.search_fields
+      
+      ~CategoryBaseAdmin.show_full_result_count
+      
+      ~CategoryBaseAdmin.sortable_by
+      
+      ~CategoryBaseAdmin.urls
+      
+      ~CategoryBaseAdmin.view_on_site
+      
+   

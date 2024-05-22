@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.templatetags.admin_tree_list_tags.result_tree_list
+
+result\_tree\_list
+==================
+
+.. currentmodule:: categories.editor.templatetags.admin_tree_list_tags
+.. autofunction:: result_tree_list

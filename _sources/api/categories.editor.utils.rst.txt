@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.editor.utils
+
+utils
+=====
+.. currentmodule:: categories.editor.utils
+
+
+.. automodule:: categories.editor.utils
+
+   
+   
+   
+
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      display_for_field

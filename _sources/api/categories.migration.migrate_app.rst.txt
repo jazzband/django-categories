@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.migration.migrate_app
+
+migrate\_app
+============
+
+.. currentmodule:: categories.migration
+.. autofunction:: migrate_app

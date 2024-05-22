@@ -1,0 +1,24 @@
+.. rst-class:: h4 text-secondary
+
+categories.admin
+
+admin
+=====
+.. currentmodule:: categories.admin
+
+
+.. automodule:: categories.admin
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      CategoryAdmin
+      CategoryAdminForm
+      InlineCategoryRelation
+      NullTreeNodeChoiceField

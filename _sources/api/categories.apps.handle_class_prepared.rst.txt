@@ -1,0 +1,9 @@
+.. rst-class:: h4 text-secondary
+
+categories.apps.handle_class_prepared
+
+handle\_class\_prepared
+=======================
+
+.. currentmodule:: categories.apps
+.. autofunction:: handle_class_prepared

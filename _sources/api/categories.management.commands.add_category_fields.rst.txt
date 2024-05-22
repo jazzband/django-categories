@@ -1,0 +1,21 @@
+.. rst-class:: h4 text-secondary
+
+categories.management.commands.add_category_fields
+
+add\_category\_fields
+=====================
+.. currentmodule:: categories.management.commands.add_category_fields
+
+
+.. automodule:: categories.management.commands.add_category_fields
+
+   
+   
+   
+
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      Command
