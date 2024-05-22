@@ -1,6 +1,11 @@
 # Changelog
 
-## 2.0.0-alpha.2 (unreleased)
+## 2.0.0 (2024-05-22)
+
+- Fixes for old style storages removed in Django 5.1
+
+## 2.0.0-alpha.2 (2024-04-19)
+## 2.0.0-alpha.1 (2024-04-17)
 
 ### WARNING
 
