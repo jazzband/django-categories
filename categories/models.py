@@ -18,17 +18,22 @@ from .settings import (
     THUMBNAIL_UPLOAD_PATH,
 )
 
+
 # Determine storage method based on Django version
-try:  # Django 4.2+
-    from django.core.files.storage import storages
+def get_thumbnail_storage():
+    try:  # Django 4.2+
+        from django.core.files.storage import storages
 
-    STORAGE = storages[THUMBNAIL_STORAGE_ALIAS]
-except ImportError:
-    from django.core.files.storage import get_storage_class
+        return storages[THUMBNAIL_STORAGE_ALIAS]
+    except ImportError:
+        from django.core.files.storage import get_storage_class
 
-    from .settings import THUMBNAIL_STORAGE
+        from .settings import THUMBNAIL_STORAGE
 
-    STORAGE = get_storage_class(THUMBNAIL_STORAGE)()
+        return get_storage_class(THUMBNAIL_STORAGE)()
+
+
+STORAGE = get_thumbnail_storage
 
 
 class Category(CategoryBase):

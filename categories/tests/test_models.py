@@ -24,3 +24,9 @@ class TestCategoryThumbnail(TestCase):
                 self.assertEqual(category.thumbnail.storage.__class__, MyTestStorageAlias)
             else:
                 self.assertEqual(category.thumbnail.storage.__class__, MyTestStorage)
+
+    def test_thumbnail_storage_deconstruct(self):
+        from categories.models import get_thumbnail_storage
+
+        _, _, _, kwargs = Category._meta.get_field("thumbnail").deconstruct()
+        self.assertEqual(kwargs.get("storage"), get_thumbnail_storage)
