@@ -40,3 +40,16 @@ if sys.version_info >= (3, 0):
                     "baz",
                 ],
             )
+
+    class TestThumbnailMigration(MigratorTestCase):
+        migrate_from = ("categories", "0005_unique_category_slug")
+        migrate_to = ("categories", "0006_alter_category_thumbnail")
+
+        def prepare(self):
+            category_model = self.old_state.apps.get_model("categories", "Category")
+            category_model.tree.create(name="Migrated", slug="migrated", lft=0, rght=0, tree_id=0, level=0)
+
+        def test_thumbnail_migration(self):
+            category_model = self.new_state.apps.get_model("categories", "Category")
+            cat = category_model.tree.get(slug="migrated")
+            self.assertEqual(cat.name, "Migrated")
