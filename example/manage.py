@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Entrypoint for custom django functions."""
+
 import os
 import sys
 
